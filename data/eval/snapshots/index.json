@@ -1,0 +1,13 @@
+{
+  "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-networking.html": "000.html",
+  "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html": "001.html",
+  "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview": "002.html",
+  "https://docs.cloud.google.com/compute/docs/networking/network-overview": "003.html",
+  "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html": "004.html",
+  "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.html": "005.html",
+  "https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-private": "006.html",
+  "https://learn.microsoft.com/en-us/azure/mysql/flexible-server/concepts-networking-vnet": "007.html",
+  "https://docs.cloud.google.com/sql/docs/postgres/configure-private-services-access": "008.html",
+  "https://docs.cloud.google.com/sql/docs/mysql/configure-private-ip": "009.html",
+  "https://docs.cloud.google.com/sql/docs/mysql/configure-private-services-access": "010.html"
+}

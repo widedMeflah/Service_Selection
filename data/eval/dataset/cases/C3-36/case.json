@@ -1,0 +1,44 @@
+{
+ "id": "C3-36",
+ "family": "C3",
+ "source": "C3 request 36",
+ "request_form": "Business Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [
+  "node global_net (Network) removed: outside the scope (virtual machines, databases)",
+  "node vm_europe: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node vm_australia: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "policy latency_policy_1 removed: no latency in the catalogs"
+ ],
+ "services": [
+  "vm_europe",
+  "vm_australia"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [],
+  "n_compositions": 25,
+  "n_compositions_oracle": 1,
+  "front": [
+   {
+    "cost_cents": 10760,
+    "availability": 99.8001
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 10760,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "vm_europe": "gcp-e2-standard-2@europe-west1",
+    "vm_australia": "gcp-e2-standard-2@europe-west1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "An architecture consisting of two virtual machines (vm_europe and vm_australia) running Linux, connected to a shared network (global_net). Both machines are hosted in the europe-west1 region and have identical hardware specifications (2 CPUs, 4 GB RAM, 50 GB disk)."
+}

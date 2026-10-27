@@ -1,0 +1,51 @@
+{
+ "id": "A-near_miss-02v-anywhere",
+ "family": "A",
+ "kind": "near_miss",
+ "source": "C3 request 02 (as interpreted)",
+ "location": "anywhere",
+ "rq": [
+  "RQ1",
+  "RQ2"
+ ],
+ "note": "budget exactly equal to the cheapest feasible composition: no negotiation expected",
+ "cleaning": [
+  "node internal_net (Network) removed: outside the scope (virtual machines, databases)",
+  "node vm_app: endpoint network_name internal_net removed with its node",
+  "node vm_search: endpoint network_name internal_net removed with its node",
+  "node alien_web_app: type WebAppWithDatabase -> WebApplication (its mandatory requirement concerned a removed node)",
+  "node vm_app: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node vm_search: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)"
+ ],
+ "services": [
+  "vm_app",
+  "vm_search"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [
+   "budget",
+   "end_to_end_availability"
+  ],
+  "n_compositions": 14641,
+  "n_compositions_oracle": 225,
+  "front": [
+   {
+    "cost_cents": 9782,
+    "availability": 99.8001
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 9782,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "vm_app": "gcp-e2-standard-2@us-central1",
+    "vm_search": "gcp-e2-standard-2@us-central1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "The architecture consists of a web application 'Alien' running on a Tomcat web server, which is hosted on a virtual machine 'vm_app'. The web application connects to an Elasticsearch software component hosted on another virtual machine 'vm_search'. Both virtual machines are connected to the same internal network 'internal_net' and run Linux with JDK 17.0.0. The architecture ensures that the web application can interact with Elasticsearch for search functionalities."
+}

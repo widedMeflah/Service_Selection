@@ -1,0 +1,30 @@
+[
+ {
+  "id": "vpc_network_gcp_us_central1",
+  "node": "vm_tomcat",
+  "service": "compute",
+  "provider": "gcp",
+  "region": "us-central1",
+  "name": "VPC network",
+  "quote": "Every VM is part of a VPC network.",
+  "url": "https://medium.com/google-cloud/vpc-network-basics",
+  "properties": {},
+  "settings": {},
+  "attached_to": null,
+  "origin": "annotation"
+ },
+ {
+  "id": "subnet_gcp_us_central1",
+  "node": "vm_tomcat",
+  "service": "compute",
+  "provider": "gcp",
+  "region": "us-central1",
+  "name": "Subnet",
+  "quote": "If you omit this configuration, the default network and subnet are used.",
+  "url": "https://docs.cloud.google.com/compute/docs/networking/network-overview",
+  "properties": {},
+  "settings": {},
+  "attached_to": "vpc_network_gcp_us_central1",
+  "origin": "annotation"
+ }
+]

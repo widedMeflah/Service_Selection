@@ -1,0 +1,53 @@
+{
+ "id": "A-unique-11v-usa",
+ "family": "A",
+ "kind": "unique",
+ "source": "C3 request 11 (as interpreted)",
+ "location": "usa",
+ "rq": [
+  "RQ1",
+  "RQ2"
+ ],
+ "note": "bounds satisfied by a single non-dominated composition, no negotiation expected",
+ "cleaning": [
+  "node bloc_storage_db (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node bloc_storage_docker (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node network_container (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node network_db (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node network_docker (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node object_store (StorageForContainer) removed: outside the scope (virtual machines, databases)",
+  "node vm_docker: type computeWithblocNetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node vm_db: type computeWithblocNetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)"
+ ],
+ "services": [
+  "vm_docker",
+  "vm_db"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [
+   "budget",
+   "end_to_end_availability"
+  ],
+  "n_compositions": 2304,
+  "n_compositions_oracle": 9,
+  "front": [
+   {
+    "cost_cents": 9782,
+    "availability": 99.8001
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 9782,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "vm_docker": "gcp-e2-standard-2@us-central1",
+    "vm_db": "gcp-e2-standard-2@us-central1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "A Docker-based architecture where the application 'app_container' runs on a Docker Engine hosted on a virtual machine 'vm_docker'. The application connects to an object storage 'object_store' and a MySQL database 'db_app', which is hosted on a MySQL DBMS 'mysql_dbms' running on another virtual machine 'vm_db'."
+}

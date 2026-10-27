@@ -1,0 +1,300 @@
+{
+ "taxonomy": [
+  {
+   "logical_region": "europe",
+   "level": "continent",
+   "provider": "aws",
+   "region_code": "eu-central-1",
+   "location": "Frankfurt (DE)",
+   "az": "eu-central-1a; eu-central-1b; eu-central-1c"
+  },
+  {
+   "logical_region": "europe",
+   "level": "continent",
+   "provider": "aws",
+   "region_code": "eu-west-1",
+   "location": "Ireland",
+   "az": "eu-west-1a; eu-west-1b; eu-west-1c"
+  },
+  {
+   "logical_region": "europe",
+   "level": "continent",
+   "provider": "aws",
+   "region_code": "eu-west-2",
+   "location": "London (UK)",
+   "az": "eu-west-2a; eu-west-2b; eu-west-2c"
+  },
+  {
+   "logical_region": "europe",
+   "level": "continent",
+   "provider": "aws",
+   "region_code": "eu-west-3",
+   "location": "Paris (FR)",
+   "az": "eu-west-3a; eu-west-3b; eu-west-3c"
+  },
+  {
+   "logical_region": "europe",
+   "level": "continent",
+   "provider": "gcp",
+   "region_code": "europe-west1",
+   "location": "Belgium",
+   "az": "europe-west1-b; europe-west1-c; europe-west1-d"
+  },
+  {
+   "logical_region": "europe",
+   "level": "continent",
+   "provider": "gcp",
+   "region_code": "europe-west2",
+   "location": "London (UK)",
+   "az": "europe-west2-a; europe-west2-b; europe-west2-c"
+  },
+  {
+   "logical_region": "europe",
+   "level": "continent",
+   "provider": "gcp",
+   "region_code": "europe-west3",
+   "location": "Frankfurt (DE)",
+   "az": "europe-west3-a; europe-west3-b; europe-west3-c"
+  },
+  {
+   "logical_region": "europe",
+   "level": "continent",
+   "provider": "gcp",
+   "region_code": "europe-west4",
+   "location": "Netherlands",
+   "az": "europe-west4-a; europe-west4-b; europe-west4-c"
+  },
+  {
+   "logical_region": "europe",
+   "level": "continent",
+   "provider": "gcp",
+   "region_code": "europe-west9",
+   "location": "Paris (FR)",
+   "az": "europe-west9-a; europe-west9-b; europe-west9-c"
+  },
+  {
+   "logical_region": "europe",
+   "level": "continent",
+   "provider": "azure",
+   "region_code": "northeurope",
+   "location": "Ireland",
+   "az": "1; 2; 3"
+  },
+  {
+   "logical_region": "europe",
+   "level": "continent",
+   "provider": "azure",
+   "region_code": "westeurope",
+   "location": "Netherlands",
+   "az": "1; 2; 3"
+  },
+  {
+   "logical_region": "europe",
+   "level": "continent",
+   "provider": "azure",
+   "region_code": "uksouth",
+   "location": "London (UK)",
+   "az": "1; 2; 3"
+  },
+  {
+   "logical_region": "europe",
+   "level": "continent",
+   "provider": "azure",
+   "region_code": "francecentral",
+   "location": "Paris (FR)",
+   "az": "1; 2; 3"
+  },
+  {
+   "logical_region": "usa",
+   "level": "continent",
+   "provider": "aws",
+   "region_code": "us-east-1",
+   "location": "Virginia (US)",
+   "az": "us-east-1a; us-east-1b; us-east-1c; us-east-1d; us-east-1e; us-east-1f"
+  },
+  {
+   "logical_region": "usa",
+   "level": "continent",
+   "provider": "aws",
+   "region_code": "us-east-2",
+   "location": "Ohio (US)",
+   "az": "us-east-2a; us-east-2b; us-east-2c"
+  },
+  {
+   "logical_region": "usa",
+   "level": "continent",
+   "provider": "aws",
+   "region_code": "us-west-2",
+   "location": "Oregon (US)",
+   "az": "us-west-2a; us-west-2b; us-west-2c; us-west-2d"
+  },
+  {
+   "logical_region": "usa",
+   "level": "continent",
+   "provider": "gcp",
+   "region_code": "us-central1",
+   "location": "Iowa (US)",
+   "az": "us-central1-a; us-central1-b; us-central1-c; us-central1-f"
+  },
+  {
+   "logical_region": "usa",
+   "level": "continent",
+   "provider": "gcp",
+   "region_code": "us-east1",
+   "location": "South Carolina (US)",
+   "az": "us-east1-b; us-east1-c; us-east1-d"
+  },
+  {
+   "logical_region": "usa",
+   "level": "continent",
+   "provider": "gcp",
+   "region_code": "us-west1",
+   "location": "Oregon (US)",
+   "az": "us-west1-a; us-west1-b; us-west1-c"
+  },
+  {
+   "logical_region": "usa",
+   "level": "continent",
+   "provider": "azure",
+   "region_code": "eastus",
+   "location": "Virginia (US)",
+   "az": "1; 2; 3"
+  },
+  {
+   "logical_region": "usa",
+   "level": "continent",
+   "provider": "azure",
+   "region_code": "westus2",
+   "location": "Washington (US)",
+   "az": "1; 2; 3"
+  },
+  {
+   "logical_region": "south_america",
+   "level": "continent",
+   "provider": "aws",
+   "region_code": "sa-east-1",
+   "location": "Sao Paulo (BR)",
+   "az": "sa-east-1a; sa-east-1b; sa-east-1c"
+  },
+  {
+   "logical_region": "france",
+   "level": "country",
+   "provider": "aws",
+   "region_code": "eu-west-3",
+   "location": "Paris (FR)",
+   "az": "eu-west-3a; eu-west-3b; eu-west-3c"
+  },
+  {
+   "logical_region": "france",
+   "level": "country",
+   "provider": "gcp",
+   "region_code": "europe-west9",
+   "location": "Paris (FR)",
+   "az": "europe-west9-a; europe-west9-b; europe-west9-c"
+  },
+  {
+   "logical_region": "france",
+   "level": "country",
+   "provider": "azure",
+   "region_code": "francecentral",
+   "location": "Paris (FR)",
+   "az": "1; 2; 3"
+  },
+  {
+   "logical_region": "uk",
+   "level": "country",
+   "provider": "aws",
+   "region_code": "eu-west-2",
+   "location": "London (UK)",
+   "az": "eu-west-2a; eu-west-2b; eu-west-2c"
+  },
+  {
+   "logical_region": "uk",
+   "level": "country",
+   "provider": "gcp",
+   "region_code": "europe-west2",
+   "location": "London (UK)",
+   "az": "europe-west2-a; europe-west2-b; europe-west2-c"
+  },
+  {
+   "logical_region": "uk",
+   "level": "country",
+   "provider": "azure",
+   "region_code": "uksouth",
+   "location": "London (UK)",
+   "az": "1; 2; 3"
+  },
+  {
+   "logical_region": "germany",
+   "level": "country",
+   "provider": "aws",
+   "region_code": "eu-central-1",
+   "location": "Frankfurt (DE)",
+   "az": "eu-central-1a; eu-central-1b; eu-central-1c"
+  },
+  {
+   "logical_region": "germany",
+   "level": "country",
+   "provider": "gcp",
+   "region_code": "europe-west3",
+   "location": "Frankfurt (DE)",
+   "az": "europe-west3-a; europe-west3-b; europe-west3-c"
+  },
+  {
+   "logical_region": "ireland",
+   "level": "country",
+   "provider": "aws",
+   "region_code": "eu-west-1",
+   "location": "Ireland",
+   "az": "eu-west-1a; eu-west-1b; eu-west-1c"
+  },
+  {
+   "logical_region": "ireland",
+   "level": "country",
+   "provider": "azure",
+   "region_code": "northeurope",
+   "location": "Ireland",
+   "az": "1; 2; 3"
+  },
+  {
+   "logical_region": "netherlands",
+   "level": "country",
+   "provider": "gcp",
+   "region_code": "europe-west4",
+   "location": "Netherlands",
+   "az": "europe-west4-a; europe-west4-b; europe-west4-c"
+  },
+  {
+   "logical_region": "netherlands",
+   "level": "country",
+   "provider": "azure",
+   "region_code": "westeurope",
+   "location": "Netherlands",
+   "az": "1; 2; 3"
+  },
+  {
+   "logical_region": "belgium",
+   "level": "country",
+   "provider": "gcp",
+   "region_code": "europe-west1",
+   "location": "Belgium",
+   "az": "europe-west1-b; europe-west1-c; europe-west1-d"
+  },
+  {
+   "logical_region": "brazil",
+   "level": "country",
+   "provider": "aws",
+   "region_code": "sa-east-1",
+   "location": "Sao Paulo (BR)",
+   "az": "sa-east-1a; sa-east-1b; sa-east-1c"
+  },
+  {
+   "logical_region": "global",
+   "level": "scope",
+   "provider": "gcp",
+   "region_code": "global",
+   "location": "Global",
+   "az": "\u2014"
+  }
+ ]
+}

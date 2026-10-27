@@ -1,0 +1,80 @@
+{
+ "description": "Staleness cases: one edit of a frozen page, on the passage of an annotated resource (resources) or of an excluded part (excluded). quote_removed and quote_reworded touch a memorized quote (update expected); layout and unrelated do not (traps).",
+ "cases": [
+  {
+   "id": "S01",
+   "kind": "quote_removed",
+   "service": "database_postgresql",
+   "provider": "aws",
+   "resource": "DB subnet group"
+  },
+  {
+   "id": "S02",
+   "kind": "quote_removed",
+   "service": "compute",
+   "provider": "azure",
+   "resource": "Network interface"
+  },
+  {
+   "id": "S03",
+   "kind": "quote_removed",
+   "service": "database_mysql",
+   "provider": "gcp",
+   "resource": "Allocated IP address range"
+  },
+  {
+   "id": "S04",
+   "kind": "quote_reworded",
+   "service": "compute",
+   "provider": "aws",
+   "resource": "Security group",
+   "replace": "When no security group is specified, Amazon EC2 uses the default security group of the VPC."
+  },
+  {
+   "id": "S05",
+   "kind": "quote_reworded",
+   "service": "database_postgresql",
+   "provider": "azure",
+   "resource": "Private DNS zone virtual network link",
+   "replace": "Once the Private DNS zone exists in Azure, you need to link a virtual network to the zone."
+  },
+  {
+   "id": "S06",
+   "kind": "quote_reworded",
+   "service": "compute",
+   "provider": "gcp",
+   "resource": "VPC network",
+   "replace": "Each VM belongs to a VPC network."
+  },
+  {
+   "id": "S07",
+   "kind": "layout",
+   "service": "compute",
+   "provider": "aws",
+   "resource": "Public IP address"
+  },
+  {
+   "id": "S08",
+   "kind": "layout",
+   "service": "database_postgresql",
+   "provider": "gcp",
+   "resource": "Service Networking API"
+  },
+  {
+   "id": "S09",
+   "kind": "unrelated",
+   "service": "compute",
+   "provider": "azure",
+   "resource": "Public IP address",
+   "replace": "A public IP address can optionally be assigned to a NIC."
+  },
+  {
+   "id": "S10",
+   "kind": "unrelated",
+   "service": "database_mysql",
+   "provider": "aws",
+   "resource": "Internet gateway",
+   "replace": "A publicly accessible DB instance needs an internet gateway for the subnets of its DB subnet group."
+  }
+ ]
+}

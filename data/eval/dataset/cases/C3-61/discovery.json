@@ -1,0 +1,377 @@
+{
+ "currency": "USD",
+ "nodes": [
+  {
+   "node_name": "vm_mysql_primary",
+   "applied_filters": {
+    "sla_field_used": "sla",
+    "requirements": {
+     "catalog": "compute",
+     "cpu": 2.0,
+     "mem_gb": 4.0,
+     "os_type": "linux",
+     "os_distribution": "ubuntu",
+     "architecture": "x86_64",
+     "regions": [
+      "us-central1",
+      "us-east1",
+      "us-west1"
+     ]
+    }
+   },
+   "candidates": [
+    {
+     "offer_id": "gcp-e2-standard-2@us-central1",
+     "offer_name": "e2-standard-2",
+     "provider": "gcp",
+     "region": "us-central1",
+     "offer_type": "compute",
+     "price_month": 48.91,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-e2-standard-2@us-east1",
+     "offer_name": "e2-standard-2",
+     "provider": "gcp",
+     "region": "us-east1",
+     "offer_type": "compute",
+     "price_month": 48.91,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-e2-standard-2@us-west1",
+     "offer_name": "e2-standard-2",
+     "provider": "gcp",
+     "region": "us-west1",
+     "offer_type": "compute",
+     "price_month": 48.91,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-e2-standard-4@us-central1",
+     "offer_name": "e2-standard-4",
+     "provider": "gcp",
+     "region": "us-central1",
+     "offer_type": "compute",
+     "price_month": 97.82,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-e2-standard-4@us-east1",
+     "offer_name": "e2-standard-4",
+     "provider": "gcp",
+     "region": "us-east1",
+     "offer_type": "compute",
+     "price_month": 97.82,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-e2-standard-4@us-west1",
+     "offer_name": "e2-standard-4",
+     "provider": "gcp",
+     "region": "us-west1",
+     "offer_type": "compute",
+     "price_month": 97.82,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-e2-standard-8@us-central1",
+     "offer_name": "e2-standard-8",
+     "provider": "gcp",
+     "region": "us-central1",
+     "offer_type": "compute",
+     "price_month": 195.64,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-e2-standard-8@us-east1",
+     "offer_name": "e2-standard-8",
+     "provider": "gcp",
+     "region": "us-east1",
+     "offer_type": "compute",
+     "price_month": 195.64,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-e2-standard-8@us-west1",
+     "offer_name": "e2-standard-8",
+     "provider": "gcp",
+     "region": "us-west1",
+     "offer_type": "compute",
+     "price_month": 195.64,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-n2-standard-4@us-central1",
+     "offer_name": "n2-standard-4",
+     "provider": "gcp",
+     "region": "us-central1",
+     "offer_type": "compute",
+     "price_month": 141.77,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-n2-standard-4@us-east1",
+     "offer_name": "n2-standard-4",
+     "provider": "gcp",
+     "region": "us-east1",
+     "offer_type": "compute",
+     "price_month": 141.77,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-n2-standard-4@us-west1",
+     "offer_name": "n2-standard-4",
+     "provider": "gcp",
+     "region": "us-west1",
+     "offer_type": "compute",
+     "price_month": 141.77,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-n1-standard-4@us-central1",
+     "offer_name": "n1-standard-4",
+     "provider": "gcp",
+     "region": "us-central1",
+     "offer_type": "compute",
+     "price_month": 138.7,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-n1-standard-4@us-east1",
+     "offer_name": "n1-standard-4",
+     "provider": "gcp",
+     "region": "us-east1",
+     "offer_type": "compute",
+     "price_month": 138.7,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-n1-standard-4@us-west1",
+     "offer_name": "n1-standard-4",
+     "provider": "gcp",
+     "region": "us-west1",
+     "offer_type": "compute",
+     "price_month": 138.7,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    }
+   ]
+  },
+  {
+   "node_name": "vm_mysql_secondary",
+   "applied_filters": {
+    "sla_field_used": "sla",
+    "requirements": {
+     "catalog": "compute",
+     "cpu": 2.0,
+     "mem_gb": 4.0,
+     "os_type": "linux",
+     "os_distribution": "ubuntu",
+     "architecture": "x86_64",
+     "regions": [
+      "us-central1",
+      "us-east1",
+      "us-west1"
+     ]
+    }
+   },
+   "candidates": [
+    {
+     "offer_id": "gcp-e2-standard-2@us-central1",
+     "offer_name": "e2-standard-2",
+     "provider": "gcp",
+     "region": "us-central1",
+     "offer_type": "compute",
+     "price_month": 48.91,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-e2-standard-2@us-east1",
+     "offer_name": "e2-standard-2",
+     "provider": "gcp",
+     "region": "us-east1",
+     "offer_type": "compute",
+     "price_month": 48.91,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-e2-standard-2@us-west1",
+     "offer_name": "e2-standard-2",
+     "provider": "gcp",
+     "region": "us-west1",
+     "offer_type": "compute",
+     "price_month": 48.91,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-e2-standard-4@us-central1",
+     "offer_name": "e2-standard-4",
+     "provider": "gcp",
+     "region": "us-central1",
+     "offer_type": "compute",
+     "price_month": 97.82,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-e2-standard-4@us-east1",
+     "offer_name": "e2-standard-4",
+     "provider": "gcp",
+     "region": "us-east1",
+     "offer_type": "compute",
+     "price_month": 97.82,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-e2-standard-4@us-west1",
+     "offer_name": "e2-standard-4",
+     "provider": "gcp",
+     "region": "us-west1",
+     "offer_type": "compute",
+     "price_month": 97.82,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-e2-standard-8@us-central1",
+     "offer_name": "e2-standard-8",
+     "provider": "gcp",
+     "region": "us-central1",
+     "offer_type": "compute",
+     "price_month": 195.64,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-e2-standard-8@us-east1",
+     "offer_name": "e2-standard-8",
+     "provider": "gcp",
+     "region": "us-east1",
+     "offer_type": "compute",
+     "price_month": 195.64,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-e2-standard-8@us-west1",
+     "offer_name": "e2-standard-8",
+     "provider": "gcp",
+     "region": "us-west1",
+     "offer_type": "compute",
+     "price_month": 195.64,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-n2-standard-4@us-central1",
+     "offer_name": "n2-standard-4",
+     "provider": "gcp",
+     "region": "us-central1",
+     "offer_type": "compute",
+     "price_month": 141.77,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-n2-standard-4@us-east1",
+     "offer_name": "n2-standard-4",
+     "provider": "gcp",
+     "region": "us-east1",
+     "offer_type": "compute",
+     "price_month": 141.77,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-n2-standard-4@us-west1",
+     "offer_name": "n2-standard-4",
+     "provider": "gcp",
+     "region": "us-west1",
+     "offer_type": "compute",
+     "price_month": 141.77,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-n1-standard-4@us-central1",
+     "offer_name": "n1-standard-4",
+     "provider": "gcp",
+     "region": "us-central1",
+     "offer_type": "compute",
+     "price_month": 138.7,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-n1-standard-4@us-east1",
+     "offer_name": "n1-standard-4",
+     "provider": "gcp",
+     "region": "us-east1",
+     "offer_type": "compute",
+     "price_month": 138.7,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "gcp-n1-standard-4@us-west1",
+     "offer_name": "n1-standard-4",
+     "provider": "gcp",
+     "region": "us-west1",
+     "offer_type": "compute",
+     "price_month": 138.7,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    }
+   ]
+  }
+ ]
+}

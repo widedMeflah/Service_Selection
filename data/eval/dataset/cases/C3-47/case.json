@@ -1,0 +1,42 @@
+{
+ "id": "C3-47",
+ "family": "C3",
+ "source": "C3 request 47",
+ "request_form": "Incomplete SERVICE Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [
+  "policy placement_VM-A: target VM-A -> VM_A",
+  "policy placement_VM-B: target VM-B -> VM_B"
+ ],
+ "services": [
+  "VM_A",
+  "VM_B"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [],
+  "n_compositions": 3504,
+  "n_compositions_oracle": 36,
+  "front": [
+   {
+    "cost_cents": 10271,
+    "availability": 99.8001
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 10271,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "VM_A": "gcp-e2-standard-2@us-central1",
+    "VM_B": "gcp-e2-standard-2@europe-west1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "Architecture consisting of two virtual machines (VM-A and VM-B) running Linux with specified hardware resources."
+}

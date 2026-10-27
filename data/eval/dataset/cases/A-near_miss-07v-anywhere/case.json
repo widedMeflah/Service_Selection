@@ -1,0 +1,50 @@
+{
+ "id": "A-near_miss-07v-anywhere",
+ "family": "A",
+ "kind": "near_miss",
+ "source": "C3 request 07 (as interpreted)",
+ "location": "anywhere",
+ "rq": [
+  "RQ1",
+  "RQ2"
+ ],
+ "note": "budget exactly equal to the cheapest feasible composition: no negotiation expected",
+ "cleaning": [
+  "node app_network (Network) removed: outside the scope (virtual machines, databases)",
+  "node vm_app: endpoint network_name app_network removed with its node",
+  "node vm_db: endpoint network_name app_network removed with its node",
+  "node vm_app: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node vm_db: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)"
+ ],
+ "services": [
+  "vm_app",
+  "vm_db"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [
+   "budget",
+   "end_to_end_availability"
+  ],
+  "n_compositions": 8712,
+  "n_compositions_oracle": 225,
+  "front": [
+   {
+    "cost_cents": 14673,
+    "availability": 99.8001
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 14673,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "vm_app": "gcp-e2-standard-2@us-central1",
+    "vm_db": "gcp-e2-standard-4@us-central1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "A web application architecture featuring Nodecellar (a Node.js web application) running on a Node.js web server hosted on a virtual machine (vm_app). The application connects to a PostgreSQL database (PostgreSQL_BDD) hosted on a PostgreSQL DBMS, which is deployed on a separate virtual machine (vm_db). Both virtual machines are connected to a network (app_network) and run Ubuntu 22.04 LTS. The web application is exposed on port 3000 and interacts with the database over TCP."
+}

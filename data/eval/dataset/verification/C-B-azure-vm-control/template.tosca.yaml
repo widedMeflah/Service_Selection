@@ -1,0 +1,120 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case B-azure-vm, derived from C3 request 05 (as interpreted). Cloud services: vm_tomcat
+  (virtual machine). Software components hosted on them: java_app, apache_tomcat, oracle_jdk.'
+data_types:
+  acme.datatypes.Location:
+    derived_from: tosca.datatypes.Root
+    description: 'A deployment location: region and/or availability zone.'
+    properties:
+      region:
+        type: string
+        required: false
+      availability_zone:
+        type: string
+        required: false
+topology_template:
+  node_templates:
+    java_app:
+      type: WebApplication
+      properties:
+        context_root: /app
+      capabilities:
+        app_endpoint:
+          properties:
+            protocol: tcp
+            port: 8080
+            secure: false
+      requirements:
+      - host: apache_tomcat
+    apache_tomcat:
+      type: WebServer
+      requirements:
+      - host: vm_tomcat
+    vm_tomcat:
+      type: Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_tomcat
+            num_cpus: 4
+            disk_size: 100 GB
+            mem_size: 8 GB
+        os:
+          properties:
+            type: linux
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        endpoint:
+          properties:
+            protocol: tcp
+            secure: false
+      requirements:
+      - dependency: virtual_network_azure_eastus
+      - dependency: subnet_azure_eastus
+      - dependency: network_interface_azure_eastus
+    oracle_jdk:
+      type: SoftwareComponent
+      properties:
+        component_version: 17.0.0
+      requirements:
+      - host: vm_tomcat
+    virtual_network_azure_eastus:
+      type: tosca.nodes.network.Network
+      metadata:
+        dependent_resource: true
+        provider: azure
+        region: eastus
+        source: https://learn.microsoft.com/en-us/azure/virtual-network/network-overview
+        quote: When you create a virtual machine (VM), you create a virtual network or use an existing one.
+        policy_properties:
+          region: eastus
+        settings: {}
+        required_by:
+        - vm_tomcat
+    subnet_azure_eastus:
+      type: tosca.nodes.network.Network
+      metadata:
+        dependent_resource: true
+        provider: azure
+        region: eastus
+        source: https://learn.microsoft.com/en-us/azure/virtual-network/network-overview
+        quote: Each NIC in a VM is connected to one subnet in one virtual network.
+        settings: {}
+        required_by:
+        - vm_tomcat
+      requirements:
+      - dependency: virtual_network_azure_eastus
+    network_interface_azure_eastus:
+      type: tosca.nodes.network.Port
+      metadata:
+        dependent_resource: true
+        provider: azure
+        region: eastus
+        source: https://learn.microsoft.com/en-us/azure/virtual-network/network-overview
+        quote: A virtual machine must have at least one NIC.
+        policy_properties:
+          region: eastus
+        settings: {}
+        required_by:
+        - vm_tomcat
+      requirements:
+      - dependency: subnet_azure_eastus
+  policies:
+  - placement_all:
+      type: acme.policies.Placement
+      properties:
+        locations:
+        - region: eastus
+      targets:
+      - vm_tomcat
+policy_types:
+  acme.policies.Placement:
+    derived_from: tosca.policies.Placement
+    description: Deployment locations of the targets (regions or logical locations).
+    properties:
+      locations:
+        type: list
+        required: true

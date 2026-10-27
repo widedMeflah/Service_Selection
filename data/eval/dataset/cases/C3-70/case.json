@@ -1,0 +1,39 @@
+{
+ "id": "C3-70",
+ "family": "C3",
+ "source": "C3 request 70",
+ "request_form": "Complete SERVICE Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [],
+ "services": [
+  "vm_db",
+  "vm_app"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [],
+  "n_compositions": 1,
+  "n_compositions_oracle": 1,
+  "front": [
+   {
+    "cost_cents": 21900,
+    "availability": 99.0025
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 21900,
+   "availability": 99.0025,
+   "availability_published": true,
+   "composition_example": {
+    "vm_db": "aws-m5a.large@eu-west-2",
+    "vm_app": "aws-m5a.xlarge@eu-west-2"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "This architecture consists of two virtual machines: vm_db hosting a MySQL DBMS and vm_app serving as a compute resource. The MySQL DBMS is configured with version 8.0.0, a root password, and a specific port. Both virtual machines run Linux Ubuntu 22.04 with specified CPU, memory, and disk resources."
+}

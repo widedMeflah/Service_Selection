@@ -1,0 +1,63 @@
+{
+ "id": "A-several-61m-usa-twin",
+ "family": "A",
+ "kind": "several",
+ "source": "C3 request 61 (managed database)",
+ "location": "usa",
+ "rq": [
+  "RQ2"
+ ],
+ "note": "several non-dominated compositions satisfy the bounds; no priority stated; twin of A-several-61m-usa with the other hidden priority (negotiation only)",
+ "cleaning": [
+  "policy replication (Redundancy) added on vm_mysql_primary, vm_mysql_secondary: the request states \"Highly available MySQL database architecture with a primary and secondary virtual machine setup\"",
+  "node mysql_net (Network) removed: outside the scope (virtual machines, databases)",
+  "node vm_mysql_primary: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node vm_mysql_secondary: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node mysql_dbms_primary: managed database (host vm_mysql_primary removed)",
+  "node vm_mysql_primary removed: it only hosted mysql_dbms_primary",
+  "node mysql_dbms_secondary: managed database (host vm_mysql_secondary removed)",
+  "node vm_mysql_secondary removed: it only hosted mysql_dbms_secondary"
+ ],
+ "services": [
+  "mysql_dbms_primary",
+  "mysql_dbms_secondary"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [
+   "budget",
+   "end_to_end_availability"
+  ],
+  "n_compositions": 16,
+  "n_compositions_oracle": 9,
+  "redundancy_groups": [
+   [
+    "mysql_dbms_primary",
+    "mysql_dbms_secondary"
+   ]
+  ],
+  "front": [
+   {
+    "cost_cents": 25988,
+    "availability": 99.9975
+   },
+   {
+    "cost_cents": 33230,
+    "availability": 99.99975
+   }
+  ],
+  "signal": "several",
+  "expected": {
+   "cost_cents": 25988,
+   "availability": 99.9975,
+   "availability_published": true,
+   "composition_example": {
+    "mysql_dbms_primary": "aws-rds-mysql-m5.large-us-east-1",
+    "mysql_dbms_secondary": "aws-rds-mysql-m5.large-us-east-1"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "request_description": "Highly available MySQL database architecture with a primary and secondary virtual machine setup, synchronized over a dedicated network for data consistency and redundancy.",
+ "twin_of": "A-several-61m-usa"
+}

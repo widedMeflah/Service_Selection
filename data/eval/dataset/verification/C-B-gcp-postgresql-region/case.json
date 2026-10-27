@@ -1,0 +1,18 @@
+{
+ "id": "C-B-gcp-postgresql-region",
+ "family": "C",
+ "from": "B-gcp-postgresql",
+ "mutation": "region of VPC network set to europe-west1 (example of the documentation)",
+ "rq": [
+  "QR4"
+ ],
+ "expected_failures": [
+  {
+   "node": "postgresql_dbms",
+   "resource": "VPC network",
+   "verification": "policy compliance",
+   "expected_action": "reconfigured"
+  }
+ ],
+ "verifier_agrees": true
+}

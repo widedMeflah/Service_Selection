@@ -1,0 +1,44 @@
+[
+ {
+  "id": "vpc_network_gcp_us_central1",
+  "node": "postgresql_dbms",
+  "service": "database_postgresql",
+  "provider": "gcp",
+  "region": "us-central1",
+  "name": "VPC network",
+  "quote": "Cloud SQL requires private services access for each VPC network that's used for private IP connections.",
+  "url": "https://medium.com/google-cloud/vpc-network-basics",
+  "properties": {},
+  "settings": {},
+  "attached_to": null,
+  "origin": "annotation"
+ },
+ {
+  "id": "allocated_ip_address_range_gcp_us_central1",
+  "node": "postgresql_dbms",
+  "service": "database_postgresql",
+  "provider": "gcp",
+  "region": "us-central1",
+  "name": "Allocated IP address range",
+  "quote": "Select an existing, or allocate a new IP address range.",
+  "url": "https://docs.cloud.google.com/sql/docs/postgres/configure-private-services-access",
+  "properties": {},
+  "settings": {},
+  "attached_to": "vpc_network_gcp_us_central1",
+  "origin": "annotation"
+ },
+ {
+  "id": "private_services_access_connection_gcp_us_central1",
+  "node": "postgresql_dbms",
+  "service": "database_postgresql",
+  "provider": "gcp",
+  "region": "us-central1",
+  "name": "Private services access connection",
+  "quote": "Create the private services connection from your VPC network to the underlying service producer network.",
+  "url": "https://docs.cloud.google.com/sql/docs/postgres/configure-private-services-access",
+  "properties": {},
+  "settings": {},
+  "attached_to": "vpc_network_gcp_us_central1",
+  "origin": "annotation"
+ }
+]

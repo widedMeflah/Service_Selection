@@ -1,0 +1,24 @@
+{
+  "description": "Properties that the policies of a template constrain, used to express the properties and the settings of a dependent resource (extraction prompt) and to compare them with the policies (verification). It describes policies, not dependent resources.",
+  "properties": {
+    "internet_exposure": {
+      "description": "whether the resource makes the node it is attached to reachable from any Internet address",
+      "values": [
+        "true",
+        "false"
+      ],
+      "policy": "exposure",
+      "policy_field": "public",
+      "compare": "allows"
+    },
+    "region": {
+      "description": "region where the resource is created (write {region} for the region of the deployment)",
+      "policy": "placement",
+      "policy_field": [
+        "location",
+        "locations"
+      ],
+      "compare": "location"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+ "id": "C3-03",
+ "family": "C3",
+ "source": "C3 request 03",
+ "request_form": "Business Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [
+  "node app_search_net (Network) removed: outside the scope (virtual machines, databases)",
+  "node vm_app: endpoint network_name app_search_net removed with its node",
+  "node vm_search: endpoint network_name app_search_net removed with its node",
+  "node JavaApp: type WebAppWithDatabase -> WebApplication (its mandatory requirement concerned a removed node)",
+  "node vm_app: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node vm_search: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)"
+ ],
+ "services": [
+  "vm_app",
+  "vm_search"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [],
+  "n_compositions": 7865,
+  "n_compositions_oracle": 225,
+  "front": [
+   {
+    "cost_cents": 14673,
+    "availability": 99.8001
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 14673,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "vm_app": "gcp-e2-standard-2@us-central1",
+    "vm_search": "gcp-e2-standard-4@us-central1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "The architecture consists of a Java web application running on a Tomcat web server hosted on a virtual machine. The application connects to an Elasticsearch software component for search and analysis, which is hosted on another virtual machine. Both virtual machines are connected to the same IPv4 network."
+}

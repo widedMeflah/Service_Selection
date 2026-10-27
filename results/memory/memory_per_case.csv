@@ -1,0 +1,385 @@
+run,index,case,pairs,calls_with_memory,calls_without_memory,tokens_with_memory,tokens_without_memory,cost_usd_with_memory,cost_usd_without_memory,seconds_with_memory,seconds_without_memory
+run1,1,C3-01,gcp/compute,6,6,23234,23234,0.04423,0.04423,57.32,57.32
+run1,2,C3-02,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,3,C3-03,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,4,C3-05,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,5,C3-07,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,6,C3-09,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,7,C3-10,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,8,C3-16,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,9,C3-18,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,10,C3-20,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,11,C3-24,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,12,C3-25,aws/compute,6,6,15836,15836,0.03544,0.03544,58.15,58.15
+run1,13,C3-26,gcp/compute,2,8,6187,29421,0.003561,0.04779,7.84,65.16
+run1,14,C3-27,aws/compute,0,6,0,15836,0,0.03544,0,58.15
+run1,15,C3-28,azure/compute,9,9,31901,31901,0.059991,0.059991,81.97,81.97
+run1,16,C3-31,gcp/compute,1,7,3036,26270,0.001697,0.045927,2.43,59.75
+run1,17,C3-34,aws/compute,0,6,0,15836,0,0.03544,0,58.15
+run1,18,C3-35,aws/compute,0,6,0,15836,0,0.03544,0,58.15
+run1,19,C3-36,gcp/compute,2,8,6205,29439,0.003595,0.047825,6.7,64.02
+run1,20,C3-42,aws/compute,0,6,0,15836,0,0.03544,0,58.15
+run1,21,C3-43,aws/compute,0,6,0,15836,0,0.03544,0,58.15
+run1,22,C3-46,aws/compute,0,6,0,15836,0,0.03544,0,58.15
+run1,23,C3-47,gcp/compute,5,11,15441,38675,0.008908,0.053137,16.16,73.48
+run1,24,C3-49,aws/compute,0,6,0,15836,0,0.03544,0,58.15
+run1,25,C3-55,aws/compute,0,6,0,15836,0,0.03544,0,58.15
+run1,26,C3-56,aws/compute,0,6,0,15836,0,0.03544,0,58.15
+run1,27,C3-57,aws/compute,0,6,0,15836,0,0.03544,0,58.15
+run1,28,C3-58,azure/compute,0,9,0,31901,0,0.059991,0,81.97
+run1,29,C3-60,aws/compute,0,6,0,15836,0,0.03544,0,58.15
+run1,30,C3-61,gcp/compute,3,9,9564,32798,0.005739,0.049969,12.21,69.53
+run1,31,C3-62,aws/compute,0,6,0,15836,0,0.03544,0,58.15
+run1,32,C3-70,aws/compute,0,6,0,15836,0,0.03544,0,58.15
+run1,33,A-unique-01v-anywhere,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,34,A-near_miss-01v-anywhere,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,35,A-unique-02v-anywhere,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,36,A-near_miss-02v-anywhere,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,37,A-unique-03v-anywhere,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,38,A-near_miss-03v-anywhere,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,39,A-infeasible_budget-04v-anywhere,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,40,A-infeasible_availability-04v-anywhere,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,41,A-unique-07v-anywhere,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,42,A-near_miss-07v-anywhere,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,43,A-several-07m-anywhere,gcp/compute; aws/database_postgresql,12,18,58861,82095,0.118932,0.163162,154.18,211.5
+run1,44,A-several-07m-anywhere-v2,gcp/compute; gcp/database_postgresql,15,21,74523,97757,0.141416,0.185645,169.92,227.24
+run1,45,A-infeasible_budget-08v-anywhere,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,46,A-infeasible_availability-08v-anywhere,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,47,A-several-08m-anywhere,gcp/compute; azure/database_postgresql,6,12,25736,48970,0.050575,0.094804,65.85,123.17
+run1,48,A-several-08m-anywhere-v2,gcp/compute; azure/database_postgresql,0,12,0,48970,0,0.094804,0,123.17
+run1,49,A-infeasible_budget-09v-anywhere,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,50,A-infeasible_availability-09v-anywhere,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,51,A-several-10m-anywhere,gcp/compute; aws/database_mysql,12,18,58656,81890,0.118007,0.162237,154.18,211.5
+run1,52,A-several-10m-anywhere-v2,gcp/compute; gcp/database_mysql,15,21,75095,98329,0.141428,0.185657,166.86,224.18
+run1,53,A-several-10p-anywhere,gcp/compute; azure/database_postgresql,0,12,0,48970,0,0.094804,0,123.17
+run1,54,A-infeasible_both-10p-anywhere,gcp/compute; azure/database_postgresql,0,12,0,48970,0,0.094804,0,123.17
+run1,55,A-infeasible_both-11v-anywhere,gcp/compute,0,6,0,23234,0,0.04423,0,57.32
+run1,56,A-unique-11v-usa,gcp/compute,2,8,6287,29521,0.003726,0.047956,8.55,65.87
+run1,57,A-infeasible_both-11m-anywhere,gcp/compute; aws/database_mysql,0,18,0,81890,0,0.162237,0,211.5
+run1,58,A-infeasible-11m-anywhere,gcp/compute; gcp/database_mysql,0,21,0,98329,0,0.185657,0,224.18
+run1,59,A-infeasible-11p-anywhere,gcp/compute; azure/database_postgresql,0,12,0,48970,0,0.094804,0,123.17
+run1,60,A-coloc_binding-11p-anywhere,azure/compute; azure/database_postgresql,0,15,0,57637,0,0.110565,0,147.82
+run1,61,A-near_miss-12v-usa,gcp/compute,2,8,6253,29487,0.003675,0.047905,7.21,64.53
+run1,62,A-infeasible_budget-12v-usa,gcp/compute,2,8,6096,29330,0.00344,0.04767,5.91,63.23
+run1,63,A-coloc_binding-12m-anywhere,aws/compute; aws/database_mysql,0,18,0,74492,0,0.153447,0,212.33
+run1,64,A-coloc_provider_infeasible-12m-anywhere,gcp/compute; aws/database_mysql,0,18,0,81890,0,0.162237,0,211.5
+run1,65,A-coloc_provider_infeasible-12p-anywhere,gcp/compute; azure/database_postgresql,0,12,0,48970,0,0.094804,0,123.17
+run1,66,A-coloc_infeasible-12p-anywhere,gcp/compute; azure/database_postgresql,1,13,3156,52126,0.001881,0.096685,3.97,127.14
+run1,67,A-infeasible_availability-14v-usa,gcp/compute,2,8,6049,29283,0.00337,0.047599,5.17,62.49
+run1,68,A-infeasible_both-14v-usa,gcp/compute,2,8,6364,29598,0.003842,0.048072,8.65,65.97
+run1,69,A-infeasible-14m-anywhere,gcp/compute; aws/database_mysql,0,18,0,81890,0,0.162237,0,211.5
+run1,70,A-coloc_binding-14m-anywhere,gcp/compute; gcp/database_mysql,0,21,0,98329,0,0.185657,0,224.18
+run1,71,A-infeasible-14p-anywhere,gcp/compute; azure/database_postgresql,0,12,0,48970,0,0.094804,0,123.17
+run1,72,A-coloc_provider_infeasible-14p-anywhere,azure/compute; azure/database_postgresql,0,15,0,57637,0,0.110565,0,147.82
+run1,73,A-unique-15v-europe,gcp/compute,2,8,6198,29432,0.003593,0.047823,6.9,64.22
+run1,74,A-near_miss-15v-europe,gcp/compute,2,8,6161,29395,0.003537,0.047767,6.45,63.77
+run1,75,A-unique-16v-usa,gcp/compute,2,8,6123,29357,0.003481,0.04771,6.29,63.61
+run1,76,A-near_miss-16v-usa,gcp/compute,2,8,6087,29321,0.003426,0.047656,5.65,62.97
+run1,77,A-infeasible_budget-17v-usa,gcp/compute,2,8,6268,29502,0.003698,0.047928,7.68,65.0
+run1,78,A-infeasible_availability-17v-usa,gcp/compute,2,8,6045,29279,0.003364,0.047593,4.86,62.18
+run1,79,A-unique-18v-usa,gcp/compute,2,8,6135,29369,0.003498,0.047728,6.1,63.42
+run1,80,A-near_miss-18v-usa,gcp/compute,2,8,6094,29328,0.003437,0.047667,6.09,63.41
+run1,81,A-infeasible_budget-25v-usa,gcp/compute,2,8,6082,29316,0.003419,0.047649,6.29,63.61
+run1,82,A-infeasible_availability-25v-usa,gcp/compute,2,8,5998,29232,0.003293,0.047523,18.79,76.11
+run1,83,A-infeasible_both-26v-europe,gcp/compute,3,9,9199,32433,0.005239,0.049468,8.97,66.29
+run1,84,A-infeasible-61m-anywhere,aws/database_mysql,0,12,0,58656,0,0.118007,0,154.18
+run1,85,A-several-61m-usa,gcp/database_mysql; aws/database_mysql,3,30,9564,143315,0.005313,0.264748,8.83,329.87
+run1,86,A-several-61p-usa,azure/database_postgresql,0,6,0,25736,0,0.050575,0,65.85
+run1,87,A-several-61p-usa-v2,azure/database_postgresql,0,6,0,25736,0,0.050575,0,65.85
+run1,88,A-coloc_infeasible-07m-anywhere,gcp/compute; aws/database_postgresql,1,19,3198,85293,0.001944,0.165106,4.93,216.43
+run1,89,A-several-07m-usa,gcp/compute; gcp/database_postgresql,1,22,2989,100746,0.001631,0.187277,2.2,229.44
+run1,90,A-coloc_infeasible-08m-anywhere,gcp/compute; azure/database_postgresql,2,14,6335,55305,0.003797,0.098601,8.79,131.96
+run1,91,A-several-08m-usa,gcp/compute; gcp/database_postgresql,2,23,6121,103878,0.003477,0.189123,5.97,233.21
+run1,92,A-coloc_infeasible-10m-anywhere,gcp/compute; aws/database_mysql,1,19,3044,84934,0.001713,0.16395,2.8,214.3
+run1,93,A-several-10m-usa,gcp/compute; gcp/database_mysql,4,25,12650,110979,0.00709,0.192747,25.7,249.88
+run1,94,A-coloc_infeasible-10p-anywhere,gcp/compute; azure/database_postgresql,1,13,3035,52005,0.0017,0.096504,2.83,126.0
+run1,95,A-several-10p-usa,gcp/compute; gcp/database_postgresql,1,22,3083,100840,0.001772,0.187418,4.26,231.5
+run1,96,A-infeasible-11m-usa,gcp/compute; aws/database_mysql,1,19,3089,84979,0.001781,0.164018,3.23,214.73
+run1,97,A-coloc_binding-11m-usa,gcp/compute; gcp/database_mysql,4,25,12594,110923,0.007006,0.192663,13.99,238.17
+run1,98,A-infeasible-11p-usa,gcp/compute; azure/database_postgresql,2,14,6020,54990,0.003322,0.098126,5.15,128.32
+run1,99,A-coloc_binding-11p-usa,azure/compute; azure/database_postgresql,0,15,0,57637,0,0.110565,0,147.82
+run1,100,A-coloc_provider_infeasible-12m-usa,gcp/compute; aws/database_mysql,1,19,3140,85030,0.001858,0.164095,3.96,215.46
+run1,101,A-coloc_provider_infeasible-12p-usa,azure/compute; azure/database_postgresql,0,15,0,57637,0,0.110565,0,147.82
+run1,102,A-infeasible-12p-europe,gcp/compute; aws/database_postgresql,1,19,3207,85302,0.001959,0.16512,4.47,215.97
+run1,103,A-infeasible-14m-usa,gcp/compute; gcp/database_mysql,6,27,18818,117147,0.010629,0.196286,20.92,245.1
+run1,104,A-coloc_binding-14m-usa,aws/compute; aws/database_mysql,0,18,0,74492,0,0.153447,0,212.33
+run1,105,A-infeasible-14p-usa,gcp/compute; gcp/database_postgresql,3,24,9387,107144,0.005515,0.191161,10.72,237.96
+run1,106,A-coloc_provider_infeasible-14p-usa,gcp/compute; azure/database_postgresql,2,14,6086,55056,0.003425,0.098229,5.81,128.98
+run1,107,A-coloc_region_binding-08m-europe,gcp/compute; gcp/database_postgresql,2,23,6188,103945,0.003578,0.189223,7.26,234.5
+run1,108,A-coloc_region_binding-10p-europe,gcp/compute; aws/database_postgresql,2,20,6202,88297,0.003596,0.166758,6.87,218.37
+run1,109,A-coloc_region_binding-11p-europe,gcp/compute; gcp/database_postgresql,1,22,3076,100833,0.001762,0.187407,17.42,244.66
+run1,110,B-aws-vm,aws/compute,0,6,0,15836,0,0.03544,0,58.15
+run1,111,B-aws-postgresql-vm,aws/compute; aws/database_postgresql,0,18,0,74697,0,0.154372,0,212.33
+run1,112,B-aws-postgresql-vm-private,aws/compute; aws/database_postgresql,1,19,1931,76628,0.001057,0.155429,1.77,214.1
+run1,113,B-aws-mysql-vm,aws/compute; aws/database_mysql,0,18,0,74492,0,0.153447,0,212.33
+run1,114,B-aws-mysql-vm-private,aws/compute; aws/database_mysql,0,18,0,74492,0,0.153447,0,212.33
+run1,115,B-aws-postgresql,aws/database_postgresql,0,12,0,58861,0,0.118932,0,154.18
+run1,116,B-aws-postgresql-private,aws/database_postgresql,1,13,1938,60799,0.00106,0.119992,1.49,155.67
+run1,117,B-gcp-vm,gcp/compute,1,7,3025,26259,0.001682,0.045912,2.44,59.76
+run1,118,B-gcp-postgresql-vm,gcp/compute; gcp/database_postgresql,1,22,3132,100889,0.001843,0.187488,3.69,230.93
+run1,119,B-gcp-postgresql-vm-private,gcp/compute; gcp/database_postgresql,1,22,3021,100778,0.001677,0.187322,2.51,229.75
+run1,120,B-gcp-mysql-vm,gcp/compute; gcp/database_mysql,4,25,12784,111113,0.007279,0.192936,12.32,236.5
+run1,121,B-gcp-mysql-vm-private,gcp/compute; gcp/database_mysql,4,25,12763,111092,0.007247,0.192905,11.9,236.08
+run1,122,B-gcp-postgresql,gcp/database_postgresql,0,15,0,74523,0,0.141416,0,169.92
+run1,123,B-gcp-postgresql-private,gcp/database_postgresql,0,15,0,74523,0,0.141416,0,169.92
+run1,124,B-azure-vm,azure/compute,0,9,0,31901,0,0.059991,0,81.97
+run1,125,B-azure-postgresql-vm,azure/compute; azure/database_postgresql,0,15,0,57637,0,0.110565,0,147.82
+run1,126,B-azure-postgresql-vm-private,azure/compute; azure/database_postgresql,0,15,0,57637,0,0.110565,0,147.82
+run1,127,B-azure-postgresql,azure/database_postgresql,0,6,0,25736,0,0.050575,0,65.85
+run1,128,B-azure-postgresql-private,azure/database_postgresql,0,6,0,25736,0,0.050575,0,65.85
+run2,1,C3-01,gcp/compute,6,6,24512,24512,0.048683,0.048683,63.36,63.36
+run2,2,C3-02,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,3,C3-03,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,4,C3-05,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,5,C3-07,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,6,C3-09,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,7,C3-10,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,8,C3-16,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,9,C3-18,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,10,C3-20,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,11,C3-24,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,12,C3-25,aws/compute,8,8,16841,16841,0.033805,0.033805,52.47,52.47
+run2,13,C3-26,gcp/compute,2,8,6162,30674,0.003523,0.052206,6.1,69.46
+run2,14,C3-27,aws/compute,2,8,2284,16889,0.00138,0.033876,4.2,53.7
+run2,15,C3-28,azure/compute,9,9,33368,33368,0.064033,0.064033,88.01,88.01
+run2,16,C3-31,gcp/compute,1,7,3084,27596,0.001769,0.050452,2.85,66.21
+run2,17,C3-34,aws/compute,2,8,2328,16933,0.001446,0.033943,5.17,54.67
+run2,18,C3-35,aws/compute,2,8,2318,16923,0.00143,0.033926,6.06,55.56
+run2,19,C3-36,gcp/compute,2,8,6266,30778,0.003687,0.05237,7.58,70.94
+run2,20,C3-42,aws/compute,3,9,3379,17984,0.001998,0.034494,5.03,54.53
+run2,21,C3-43,aws/compute,1,7,1200,15805,0.000777,0.033273,2.66,52.16
+run2,22,C3-46,aws/compute,2,8,2408,17013,0.001561,0.034057,5.22,54.72
+run2,23,C3-47,gcp/compute,5,11,15699,40211,0.009296,0.05798,36.17,99.53
+run2,24,C3-49,aws/compute,2,8,2330,16935,0.001449,0.033945,4.31,53.81
+run2,25,C3-55,aws/compute,3,9,3455,18060,0.002113,0.03461,6.27,55.77
+run2,26,C3-56,aws/compute,1,7,1244,15849,0.000843,0.03334,3.13,52.63
+run2,27,C3-57,aws/compute,1,7,1192,15797,0.000764,0.03326,2.52,52.02
+run2,28,C3-58,azure/compute,0,9,0,33368,0,0.064033,0,88.01
+run2,29,C3-60,aws/compute,2,8,2389,16994,0.00153,0.034027,5.26,54.76
+run2,30,C3-61,gcp/compute,2,8,6452,30964,0.003942,0.052625,12.62,75.98
+run2,31,C3-62,aws/compute,2,8,2280,16885,0.001371,0.033868,3.65,53.15
+run2,32,C3-70,aws/compute,2,8,2170,16775,0.001209,0.033705,16.68,66.18
+run2,33,A-unique-01v-anywhere,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,34,A-near_miss-01v-anywhere,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,35,A-unique-02v-anywhere,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,36,A-near_miss-02v-anywhere,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,37,A-unique-03v-anywhere,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,38,A-near_miss-03v-anywhere,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,39,A-infeasible_budget-04v-anywhere,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,40,A-infeasible_availability-04v-anywhere,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,41,A-unique-07v-anywhere,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,42,A-near_miss-07v-anywhere,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,43,A-several-07m-anywhere,gcp/compute; aws/database_postgresql,12,18,55354,79866,0.10994,0.158623,143.0,206.36
+run2,44,A-several-07m-anywhere-v2,gcp/compute; gcp/database_postgresql,15,21,71645,96157,0.134558,0.183241,160.42,223.78
+run2,45,A-infeasible_budget-08v-anywhere,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,46,A-infeasible_availability-08v-anywhere,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,47,A-several-08m-anywhere,gcp/compute; azure/database_postgresql,6,12,27335,51847,0.054432,0.103115,72.27,135.63
+run2,48,A-several-08m-anywhere-v2,gcp/compute; azure/database_postgresql,0,12,0,51847,0,0.103115,0,135.63
+run2,49,A-infeasible_budget-09v-anywhere,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,50,A-infeasible_availability-09v-anywhere,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,51,A-several-10m-anywhere,gcp/compute; aws/database_mysql,12,18,59190,83702,0.119429,0.168112,159.6,222.96
+run2,52,A-several-10m-anywhere-v2,gcp/compute; gcp/database_mysql,15,21,74678,99190,0.140259,0.188942,177.15,240.51
+run2,53,A-several-10p-anywhere,gcp/compute; azure/database_postgresql,0,12,0,51847,0,0.103115,0,135.63
+run2,54,A-infeasible_both-10p-anywhere,gcp/compute; azure/database_postgresql,0,12,0,51847,0,0.103115,0,135.63
+run2,55,A-infeasible_both-11v-anywhere,gcp/compute,0,6,0,24512,0,0.048683,0,63.36
+run2,56,A-unique-11v-usa,gcp/compute,2,8,6079,30591,0.003415,0.052098,6.53,69.89
+run2,57,A-infeasible_both-11m-anywhere,gcp/compute; aws/database_mysql,0,18,0,83702,0,0.168112,0,222.96
+run2,58,A-infeasible-11m-anywhere,gcp/compute; gcp/database_mysql,0,21,0,99190,0,0.188942,0,240.51
+run2,59,A-infeasible-11p-anywhere,gcp/compute; azure/database_postgresql,0,12,0,51847,0,0.103115,0,135.63
+run2,60,A-coloc_binding-11p-anywhere,azure/compute; azure/database_postgresql,0,15,0,60703,0,0.118465,0,160.28
+run2,61,A-near_miss-12v-usa,gcp/compute,2,8,6238,30750,0.003653,0.052336,9.14,72.5
+run2,62,A-infeasible_budget-12v-usa,gcp/compute,2,8,6371,30883,0.003853,0.052536,8.64,72.0
+run2,63,A-coloc_binding-12m-anywhere,aws/compute; aws/database_mysql,0,18,0,73795,0,0.151925,0,209.1
+run2,64,A-coloc_provider_infeasible-12m-anywhere,gcp/compute; aws/database_mysql,0,18,0,83702,0,0.168112,0,222.96
+run2,65,A-coloc_provider_infeasible-12p-anywhere,gcp/compute; azure/database_postgresql,0,12,0,51847,0,0.103115,0,135.63
+run2,66,A-coloc_infeasible-12p-anywhere,gcp/compute; azure/database_postgresql,1,13,3210,55057,0.001962,0.105077,5.74,141.37
+run2,67,A-infeasible_availability-14v-usa,gcp/compute,2,8,6192,30704,0.003584,0.052267,6.94,70.3
+run2,68,A-infeasible-14m-anywhere,gcp/compute; aws/database_mysql,0,18,0,83702,0,0.168112,0,222.96
+run2,69,A-coloc_binding-14m-anywhere,gcp/compute; gcp/database_mysql,0,21,0,99190,0,0.188942,0,240.51
+run2,70,A-infeasible-14p-anywhere,gcp/compute; azure/database_postgresql,0,12,0,51847,0,0.103115,0,135.63
+run2,71,A-coloc_provider_infeasible-14p-anywhere,azure/compute; azure/database_postgresql,0,15,0,60703,0,0.118465,0,160.28
+run2,72,A-unique-15v-europe,gcp/compute,3,9,9251,33763,0.005317,0.054,9.86,73.22
+run2,73,A-near_miss-15v-europe,gcp/compute,2,8,6407,30919,0.003907,0.05259,9.17,72.53
+run2,74,A-unique-16v-usa,gcp/compute,2,8,6257,30769,0.003681,0.052365,8.79,72.15
+run2,75,A-near_miss-16v-usa,gcp/compute,2,8,6360,30872,0.003836,0.052519,9.05,72.41
+run2,76,A-infeasible_budget-17v-usa,gcp/compute,3,9,9435,33947,0.005587,0.05427,12.78,76.14
+run2,77,A-infeasible_availability-17v-usa,gcp/compute,2,8,6137,30649,0.003502,0.052185,6.35,69.71
+run2,78,A-unique-18v-usa,gcp/compute,2,8,6057,30569,0.003381,0.052065,5.28,68.64
+run2,79,A-near_miss-18v-usa,gcp/compute,2,8,6063,30575,0.00339,0.052074,6.54,69.9
+run2,80,A-infeasible_budget-25v-usa,gcp/compute,2,8,6189,30701,0.00358,0.052263,7.24,70.6
+run2,81,A-infeasible_availability-25v-usa,gcp/compute,2,8,6150,30662,0.003521,0.052204,9.83,73.19
+run2,82,A-infeasible_both-26v-europe,gcp/compute,2,8,6324,30836,0.003782,0.052465,9.5,72.86
+run2,83,A-infeasible_both-26v-uk,gcp/compute,3,9,8989,33501,0.004919,0.053602,7.47,70.83
+run2,84,A-infeasible-61m-anywhere,aws/database_mysql,0,12,0,59190,0,0.119429,0,159.6
+run2,85,A-several-61m-usa,gcp/database_mysql; aws/database_mysql,0,27,0,133868,0,0.259688,0,336.75
+run2,86,A-several-61p-usa,azure/database_postgresql,0,6,0,27335,0,0.054432,0,72.27
+run2,87,A-several-61p-usa-v2,azure/database_postgresql,0,6,0,27335,0,0.054432,0,72.27
+run2,88,A-coloc_infeasible-07m-anywhere,gcp/compute; aws/database_postgresql,1,19,3082,82948,0.00177,0.160393,3.23,209.59
+run2,89,A-several-07m-usa,gcp/compute; gcp/database_postgresql,5,26,15969,112126,0.009142,0.192384,17.77,241.55
+run2,90,A-coloc_infeasible-08m-anywhere,gcp/compute; azure/database_postgresql,3,15,9403,61250,0.005536,0.108652,17.93,153.56
+run2,91,A-several-08m-usa,gcp/compute; gcp/database_postgresql,5,26,15699,111856,0.00882,0.192061,15.47,239.25
+run2,92,A-coloc_infeasible-10m-anywhere,gcp/compute; aws/database_mysql,1,19,3145,86847,0.001865,0.169977,5.12,228.08
+run2,93,A-several-10m-usa,gcp/compute; gcp/database_mysql,1,22,3092,102282,0.001786,0.190728,3.4,243.91
+run2,94,A-coloc_infeasible-10p-anywhere,gcp/compute; azure/database_postgresql,1,13,3189,55036,0.00193,0.105046,4.39,140.02
+run2,95,A-several-10p-usa,gcp/compute; gcp/database_postgresql,5,26,15714,111871,0.008833,0.192074,14.03,237.81
+run2,96,A-infeasible-11m-usa,gcp/compute; aws/database_mysql,1,19,3059,86761,0.001736,0.169849,3.12,226.08
+run2,97,A-coloc_binding-11m-usa,gcp/compute; gcp/database_mysql,2,23,6343,105533,0.003801,0.192744,22.52,263.03
+run2,98,A-infeasible-11p-usa,gcp/compute; azure/database_postgresql,1,13,3048,54895,0.00172,0.104835,2.72,138.35
+run2,99,A-coloc_binding-11p-usa,azure/compute; azure/database_postgresql,0,15,0,60703,0,0.118465,0,160.28
+run2,100,A-coloc_provider_infeasible-12m-usa,gcp/compute; aws/database_mysql,2,20,6269,89971,0.003696,0.171808,8.31,231.27
+run2,101,A-coloc_provider_infeasible-12p-usa,gcp/compute; azure/database_postgresql,1,13,3076,54923,0.001762,0.104877,3.12,138.75
+run2,102,A-infeasible-12p-europe,gcp/compute; aws/database_postgresql,1,19,3071,82937,0.001754,0.160378,2.95,209.31
+run2,103,A-infeasible-14m-usa,gcp/compute; gcp/database_mysql,3,24,9311,108501,0.005402,0.194344,10.95,251.46
+run2,104,A-coloc_binding-14m-usa,aws/compute; aws/database_mysql,2,20,2549,76344,0.001788,0.153713,7.44,216.54
+run2,105,A-infeasible-14p-usa,gcp/compute; gcp/database_postgresql,6,27,18936,115093,0.010749,0.19399,19.99,243.77
+run2,106,A-coloc_provider_infeasible-14p-usa,gcp/compute; azure/database_postgresql,2,14,6204,58051,0.003602,0.106717,8.2,143.83
+run2,107,A-coloc_region_binding-08m-europe,gcp/compute; gcp/database_postgresql,5,26,15832,111989,0.009019,0.19226,16.35,240.13
+run2,108,A-coloc_region_binding-10p-europe,gcp/compute; aws/database_postgresql,1,19,2990,82856,0.001633,0.160256,2.66,209.02
+run2,109,A-coloc_region_binding-11p-europe,gcp/compute; gcp/database_postgresql,5,26,15698,111855,0.008744,0.191985,21.38,245.16
+run2,110,B-aws-vm,aws/compute,1,7,1187,15792,0.000759,0.033256,2.47,51.97
+run2,111,B-aws-postgresql-vm,aws/compute; aws/database_postgresql,1,19,1142,71101,0.000692,0.143129,2.21,194.71
+run2,112,B-aws-postgresql-vm-private,aws/compute; aws/database_postgresql,2,20,3037,72996,0.001695,0.144131,3.13,195.63
+run2,113,B-aws-mysql-vm,aws/compute; aws/database_mysql,1,19,1229,75024,0.000821,0.152747,2.74,211.84
+run2,114,B-aws-mysql-vm-private,aws/compute; aws/database_mysql,3,21,4165,77960,0.002357,0.154283,5.05,214.15
+run2,115,B-aws-postgresql,aws/database_postgresql,0,12,0,55354,0,0.10994,0,143.0
+run2,116,B-aws-postgresql-private,aws/database_postgresql,1,13,1938,57292,0.00106,0.111,1.91,144.91
+run2,117,B-gcp-vm,gcp/compute,1,7,3169,27681,0.001899,0.050582,5.06,68.42
+run2,118,B-gcp-postgresql-vm,gcp/compute; gcp/database_postgresql,4,25,12493,108650,0.006851,0.190092,10.13,233.91
+run2,119,B-gcp-postgresql-vm-private,gcp/compute; gcp/database_postgresql,4,25,12551,108708,0.006938,0.190179,41.43,265.21
+run2,120,B-gcp-mysql-vm,gcp/compute; gcp/database_mysql,1,22,3059,102249,0.001734,0.190676,3.43,243.94
+run2,121,B-gcp-mysql-vm-private,gcp/compute; gcp/database_mysql,1,22,3074,102264,0.001756,0.190698,2.96,243.47
+run2,122,B-gcp-postgresql,gcp/database_postgresql,3,18,9698,81343,0.005513,0.140071,10.46,170.88
+run2,123,B-gcp-postgresql-private,gcp/database_postgresql,3,18,9385,81030,0.005044,0.139602,6.53,166.95
+run2,124,B-azure-vm,azure/compute,0,9,0,33368,0,0.064033,0,88.01
+run2,125,B-azure-postgresql-vm,azure/compute; azure/database_postgresql,0,15,0,60703,0,0.118465,0,160.28
+run2,126,B-azure-postgresql-vm-private,azure/compute; azure/database_postgresql,0,15,0,60703,0,0.118465,0,160.28
+run2,127,B-azure-postgresql,azure/database_postgresql,0,6,0,27335,0,0.054432,0,72.27
+run2,128,B-azure-postgresql-private,azure/database_postgresql,0,6,0,27335,0,0.054432,0,72.27
+run3,1,C3-01,gcp/compute,6,6,23493,23493,0.043699,0.043699,61.69,61.69
+run3,2,C3-02,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,3,C3-03,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,4,C3-05,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,5,C3-07,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,6,C3-09,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,7,C3-10,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,8,C3-16,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,9,C3-18,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,10,C3-20,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,11,C3-24,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,12,C3-25,aws/compute,6,6,15245,15245,0.034281,0.034281,53.16,53.16
+run3,13,C3-26,gcp/compute,2,8,6204,29697,0.003586,0.047285,7.61,69.3
+run3,14,C3-27,aws/compute,0,6,0,15245,0,0.034281,0,53.16
+run3,15,C3-28,azure/compute,9,9,28377,28377,0.051876,0.051876,67.52,67.52
+run3,16,C3-31,gcp/compute,1,7,3073,26566,0.001753,0.045451,3.03,64.72
+run3,17,C3-34,aws/compute,0,6,0,15245,0,0.034281,0,53.16
+run3,18,C3-35,aws/compute,0,6,0,15245,0,0.034281,0,53.16
+run3,19,C3-36,gcp/compute,2,8,6113,29606,0.003458,0.047156,6.06,67.75
+run3,20,C3-42,aws/compute,0,6,0,15245,0,0.034281,0,53.16
+run3,21,C3-43,aws/compute,0,6,0,15245,0,0.034281,0,53.16
+run3,22,C3-46,aws/compute,0,6,0,15245,0,0.034281,0,53.16
+run3,23,C3-47,gcp/compute,6,12,18360,41853,0.01041,0.054109,20.99,82.68
+run3,24,C3-49,aws/compute,0,6,0,15245,0,0.034281,0,53.16
+run3,25,C3-55,aws/compute,0,6,0,15245,0,0.034281,0,53.16
+run3,26,C3-56,aws/compute,0,6,0,15245,0,0.034281,0,53.16
+run3,27,C3-57,aws/compute,0,6,0,15245,0,0.034281,0,53.16
+run3,28,C3-58,azure/compute,0,9,0,28377,0,0.051876,0,67.52
+run3,29,C3-60,aws/compute,0,6,0,15245,0,0.034281,0,53.16
+run3,30,C3-61,gcp/compute,2,8,6342,29835,0.003777,0.047476,9.86,71.55
+run3,31,C3-62,aws/compute,0,6,0,15245,0,0.034281,0,53.16
+run3,32,C3-70,aws/compute,0,6,0,15245,0,0.034281,0,53.16
+run3,33,A-unique-01v-anywhere,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,34,A-near_miss-01v-anywhere,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,35,A-unique-02v-anywhere,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,36,A-near_miss-02v-anywhere,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,37,A-unique-03v-anywhere,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,38,A-near_miss-03v-anywhere,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,39,A-infeasible_budget-04v-anywhere,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,40,A-infeasible_availability-04v-anywhere,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,41,A-unique-07v-anywhere,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,42,A-near_miss-07v-anywhere,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,43,A-several-07m-anywhere,gcp/compute; aws/database_postgresql,12,18,53639,77132,0.105237,0.148935,132.67,194.36
+run3,44,A-several-07m-anywhere-v2,gcp/compute; gcp/database_postgresql,15,21,72963,96456,0.137543,0.181242,170.54,232.23
+run3,45,A-infeasible_budget-08v-anywhere,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,46,A-infeasible_availability-08v-anywhere,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,47,A-several-08m-anywhere,gcp/compute; azure/database_postgresql,6,12,28825,52318,0.059308,0.103007,82.82,144.51
+run3,48,A-several-08m-anywhere-v2,gcp/compute; azure/database_postgresql,0,12,0,52318,0,0.103007,0,144.51
+run3,49,A-infeasible_budget-09v-anywhere,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,50,A-infeasible_availability-09v-anywhere,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,51,A-several-10m-anywhere,gcp/compute; aws/database_mysql,12,18,55511,79004,0.109657,0.153356,143.94,205.63
+run3,52,A-several-10m-anywhere-v2,gcp/compute; gcp/database_mysql,15,21,72281,95774,0.134395,0.178093,159.2,220.89
+run3,53,A-several-10p-anywhere,gcp/compute; azure/database_postgresql,0,12,0,52318,0,0.103007,0,144.51
+run3,54,A-infeasible_both-10p-anywhere,gcp/compute; azure/database_postgresql,0,12,0,52318,0,0.103007,0,144.51
+run3,55,A-infeasible_both-11v-anywhere,gcp/compute,0,6,0,23493,0,0.043699,0,61.69
+run3,56,A-unique-11v-usa,gcp/compute,3,9,9365,32858,0.005482,0.049181,13.84,75.53
+run3,57,A-infeasible_both-11m-anywhere,gcp/compute; aws/database_mysql,0,18,0,79004,0,0.153356,0,205.63
+run3,58,A-infeasible-11m-anywhere,gcp/compute; gcp/database_mysql,0,21,0,95774,0,0.178093,0,220.89
+run3,59,A-infeasible-11p-anywhere,gcp/compute; azure/database_postgresql,0,12,0,52318,0,0.103007,0,144.51
+run3,60,A-coloc_binding-11p-anywhere,azure/compute; azure/database_postgresql,0,15,0,57202,0,0.111184,0,150.34
+run3,61,A-near_miss-12v-usa,gcp/compute,2,8,6006,29499,0.003305,0.047004,4.6,66.29
+run3,62,A-infeasible_budget-12v-usa,gcp/compute,2,8,6348,29841,0.003818,0.047517,10.38,72.07
+run3,63,A-coloc_binding-12m-anywhere,aws/compute; aws/database_mysql,0,18,0,70756,0,0.143938,0,197.1
+run3,64,A-coloc_provider_infeasible-12m-anywhere,gcp/compute; aws/database_mysql,0,18,0,79004,0,0.153356,0,205.63
+run3,65,A-coloc_provider_infeasible-12p-anywhere,gcp/compute; azure/database_postgresql,0,12,0,52318,0,0.103007,0,144.51
+run3,66,A-coloc_infeasible-12p-anywhere,gcp/compute; azure/database_postgresql,1,13,3049,55367,0.001721,0.104727,2.91,147.42
+run3,67,A-infeasible_availability-14v-usa,gcp/compute,2,8,6262,29755,0.003689,0.047388,8.76,70.45
+run3,68,A-infeasible-14m-anywhere,gcp/compute; aws/database_mysql,0,18,0,79004,0,0.153356,0,205.63
+run3,69,A-coloc_binding-14m-anywhere,gcp/compute; gcp/database_mysql,0,21,0,95774,0,0.178093,0,220.89
+run3,70,A-infeasible-14p-anywhere,gcp/compute; azure/database_postgresql,0,12,0,52318,0,0.103007,0,144.51
+run3,71,A-coloc_provider_infeasible-14p-anywhere,azure/compute; azure/database_postgresql,0,15,0,57202,0,0.111184,0,150.34
+run3,72,A-unique-15v-europe,gcp/compute,2,8,6324,29817,0.003782,0.047481,8.72,70.41
+run3,73,A-near_miss-15v-europe,gcp/compute,2,8,6258,29751,0.003683,0.047382,7.34,69.03
+run3,74,A-unique-16v-usa,gcp/compute,2,8,5980,29473,0.003266,0.046965,4.95,66.64
+run3,75,A-near_miss-16v-usa,gcp/compute,2,8,6107,29600,0.003456,0.047155,7.59,69.28
+run3,76,A-infeasible_budget-17v-usa,gcp/compute,2,8,6147,29640,0.003516,0.047215,7.05,68.74
+run3,77,A-infeasible_availability-17v-usa,gcp/compute,3,9,9481,32974,0.005661,0.04936,12.73,74.42
+run3,78,A-unique-18v-usa,gcp/compute,2,8,6204,29697,0.003602,0.047301,6.49,68.18
+run3,79,A-near_miss-18v-usa,gcp/compute,2,8,6204,29697,0.003602,0.047301,7.91,69.6
+run3,80,A-infeasible_budget-25v-usa,gcp/compute,2,8,6330,29823,0.003791,0.04749,9.07,70.76
+run3,81,A-infeasible_availability-25v-usa,gcp/compute,2,8,6089,29582,0.003429,0.047128,8.06,69.75
+run3,82,A-infeasible_both-26v-europe,gcp/compute,2,8,6290,29783,0.003731,0.04743,9.08,70.77
+run3,83,A-infeasible_both-26v-uk,gcp/compute,2,8,6085,29578,0.003423,0.047122,6.33,68.02
+run3,84,A-infeasible-61m-anywhere,aws/database_mysql,0,12,0,55511,0,0.109657,0,143.94
+run3,85,A-several-61m-usa,gcp/database_mysql; aws/database_mysql,2,29,6256,134048,0.003398,0.24745,4.73,307.87
+run3,86,A-several-61p-usa,azure/database_postgresql,0,6,0,28825,0,0.059308,0,82.82
+run3,87,A-several-61p-usa-v2,azure/database_postgresql,0,6,0,28825,0,0.059308,0,82.82
+run3,88,A-coloc_infeasible-07m-anywhere,gcp/compute; aws/database_postgresql,1,19,3110,80242,0.001812,0.150747,4.26,198.62
+run3,89,A-several-07m-usa,gcp/compute; gcp/database_postgresql,6,27,19078,115534,0.010913,0.192155,20.88,253.11
+run3,90,A-coloc_infeasible-08m-anywhere,gcp/compute; azure/database_postgresql,3,15,9110,61428,0.005102,0.108109,8.91,153.42
+run3,91,A-several-08m-usa,gcp/compute; gcp/database_postgresql,7,28,22664,119120,0.013395,0.194637,46.79,279.02
+run3,92,A-coloc_infeasible-10m-anywhere,gcp/compute; aws/database_mysql,1,19,3241,82245,0.002008,0.155365,5.56,211.19
+run3,93,A-several-10m-usa,gcp/compute; gcp/database_mysql,3,24,9377,105151,0.005227,0.183321,8.02,228.91
+run3,94,A-coloc_infeasible-10p-anywhere,gcp/compute; azure/database_postgresql,1,13,3062,55380,0.00174,0.104747,2.88,147.39
+run3,95,A-several-10p-usa,gcp/compute; gcp/database_postgresql,5,26,15963,112419,0.009105,0.190347,18.47,250.7
+run3,96,A-infeasible-11m-usa,gcp/compute; aws/database_mysql,2,20,6491,85495,0.004023,0.15738,10.8,216.43
+run3,97,A-coloc_binding-11m-usa,gcp/compute; gcp/database_mysql,3,24,9254,105028,0.005043,0.183136,10.81,231.7
+run3,98,A-infeasible-11p-usa,gcp/compute; azure/database_postgresql,1,13,3115,55433,0.001821,0.104827,3.36,147.87
+run3,99,A-coloc_binding-11p-usa,azure/compute; azure/database_postgresql,0,15,0,57202,0,0.111184,0,150.34
+run3,100,A-coloc_provider_infeasible-12m-usa,gcp/compute; aws/database_mysql,1,19,3032,82036,0.001696,0.155052,3.41,209.04
+run3,101,A-coloc_provider_infeasible-12p-usa,azure/compute; azure/database_postgresql,0,15,0,57202,0,0.111184,0,150.34
+run3,102,A-infeasible-12p-europe,gcp/compute; aws/database_postgresql,1,19,3239,80371,0.002007,0.150942,5.2,199.56
+run3,103,A-infeasible-14m-usa,gcp/compute; gcp/database_mysql,4,25,12472,108246,0.007018,0.185111,11.22,232.11
+run3,104,A-coloc_binding-14m-usa,aws/compute; aws/database_mysql,0,18,0,70756,0,0.143938,0,197.1
+run3,105,A-infeasible-14p-usa,gcp/compute; gcp/database_postgresql,6,27,19204,115660,0.011115,0.192357,24.04,256.27
+run3,106,A-coloc_provider_infeasible-14p-usa,gcp/compute; azure/database_postgresql,2,14,6127,58445,0.003487,0.106493,6.72,151.23
+run3,107,A-coloc_region_binding-08m-europe,gcp/compute; gcp/database_postgresql,6,27,19425,115881,0.011447,0.192688,24.51,256.74
+run3,108,A-coloc_region_binding-10p-europe,gcp/compute; aws/database_postgresql,2,20,6124,83256,0.003479,0.152414,7.07,201.43
+run3,109,A-coloc_region_binding-11p-europe,gcp/compute; gcp/database_postgresql,5,26,16115,112571,0.009333,0.190575,20.19,252.42
+run3,110,B-aws-vm,aws/compute,0,6,0,15245,0,0.034281,0,53.16
+run3,111,B-aws-postgresql-vm,aws/compute; aws/database_postgresql,0,18,0,68884,0,0.139518,0,185.83
+run3,112,B-aws-postgresql-vm-private,aws/compute; aws/database_postgresql,0,18,0,68884,0,0.139518,0,185.83
+run3,113,B-aws-mysql-vm,aws/compute; aws/database_mysql,0,18,0,70756,0,0.143938,0,197.1
+run3,114,B-aws-mysql-vm-private,aws/compute; aws/database_mysql,0,18,0,70756,0,0.143938,0,197.1
+run3,115,B-aws-postgresql,aws/database_postgresql,0,12,0,53639,0,0.105237,0,132.67
+run3,116,B-aws-postgresql-private,aws/database_postgresql,0,12,0,53639,0,0.105237,0,132.67
+run3,117,B-gcp-vm,gcp/compute,1,7,3069,26562,0.001749,0.045447,3.01,64.7
+run3,118,B-gcp-postgresql-vm,gcp/compute; gcp/database_postgresql,5,26,15860,112316,0.008936,0.190178,15.78,248.01
+run3,119,B-gcp-postgresql-vm-private,gcp/compute; gcp/database_postgresql,5,26,15745,112201,0.008764,0.190005,28.49,260.72
+run3,120,B-gcp-mysql-vm,gcp/compute; gcp/database_mysql,3,24,9153,104927,0.004882,0.182976,5.78,226.67
+run3,121,B-gcp-mysql-vm-private,gcp/compute; gcp/database_mysql,3,24,9371,105145,0.00521,0.183303,8.01,228.9
+run3,122,B-gcp-postgresql,gcp/database_postgresql,4,19,12674,85637,0.007012,0.144555,10.81,181.35
+run3,123,B-gcp-postgresql-private,gcp/database_postgresql,4,19,12706,85669,0.00706,0.144603,25.37,195.91
+run3,124,B-azure-vm,azure/compute,0,9,0,28377,0,0.051876,0,67.52
+run3,125,B-azure-postgresql-vm,azure/compute; azure/database_postgresql,0,15,0,57202,0,0.111184,0,150.34
+run3,126,B-azure-postgresql-vm-private,azure/compute; azure/database_postgresql,0,15,0,57202,0,0.111184,0,150.34
+run3,127,B-azure-postgresql,azure/database_postgresql,0,6,0,28825,0,0.059308,0,82.82
+run3,128,B-azure-postgresql-private,azure/database_postgresql,0,6,0,28825,0,0.059308,0,82.82

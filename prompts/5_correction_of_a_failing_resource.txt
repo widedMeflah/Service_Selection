@@ -1,0 +1,27 @@
+Role (i)
+You are an expert in cloud infrastructure and provider documentation.
+
+Context (ii)
+Considering the following dependent resource of a service, and the official documentation page that requires it:
+Service: {service}
+Provider: {provider}
+Resource: {resource}
+Quote: {quote}
+Current properties: {properties}
+Settings applied by the provider: {settings}
+Requirement it does not satisfy: {requirement}
+Page: {page}
+
+Task (iii)
+Configure this resource again so that it satisfies the requirement.
+
+Instructions (iv)
+Follow these instructions:
+- give the properties to write in the template, which override the settings of the provider.
+- use only configurations that the page allows, and no knowledge outside the page.
+- use only these properties, as property=value separated by ";":
+{vocabulary}
+- write {{region}} for the region of the deployment.
+
+Output format (v)
+PROPERTIES: <properties written in the template>

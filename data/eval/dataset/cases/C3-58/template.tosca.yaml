@@ -1,0 +1,127 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case C3-58, derived from C3 request 58. Cloud services: vm_postgres (virtual machine).
+  Software components hosted on them: postgresql_dbms, postgres_db.'
+data_types:
+  acme.datatypes.Location:
+    derived_from: tosca.datatypes.Root
+    description: 'A deployment location: region and/or availability zone.'
+    properties:
+      region:
+        type: string
+        required: false
+      availability_zone:
+        type: string
+        required: false
+policy_types:
+  acme.policies.Placement:
+    derived_from: tosca.policies.Placement
+    description: Geographic placement constraint (region and/or availability zone).
+    properties:
+      locations:
+        type: list
+        required: true
+        entry_schema:
+          type: acme.datatypes.Location
+      distribution:
+        type: string
+        default: multi_region
+        constraints:
+        - valid_values:
+          - single_region
+          - multi_region
+  acme.policies.Availability:
+    derived_from: tosca.policies.Performance
+    description: Service-level availability target (percent).
+    properties:
+      availability:
+        type: float
+        required: true
+        constraints:
+        - in_range:
+          - 0.0
+          - 100.0
+  acme.policies.Cost:
+    derived_from: tosca.policies.Root
+    description: Budget constraint over a billing period.
+    properties:
+      max_cost:
+        type: float
+        required: true
+      currency:
+        type: string
+        default: USD
+        constraints:
+        - valid_values:
+          - USD
+          - EUR
+          - GBP
+      period:
+        type: string
+        default: monthly
+        constraints:
+        - valid_values:
+          - hourly
+          - daily
+          - monthly
+          - yearly
+topology_template:
+  node_templates:
+    vm_postgres:
+      type: Compute
+      capabilities:
+        host:
+          properties:
+            num_cpus: 2
+            disk_size: 100 GB
+            mem_size: 8 GB
+        os:
+          properties:
+            type: Linux
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        binding: {}
+        endpoint:
+          properties:
+            protocol: tcp
+    postgresql_dbms:
+      type: DBMS
+      properties:
+        root_password: root_password123
+        port: 5432
+      capabilities:
+        host: {}
+      requirements:
+      - host: vm_postgres
+    postgres_db:
+      type: Database
+      properties:
+        name: postgres_db
+        port: 5432
+        user: db_admin
+        password: secure_password123
+      requirements:
+      - host: postgresql_dbms
+  policies:
+  - placement_vm_postgres:
+      type: acme.policies.Placement
+      targets:
+      - vm_postgres
+      properties:
+        locations:
+        - region: eastus
+  - availability_policy_1:
+      type: acme.policies.Availability
+      targets:
+      - postgres_db
+      properties:
+        availability: 99.9
+  - cost_policy_2:
+      type: acme.policies.Cost
+      targets:
+      - vm_postgres
+      - postgres_db
+      properties:
+        max_cost: 62.78

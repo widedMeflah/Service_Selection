@@ -1,0 +1,78 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case C3-43, derived from C3 request 43. Cloud services: vm_web (virtual machine). Software
+  components hosted on them: web_server, web_app.'
+data_types:
+  acme.datatypes.Location:
+    derived_from: tosca.datatypes.Root
+    description: 'A deployment location: region and/or availability zone.'
+    properties:
+      region:
+        type: string
+        required: false
+      availability_zone:
+        type: string
+        required: false
+policy_types:
+  acme.policies.Placement:
+    derived_from: tosca.policies.Placement
+    description: Geographic placement constraint (region and/or availability zone).
+    properties:
+      locations:
+        type: list
+        required: true
+        entry_schema:
+          type: acme.datatypes.Location
+      distribution:
+        type: string
+        default: multi_region
+        constraints:
+        - valid_values:
+          - single_region
+          - multi_region
+topology_template:
+  node_templates:
+    vm_web:
+      type: tosca.nodes.Compute
+      capabilities:
+        host:
+          properties:
+            num_cpus: 4
+            disk_size: 50 GB
+            mem_size: 8 GB
+        os:
+          properties:
+            type: linux
+            distribution: Ubuntu
+            version: 22.04.0
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 5
+            default_instances: 1
+        endpoint:
+          properties:
+            protocol: tcp
+            secure: false
+    web_server:
+      type: WebServer
+      requirements:
+      - host: vm_web
+    web_app:
+      type: WebApplication
+      properties:
+        context_root: /
+      capabilities:
+        app_endpoint:
+          properties:
+            protocol: http
+            secure: false
+      requirements:
+      - host: web_server
+  policies:
+  - placement_vm_web:
+      type: acme.policies.Placement
+      targets:
+      - vm_web
+      properties:
+        locations:
+        - region: us-east-1

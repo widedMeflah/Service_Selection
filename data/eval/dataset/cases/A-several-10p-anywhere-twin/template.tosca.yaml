@@ -1,0 +1,120 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case A-several-10p-anywhere-twin, derived from C3 request 10 (managed PostgreSQL database).
+  Cloud services: vm_db_app (virtual machine), postgresql_dbms (managed database). Software components hosted on
+  them: docker_application, docker_engine, bdd_postgresql.'
+node_types:
+  RuntimeForContainer:
+    derived_from: tosca.nodes.Container.Runtime
+    capabilities:
+      host:
+        type: tosca.capabilities.Compute
+  ContainerWithDatabase:
+    derived_from: tosca.nodes.Container.Application
+    requirements:
+    - database_connection:
+        capability: tosca.capabilities.Endpoint.Database
+        node: Database
+        occurrences:
+        - 1
+        - UNBOUNDED
+data_types:
+  acme.datatypes.Location:
+    derived_from: tosca.datatypes.Root
+    description: 'A deployment location: region and/or availability zone.'
+    properties:
+      region:
+        type: string
+        required: false
+      availability_zone:
+        type: string
+        required: false
+topology_template:
+  node_templates:
+    docker_application:
+      type: ContainerWithDatabase
+      requirements:
+      - host: docker_engine
+      - database_connection: bdd_postgresql
+    docker_engine:
+      type: RuntimeForContainer
+      capabilities:
+        host: {}
+      requirements:
+      - host: vm_db_app
+    vm_db_app:
+      type: Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_db_app
+            num_cpus: 8
+            mem_size: 32 GB
+            disk_size: 100 GB
+        os:
+          properties:
+            architecture: x86_64
+            type: linux
+            distribution: Ubuntu
+            version: 22.04.0
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+        endpoint:
+          properties:
+            protocol: tcp
+    postgresql_dbms:
+      type: DBMS
+      properties:
+        root_password: kjih589Y
+        port: 5432
+      capabilities:
+        host:
+          properties:
+            name: postgresql_dbms
+            num_cpus: 1
+            mem_size: 2 GB
+            disk_size: 50 GB
+    bdd_postgresql:
+      type: Database
+      properties:
+        name: bdd_postgresql
+        port: 5432
+        user: admin_user
+        password: dljgpzi87
+      requirements:
+      - host: postgresql_dbms
+  policies:
+  - budget:
+      type: acme.policies.Cost
+      properties:
+        max_cost: 398.0
+        currency: USD
+      targets:
+      - vm_db_app
+      - postgresql_dbms
+  - end_to_end_availability:
+      type: acme.policies.Availability
+      properties:
+        availability: 99.8001
+      targets:
+      - vm_db_app
+      - postgresql_dbms
+policy_types:
+  acme.policies.Cost:
+    derived_from: tosca.policies.Root
+    description: Monthly budget of the targets (sum of their prices).
+    properties:
+      max_cost:
+        type: float
+        required: true
+      currency:
+        type: string
+        default: USD
+  acme.policies.Availability:
+    derived_from: tosca.policies.Performance
+    description: End-to-end availability of the targets (product, percent).
+    properties:
+      availability:
+        type: float
+        required: true

@@ -1,0 +1,6 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case C3-24, derived from C3 request 24. Cloud services: vm_host (virtual machine).'
+topology_template:
+  node_templates:
+    vm_host:
+      type: tosca.nodes.Compute

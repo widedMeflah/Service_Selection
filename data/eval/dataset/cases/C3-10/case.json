@@ -1,0 +1,40 @@
+{
+ "id": "C3-10",
+ "family": "C3",
+ "source": "C3 request 10",
+ "request_form": "Complete SERVICE Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [
+  "node app_network (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node app_storage_prod (StorageForContainer) removed: outside the scope (virtual machines, databases)"
+ ],
+ "services": [
+  "vm_db_app"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [],
+  "n_compositions": 14,
+  "n_compositions_oracle": 10,
+  "front": [
+   {
+    "cost_cents": 19564,
+    "availability": 99.9
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 19564,
+   "availability": 99.9,
+   "availability_published": true,
+   "composition_example": {
+    "vm_db_app": "gcp-e2-standard-8@us-central1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "Architecture for a Docker application running on a Docker Engine hosted on a virtual machine, connecting to a MySQL database, an IPv4 network, and an object storage."
+}

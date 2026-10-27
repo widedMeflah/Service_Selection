@@ -1,0 +1,48 @@
+[
+ {
+  "id": "virtual_network_azure_eastus",
+  "node": "vm_tomcat",
+  "service": "compute",
+  "provider": "azure",
+  "region": "eastus",
+  "name": "Virtual network",
+  "quote": "When you create no virtual machine (VM), you create a virtual network or use an existing one.",
+  "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
+  "properties": {
+   "region": "{region}"
+  },
+  "settings": {},
+  "attached_to": null,
+  "origin": "annotation"
+ },
+ {
+  "id": "subnet_azure_eastus",
+  "node": "vm_tomcat",
+  "service": "compute",
+  "provider": "azure",
+  "region": "eastus",
+  "name": "Subnet",
+  "quote": "Each NIC in a VM is connected to one subnet in one virtual network.",
+  "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
+  "properties": {},
+  "settings": {},
+  "attached_to": "virtual_network_azure_eastus",
+  "origin": "annotation"
+ },
+ {
+  "id": "network_interface_azure_eastus",
+  "node": "vm_tomcat",
+  "service": "compute",
+  "provider": "azure",
+  "region": "eastus",
+  "name": "Network interface",
+  "quote": "A virtual machine must have at least one NIC.",
+  "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
+  "properties": {
+   "region": "{region}"
+  },
+  "settings": {},
+  "attached_to": "subnet_azure_eastus",
+  "origin": "annotation"
+ }
+]

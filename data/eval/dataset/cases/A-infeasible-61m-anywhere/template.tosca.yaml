@@ -1,0 +1,91 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case A-infeasible-61m-anywhere, derived from C3 request 61 (managed database). Cloud services:
+  mysql_dbms_primary (managed database), mysql_dbms_secondary (managed database). Software components hosted on
+  them: mysql_db.'
+data_types:
+  acme.datatypes.Location:
+    derived_from: tosca.datatypes.Root
+    description: 'A deployment location: region and/or availability zone.'
+    properties:
+      region:
+        type: string
+        required: false
+      availability_zone:
+        type: string
+        required: false
+policy_types:
+  acme.policies.Redundancy:
+    derived_from: tosca.policies.Root
+    description: 'The targets are replicas of one another (e.g. a primary and its standby): the group is available
+      when one of them is.'
+  acme.policies.Cost:
+    derived_from: tosca.policies.Root
+    description: Monthly budget of the targets (sum of their prices).
+    properties:
+      max_cost:
+        type: float
+        required: true
+      currency:
+        type: string
+        default: USD
+  acme.policies.Availability:
+    derived_from: tosca.policies.Performance
+    description: End-to-end availability of the targets (product, percent).
+    properties:
+      availability:
+        type: float
+        required: true
+topology_template:
+  node_templates:
+    mysql_dbms_primary:
+      type: DBMS
+      properties:
+        root_password: root_password
+        port: 3306
+      capabilities:
+        host:
+          properties:
+            name: mysql_dbms_primary
+            num_cpus: 2
+            mem_size: 4 GB
+    mysql_dbms_secondary:
+      type: DBMS
+      properties:
+        root_password: root_password
+        port: 3306
+      capabilities:
+        host:
+          properties:
+            name: mysql_dbms_secondary
+            num_cpus: 2
+            mem_size: 4 GB
+    mysql_db:
+      type: Database
+      properties:
+        name: mysql_db
+        port: 3306
+        user: db_user
+        password: db_password
+      requirements:
+      - host: mysql_dbms_primary
+  policies:
+  - replication:
+      type: acme.policies.Redundancy
+      targets:
+      - mysql_dbms_primary
+      - mysql_dbms_secondary
+  - budget:
+      type: acme.policies.Cost
+      properties:
+        max_cost: 296.09
+        currency: USD
+      targets:
+      - mysql_dbms_primary
+      - mysql_dbms_secondary
+  - end_to_end_availability:
+      type: acme.policies.Availability
+      properties:
+        availability: 99.9986
+      targets:
+      - mysql_dbms_primary
+      - mysql_dbms_secondary

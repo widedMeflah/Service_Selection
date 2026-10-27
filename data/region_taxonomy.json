@@ -1,0 +1,66 @@
+{
+ "europe": [
+  "eu-central-1",
+  "eu-west-1",
+  "eu-west-2",
+  "eu-west-3",
+  "europe-west1",
+  "europe-west2",
+  "europe-west3",
+  "europe-west4",
+  "europe-west9",
+  "francecentral",
+  "northeurope",
+  "uksouth",
+  "westeurope"
+ ],
+ "usa": [
+  "eastus",
+  "us-central1",
+  "us-east-1",
+  "us-east-2",
+  "us-east1",
+  "us-west-2",
+  "us-west1",
+  "westus2"
+ ],
+ "south_america": [
+  "sa-east-1"
+ ],
+ "france": [
+  "eu-west-3",
+  "europe-west9",
+  "francecentral"
+ ],
+ "uk": [
+  "eu-west-2",
+  "europe-west2",
+  "uksouth"
+ ],
+ "germany": [
+  "eu-central-1",
+  "europe-west3"
+ ],
+ "ireland": [
+  "eu-west-1",
+  "northeurope"
+ ],
+ "netherlands": [
+  "europe-west4",
+  "westeurope"
+ ],
+ "belgium": [
+  "europe-west1"
+ ],
+ "brazil": [
+  "sa-east-1"
+ ],
+ "global": [
+  "global"
+ ],
+ "london": [
+  "eu-west-2",
+  "europe-west2",
+  "uksouth"
+ ]
+}

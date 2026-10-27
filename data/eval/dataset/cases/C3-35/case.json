@@ -1,0 +1,44 @@
+{
+ "id": "C3-35",
+ "family": "C3",
+ "source": "C3 request 35",
+ "request_form": "Incomplete SERVICE Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [
+  "node global_net (Network) removed: outside the scope (virtual machines, databases)",
+  "node vm_eu: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node vm_us: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "policy latency_policy_1 removed: no latency in the catalogs"
+ ],
+ "services": [
+  "vm_eu",
+  "vm_us"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [],
+  "n_compositions": 64,
+  "n_compositions_oracle": 1,
+  "front": [
+   {
+    "cost_cents": 13286,
+    "availability": 99.0025
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 13286,
+   "availability": 99.0025,
+   "availability_published": true,
+   "composition_example": {
+    "vm_eu": "aws-m5a.large@eu-west-1",
+    "vm_us": "aws-m5a.large@us-east-1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "Architecture consisting of two virtual machines (vm_eu and vm_us) running Linux, each with 2 CPUs, 4 GB RAM, and 50 GB disk. Both machines are connected to the same network (global_net) to enable connectivity between them."
+}

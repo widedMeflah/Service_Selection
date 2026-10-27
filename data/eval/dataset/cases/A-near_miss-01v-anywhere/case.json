@@ -1,0 +1,48 @@
+{
+ "id": "A-near_miss-01v-anywhere",
+ "family": "A",
+ "kind": "near_miss",
+ "source": "C3 request 01 (as interpreted)",
+ "location": "anywhere",
+ "rq": [
+  "RQ1",
+  "RQ2"
+ ],
+ "note": "budget exactly equal to the cheapest feasible composition: no negotiation expected",
+ "cleaning": [
+  "node internal_net (Network) removed: outside the scope (virtual machines, databases)",
+  "node vm_alien: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node vm_elasticsearch: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)"
+ ],
+ "services": [
+  "vm_alien",
+  "vm_elasticsearch"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [
+   "budget",
+   "end_to_end_availability"
+  ],
+  "n_compositions": 5184,
+  "n_compositions_oracle": 225,
+  "front": [
+   {
+    "cost_cents": 19564,
+    "availability": 99.8001
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 19564,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "vm_alien": "gcp-e2-standard-4@us-central1",
+    "vm_elasticsearch": "gcp-e2-standard-4@us-central1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "Architecture for a Java application 'Alien' deployed as a self-contained .war file with an embedded Tomcat server. The application connects to Elasticsearch, both hosted on separate virtual machines connected to the same IPv4 network."
+}

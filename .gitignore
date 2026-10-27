@@ -1,0 +1,17 @@
+# secrets
+.env
+*.key
+# local state and caches
+.models/
+__pycache__/
+*.pyc
+.venv/
+# raw run logs (only per-case results are published in results/)
+runs/
+# local data that must not be published
+data/memory.json
+data/url_proposals.json
+data/doc_urls_validated.json
+data/doc_whitelist_validated.json
+data/best_practices_check.json
+.pytest_cache/

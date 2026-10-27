@@ -1,0 +1,20 @@
+{
+ "id": "S01",
+ "kind": "quote_removed",
+ "service": "database_postgresql",
+ "provider": "aws",
+ "resource": "DB subnet group",
+ "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+ "find": "Your VPC must have a DB subnet group that you create.",
+ "replace": "",
+ "family": "S",
+ "rq": [
+  "QR3"
+ ],
+ "quotes_touched": [
+  "DB subnet group"
+ ],
+ "expected_status": "changed",
+ "expected_update": "re-extraction; every quote of the new memory entry is found word for word in the edited page",
+ "expected_resources": null
+}

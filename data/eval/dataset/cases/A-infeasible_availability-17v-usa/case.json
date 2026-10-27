@@ -1,0 +1,69 @@
+{
+ "id": "A-infeasible_availability-17v-usa",
+ "family": "A",
+ "kind": "infeasible_availability",
+ "source": "C3 request 17 (as interpreted)",
+ "location": "usa",
+ "rq": [
+  "RQ1",
+  "RQ2"
+ ],
+ "note": "availability above the most available composition",
+ "cleaning": [],
+ "services": [
+  "vm_web",
+  "vm_db"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [
+   "end_to_end_availability"
+  ],
+  "n_compositions": 174,
+  "n_compositions_oracle": 6,
+  "front": [],
+  "signal": "infeasible",
+  "mcs": [
+   [
+    "end_to_end_availability"
+   ]
+  ],
+  "relaxations": [
+   {
+    "mcs": [
+     "end_to_end_availability"
+    ],
+    "changes": [
+     {
+      "constraint": "end_to_end_availability",
+      "criterion": "availability",
+      "from": 99.8501,
+      "to": 99.8001
+     }
+    ],
+    "cost_cents": 29346,
+    "availability": 99.8001,
+    "availability_published": true,
+    "composition": {
+     "vm_web": "gcp-e2-standard-4@us-central1",
+     "vm_db": "gcp-e2-standard-8@us-central1"
+    }
+   }
+  ],
+  "expected_relaxation": [
+   "end_to_end_availability"
+  ],
+  "after_relaxation_front_size": 1,
+  "expected": {
+   "cost_cents": 29346,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "vm_web": "gcp-e2-standard-4@us-central1",
+    "vm_db": "gcp-e2-standard-8@us-central1"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "request_description": "A web application architecture consisting of a web application running on an Apache web server hosted on a virtual machine, connected to a MySQL database hosted on a MySQL DBMS running on another virtual machine."
+}

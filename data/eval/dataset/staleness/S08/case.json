@@ -1,0 +1,22 @@
+{
+ "id": "S08",
+ "kind": "layout",
+ "service": "database_postgresql",
+ "provider": "gcp",
+ "resource": "Service Networking API",
+ "url": "https://docs.cloud.google.com/sql/docs/postgres/configure-private-services-access",
+ "find": "If you are creating a private IP instance in a new or empty project, then\nyou must first enable the Service Networking API.",
+ "replace": "If  you  are  creating  a  private  IP  instance  in  a  new  or  empty  project,  then\nyou  must  first  enable  the  Service  Networking  API.",
+ "family": "S",
+ "rq": [
+  "QR3"
+ ],
+ "quotes_touched": [],
+ "expected_status": "reused",
+ "expected_update": null,
+ "expected_resources": [
+  "VPC network",
+  "Allocated IP address range",
+  "Private services access connection"
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "id": "C-B-aws-mysql-vm-control",
+ "family": "C",
+ "from": "B-aws-mysql-vm",
+ "mutation": "none",
+ "rq": [
+  "QR4"
+ ],
+ "expected_failures": [],
+ "verifier_agrees": true
+}

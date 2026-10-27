@@ -1,0 +1,49 @@
+{
+ "id": "A-near_miss-12v-usa",
+ "family": "A",
+ "kind": "near_miss",
+ "source": "C3 request 12 (as interpreted)",
+ "location": "usa",
+ "rq": [
+  "RQ1",
+  "RQ2"
+ ],
+ "note": "budget exactly equal to the cheapest feasible composition: no negotiation expected",
+ "cleaning": [
+  "node bloc_storage_vm_container (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node container_net (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node data_store (StorageForContainer) removed: outside the scope (virtual machines, databases)",
+  "node vm_container: type computeWithblocNetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)"
+ ],
+ "services": [
+  "vm_container",
+  "vm_database"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [
+   "budget",
+   "end_to_end_availability"
+  ],
+  "n_compositions": 2304,
+  "n_compositions_oracle": 9,
+  "front": [
+   {
+    "cost_cents": 9782,
+    "availability": 99.8001
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 9782,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "vm_container": "gcp-e2-standard-2@us-central1",
+    "vm_database": "gcp-e2-standard-2@us-central1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "A containerized application architecture consisting of a Docker Engine hosted on a virtual machine, an object storage, a network, and a MySQL database hosted on another virtual machine. The containerized application connects to the object storage and network, and also interacts with the MySQL database."
+}

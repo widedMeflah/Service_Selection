@@ -1,0 +1,148 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case B-azure-postgresql-private, derived from C3 request 58 (managed database). Cloud services:
+  postgresql_dbms (managed database). Software components hosted on them: postgres_db.'
+data_types:
+  acme.datatypes.Location:
+    derived_from: tosca.datatypes.Root
+    description: 'A deployment location: region and/or availability zone.'
+    properties:
+      region:
+        type: string
+        required: false
+      availability_zone:
+        type: string
+        required: false
+policy_types:
+  acme.policies.Placement:
+    derived_from: tosca.policies.Placement
+    description: Geographic placement constraint (region and/or availability zone).
+    properties:
+      locations:
+        type: list
+        required: true
+        entry_schema:
+          type: acme.datatypes.Location
+      distribution:
+        type: string
+        default: multi_region
+        constraints:
+        - valid_values:
+          - single_region
+          - multi_region
+  acme.policies.Availability:
+    derived_from: tosca.policies.Performance
+    description: Service-level availability target (percent).
+    properties:
+      availability:
+        type: float
+        required: true
+        constraints:
+        - in_range:
+          - 0.0
+          - 100.0
+  acme.policies.Exposure:
+    derived_from: tosca.policies.Root
+    description: Whether the targets may be reachable from the Internet.
+    properties:
+      public:
+        type: boolean
+        required: true
+topology_template:
+  node_templates:
+    postgresql_dbms:
+      type: DBMS
+      properties:
+        root_password: root_password123
+        port: 5432
+      capabilities:
+        host:
+          properties:
+            num_cpus: 2
+            mem_size: 8 GB
+      requirements:
+      - dependency: virtual_network_azure_eastus
+      - dependency: delegated_subnet_azure_eastus
+      - dependency: private_dns_zone_azure_eastus
+      - dependency: private_dns_zone_virtual_network_link_azure_eastus
+    postgres_db:
+      type: Database
+      properties:
+        name: postgres_db
+        port: 5432
+        user: db_admin
+        password: secure_password123
+      requirements:
+      - host: postgresql_dbms
+    virtual_network_azure_eastus:
+      type: tosca.nodes.network.Network
+      metadata:
+        dependent_resource: true
+        provider: azure
+        region: eastus
+        source: https://techcommunity.microsoft.com/blog/azurenetworkingblog/virtual-network-basics
+        quote: Your virtual network must be in the same Azure region as your Azure Database for PostgreSQL flexible
+          server.
+        policy_properties:
+          region: eastus
+        settings: {}
+        required_by:
+        - postgresql_dbms
+    delegated_subnet_azure_eastus:
+      type: tosca.nodes.network.Network
+      metadata:
+        dependent_resource: true
+        provider: azure
+        region: eastus
+        source: https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-private
+        quote: Your Azure Database for PostgreSQL flexible server that's integrated in a virtual network must be
+          in a subnet that's
+        settings: {}
+        required_by:
+        - postgresql_dbms
+      requirements:
+      - dependency: virtual_network_azure_eastus
+    private_dns_zone_azure_eastus:
+      type: tosca.nodes.Root
+      metadata:
+        dependent_resource: true
+        provider: azure
+        region: eastus
+        source: https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-private
+        quote: you need to use Private DNS zones while configuring Azure Database for PostgreSQL flexible server
+          with private access
+        settings: {}
+        required_by:
+        - postgresql_dbms
+    private_dns_zone_virtual_network_link_azure_eastus:
+      type: tosca.nodes.Root
+      metadata:
+        dependent_resource: true
+        provider: azure
+        region: eastus
+        source: https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-private
+        quote: After you create a Private DNS zone in Azure, you need to link a virtual network to it.
+        settings: {}
+        required_by:
+        - postgresql_dbms
+      requirements:
+      - dependency: private_dns_zone_azure_eastus
+  policies:
+  - availability_policy_1:
+      type: acme.policies.Availability
+      targets:
+      - postgres_db
+      properties:
+        availability: 99.9
+  - placement_all:
+      type: acme.policies.Placement
+      properties:
+        locations:
+        - region: eastus
+      targets:
+      - postgresql_dbms
+  - private_database:
+      type: acme.policies.Exposure
+      properties:
+        public: false
+      targets:
+      - postgresql_dbms

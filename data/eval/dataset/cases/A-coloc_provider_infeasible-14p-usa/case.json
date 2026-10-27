@@ -1,0 +1,99 @@
+{
+ "id": "A-coloc_provider_infeasible-14p-usa",
+ "family": "A",
+ "kind": "coloc_provider_infeasible",
+ "source": "C3 request 14 (managed PostgreSQL database)",
+ "location": "usa",
+ "rq": [
+  "RQ1",
+  "RQ2"
+ ],
+ "note": "budget equal to the cheapest composition, reachable only across providers: relaxing either the budget or the same-provider constraint restores feasibility",
+ "cleaning": [
+  "node MySQL_DBMS: managed database (host vm_app removed)",
+  "node MySQL_DBMS: size of vm_app kept for the managed database (2 CPU, 4 GB)",
+  "MySQL DBMS replaced by a PostgreSQL DBMS (engine variant): the databases it hosts and the MySQL software components are renamed"
+ ],
+ "services": [
+  "vm_web",
+  "vm_app",
+  "postgresql_DBMS"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [
+   "same_provider",
+   "budget"
+  ],
+  "n_compositions": 25344,
+  "n_compositions_oracle": 45,
+  "front": [],
+  "signal": "infeasible",
+  "mcs": [
+   [
+    "same_provider"
+   ],
+   [
+    "budget"
+   ]
+  ],
+  "relaxations": [
+   {
+    "mcs": [
+     "same_provider"
+    ],
+    "changes": [
+     {
+      "constraint": "same_provider",
+      "removed": true
+     }
+    ],
+    "cost_cents": 14382,
+    "availability": 99.7002999,
+    "availability_published": true,
+    "composition": {
+     "vm_web": "gcp-e2-standard-2@us-central1",
+     "vm_app": "gcp-e2-standard-2@us-central1",
+     "postgresql_DBMS": "azure-pgflex-burstable-b2ms-eastus"
+    }
+   },
+   {
+    "mcs": [
+     "budget"
+    ],
+    "changes": [
+     {
+      "constraint": "budget",
+      "criterion": "cost",
+      "from": 143.82,
+      "to": 171.56
+     }
+    ],
+    "cost_cents": 17156,
+    "availability": 99.7002999,
+    "availability_published": true,
+    "composition": {
+     "vm_web": "azure-D2as_v5@eastus",
+     "vm_app": "azure-D2as_v5@eastus",
+     "postgresql_DBMS": "azure-pgflex-burstable-b2ms-eastus"
+    }
+   }
+  ],
+  "expected_relaxation": [
+   "same_provider"
+  ],
+  "after_relaxation_front_size": 1,
+  "expected": {
+   "cost_cents": 14382,
+   "availability": 99.7002999,
+   "availability_published": true,
+   "composition_example": {
+    "vm_web": "gcp-e2-standard-2@us-central1",
+    "vm_app": "gcp-e2-standard-2@us-central1",
+    "postgresql_DBMS": "azure-pgflex-burstable-b2ms-eastus"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "request_description": "A web application architecture consisting of an Angular frontend and a Spring Boot backend. The Angular frontend runs on an Nginx web server hosted on a virtual machine, while the Spring Boot backend runs on a Tomcat web server hosted on another virtual machine. The backend connects to a PostgreSQL DBMS managing a PostgreSQL database, both hosted on the same virtual machine as the backend. The frontend connects to the backend for data interaction."
+}

@@ -1,0 +1,127 @@
+{
+ "id": "B-azure-postgresql-vm",
+ "family": "B",
+ "kind": "completion",
+ "provider": "azure",
+ "region": "eastus",
+ "source": "C3 request 11 (managed PostgreSQL database)",
+ "rq": [
+  "RQ3",
+  "RQ4",
+  "RQ5"
+ ],
+ "note": "fixed composition (one candidate per node): evaluates the completion",
+ "cleaning": [
+  "node bloc_storage_db (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node bloc_storage_docker (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node network_container (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node network_db (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node network_docker (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node object_store (StorageForContainer) removed: outside the scope (virtual machines, databases)",
+  "node vm_docker: type computeWithblocNetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node vm_db: type computeWithblocNetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node mysql_dbms: managed database (host vm_db removed)",
+  "node mysql_dbms: size of vm_db kept for the managed database (2 CPU, 4 GB)",
+  "node vm_db removed: it only hosted mysql_dbms",
+  "MySQL DBMS replaced by a PostgreSQL DBMS (engine variant): the databases it hosts and the MySQL software components are renamed"
+ ],
+ "services": [
+  "vm_docker",
+  "postgresql_dbms"
+ ],
+ "completion_services": [
+  {
+   "node": "vm_docker",
+   "provider": "azure",
+   "service": "compute",
+   "region": "eastus"
+  },
+  {
+   "node": "postgresql_dbms",
+   "provider": "azure",
+   "service": "database_postgresql",
+   "region": "eastus"
+  }
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [],
+  "n_compositions": 1,
+  "n_compositions_oracle": 1,
+  "front": [
+   {
+    "cost_cents": 10878,
+    "availability": 99.8001
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 10878,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "vm_docker": "azure-D2as_v5@eastus",
+    "postgresql_dbms": "azure-pgflex-burstable-b2ms-eastus"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "dependent_resources_gt": {
+  "vm_docker": [
+   {
+    "name": "Virtual network",
+    "aliases": [
+     "VNet",
+     "Azure Virtual Network"
+    ],
+    "attached_to": null
+   },
+   {
+    "name": "Subnet",
+    "aliases": [],
+    "attached_to": "Virtual network"
+   },
+   {
+    "name": "Network interface",
+    "aliases": [
+     "NIC",
+     "Network interface card"
+    ],
+    "attached_to": "Subnet"
+   }
+  ],
+  "postgresql_dbms": [
+   {
+    "name": "Virtual network",
+    "aliases": [
+     "VNet",
+     "Azure Virtual Network"
+    ],
+    "attached_to": null
+   },
+   {
+    "name": "Delegated subnet",
+    "aliases": [
+     "Subnet"
+    ],
+    "attached_to": "Virtual network"
+   },
+   {
+    "name": "Private DNS zone",
+    "aliases": [
+     "Private DNS"
+    ],
+    "attached_to": null
+   },
+   {
+    "name": "Private DNS zone virtual network link",
+    "aliases": [
+     "Virtual network link",
+     "DNS zone link"
+    ],
+    "attached_to": "Private DNS zone"
+   }
+  ]
+ },
+ "request_description": "A Docker-based architecture where the application 'app_container' runs on a Docker Engine hosted on a virtual machine 'vm_docker'. The application connects to an object storage 'object_store' and a PostgreSQL database 'db_app', which is hosted on a PostgreSQL DBMS 'PostgreSQL_dbms' running on another virtual machine 'vm_db'."
+}

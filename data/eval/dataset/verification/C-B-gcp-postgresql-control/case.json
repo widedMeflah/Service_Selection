@@ -1,0 +1,11 @@
+{
+ "id": "C-B-gcp-postgresql-control",
+ "family": "C",
+ "from": "B-gcp-postgresql",
+ "mutation": "none",
+ "rq": [
+  "QR4"
+ ],
+ "expected_failures": [],
+ "verifier_agrees": true
+}

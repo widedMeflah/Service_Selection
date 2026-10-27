@@ -1,0 +1,91 @@
+{
+ "id": "A-infeasible_both-11m-anywhere",
+ "family": "A",
+ "kind": "infeasible_both",
+ "source": "C3 request 11 (managed database)",
+ "location": "anywhere",
+ "rq": [
+  "RQ1",
+  "RQ2"
+ ],
+ "note": "both bounds unreachable: the minimal correction set holds both constraints",
+ "cleaning": [
+  "node bloc_storage_db (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node bloc_storage_docker (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node network_container (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node network_db (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node network_docker (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node object_store (StorageForContainer) removed: outside the scope (virtual machines, databases)",
+  "node vm_docker: type computeWithblocNetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node vm_db: type computeWithblocNetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node mysql_dbms: managed database (host vm_db removed)",
+  "node mysql_dbms: size of vm_db kept for the managed database (2 CPU, 4 GB)",
+  "node vm_db removed: it only hosted mysql_dbms"
+ ],
+ "services": [
+  "vm_docker",
+  "mysql_dbms"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [
+   "budget",
+   "end_to_end_availability"
+  ],
+  "n_compositions": 484,
+  "n_compositions_oracle": 45,
+  "front": [],
+  "signal": "infeasible",
+  "mcs": [
+   [
+    "budget",
+    "end_to_end_availability"
+   ]
+  ],
+  "relaxations": [
+   {
+    "mcs": [
+     "budget",
+     "end_to_end_availability"
+    ],
+    "changes": [
+     {
+      "constraint": "budget",
+      "criterion": "cost",
+      "from": 160.97,
+      "to": 178.85
+     },
+     {
+      "constraint": "end_to_end_availability",
+      "criterion": "availability",
+      "from": 99.9,
+      "to": 99.4005
+     }
+    ],
+    "cost_cents": 17885,
+    "availability": 99.4005,
+    "availability_published": true,
+    "composition": {
+     "vm_docker": "gcp-e2-standard-2@us-central1",
+     "mysql_dbms": "aws-rds-mysql-m5.large-us-east-1"
+    }
+   }
+  ],
+  "expected_relaxation": [
+   "budget",
+   "end_to_end_availability"
+  ],
+  "after_relaxation_front_size": 1,
+  "expected": {
+   "cost_cents": 17885,
+   "availability": 99.4005,
+   "availability_published": true,
+   "composition_example": {
+    "vm_docker": "gcp-e2-standard-2@us-central1",
+    "mysql_dbms": "aws-rds-mysql-m5.large-us-east-1"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "request_description": "A Docker-based architecture where the application 'app_container' runs on a Docker Engine hosted on a virtual machine 'vm_docker'. The application connects to an object storage 'object_store' and a MySQL database 'db_app', which is hosted on a MySQL DBMS 'mysql_dbms' running on another virtual machine 'vm_db'."
+}

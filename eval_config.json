@@ -1,0 +1,38 @@
+{
+ "_comment": "LLMs of the evaluation: names of src/llm.py (LLM_CONFIGS) or provider:model.",
+ "extraction_llms": [
+  "mistral-large-2512",
+  "Gemini_flash",
+  "Claude_sonnet"
+ ],
+ "_single_llm": "our approach with this LLM only (no vote): the comparison with the baselines at the same LLM",
+ "single_llm": "mistral-large-2512",
+ "negotiation_llm": "mistral-large-2512",
+ "_user": "simulated user: an LLM of another family than the negotiation LLM (evaluation sheet), every answer logged with the choice expected from the proposal of the solver; or \"deterministic\" (reads the proposal of the solver)",
+ "user": "Claude_haiku",
+ "baseline_llms": [
+  "mistral-large-2512"
+ ],
+ "baselines": [
+  "single-shot",
+  "cot",
+  "rag",
+  "self-refine"
+ ],
+ "react_llms": [
+  "mistral-large-2512"
+ ],
+ "_reference": "strong LLMs alone, with the reference methods only",
+ "reference_llms": [
+  "Claude_sonnet",
+  "Gemini_pro"
+ ],
+ "reference_methods": [
+  "single-shot"
+ ],
+ "minimal_llm": "mistral-large-2512",
+ "reconfigure_llm": "mistral-large-2512",
+ "runs_of_our_approach": 3,
+ "max_rounds": 3,
+ "verification_rounds": 3
+}

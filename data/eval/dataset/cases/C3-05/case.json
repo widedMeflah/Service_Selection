@@ -1,0 +1,39 @@
+{
+ "id": "C3-05",
+ "family": "C3",
+ "source": "C3 request 05",
+ "request_form": "Incomplete SERVICE Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [
+  "node haproxy (LoadBalancer) removed: outside the scope (virtual machines, databases)"
+ ],
+ "services": [
+  "vm_tomcat"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [],
+  "n_compositions": 72,
+  "n_compositions_oracle": 15,
+  "front": [
+   {
+    "cost_cents": 9782,
+    "availability": 99.9
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 9782,
+   "availability": 99.9,
+   "availability_published": true,
+   "composition_example": {
+    "vm_tomcat": "gcp-e2-standard-4@us-central1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "A web application architecture consisting of a Java application running on Apache Tomcat, hosted on a virtual machine with Linux and Oracle JDK. The application is fronted by an HAProxy load balancer using a layer4 algorithm."
+}

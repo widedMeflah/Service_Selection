@@ -1,0 +1,39 @@
+{
+ "id": "C3-16",
+ "family": "C3",
+ "source": "C3 request 16",
+ "request_form": "Complete SERVICE Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [],
+ "services": [
+  "vm_apache",
+  "vm_mysql"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [],
+  "n_compositions": 1008,
+  "n_compositions_oracle": 150,
+  "front": [
+   {
+    "cost_cents": 29346,
+    "availability": 99.8001
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 29346,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "vm_apache": "gcp-e2-standard-4@us-central1",
+    "vm_mysql": "gcp-e2-standard-8@us-central1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "A web application architecture consisting of a web application running on an Apache web server hosted on a virtual machine, connected to a MySQL database. The database is managed by a MySQL DBMS hosted on another virtual machine."
+}

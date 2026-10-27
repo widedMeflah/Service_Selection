@@ -1,0 +1,99 @@
+{
+ "description": "Official documentation pages known for each service, initialized by hand for common services (virtual machines and managed databases of AWS, Azure, and Google Cloud). A service is identified by its name (offer type, and engine for a database) and its provider. URLs validated by an expert at run time are kept in doc_urls_validated.json.",
+ "official_domains": {
+  "aws": [
+   "docs.aws.amazon.com"
+  ],
+  "azure": [
+   "learn.microsoft.com"
+  ],
+  "gcp": [
+   "cloud.google.com",
+   "docs.cloud.google.com"
+  ]
+ },
+ "sources": [
+  {
+   "service": "compute",
+   "provider": "aws",
+   "urls": [
+    "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-networking.html",
+    "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html"
+   ]
+  },
+  {
+   "service": "compute",
+   "provider": "azure",
+   "urls": [
+    "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview"
+   ]
+  },
+  {
+   "service": "compute",
+   "provider": "gcp",
+   "urls": [
+    "https://docs.cloud.google.com/compute/docs/networking/network-overview"
+   ]
+  },
+  {
+   "service": "database_postgresql",
+   "provider": "aws",
+   "urls": [
+    "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+    "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.html"
+   ]
+  },
+  {
+   "service": "database_mysql",
+   "provider": "aws",
+   "urls": [
+    "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+    "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.html"
+   ]
+  },
+  {
+   "service": "database_postgresql",
+   "provider": "azure",
+   "urls": [
+    "https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-private"
+   ]
+  },
+  {
+   "service": "database_mysql",
+   "provider": "azure",
+   "urls": [
+    "https://learn.microsoft.com/en-us/azure/mysql/flexible-server/concepts-networking-vnet"
+   ]
+  },
+  {
+   "service": "database_postgresql",
+   "provider": "gcp",
+   "urls": [
+    "https://docs.cloud.google.com/sql/docs/postgres/configure-private-services-access"
+   ]
+  },
+  {
+   "service": "database_mysql",
+   "provider": "gcp",
+   "urls": [
+    "https://docs.cloud.google.com/sql/docs/mysql/configure-private-services-access"
+   ]
+  }
+ ],
+ "selection_rule": [
+  "For each service, 1 to 3 official pages of the documentation of that service itself: (1) the page that describes the network in which the service is deployed (VPC, subnet, virtual network, network interface); (2) the page that describes the network access control of the service (security group, network security group, firewall rules), when the documentation of the service has one.",
+  "Excluded: general overviews of another product (e.g., 'What is Amazon VPC' for Amazon EC2), tutorials, quickstarts, best practices, pricing pages, API references, and pages of optional features (e.g., key pairs).",
+  "The rule is applied to every service of the list at once; the list is frozen before the evaluation (copies made with snapshot_docs.py) and is not changed afterwards."
+ ],
+ "selected_on": "2026-10-17",
+ "removed": [
+  {
+   "url": "https://docs.cloud.google.com/sql/docs/postgres/configure-private-ip",
+   "reason": "HTTP 404 on 2026-10-17 (page moved or removed); the service keeps its other page"
+  },
+  {
+   "url": "https://docs.cloud.google.com/sql/docs/mysql/configure-private-ip",
+   "reason": "same main text as configure-private-services-access in the frozen copies of 2026-10-17 (identical fingerprint a2c1130f268b): the URL redirects to it; the service keeps that page"
+  }
+ ]
+}

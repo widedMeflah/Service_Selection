@@ -1,0 +1,37 @@
+{
+ "id": "C3-58",
+ "family": "C3",
+ "source": "C3 request 58",
+ "request_form": "Complete SERVICE Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [],
+ "services": [
+  "vm_postgres"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [],
+  "n_compositions": 1,
+  "n_compositions_oracle": 1,
+  "front": [
+   {
+    "cost_cents": 6278,
+    "availability": 99.9
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 6278,
+   "availability": 99.9,
+   "availability_published": true,
+   "composition_example": {
+    "vm_postgres": "azure-D2as_v5@eastus"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "This architecture models a PostgreSQL database hosted on a virtual machine. The database 'postgres_db' is managed by a PostgreSQL DBMS, which is installed on a Linux-based virtual machine named 'vm_postgres'. The virtual machine is configured with specific hardware resources and hosts the DBMS, which in turn manages the database with defined credentials and port settings."
+}

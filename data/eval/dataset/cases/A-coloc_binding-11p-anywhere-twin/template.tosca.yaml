@@ -1,0 +1,105 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case A-coloc_binding-11p-anywhere-twin, derived from C3 request 11 (managed PostgreSQL
+  database). Cloud services: vm_docker (virtual machine), postgresql_dbms (managed database). Software components
+  hosted on them: app_container, docker_engine, db_app.'
+node_types:
+  RuntimeForContainer:
+    derived_from: tosca.nodes.Container.Runtime
+    capabilities:
+      host:
+        type: tosca.capabilities.Compute
+  ContainerWithDatabase:
+    derived_from: tosca.nodes.Container.Application
+    requirements:
+    - database_connection:
+        capability: tosca.capabilities.Endpoint.Database
+        node: Database
+        occurrences:
+        - 1
+        - UNBOUNDED
+data_types:
+  acme.datatypes.Location:
+    derived_from: tosca.datatypes.Root
+    description: 'A deployment location: region and/or availability zone.'
+    properties:
+      region:
+        type: string
+        required: false
+      availability_zone:
+        type: string
+        required: false
+topology_template:
+  node_templates:
+    app_container:
+      type: ContainerWithDatabase
+      requirements:
+      - host: docker_engine
+      - database_connection: db_app
+    docker_engine:
+      type: RuntimeForContainer
+      capabilities:
+        host: {}
+      requirements:
+      - host: vm_docker
+    vm_docker:
+      type: tosca.nodes.Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_docker
+            num_cpus: 2
+            disk_size: 50 GB
+            mem_size: 4 GB
+        os:
+          properties:
+            type: Linux
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        binding: {}
+        endpoint:
+          properties:
+            protocol: tcp
+            secure: false
+    db_app:
+      type: Database
+      properties:
+        name: app_db
+        port: 5432
+        user: db_user
+        password: db_password
+      requirements:
+      - host: postgresql_dbms
+    postgresql_dbms:
+      type: DBMS
+      properties:
+        root_password: root_password
+        port: 5432
+      capabilities:
+        host:
+          properties:
+            name: postgresql_dbms
+            num_cpus: 2
+            mem_size: 4 GB
+  policies:
+  - same_provider:
+      type: acme.policies.Colocation
+      properties:
+        scope: provider
+      targets:
+      - vm_docker
+      - postgresql_dbms
+policy_types:
+  acme.policies.Colocation:
+    derived_from: tosca.policies.Placement
+    description: The targets share a region (logical location) or a provider.
+    properties:
+      scope:
+        type: string
+        required: true
+        constraints:
+        - valid_values:
+          - region
+          - provider

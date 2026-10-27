@@ -1,0 +1,18 @@
+{
+ "id": "C-B-aws-vm-source",
+ "family": "C",
+ "from": "B-aws-vm",
+ "mutation": "source of VPC replaced by https://repost.aws/knowledge-center/ec2-vpc-subnet-security-group",
+ "rq": [
+  "QR4"
+ ],
+ "expected_failures": [
+  {
+   "node": "vm_tomcat",
+   "resource": "VPC",
+   "verification": "anchoring",
+   "expected_action": "removed"
+  }
+ ],
+ "verifier_agrees": true
+}

@@ -1,0 +1,65 @@
+{
+ "id": "A-several-61p-usa",
+ "family": "A",
+ "kind": "several",
+ "source": "C3 request 61 (managed PostgreSQL database)",
+ "location": "usa",
+ "rq": [
+  "RQ1",
+  "RQ2"
+ ],
+ "note": "several non-dominated compositions satisfy the bounds; no priority stated",
+ "cleaning": [
+  "policy replication (Redundancy) added on vm_mysql_primary, vm_mysql_secondary: the request states \"Highly available MySQL database architecture with a primary and secondary virtual machine setup\"",
+  "node mysql_net (Network) removed: outside the scope (virtual machines, databases)",
+  "node vm_mysql_primary: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node vm_mysql_secondary: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node mysql_dbms_primary: managed database (host vm_mysql_primary removed)",
+  "node vm_mysql_primary removed: it only hosted mysql_dbms_primary",
+  "node mysql_dbms_secondary: managed database (host vm_mysql_secondary removed)",
+  "node vm_mysql_secondary removed: it only hosted mysql_dbms_secondary",
+  "MySQL DBMS replaced by a PostgreSQL DBMS (engine variant): the databases it hosts and the MySQL software components are renamed"
+ ],
+ "services": [
+  "postgresql_dbms_primary",
+  "postgresql_dbms_secondary"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [
+   "budget",
+   "end_to_end_availability"
+  ],
+  "n_compositions": 121,
+  "n_compositions_oracle": 25,
+  "redundancy_groups": [
+   [
+    "postgresql_dbms_primary",
+    "postgresql_dbms_secondary"
+   ]
+  ],
+  "front": [
+   {
+    "cost_cents": 9200,
+    "availability": 99.9999
+   },
+   {
+    "cost_cents": 24836,
+    "availability": 99.99995
+   }
+  ],
+  "signal": "several",
+  "expected": {
+   "cost_cents": 9200,
+   "availability": 99.9999,
+   "availability_published": true,
+   "composition_example": {
+    "postgresql_dbms_primary": "azure-pgflex-burstable-b2ms-eastus",
+    "postgresql_dbms_secondary": "azure-pgflex-burstable-b2ms-eastus"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "twin": "A-several-61p-usa-twin",
+ "request_description": "Highly available PostgreSQL database architecture with a primary and secondary virtual machine setup, synchronized over a dedicated network for data consistency and redundancy."
+}

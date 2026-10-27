@@ -1,0 +1,153 @@
+configuration,run,case,signal,priority,selection,valid,optimal_exact,optimal_relaxation
+Local selection,run1,C3-60,unique,cost,vm_mysql_primary=aws-m5a.large@eu-west-2; vm_mysql_standby=aws-m5a.large@eu-west-2,1,1,
+Local selection,run1,C3-61,infeasible,availability,vm_mysql_primary=gcp-e2-standard-2@us-central1; vm_mysql_secondary=gcp-e2-standard-2@us-central1,,,1
+Local selection,run1,A-unique-01v-anywhere,unique,cost,vm_alien=gcp-e2-standard-4@us-central1; vm_elasticsearch=gcp-e2-standard-4@us-central1,1,1,
+Local selection,run1,A-near_miss-01v-anywhere,unique,availability,vm_alien=gcp-e2-standard-4@us-central1; vm_elasticsearch=gcp-e2-standard-4@us-central1,1,1,
+Local selection,run1,A-unique-02v-anywhere,unique,cost,vm_app=gcp-e2-standard-2@us-central1; vm_search=gcp-e2-standard-2@us-central1,1,1,
+Local selection,run1,A-near_miss-02v-anywhere,unique,availability,vm_app=gcp-e2-standard-2@us-central1; vm_search=gcp-e2-standard-2@us-central1,1,1,
+Local selection,run1,A-unique-03v-anywhere,unique,cost,vm_app=gcp-e2-standard-2@us-central1; vm_search=gcp-e2-standard-4@us-central1,1,1,
+Local selection,run1,A-near_miss-03v-anywhere,unique,availability,vm_app=gcp-e2-standard-2@us-central1; vm_search=gcp-e2-standard-4@us-central1,1,1,
+Local selection,run1,A-infeasible_budget-04v-anywhere,infeasible,cost,vm_tomcat=gcp-e2-standard-4@us-central1; vm_haproxy=gcp-e2-standard-2@us-central1,,,1
+Local selection,run1,A-infeasible_availability-04v-anywhere,infeasible,availability,vm_tomcat=gcp-e2-standard-4@us-central1; vm_haproxy=gcp-e2-standard-2@us-central1,,,1
+Local selection,run1,A-unique-07v-anywhere,unique,cost,vm_app=gcp-e2-standard-2@us-central1; vm_db=gcp-e2-standard-4@us-central1,1,1,
+Local selection,run1,A-near_miss-07v-anywhere,unique,availability,vm_app=gcp-e2-standard-2@us-central1; vm_db=gcp-e2-standard-4@us-central1,1,1,
+Local selection,run1,A-several-07m-anywhere,several,cost,vm_app=gcp-e2-standard-2@us-central1; PostgreSQL_DBMS=aws-rds-postgresql-m5.xlarge-us-east-1,1,1,
+Local selection,run1,A-infeasible_budget-08v-anywhere,infeasible,cost,vm_nodejs=gcp-e2-standard-2@us-central1; vm_mongodb=gcp-e2-standard-2@us-central1,,,1
+Local selection,run1,A-infeasible_availability-08v-anywhere,infeasible,availability,vm_nodejs=gcp-e2-standard-2@us-central1; vm_mongodb=gcp-e2-standard-2@us-central1,,,1
+Local selection,run1,A-several-08m-anywhere,several,cost,vm_nodejs=gcp-e2-standard-2@us-central1; DBMS_PostgreSQL=azure-pgflex-burstable-b2ms-eastus; vm_mongodb=gcp-e2-standard-2@us-central1,1,1,
+Local selection,run1,A-several-08m-anywhere-v2,several,availability,vm_nodejs=gcp-e2-standard-2@us-central1; DBMS_PostgreSQL=azure-pgflex-gp-d2ds_v6-eastus-zrha; vm_mongodb=gcp-e2-standard-2@us-central1,1,1,
+Local selection,run1,A-infeasible_budget-09v-anywhere,infeasible,cost,vm_app=gcp-e2-standard-2@us-central1; vm_db=gcp-e2-standard-8@us-central1,,,1
+Local selection,run1,A-infeasible_availability-09v-anywhere,infeasible,availability,vm_app=gcp-e2-standard-2@us-central1; vm_db=gcp-e2-standard-8@us-central1,,,1
+Local selection,run1,A-several-10m-anywhere,several,cost,vm_db_app=gcp-e2-standard-8@us-central1; mysql_dbms=aws-rds-mysql-m5.large-us-east-1,1,1,
+Local selection,run1,A-several-10p-anywhere,several,cost,vm_db_app=gcp-e2-standard-8@us-central1; postgresql_dbms=azure-pgflex-burstable-b2ms-eastus,1,1,
+Local selection,run1,A-infeasible_both-10p-anywhere,infeasible,availability,vm_db_app=gcp-e2-standard-8@us-central1; postgresql_dbms=azure-pgflex-gp-d2ds_v6-eastus-zrha,,,0
+Local selection,run1,A-infeasible_both-11v-anywhere,infeasible,cost,vm_docker=gcp-e2-standard-2@us-central1; vm_db=gcp-e2-standard-2@us-central1,,,1
+Local selection,run1,A-unique-11v-usa,unique,availability,vm_docker=gcp-e2-standard-2@us-central1; vm_db=gcp-e2-standard-2@us-central1,1,1,
+Local selection,run1,A-infeasible_both-11m-anywhere,infeasible,cost,vm_docker=gcp-e2-standard-2@us-central1; mysql_dbms=aws-rds-mysql-m5.large-us-east-1,,,1
+Local selection,run1,A-infeasible-11m-anywhere,infeasible,availability,vm_docker=gcp-e2-standard-2@us-central1; mysql_dbms=gcp-cloudsql-mysql-2v8-us-central1-ha,,,1
+Local selection,run1,A-infeasible-11p-anywhere,infeasible,cost,vm_docker=gcp-e2-standard-2@us-central1; postgresql_dbms=azure-pgflex-burstable-b2ms-eastus,,,1
+Local selection,run1,A-coloc_binding-11p-anywhere,several,availability,vm_docker=gcp-e2-standard-2@us-central1; postgresql_dbms=azure-pgflex-gp-d2ds_v6-eastus-zrha,0,0,
+Local selection,run1,A-near_miss-12v-usa,unique,cost,vm_container=gcp-e2-standard-2@us-central1; vm_database=gcp-e2-standard-2@us-central1,1,1,
+Local selection,run1,A-infeasible_budget-12v-usa,infeasible,availability,vm_container=gcp-e2-standard-2@us-central1; vm_database=gcp-e2-standard-2@us-central1,,,1
+Local selection,run1,A-coloc_binding-12m-anywhere,several,cost,vm_container=gcp-e2-standard-2@us-central1; mysql_dbms=aws-rds-mysql-m5.large-us-east-1,0,0,
+Local selection,run1,A-coloc_provider_infeasible-12m-anywhere,infeasible,availability,vm_container=gcp-e2-standard-2@us-central1; mysql_dbms=gcp-cloudsql-mysql-2v8-us-central1-ha,,,0
+Local selection,run1,A-coloc_provider_infeasible-12p-anywhere,infeasible,cost,vm_container=gcp-e2-standard-2@us-central1; postgresql_dbms=azure-pgflex-burstable-b2ms-eastus,,,1
+Local selection,run1,A-coloc_infeasible-12p-anywhere,infeasible,availability,vm_container=gcp-e2-standard-2@europe-west1; postgresql_dbms=azure-pgflex-gp-d2ds_v6-eastus-zrha,,,1
+Local selection,run1,A-infeasible_availability-14v-usa,infeasible,cost,vm_web=gcp-e2-standard-2@us-central1; vm_app=gcp-e2-standard-2@us-central1,,,1
+Local selection,run1,A-infeasible-14m-anywhere,infeasible,cost,vm_web=gcp-e2-standard-2@us-central1; vm_app=gcp-e2-standard-2@us-central1; MySQL_DBMS=aws-rds-mysql-m5.large-us-east-1,,,1
+Local selection,run1,A-coloc_binding-14m-anywhere,several,availability,vm_web=gcp-e2-standard-2@us-central1; vm_app=gcp-e2-standard-2@us-central1; MySQL_DBMS=gcp-cloudsql-mysql-2v8-us-central1-ha,1,1,
+Local selection,run1,A-infeasible-14p-anywhere,infeasible,cost,vm_web=gcp-e2-standard-2@us-central1; vm_app=gcp-e2-standard-2@us-central1; postgresql_DBMS=azure-pgflex-burstable-b2ms-eastus,,,1
+Local selection,run1,A-coloc_provider_infeasible-14p-anywhere,infeasible,availability,vm_web=gcp-e2-standard-2@us-central1; vm_app=gcp-e2-standard-2@us-central1; postgresql_DBMS=azure-pgflex-gp-d2ds_v6-eastus-zrha,,,0
+Local selection,run1,A-unique-15v-europe,unique,cost,vm_frontend=gcp-e2-standard-2@europe-west1; vm_backend=gcp-e2-standard-2@europe-west1,1,1,
+Local selection,run1,A-near_miss-15v-europe,unique,availability,vm_frontend=gcp-e2-standard-2@europe-west1; vm_backend=gcp-e2-standard-2@europe-west1,1,1,
+Local selection,run1,A-unique-16v-usa,unique,cost,vm_apache=gcp-e2-standard-4@us-central1; vm_mysql=gcp-e2-standard-8@us-central1,1,1,
+Local selection,run1,A-near_miss-16v-usa,unique,availability,vm_apache=gcp-e2-standard-4@us-central1; vm_mysql=gcp-e2-standard-8@us-central1,1,1,
+Local selection,run1,A-infeasible_budget-17v-usa,infeasible,cost,vm_web=gcp-e2-standard-4@us-central1; vm_db=gcp-e2-standard-8@us-central1,,,1
+Local selection,run1,A-infeasible_availability-17v-usa,infeasible,availability,vm_web=gcp-e2-standard-4@us-central1; vm_db=gcp-e2-standard-8@us-central1,,,1
+Local selection,run1,A-unique-18v-usa,unique,cost,vm_web=gcp-e2-standard-8@us-central1; vm_db=gcp-e2-standard-8@us-central1,1,1,
+Local selection,run1,A-near_miss-18v-usa,unique,availability,vm_web=gcp-e2-standard-8@us-central1; vm_db=gcp-e2-standard-8@us-central1,1,1,
+Local selection,run1,A-infeasible_budget-25v-usa,infeasible,cost,VM_A=gcp-e2-standard-4@us-central1; VM_B=gcp-e2-standard-4@us-central1,,,1
+Local selection,run1,A-infeasible_availability-25v-usa,infeasible,availability,VM_A=gcp-e2-standard-4@us-central1; VM_B=gcp-e2-standard-4@us-central1,,,1
+Local selection,run1,A-infeasible_both-26v-europe,infeasible,cost,vm_us_central1=gcp-e2-standard-2@europe-west1; vm_europe_west2=gcp-e2-standard-2@europe-west1,,,1
+Local selection,run1,A-infeasible-61m-anywhere,infeasible,cost,mysql_dbms_primary=aws-rds-mysql-m5.large-us-east-1; mysql_dbms_secondary=aws-rds-mysql-m5.large-us-east-1,,,1
+Local selection,run1,A-several-61m-usa,several,availability,mysql_dbms_primary=gcp-cloudsql-mysql-2v8-us-central1-ha; mysql_dbms_secondary=gcp-cloudsql-mysql-2v8-us-central1-ha,0,0,
+Local selection,run1,A-several-61p-usa,several,cost,postgresql_dbms_primary=azure-pgflex-burstable-b2ms-eastus; postgresql_dbms_secondary=azure-pgflex-burstable-b2ms-eastus,1,1,
+Local selection,run1,A-several-61p-usa-v2,several,availability,postgresql_dbms_primary=azure-pgflex-gp-d2ds_v6-eastus-zrha; postgresql_dbms_secondary=azure-pgflex-gp-d2ds_v6-eastus-zrha,0,0,
+Local selection,run1,A-coloc_infeasible-07m-anywhere,infeasible,cost,vm_app=gcp-e2-standard-2@europe-west1; PostgreSQL_DBMS=aws-rds-postgresql-m5.xlarge-us-east-1,,,1
+Local selection,run1,A-several-07m-usa,several,availability,vm_app=gcp-e2-standard-2@us-central1; PostgreSQL_DBMS=gcp-cloudsql-postgresql-4v16-us-central1-ha,1,1,
+Local selection,run1,A-coloc_infeasible-08m-anywhere,infeasible,cost,vm_nodejs=gcp-e2-standard-2@europe-west1; DBMS_PostgreSQL=azure-pgflex-burstable-b2ms-eastus; vm_mongodb=gcp-e2-standard-2@europe-west1,,,1
+Local selection,run1,A-several-08m-usa,several,availability,vm_nodejs=gcp-e2-standard-2@us-central1; DBMS_PostgreSQL=azure-pgflex-gp-d2ds_v6-eastus-zrha; vm_mongodb=gcp-e2-standard-2@us-central1,0,0,
+Local selection,run1,A-coloc_infeasible-10m-anywhere,infeasible,cost,vm_db_app=gcp-e2-standard-8@europe-west1; mysql_dbms=aws-rds-mysql-m5.large-us-east-1,,,1
+Local selection,run1,A-several-10m-usa,several,availability,vm_db_app=gcp-e2-standard-8@us-central1; mysql_dbms=gcp-cloudsql-mysql-2v8-us-central1-ha,1,1,
+Local selection,run1,A-coloc_infeasible-10p-anywhere,infeasible,cost,vm_db_app=gcp-e2-standard-8@europe-west1; postgresql_dbms=azure-pgflex-burstable-b2ms-eastus,,,1
+Local selection,run1,A-several-10p-usa,several,availability,vm_db_app=gcp-e2-standard-8@us-central1; postgresql_dbms=azure-pgflex-gp-d2ds_v6-eastus-zrha,0,0,
+Local selection,run1,A-infeasible-11m-usa,infeasible,cost,vm_docker=gcp-e2-standard-2@us-central1; mysql_dbms=aws-rds-mysql-m5.large-us-east-1,,,1
+Local selection,run1,A-coloc_binding-11m-usa,several,availability,vm_docker=gcp-e2-standard-2@us-central1; mysql_dbms=gcp-cloudsql-mysql-2v8-us-central1-ha,1,1,
+Local selection,run1,A-infeasible-11p-usa,infeasible,cost,vm_docker=gcp-e2-standard-2@us-central1; postgresql_dbms=azure-pgflex-burstable-b2ms-eastus,,,1
+Local selection,run1,A-coloc_binding-11p-usa,several,availability,vm_docker=gcp-e2-standard-2@us-central1; postgresql_dbms=azure-pgflex-gp-d2ds_v6-eastus-zrha,0,0,
+Local selection,run1,A-coloc_provider_infeasible-12m-usa,infeasible,cost,vm_container=gcp-e2-standard-2@us-central1; mysql_dbms=aws-rds-mysql-m5.large-us-east-1,,,1
+Local selection,run1,A-coloc_provider_infeasible-12p-usa,infeasible,availability,vm_container=gcp-e2-standard-2@us-central1; postgresql_dbms=azure-pgflex-gp-d2ds_v6-eastus-zrha,,,0
+Local selection,run1,A-infeasible-12p-europe,infeasible,cost,vm_container=gcp-e2-standard-2@europe-west1; postgresql_dbms=aws-rds-postgresql-m5.large-eu-west-2,,,1
+Local selection,run1,A-infeasible-14m-usa,infeasible,availability,vm_web=gcp-e2-standard-2@us-central1; vm_app=gcp-e2-standard-2@us-central1; MySQL_DBMS=gcp-cloudsql-mysql-2v8-us-central1-ha,,,1
+Local selection,run1,A-coloc_binding-14m-usa,several,cost,vm_web=gcp-e2-standard-2@us-central1; vm_app=gcp-e2-standard-2@us-central1; MySQL_DBMS=aws-rds-mysql-m5.large-us-east-1,0,0,
+Local selection,run1,A-infeasible-14p-usa,infeasible,availability,vm_web=gcp-e2-standard-2@us-central1; vm_app=gcp-e2-standard-2@us-central1; postgresql_DBMS=azure-pgflex-gp-d2ds_v6-eastus-zrha,,,0
+Local selection,run1,A-coloc_provider_infeasible-14p-usa,infeasible,cost,vm_web=gcp-e2-standard-2@us-central1; vm_app=gcp-e2-standard-2@us-central1; postgresql_DBMS=azure-pgflex-burstable-b2ms-eastus,,,1
+Local selection,run1,A-coloc_region_binding-08m-europe,several,availability,vm_nodejs=gcp-e2-standard-2@europe-west1; DBMS_PostgreSQL=gcp-cloudsql-postgresql-2v8-europe-west2-ha; vm_mongodb=gcp-e2-standard-2@europe-west1,0,0,
+Local selection,run1,A-coloc_region_binding-10p-europe,several,cost,vm_db_app=gcp-e2-standard-8@europe-west1; postgresql_dbms=aws-rds-postgresql-m5.large-eu-west-2,0,0,
+Local selection,run1,A-coloc_region_binding-11p-europe,several,availability,vm_docker=gcp-e2-standard-2@europe-west1; postgresql_dbms=gcp-cloudsql-postgresql-2v8-europe-west2-ha,0,0,
+w/o Negotiation,run1,C3-60,unique,cost,vm_mysql_primary=aws-m5a.large@eu-west-2; vm_mysql_standby=aws-m5a.large@eu-west-2,1,1,
+w/o Negotiation,run1,C3-61,infeasible,availability,none,,,0
+w/o Negotiation,run1,A-unique-01v-anywhere,unique,cost,vm_alien=gcp-e2-standard-4@us-central1; vm_elasticsearch=gcp-e2-standard-4@us-central1,1,1,
+w/o Negotiation,run1,A-near_miss-01v-anywhere,unique,availability,vm_alien=gcp-e2-standard-4@us-central1; vm_elasticsearch=gcp-e2-standard-4@us-central1,1,1,
+w/o Negotiation,run1,A-unique-02v-anywhere,unique,cost,vm_app=gcp-e2-standard-2@us-central1; vm_search=gcp-e2-standard-2@us-central1,1,1,
+w/o Negotiation,run1,A-near_miss-02v-anywhere,unique,availability,vm_app=gcp-e2-standard-2@us-central1; vm_search=gcp-e2-standard-2@us-central1,1,1,
+w/o Negotiation,run1,A-unique-03v-anywhere,unique,cost,vm_app=gcp-e2-standard-2@us-central1; vm_search=gcp-e2-standard-4@us-central1,1,1,
+w/o Negotiation,run1,A-near_miss-03v-anywhere,unique,availability,vm_app=gcp-e2-standard-2@us-central1; vm_search=gcp-e2-standard-4@us-central1,1,1,
+w/o Negotiation,run1,A-infeasible_budget-04v-anywhere,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-infeasible_availability-04v-anywhere,infeasible,availability,none,,,0
+w/o Negotiation,run1,A-unique-07v-anywhere,unique,cost,vm_app=gcp-e2-standard-2@us-central1; vm_db=gcp-e2-standard-4@us-central1,1,1,
+w/o Negotiation,run1,A-near_miss-07v-anywhere,unique,availability,vm_app=gcp-e2-standard-2@us-central1; vm_db=gcp-e2-standard-4@us-central1,1,1,
+w/o Negotiation,run1,A-several-07m-anywhere,several,cost,vm_app=gcp-e2-standard-2@us-central1; PostgreSQL_DBMS=aws-rds-postgresql-m5.xlarge-us-east-1,1,1,
+w/o Negotiation,run1,A-infeasible_budget-08v-anywhere,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-infeasible_availability-08v-anywhere,infeasible,availability,none,,,0
+w/o Negotiation,run1,A-several-08m-anywhere,several,cost,vm_nodejs=gcp-e2-standard-2@us-central1; DBMS_PostgreSQL=azure-pgflex-burstable-b2ms-eastus; vm_mongodb=gcp-e2-standard-2@us-central1,1,1,
+w/o Negotiation,run1,A-several-08m-anywhere-v2,several,availability,vm_nodejs=gcp-e2-standard-2@us-central1; DBMS_PostgreSQL=gcp-cloudsql-postgresql-2v8-us-central1-ha; vm_mongodb=gcp-e2-standard-2@us-central1,1,0,
+w/o Negotiation,run1,A-infeasible_budget-09v-anywhere,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-infeasible_availability-09v-anywhere,infeasible,availability,none,,,0
+w/o Negotiation,run1,A-several-10m-anywhere,several,cost,vm_db_app=gcp-e2-standard-8@us-central1; mysql_dbms=aws-rds-mysql-m5.large-us-east-1,1,1,
+w/o Negotiation,run1,A-several-10p-anywhere,several,cost,vm_db_app=gcp-e2-standard-8@us-central1; postgresql_dbms=azure-pgflex-burstable-b2ms-eastus,1,1,
+w/o Negotiation,run1,A-infeasible_both-10p-anywhere,infeasible,availability,none,,,0
+w/o Negotiation,run1,A-infeasible_both-11v-anywhere,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-unique-11v-usa,unique,availability,vm_docker=gcp-e2-standard-2@us-central1; vm_db=gcp-e2-standard-2@us-central1,1,1,
+w/o Negotiation,run1,A-infeasible_both-11m-anywhere,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-infeasible-11m-anywhere,infeasible,availability,none,,,0
+w/o Negotiation,run1,A-infeasible-11p-anywhere,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-coloc_binding-11p-anywhere,several,availability,vm_docker=azure-D2as_v5@eastus; postgresql_dbms=azure-pgflex-burstable-b2ms-eastus,1,0,
+w/o Negotiation,run1,A-near_miss-12v-usa,unique,cost,vm_container=gcp-e2-standard-2@us-central1; vm_database=gcp-e2-standard-2@us-central1,1,1,
+w/o Negotiation,run1,A-infeasible_budget-12v-usa,infeasible,availability,none,,,0
+w/o Negotiation,run1,A-coloc_binding-12m-anywhere,several,cost,vm_container=aws-m5a.large@us-east-1; mysql_dbms=aws-rds-mysql-m5.large-us-east-1,1,1,
+w/o Negotiation,run1,A-coloc_provider_infeasible-12m-anywhere,infeasible,availability,none,,,0
+w/o Negotiation,run1,A-coloc_provider_infeasible-12p-anywhere,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-coloc_infeasible-12p-anywhere,infeasible,availability,none,,,0
+w/o Negotiation,run1,A-infeasible_availability-14v-usa,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-infeasible-14m-anywhere,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-coloc_binding-14m-anywhere,several,availability,vm_web=aws-m5a.large@us-east-1; vm_app=aws-m5a.large@us-east-1; MySQL_DBMS=aws-rds-mysql-m5.large-us-east-1,1,0,
+w/o Negotiation,run1,A-infeasible-14p-anywhere,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-coloc_provider_infeasible-14p-anywhere,infeasible,availability,none,,,0
+w/o Negotiation,run1,A-unique-15v-europe,unique,cost,vm_frontend=gcp-e2-standard-2@europe-west1; vm_backend=gcp-e2-standard-2@europe-west1,1,1,
+w/o Negotiation,run1,A-near_miss-15v-europe,unique,availability,vm_frontend=gcp-e2-standard-2@europe-west1; vm_backend=gcp-e2-standard-2@europe-west1,1,1,
+w/o Negotiation,run1,A-unique-16v-usa,unique,cost,vm_apache=gcp-e2-standard-4@us-central1; vm_mysql=gcp-e2-standard-8@us-central1,1,1,
+w/o Negotiation,run1,A-near_miss-16v-usa,unique,availability,vm_apache=gcp-e2-standard-4@us-central1; vm_mysql=gcp-e2-standard-8@us-central1,1,1,
+w/o Negotiation,run1,A-infeasible_budget-17v-usa,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-infeasible_availability-17v-usa,infeasible,availability,none,,,0
+w/o Negotiation,run1,A-unique-18v-usa,unique,cost,vm_web=gcp-e2-standard-8@us-central1; vm_db=gcp-e2-standard-8@us-central1,1,1,
+w/o Negotiation,run1,A-near_miss-18v-usa,unique,availability,vm_web=gcp-e2-standard-8@us-central1; vm_db=gcp-e2-standard-8@us-central1,1,1,
+w/o Negotiation,run1,A-infeasible_budget-25v-usa,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-infeasible_availability-25v-usa,infeasible,availability,none,,,0
+w/o Negotiation,run1,A-infeasible_both-26v-europe,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-infeasible-61m-anywhere,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-several-61m-usa,several,availability,mysql_dbms_primary=aws-rds-mysql-m5.large-us-east-1; mysql_dbms_secondary=aws-rds-mysql-m5.large-us-east-1,1,0,
+w/o Negotiation,run1,A-several-61p-usa,several,cost,postgresql_dbms_primary=azure-pgflex-burstable-b2ms-eastus; postgresql_dbms_secondary=azure-pgflex-burstable-b2ms-eastus,1,1,
+w/o Negotiation,run1,A-several-61p-usa-v2,several,availability,postgresql_dbms_primary=azure-pgflex-burstable-b2ms-eastus; postgresql_dbms_secondary=azure-pgflex-burstable-b2ms-eastus,1,0,
+w/o Negotiation,run1,A-coloc_infeasible-07m-anywhere,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-several-07m-usa,several,availability,vm_app=gcp-e2-standard-2@us-central1; PostgreSQL_DBMS=aws-rds-postgresql-m5.xlarge-us-east-1,1,0,
+w/o Negotiation,run1,A-coloc_infeasible-08m-anywhere,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-several-08m-usa,several,availability,vm_nodejs=gcp-e2-standard-2@us-central1; DBMS_PostgreSQL=azure-pgflex-burstable-b2ms-eastus; vm_mongodb=gcp-e2-standard-2@us-central1,1,0,
+w/o Negotiation,run1,A-coloc_infeasible-10m-anywhere,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-several-10m-usa,several,availability,vm_db_app=gcp-e2-standard-8@us-central1; mysql_dbms=aws-rds-mysql-m5.large-us-east-1,1,0,
+w/o Negotiation,run1,A-coloc_infeasible-10p-anywhere,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-several-10p-usa,several,availability,vm_db_app=gcp-e2-standard-8@us-central1; postgresql_dbms=azure-pgflex-burstable-b2ms-eastus,1,0,
+w/o Negotiation,run1,A-infeasible-11m-usa,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-coloc_binding-11m-usa,several,availability,vm_docker=aws-m5a.large@us-east-1; mysql_dbms=aws-rds-mysql-m5.large-us-east-1,1,0,
+w/o Negotiation,run1,A-infeasible-11p-usa,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-coloc_binding-11p-usa,several,availability,vm_docker=azure-D2as_v5@eastus; postgresql_dbms=azure-pgflex-burstable-b2ms-eastus,1,0,
+w/o Negotiation,run1,A-coloc_provider_infeasible-12m-usa,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-coloc_provider_infeasible-12p-usa,infeasible,availability,none,,,0
+w/o Negotiation,run1,A-infeasible-12p-europe,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-infeasible-14m-usa,infeasible,availability,none,,,0
+w/o Negotiation,run1,A-coloc_binding-14m-usa,several,cost,vm_web=aws-m5a.large@us-east-1; vm_app=aws-m5a.large@us-east-1; MySQL_DBMS=aws-rds-mysql-m5.large-us-east-1,1,1,
+w/o Negotiation,run1,A-infeasible-14p-usa,infeasible,availability,none,,,0
+w/o Negotiation,run1,A-coloc_provider_infeasible-14p-usa,infeasible,cost,none,,,0
+w/o Negotiation,run1,A-coloc_region_binding-08m-europe,several,availability,vm_nodejs=gcp-e2-standard-2@europe-west2; DBMS_PostgreSQL=aws-rds-postgresql-m5.large-eu-west-2; vm_mongodb=gcp-e2-standard-2@europe-west2,1,0,
+w/o Negotiation,run1,A-coloc_region_binding-10p-europe,several,cost,vm_db_app=gcp-e2-standard-8@europe-west2; postgresql_dbms=aws-rds-postgresql-m5.large-eu-west-2,1,1,
+w/o Negotiation,run1,A-coloc_region_binding-11p-europe,several,availability,vm_docker=gcp-e2-standard-2@europe-west2; postgresql_dbms=aws-rds-postgresql-m5.large-eu-west-2,1,0,

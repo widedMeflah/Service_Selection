@@ -1,0 +1,100 @@
+{
+ "id": "A-infeasible-14m-anywhere-twin",
+ "family": "A",
+ "kind": "infeasible",
+ "source": "C3 request 14 (managed database)",
+ "location": "anywhere",
+ "rq": [
+  "RQ2"
+ ],
+ "note": "budget between two consecutive non-dominated compositions and availability between them: no composition, each bound forms a minimal correction set; twin of A-infeasible-14m-anywhere with the other hidden priority (negotiation only)",
+ "cleaning": [
+  "node MySQL_DBMS: managed database (host vm_app removed)",
+  "node MySQL_DBMS: size of vm_app kept for the managed database (2 CPU, 4 GB)"
+ ],
+ "services": [
+  "vm_web",
+  "vm_app",
+  "MySQL_DBMS"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [
+   "budget",
+   "end_to_end_availability"
+  ],
+  "n_compositions": 58564,
+  "n_compositions_oracle": 675,
+  "front": [],
+  "signal": "infeasible",
+  "mcs": [
+   [
+    "budget"
+   ],
+   [
+    "end_to_end_availability"
+   ]
+  ],
+  "relaxations": [
+   {
+    "mcs": [
+     "budget"
+    ],
+    "changes": [
+     {
+      "constraint": "budget",
+      "criterion": "cost",
+      "from": 263.97,
+      "to": 300.18
+     }
+    ],
+    "cost_cents": 30018,
+    "availability": 99.75019995,
+    "availability_published": true,
+    "composition": {
+     "vm_web": "gcp-e2-standard-2@us-central1",
+     "vm_app": "gcp-e2-standard-2@us-central1",
+     "MySQL_DBMS": "gcp-cloudsql-mysql-2v8-us-central1-ha"
+    }
+   },
+   {
+    "mcs": [
+     "end_to_end_availability"
+    ],
+    "changes": [
+     {
+      "constraint": "end_to_end_availability",
+      "criterion": "availability",
+      "from": 99.5256,
+      "to": 99.301
+     }
+    ],
+    "cost_cents": 22776,
+    "availability": 99.3010995,
+    "availability_published": true,
+    "composition": {
+     "vm_web": "gcp-e2-standard-2@us-central1",
+     "vm_app": "gcp-e2-standard-2@us-central1",
+     "MySQL_DBMS": "aws-rds-mysql-m5.large-us-east-1"
+    }
+   }
+  ],
+  "expected_relaxation": [
+   "budget"
+  ],
+  "after_relaxation_front_size": 1,
+  "expected": {
+   "cost_cents": 30018,
+   "availability": 99.75019995,
+   "availability_published": true,
+   "composition_example": {
+    "vm_web": "gcp-e2-standard-2@us-central1",
+    "vm_app": "gcp-e2-standard-2@us-central1",
+    "MySQL_DBMS": "gcp-cloudsql-mysql-2v8-us-central1-ha"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "request_description": "A web application architecture consisting of an Angular frontend and a Spring Boot backend. The Angular frontend runs on an Nginx web server hosted on a virtual machine, while the Spring Boot backend runs on a Tomcat web server hosted on another virtual machine. The backend connects to a MySQL DBMS managing a MySQL database, both hosted on the same virtual machine as the backend. The frontend connects to the backend for data interaction.",
+ "twin_of": "A-infeasible-14m-anywhere"
+}

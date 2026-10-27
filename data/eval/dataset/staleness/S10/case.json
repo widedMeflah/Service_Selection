@@ -1,0 +1,23 @@
+{
+ "id": "S10",
+ "kind": "unrelated",
+ "service": "database_mysql",
+ "provider": "aws",
+ "resource": "Internet gateway",
+ "replace": "A publicly accessible DB instance needs an internet gateway for the subnets of its DB subnet group.",
+ "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+ "find": "for\na DB instance to be publicly accessible, the subnets in its DB subnet group\nmust have an internet gateway",
+ "family": "S",
+ "rq": [
+  "QR3"
+ ],
+ "quotes_touched": [],
+ "expected_status": "changed",
+ "expected_update": "re-extraction; every quote of the new memory entry is found word for word in the edited page",
+ "expected_resources": [
+  "VPC",
+  "Subnet",
+  "DB subnet group",
+  "VPC security group"
+ ]
+}

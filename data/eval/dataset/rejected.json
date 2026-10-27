@@ -1,0 +1,252 @@
+[
+ {
+  "source": "04",
+  "managed_db": false,
+  "reason": "same selection problem as C3-03 (repetition)"
+ },
+ {
+  "source": "06",
+  "managed_db": false,
+  "reason": "same selection problem as C3-05 (repetition)"
+ },
+ {
+  "source": "08",
+  "managed_db": false,
+  "reason": "same selection problem as C3-02 (repetition)"
+ },
+ {
+  "source": "09",
+  "managed_db": true,
+  "reason": "discovery conflict: PostgreSQL_DBMS"
+ },
+ {
+  "source": "11",
+  "managed_db": false,
+  "reason": "same selection problem as C3-02 (repetition)"
+ },
+ {
+  "source": "12",
+  "managed_db": false,
+  "reason": "same selection problem as C3-02 (repetition)"
+ },
+ {
+  "source": "13",
+  "managed_db": false,
+  "reason": "same selection problem as C3-10 (repetition)"
+ },
+ {
+  "source": "13",
+  "managed_db": true,
+  "reason": "discovery conflict: MySQL_DBMS"
+ },
+ {
+  "source": "14",
+  "managed_db": false,
+  "reason": "same selection problem as C3-02 (repetition)"
+ },
+ {
+  "source": "15",
+  "managed_db": false,
+  "reason": "same selection problem as C3-02 (repetition)"
+ },
+ {
+  "source": "16",
+  "managed_db": true,
+  "reason": "discovery conflict: mysql_dbms"
+ },
+ {
+  "source": "17",
+  "managed_db": false,
+  "reason": "same selection problem as C3-16 (repetition)"
+ },
+ {
+  "source": "17",
+  "managed_db": true,
+  "reason": "discovery conflict: mysql_dbms"
+ },
+ {
+  "source": "18",
+  "managed_db": true,
+  "reason": "discovery conflict: MySQL_DBMS"
+ },
+ {
+  "source": "19",
+  "managed_db": false,
+  "reason": "same selection problem as C3-10 (repetition)"
+ },
+ {
+  "source": "21",
+  "managed_db": false,
+  "reason": "same selection problem as C3-20 (repetition)"
+ },
+ {
+  "source": "22",
+  "managed_db": false,
+  "reason": "same selection problem as C3-05 (repetition)"
+ },
+ {
+  "source": "23",
+  "managed_db": false,
+  "reason": "same selection problem as C3-05 (repetition)"
+ },
+ {
+  "source": "29",
+  "managed_db": false,
+  "reason": "same selection problem as C3-02 (repetition)"
+ },
+ {
+  "source": "30",
+  "managed_db": false,
+  "reason": "same selection problem as C3-02 (repetition)"
+ },
+ {
+  "source": "32",
+  "managed_db": false,
+  "reason": "same selection problem as C3-20 (repetition)"
+ },
+ {
+  "source": "33",
+  "managed_db": false,
+  "reason": "same selection problem as C3-20 (repetition)"
+ },
+ {
+  "source": "37",
+  "managed_db": false,
+  "reason": "same selection problem as C3-34 (repetition)"
+ },
+ {
+  "source": "38",
+  "managed_db": false,
+  "reason": "same selection problem as C3-28 (repetition)"
+ },
+ {
+  "source": "39",
+  "managed_db": false,
+  "reason": "invalid template: no node template"
+ },
+ {
+  "source": "39",
+  "managed_db": true,
+  "reason": "invalid template: no node template"
+ },
+ {
+  "source": "40",
+  "managed_db": false,
+  "reason": "same selection problem as C3-34 (repetition)"
+ },
+ {
+  "source": "41",
+  "managed_db": false,
+  "reason": "same selection problem as C3-25 (repetition)"
+ },
+ {
+  "source": "44",
+  "managed_db": false,
+  "reason": "same selection problem as C3-20 (repetition)"
+ },
+ {
+  "source": "45",
+  "managed_db": false,
+  "reason": "same selection problem as C3-20 (repetition)"
+ },
+ {
+  "source": "48",
+  "managed_db": false,
+  "reason": "same selection problem as C3-47 (repetition)"
+ },
+ {
+  "source": "50",
+  "managed_db": false,
+  "reason": "same selection problem as C3-02 (repetition)"
+ },
+ {
+  "source": "51",
+  "managed_db": false,
+  "reason": "same selection problem as C3-02 (repetition)"
+ },
+ {
+  "source": "52",
+  "managed_db": false,
+  "reason": "same selection problem as C3-43 (repetition)"
+ },
+ {
+  "source": "53",
+  "managed_db": false,
+  "reason": "same selection problem as C3-49 (repetition)"
+ },
+ {
+  "source": "54",
+  "managed_db": false,
+  "reason": "same selection problem as C3-49 (repetition)"
+ },
+ {
+  "source": "59",
+  "managed_db": false,
+  "reason": "same selection problem as C3-58 (repetition)"
+ },
+ {
+  "source": "60",
+  "managed_db": true,
+  "reason": "discovery conflict: mysql_dbms"
+ },
+ {
+  "source": "63",
+  "managed_db": false,
+  "reason": "invalid template: no node template"
+ },
+ {
+  "source": "63",
+  "managed_db": true,
+  "reason": "invalid template: no node template"
+ },
+ {
+  "source": "64",
+  "managed_db": false,
+  "reason": "same selection problem as C3-43 (repetition)"
+ },
+ {
+  "source": "65",
+  "managed_db": false,
+  "reason": "same selection problem as C3-43 (repetition)"
+ },
+ {
+  "source": "66",
+  "managed_db": false,
+  "reason": "no virtual machine or database"
+ },
+ {
+  "source": "66",
+  "managed_db": true,
+  "reason": "no virtual machine or database"
+ },
+ {
+  "source": "67",
+  "managed_db": false,
+  "reason": "same selection problem as C3-20 (repetition)"
+ },
+ {
+  "source": "68",
+  "managed_db": false,
+  "reason": "invalid template: no node template"
+ },
+ {
+  "source": "68",
+  "managed_db": true,
+  "reason": "invalid template: no node template"
+ },
+ {
+  "source": "69",
+  "managed_db": false,
+  "reason": "invalid template: no node template"
+ },
+ {
+  "source": "69",
+  "managed_db": true,
+  "reason": "invalid template: no node template"
+ },
+ {
+  "source": "70",
+  "managed_db": true,
+  "reason": "discovery conflict: MySQL_DBMS"
+ }
+]

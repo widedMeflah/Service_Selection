@@ -1,0 +1,51 @@
+{
+ "id": "C3-42",
+ "family": "C3",
+ "source": "C3 request 42",
+ "request_form": "Complete SERVICE Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [
+  "policy placement_VM-A: target VM-A -> VM_A",
+  "policy placement_VM-B: target VM-B -> VM_B",
+  "policy latency_policy_1: target VM-A -> VM_A",
+  "policy latency_policy_1: target VM-B -> VM_B",
+  "node data1 (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node low_latency_net (Network) removed: outside the scope (virtual machines, databases)",
+  "node VM_A: type computeWithblocNetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node VM_B: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "policy placement_data1: target data1 removed with its node",
+  "policy placement_data1 removed: no target left",
+  "policy latency_policy_1 removed: no latency in the catalogs"
+ ],
+ "services": [
+  "VM_A",
+  "VM_B"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [],
+  "n_compositions": 16,
+  "n_compositions_oracle": 1,
+  "front": [
+   {
+    "cost_cents": 27740,
+    "availability": 99.0025
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 27740,
+   "availability": 99.0025,
+   "availability_published": true,
+   "composition_example": {
+    "VM_A": "aws-m5a.xlarge@eu-central-1",
+    "VM_B": "aws-m5a.xlarge@us-west-2"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "This architecture consists of two virtual machines (VM-A and VM-B) running Ubuntu 22.04, each with 4 CPUs, 8 GB RAM, and 50 GB disk. Both VMs are connected to a low-latency network (low_latency_net) ensuring a maximum latency of 100 ms. VM-A has an additional 500 GB block storage volume (data1) attached for in-place, byte-level modifications."
+}

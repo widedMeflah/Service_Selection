@@ -1,0 +1,127 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case A-coloc_infeasible-10m-anywhere-twin, derived from C3 request 10 (managed database).
+  Cloud services: vm_db_app (virtual machine), mysql_dbms (managed database). Software components hosted on them:
+  docker_application, docker_engine, bdd_mysql.'
+node_types:
+  RuntimeForContainer:
+    derived_from: tosca.nodes.Container.Runtime
+    capabilities:
+      host:
+        type: tosca.capabilities.Compute
+  ContainerWithDatabase:
+    derived_from: tosca.nodes.Container.Application
+    requirements:
+    - database_connection:
+        capability: tosca.capabilities.Endpoint.Database
+        node: Database
+        occurrences:
+        - 1
+        - UNBOUNDED
+data_types:
+  acme.datatypes.Location:
+    derived_from: tosca.datatypes.Root
+    description: 'A deployment location: region and/or availability zone.'
+    properties:
+      region:
+        type: string
+        required: false
+      availability_zone:
+        type: string
+        required: false
+topology_template:
+  node_templates:
+    docker_application:
+      type: ContainerWithDatabase
+      requirements:
+      - host: docker_engine
+      - database_connection: bdd_mysql
+    docker_engine:
+      type: RuntimeForContainer
+      capabilities:
+        host: {}
+      requirements:
+      - host: vm_db_app
+    vm_db_app:
+      type: Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_db_app
+            num_cpus: 8
+            mem_size: 32 GB
+            disk_size: 100 GB
+        os:
+          properties:
+            architecture: x86_64
+            type: linux
+            distribution: Ubuntu
+            version: 22.04.0
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+        endpoint:
+          properties:
+            protocol: tcp
+    mysql_dbms:
+      type: DBMS
+      properties:
+        root_password: kjih589Y
+        port: 3306
+      capabilities:
+        host:
+          properties:
+            name: mysql_dbms
+            num_cpus: 1
+            mem_size: 2 GB
+            disk_size: 50 GB
+    bdd_mysql:
+      type: Database
+      properties:
+        name: bdd_mysql
+        port: 3306
+        user: admin_user
+        password: dljgpzi87
+      requirements:
+      - host: mysql_dbms
+  policies:
+  - placement_vm:
+      type: acme.policies.Placement
+      properties:
+        locations:
+        - region: europe
+      targets:
+      - vm_db_app
+  - placement_db:
+      type: acme.policies.Placement
+      properties:
+        locations:
+        - region: usa
+      targets:
+      - mysql_dbms
+  - same_region:
+      type: acme.policies.Colocation
+      properties:
+        scope: region
+      targets:
+      - vm_db_app
+      - mysql_dbms
+policy_types:
+  acme.policies.Placement:
+    derived_from: tosca.policies.Placement
+    description: Deployment locations of the targets (regions or logical locations).
+    properties:
+      locations:
+        type: list
+        required: true
+  acme.policies.Colocation:
+    derived_from: tosca.policies.Placement
+    description: The targets share a region (logical location) or a provider.
+    properties:
+      scope:
+        type: string
+        required: true
+        constraints:
+        - valid_values:
+          - region
+          - provider

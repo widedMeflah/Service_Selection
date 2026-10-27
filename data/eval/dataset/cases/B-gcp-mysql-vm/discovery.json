@@ -1,0 +1,66 @@
+{
+ "currency": "USD",
+ "nodes": [
+  {
+   "node_name": "vm_db_app",
+   "applied_filters": {
+    "sla_field_used": "sla",
+    "requirements": {
+     "catalog": "compute",
+     "cpu": 8.0,
+     "mem_gb": 32.0,
+     "os_type": "linux",
+     "os_distribution": "ubuntu",
+     "architecture": "x86_64",
+     "regions": [
+      "us-central1"
+     ]
+    }
+   },
+   "candidates": [
+    {
+     "offer_id": "gcp-e2-standard-8@us-central1",
+     "offer_name": "e2-standard-8",
+     "provider": "gcp",
+     "region": "us-central1",
+     "offer_type": "compute",
+     "price_month": 195.64,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    }
+   ]
+  },
+  {
+   "node_name": "mysql_dbms",
+   "applied_filters": {
+    "sla_field_used": "sla",
+    "requirements": {
+     "catalog": "database",
+     "cpu": 1.0,
+     "mem_gb": 2.0,
+     "engine": "mysql",
+     "version": null,
+     "regions": [
+      "us-central1"
+     ]
+    }
+   },
+   "candidates": [
+    {
+     "offer_id": "gcp-cloudsql-mysql-2v8-us-central1-ha",
+     "offer_name": "Cloud SQL MySQL 2vCPU/8Go (high availability)",
+     "provider": "gcp",
+     "region": "us-central1",
+     "offer_type": "database",
+     "engine": "mysql",
+     "price_month": 202.36,
+     "sla": 99.95,
+     "sla_single_zone": null,
+     "sla_multi_zone": 99.95,
+     "deployment": "high availability (regional)"
+    }
+   ]
+  }
+ ]
+}

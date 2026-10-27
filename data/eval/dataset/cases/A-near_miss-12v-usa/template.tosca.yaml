@@ -1,0 +1,157 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case A-near_miss-12v-usa, derived from C3 request 12 (as interpreted). Cloud services:
+  vm_container (virtual machine), vm_database (virtual machine). Software components hosted on them: docker_engine,
+  app_container, mysql_dbms, secure_data.'
+node_types:
+  RuntimeForContainer:
+    derived_from: tosca.nodes.Container.Runtime
+    capabilities:
+      host:
+        type: tosca.capabilities.Compute
+  ContainerWithDatabase:
+    derived_from: tosca.nodes.Container.Application
+    requirements:
+    - database_connection:
+        capability: tosca.capabilities.Endpoint.Database
+        node: Database
+        occurrences:
+        - 1
+        - UNBOUNDED
+data_types:
+  acme.datatypes.Location:
+    derived_from: tosca.datatypes.Root
+    description: 'A deployment location: region and/or availability zone.'
+    properties:
+      region:
+        type: string
+        required: false
+      availability_zone:
+        type: string
+        required: false
+topology_template:
+  node_templates:
+    vm_container:
+      type: tosca.nodes.Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_container
+            num_cpus: 2
+            disk_size: 50 GB
+            mem_size: 4 GB
+        os:
+          properties:
+            architecture: x86_64
+            type: Linux
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        binding: {}
+        endpoint:
+          properties:
+            protocol: tcp
+            secure: false
+    docker_engine:
+      type: RuntimeForContainer
+      capabilities:
+        host: {}
+      requirements:
+      - host: vm_container
+    app_container:
+      type: ContainerWithDatabase
+      requirements:
+      - host: docker_engine
+      - database_connection: secure_data
+    vm_database:
+      type: Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_database
+            num_cpus: 2
+            disk_size: 50 GB
+            mem_size: 4 GB
+        os:
+          properties:
+            architecture: x86_64
+            type: Linux
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        binding: {}
+        endpoint:
+          properties:
+            protocol: tcp
+            secure: false
+    mysql_dbms:
+      type: DBMS
+      properties:
+        port: 3306
+      capabilities:
+        host:
+          properties:
+            name: mysql_dbms
+      requirements:
+      - host: vm_database
+    secure_data:
+      type: Database
+      properties:
+        name: secure_data
+        port: 3306
+        user: db_user
+        password: db_password
+      requirements:
+      - host: mysql_dbms
+  policies:
+  - placement_all:
+      type: acme.policies.Placement
+      properties:
+        locations:
+        - region: usa
+      targets:
+      - vm_container
+      - vm_database
+  - budget:
+      type: acme.policies.Cost
+      properties:
+        max_cost: 97.82
+        currency: USD
+      targets:
+      - vm_container
+      - vm_database
+  - end_to_end_availability:
+      type: acme.policies.Availability
+      properties:
+        availability: 99.8001
+      targets:
+      - vm_container
+      - vm_database
+policy_types:
+  acme.policies.Placement:
+    derived_from: tosca.policies.Placement
+    description: Deployment locations of the targets (regions or logical locations).
+    properties:
+      locations:
+        type: list
+        required: true
+  acme.policies.Cost:
+    derived_from: tosca.policies.Root
+    description: Monthly budget of the targets (sum of their prices).
+    properties:
+      max_cost:
+        type: float
+        required: true
+      currency:
+        type: string
+        default: USD
+  acme.policies.Availability:
+    derived_from: tosca.policies.Performance
+    description: End-to-end availability of the targets (product, percent).
+    properties:
+      availability:
+        type: float
+        required: true

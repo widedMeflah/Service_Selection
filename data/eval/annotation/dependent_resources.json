@@ -1,0 +1,502 @@
+{
+ "definition": "A dependent resource is a resource that the deployment code must create or reference for the service. The parts that the provider creates automatically with the service, configured only through the attributes of the service, are excluded; a resource that the provider supplies by default when none is specified is kept. Conditional or optional resources are excluded.",
+ "annotated_on": "2026-10-17",
+ "annotator": "manual annotation by the authors",
+ "quotes": "copied from the live official pages on 2026-10-17; aligned with the frozen copies by src/eval/annotation.py:align (exact match, otherwise the closest sentence of the frozen page, similarity >= 0.9, logged)",
+ "services": [
+  {
+   "service": "compute",
+   "provider": "aws",
+   "resources": [
+    {
+     "name": "VPC",
+     "aliases": [
+      "Virtual Private Cloud",
+      "Amazon VPC",
+      "Default VPC"
+     ],
+     "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-networking.html",
+     "quote": "Amazon VPC enables you to launch AWS resources, such as Amazon EC2 instances, into a virtual network dedicated to your AWS account, known as a virtual private cloud (VPC).",
+     "properties": {},
+     "settings": {},
+     "attached_to": null,
+     "rationale": "the instance is launched into a VPC; supplied by default when none is specified (default VPC), hence kept"
+    },
+    {
+     "name": "Subnet",
+     "aliases": [],
+     "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-networking.html",
+     "quote": "When you launch an instance, you can select a subnet from the VPC.",
+     "properties": {},
+     "settings": {},
+     "attached_to": "VPC",
+     "rationale": "the instance is launched in a subnet of the VPC (the default subnet when none is selected), hence kept"
+    },
+    {
+     "name": "Security group",
+     "aliases": [
+      "EC2 security group",
+      "VPC security group",
+      "Default security group"
+     ],
+     "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html",
+     "quote": "If you don't specify a security group, Amazon EC2 uses the default security group for the VPC.",
+     "properties": {},
+     "settings": {},
+     "attached_to": "VPC",
+     "rationale": "every instance is associated with a security group; supplied by default when none is specified (default security group), hence kept"
+    }
+   ],
+   "excluded": [
+    {
+     "name": "Primary network interface",
+     "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-networking.html",
+     "quote": "The instance is configured with a primary network interface, which is a logical virtual network card.",
+     "reason": "created automatically with the instance and configured through its attributes"
+    },
+    {
+     "name": "Public IP address",
+     "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-networking.html",
+     "quote": "You can control whether the instance receives a public IP address from Amazon's pool of public IP addresses.",
+     "reason": "optional"
+    },
+    {
+     "name": "Elastic IP address",
+     "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-networking.html",
+     "quote": "If you require a persistent public IP address, you can allocate an Elastic IP address",
+     "reason": "optional"
+    }
+   ]
+  },
+  {
+   "service": "compute",
+   "provider": "azure",
+   "resources": [
+    {
+     "name": "Virtual network",
+     "aliases": [
+      "VNet",
+      "Azure Virtual Network"
+     ],
+     "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
+     "quote": "When you create a virtual machine (VM), you create a virtual network or use an existing one.",
+     "properties": {
+      "region": "{region}"
+     },
+     "settings": {},
+     "attached_to": null,
+     "rationale": "a separate resource that the deployment code creates or references"
+    },
+    {
+     "name": "Subnet",
+     "aliases": [],
+     "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
+     "quote": "Each NIC in a VM is connected to one subnet in one virtual network.",
+     "properties": {},
+     "settings": {},
+     "attached_to": "Virtual network",
+     "rationale": "the network interface of the VM is connected to a subnet, a separate resource of the virtual network"
+    },
+    {
+     "name": "Network interface",
+     "aliases": [
+      "NIC",
+      "Network interface card"
+     ],
+     "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
+     "quote": "A virtual machine must have at least one NIC.",
+     "properties": {
+      "region": "{region}"
+     },
+     "settings": {},
+     "attached_to": "Subnet",
+     "rationale": "a separate resource (not an attribute of the VM) that the deployment code creates and attaches to the VM"
+    }
+   ],
+   "excluded": [
+    {
+     "name": "Private IP address",
+     "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
+     "quote": "At least one private IP address must be assigned to a VM.",
+     "reason": "configured through the attributes of the network interface"
+    },
+    {
+     "name": "Public IP address",
+     "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
+     "quote": "Assigning a public IP address to a NIC is optional.",
+     "reason": "optional"
+    },
+    {
+     "name": "Network security group",
+     "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
+     "quote": "Additionally, consider these optional resources:",
+     "reason": "optional (the portal creates one, the deployment code does not have to)"
+    }
+   ]
+  },
+  {
+   "service": "compute",
+   "provider": "gcp",
+   "resources": [
+    {
+     "name": "VPC network",
+     "aliases": [
+      "VPC",
+      "Default network",
+      "Virtual Private Cloud network"
+     ],
+     "url": "https://docs.cloud.google.com/compute/docs/networking/network-overview",
+     "quote": "Every VM is part of a VPC network.",
+     "properties": {},
+     "settings": {},
+     "attached_to": null,
+     "rationale": "the VM is attached to a VPC network; supplied by default when none is specified (default network), hence kept"
+    },
+    {
+     "name": "Subnet",
+     "aliases": [
+      "Subnetwork"
+     ],
+     "url": "https://docs.cloud.google.com/compute/docs/networking/network-overview",
+     "quote": "If you omit this configuration, the `default` network and subnet are used.",
+     "properties": {},
+     "settings": {},
+     "attached_to": "VPC network",
+     "rationale": "the VM is attached to a subnet of the VPC network (the default subnet when none is specified), hence kept"
+    }
+   ],
+   "excluded": [
+    {
+     "name": "Virtual network interface",
+     "url": "https://docs.cloud.google.com/compute/docs/networking/network-overview",
+     "quote": "Every compute instance in a VPC network has a default virtual network interface (vNIC).",
+     "reason": "created automatically with the VM and configured through its attributes"
+    },
+    {
+     "name": "Internal IPv4 address",
+     "url": "https://docs.cloud.google.com/compute/docs/networking/network-overview",
+     "quote": "Google Cloud assigns an internal IPv4 address to the new VM from the primary IPv4 address range of the selected subnet.",
+     "reason": "assigned automatically with the VM"
+    }
+   ]
+  },
+  {
+   "service": "database_postgresql",
+   "provider": "aws",
+   "resources": [
+    {
+     "name": "VPC",
+     "aliases": [
+      "Virtual Private Cloud",
+      "Amazon VPC"
+     ],
+     "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+     "quote": "Create a VPC with subnets in at least two Availability Zones.",
+     "properties": {},
+     "settings": {},
+     "attached_to": null,
+     "rationale": "the DB instance is created in a VPC that the deployment code creates or references"
+    },
+    {
+     "name": "Subnet",
+     "aliases": [
+      "Subnets"
+     ],
+     "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+     "quote": "Your VPC must have at least two subnets. These subnets must be in two different Availability Zones",
+     "properties": {},
+     "settings": {},
+     "attached_to": "VPC",
+     "rationale": "at least two subnets, in two Availability Zones, must exist for the DB subnet group"
+    },
+    {
+     "name": "DB subnet group",
+     "aliases": [
+      "Subnet group",
+      "RDS subnet group"
+     ],
+     "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+     "quote": "Your VPC must have a DB subnet group that you create.",
+     "properties": {},
+     "settings": {},
+     "attached_to": "VPC",
+     "rationale": "a separate resource that the deployment code creates and that the DB instance references"
+    },
+    {
+     "name": "VPC security group",
+     "aliases": [
+      "Security group",
+      "RDS security group"
+     ],
+     "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+     "quote": "Your VPC must have a VPC security group that allows access to the DB instance.",
+     "properties": {},
+     "settings": {
+      "internet_exposure": [
+       "false"
+      ]
+     },
+     "attached_to": "VPC",
+     "rationale": "a separate resource that the DB instance references to allow access"
+    }
+   ],
+   "excluded": [
+    {
+     "name": "Internet gateway",
+     "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+     "quote": "for a DB instance to be publicly accessible, the subnets in its DB subnet group must have an internet gateway",
+     "reason": "required only for a publicly accessible DB instance (conditional)"
+    }
+   ]
+  },
+  {
+   "service": "database_mysql",
+   "provider": "aws",
+   "resources": [
+    {
+     "name": "VPC",
+     "aliases": [
+      "Virtual Private Cloud",
+      "Amazon VPC"
+     ],
+     "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+     "quote": "Create a VPC with subnets in at least two Availability Zones.",
+     "properties": {},
+     "settings": {},
+     "attached_to": null,
+     "rationale": "the DB instance is created in a VPC that the deployment code creates or references"
+    },
+    {
+     "name": "Subnet",
+     "aliases": [
+      "Subnets"
+     ],
+     "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+     "quote": "Your VPC must have at least two subnets. These subnets must be in two different Availability Zones",
+     "properties": {},
+     "settings": {},
+     "attached_to": "VPC",
+     "rationale": "at least two subnets, in two Availability Zones, must exist for the DB subnet group"
+    },
+    {
+     "name": "DB subnet group",
+     "aliases": [
+      "Subnet group",
+      "RDS subnet group"
+     ],
+     "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+     "quote": "Your VPC must have a DB subnet group that you create.",
+     "properties": {},
+     "settings": {},
+     "attached_to": "VPC",
+     "rationale": "a separate resource that the deployment code creates and that the DB instance references"
+    },
+    {
+     "name": "VPC security group",
+     "aliases": [
+      "Security group",
+      "RDS security group"
+     ],
+     "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+     "quote": "Your VPC must have a VPC security group that allows access to the DB instance.",
+     "properties": {},
+     "settings": {
+      "internet_exposure": [
+       "false"
+      ]
+     },
+     "attached_to": "VPC",
+     "rationale": "a separate resource that the DB instance references to allow access"
+    }
+   ],
+   "excluded": [
+    {
+     "name": "Internet gateway",
+     "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+     "quote": "for a DB instance to be publicly accessible, the subnets in its DB subnet group must have an internet gateway",
+     "reason": "required only for a publicly accessible DB instance (conditional)"
+    }
+   ]
+  },
+  {
+   "service": "database_postgresql",
+   "provider": "azure",
+   "resources": [
+    {
+     "name": "Virtual network",
+     "aliases": [
+      "VNet",
+      "Azure Virtual Network"
+     ],
+     "url": "https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-private",
+     "quote": "Your virtual network must be in the same Azure region as your Azure Database for PostgreSQL flexible server.",
+     "properties": {
+      "region": "{region}"
+     },
+     "settings": {},
+     "attached_to": null,
+     "rationale": "private access (the access described by the page of the URL list) places the server in a virtual network"
+    },
+    {
+     "name": "Delegated subnet",
+     "aliases": [
+      "Subnet"
+     ],
+     "url": "https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-private",
+     "quote": "Your Azure Database for PostgreSQL flexible server that's integrated in a virtual network must be in a subnet that's",
+     "properties": {},
+     "settings": {},
+     "attached_to": "Virtual network",
+     "rationale": "a subnet delegated to the server, a separate resource of the virtual network"
+    },
+    {
+     "name": "Private DNS zone",
+     "aliases": [
+      "Private DNS"
+     ],
+     "url": "https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-private",
+     "quote": "you need to use Private DNS zones while configuring Azure Database for PostgreSQL flexible server with private access",
+     "properties": {},
+     "settings": {},
+     "attached_to": null,
+     "rationale": "a separate resource that the deployment code creates or references"
+    },
+    {
+     "name": "Private DNS zone virtual network link",
+     "aliases": [
+      "Virtual network link",
+      "DNS zone link"
+     ],
+     "url": "https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-private",
+     "quote": "After you create a Private DNS zone in Azure, you need to link a virtual network to it.",
+     "properties": {},
+     "settings": {},
+     "attached_to": "Private DNS zone",
+     "rationale": "a separate resource that links the private DNS zone to the virtual network"
+    }
+   ],
+   "excluded": [
+    {
+     "name": "Network security group",
+     "url": "https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-private",
+     "quote": "If you create NSGs to deny traffic flow to or from your Azure Database for PostgreSQL flexible server",
+     "reason": "optional"
+    }
+   ]
+  },
+  {
+   "service": "database_postgresql",
+   "provider": "gcp",
+   "resources": [
+    {
+     "name": "VPC network",
+     "aliases": [
+      "VPC",
+      "Virtual Private Cloud network"
+     ],
+     "url": "https://docs.cloud.google.com/sql/docs/postgres/configure-private-services-access",
+     "quote": "Cloud SQL requires private services access for each VPC network that's used for private IP connections.",
+     "properties": {},
+     "settings": {},
+     "attached_to": null,
+     "rationale": "the private IP of the instance is in a VPC network that the deployment code creates or references"
+    },
+    {
+     "name": "Allocated IP address range",
+     "aliases": [
+      "Allocated IP range",
+      "IP address range",
+      "Reserved IP range"
+     ],
+     "url": "https://docs.cloud.google.com/sql/docs/postgres/configure-private-services-access",
+     "quote": "Select an existing, or allocate a new IP address range.",
+     "properties": {},
+     "settings": {},
+     "attached_to": "VPC network",
+     "rationale": "a separate resource (global address reserved for private services access)"
+    },
+    {
+     "name": "Private services access connection",
+     "aliases": [
+      "Private services connection",
+      "Private connection",
+      "Service networking connection",
+      "VPC Network Peering",
+      "Peering connection"
+     ],
+     "url": "https://docs.cloud.google.com/sql/docs/postgres/configure-private-services-access",
+     "quote": "Create the private services connection from your VPC network to the underlying service producer network.",
+     "properties": {},
+     "settings": {},
+     "attached_to": "VPC network",
+     "rationale": "a separate resource (VPC Network Peering with the service producer network)"
+    }
+   ],
+   "excluded": [
+    {
+     "name": "Service Networking API",
+     "url": "https://docs.cloud.google.com/sql/docs/postgres/configure-private-services-access",
+     "quote": "If you are creating a private IP instance in a new or empty project, then you must first enable the Service Networking API.",
+     "reason": "a setting of the project, enabled once per project, not a resource of the deployment"
+    }
+   ]
+  },
+  {
+   "service": "database_mysql",
+   "provider": "gcp",
+   "resources": [
+    {
+     "name": "VPC network",
+     "aliases": [
+      "VPC",
+      "Virtual Private Cloud network"
+     ],
+     "url": "https://docs.cloud.google.com/sql/docs/mysql/configure-private-services-access",
+     "quote": "Cloud SQL requires private services access for each VPC network that's used for private IP connections.",
+     "properties": {},
+     "settings": {},
+     "attached_to": null,
+     "rationale": "the private IP of the instance is in a VPC network that the deployment code creates or references"
+    },
+    {
+     "name": "Allocated IP address range",
+     "aliases": [
+      "Allocated IP range",
+      "IP address range",
+      "Reserved IP range"
+     ],
+     "url": "https://docs.cloud.google.com/sql/docs/mysql/configure-private-services-access",
+     "quote": "Select an existing, or allocate a new IP address range.",
+     "properties": {},
+     "settings": {},
+     "attached_to": "VPC network",
+     "rationale": "a separate resource (global address reserved for private services access)"
+    },
+    {
+     "name": "Private services access connection",
+     "aliases": [
+      "Private services connection",
+      "Private connection",
+      "Service networking connection",
+      "VPC Network Peering",
+      "Peering connection"
+     ],
+     "url": "https://docs.cloud.google.com/sql/docs/mysql/configure-private-services-access",
+     "quote": "Create the private services connection from your VPC network to the underlying service producer network.",
+     "properties": {},
+     "settings": {},
+     "attached_to": "VPC network",
+     "rationale": "a separate resource (VPC Network Peering with the service producer network)"
+    }
+   ],
+   "excluded": [
+    {
+     "name": "Service Networking API",
+     "url": "https://docs.cloud.google.com/sql/docs/mysql/configure-private-services-access",
+     "quote": "If you are creating a private IP instance in a new or empty project, then you must first enable the Service Networking API.",
+     "reason": "a setting of the project, enabled once per project, not a resource of the deployment"
+    }
+   ]
+  }
+ ]
+}

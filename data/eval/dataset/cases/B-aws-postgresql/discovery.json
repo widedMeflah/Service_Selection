@@ -1,0 +1,37 @@
+{
+ "currency": "USD",
+ "nodes": [
+  {
+   "node_name": "postgresql_dbms",
+   "applied_filters": {
+    "sla_field_used": "sla",
+    "requirements": {
+     "catalog": "database",
+     "cpu": 2.0,
+     "mem_gb": 8.0,
+     "engine": "postgresql",
+     "version": null,
+     "min_availability": 99.9,
+     "regions": [
+      "us-east-1"
+     ]
+    }
+   },
+   "candidates": [
+    {
+     "offer_id": "aws-rds-postgresql-m5.large-us-east-1-multiaz",
+     "offer_name": "RDS PostgreSQL db.m5.large (RDS Multi-AZ)",
+     "provider": "aws",
+     "region": "us-east-1",
+     "offer_type": "database",
+     "engine": "postgresql",
+     "price_month": 259.88,
+     "sla": 99.95,
+     "sla_single_zone": 99.5,
+     "sla_multi_zone": 99.95,
+     "deployment": "Multi-AZ DB instance (standby in a second Availability Zone)"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,40 @@
+{
+ "id": "C3-24",
+ "family": "C3",
+ "source": "C3 request 24",
+ "request_form": "Business Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [
+  "node vm_host: undefined type computeWithblocStorage -> tosca.nodes.Compute",
+  "node volume_data (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)"
+ ],
+ "services": [
+  "vm_host"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [],
+  "n_compositions": 128,
+  "n_compositions_oracle": 15,
+  "front": [
+   {
+    "cost_cents": 1226,
+    "availability": 99.9
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 1226,
+   "availability": 99.9,
+   "availability_published": true,
+   "composition_example": {
+    "vm_host": "gcp-e2-small@us-central1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "VM Linux (2 CPU, 4 GB, 50 GB) with attached block storage volume of 1000 GB."
+}

@@ -1,0 +1,20 @@
+{
+ "id": "S03",
+ "kind": "quote_removed",
+ "service": "database_mysql",
+ "provider": "gcp",
+ "resource": "Allocated IP address range",
+ "url": "https://docs.cloud.google.com/sql/docs/mysql/configure-private-services-access",
+ "find": "Select an existing, or allocate a new IP address range.",
+ "replace": "",
+ "family": "S",
+ "rq": [
+  "QR3"
+ ],
+ "quotes_touched": [
+  "Allocated IP address range"
+ ],
+ "expected_status": "changed",
+ "expected_update": "re-extraction; every quote of the new memory entry is found word for word in the edited page",
+ "expected_resources": null
+}

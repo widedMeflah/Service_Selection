@@ -1,0 +1,42 @@
+{
+ "id": "C3-46",
+ "family": "C3",
+ "source": "C3 request 46",
+ "request_form": "Complete SERVICE Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [
+  "policy placement_VM-A: target VM-A -> VM_A",
+  "policy placement_VM-B: target VM-B -> VM_B"
+ ],
+ "services": [
+  "VM_A",
+  "VM_B"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [],
+  "n_compositions": 32,
+  "n_compositions_oracle": 2,
+  "front": [
+   {
+    "cost_cents": 27156,
+    "availability": 99.0025
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 27156,
+   "availability": 99.0025,
+   "availability_published": true,
+   "composition_example": {
+    "VM_A": "aws-m5a.xlarge@us-east-1",
+    "VM_B": "aws-m5a.xlarge@eu-west-2"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "An architecture consisting of two virtual machines (VM-A and VM-B) running Linux with specified hardware resources (4 CPUs, 8 GB RAM, and 50 GB disk each)."
+}

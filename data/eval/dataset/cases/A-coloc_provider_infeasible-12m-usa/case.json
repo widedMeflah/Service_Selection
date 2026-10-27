@@ -1,0 +1,99 @@
+{
+ "id": "A-coloc_provider_infeasible-12m-usa",
+ "family": "A",
+ "kind": "coloc_provider_infeasible",
+ "source": "C3 request 12 (managed database)",
+ "location": "usa",
+ "rq": [
+  "RQ1",
+  "RQ2"
+ ],
+ "note": "budget equal to the cheapest composition, reachable only across providers: relaxing either the budget or the same-provider constraint restores feasibility",
+ "cleaning": [
+  "node bloc_storage_vm_container (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node container_net (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node data_store (StorageForContainer) removed: outside the scope (virtual machines, databases)",
+  "node vm_container: type computeWithblocNetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node mysql_dbms: managed database (host vm_database removed)",
+  "node mysql_dbms: size of vm_database kept for the managed database (2 CPU, 4 GB)",
+  "node vm_database removed: it only hosted mysql_dbms"
+ ],
+ "services": [
+  "vm_container",
+  "mysql_dbms"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [
+   "same_provider",
+   "budget"
+  ],
+  "n_compositions": 192,
+  "n_compositions_oracle": 9,
+  "front": [],
+  "signal": "infeasible",
+  "mcs": [
+   [
+    "same_provider"
+   ],
+   [
+    "budget"
+   ]
+  ],
+  "relaxations": [
+   {
+    "mcs": [
+     "same_provider"
+    ],
+    "changes": [
+     {
+      "constraint": "same_provider",
+      "removed": true
+     }
+    ],
+    "cost_cents": 17885,
+    "availability": 99.4005,
+    "availability_published": true,
+    "composition": {
+     "vm_container": "gcp-e2-standard-2@us-central1",
+     "mysql_dbms": "aws-rds-mysql-m5.large-us-east-1"
+    }
+   },
+   {
+    "mcs": [
+     "budget"
+    ],
+    "changes": [
+     {
+      "constraint": "budget",
+      "criterion": "cost",
+      "from": 178.85,
+      "to": 192.72
+     }
+    ],
+    "cost_cents": 19272,
+    "availability": 99.0025,
+    "availability_published": true,
+    "composition": {
+     "vm_container": "aws-m5a.large@us-east-1",
+     "mysql_dbms": "aws-rds-mysql-m5.large-us-east-1"
+    }
+   }
+  ],
+  "expected_relaxation": [
+   "same_provider"
+  ],
+  "after_relaxation_front_size": 1,
+  "expected": {
+   "cost_cents": 17885,
+   "availability": 99.4005,
+   "availability_published": true,
+   "composition_example": {
+    "vm_container": "gcp-e2-standard-2@us-central1",
+    "mysql_dbms": "aws-rds-mysql-m5.large-us-east-1"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "request_description": "A containerized application architecture consisting of a Docker Engine hosted on a virtual machine, an object storage, a network, and a MySQL database hosted on another virtual machine. The containerized application connects to the object storage and network, and also interacts with the MySQL database."
+}

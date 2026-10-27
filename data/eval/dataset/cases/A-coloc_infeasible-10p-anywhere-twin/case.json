@@ -1,0 +1,72 @@
+{
+ "id": "A-coloc_infeasible-10p-anywhere-twin",
+ "family": "A",
+ "kind": "coloc_infeasible",
+ "source": "C3 request 10 (managed PostgreSQL database)",
+ "location": "anywhere",
+ "rq": [
+  "RQ2"
+ ],
+ "note": "machines placed in Europe, databases in the USA, and a same-region constraint; twin of A-coloc_infeasible-10p-anywhere with the other hidden priority (negotiation only)",
+ "cleaning": [
+  "node app_network (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node app_storage_prod (StorageForContainer) removed: outside the scope (virtual machines, databases)",
+  "node mysql_dbms: managed database (host vm_db_app removed)",
+  "MySQL DBMS replaced by a PostgreSQL DBMS (engine variant): the databases it hosts and the MySQL software components are renamed"
+ ],
+ "services": [
+  "vm_db_app",
+  "postgresql_dbms"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [
+   "same_region"
+  ],
+  "n_compositions": 88,
+  "n_compositions_oracle": 40,
+  "front": [],
+  "signal": "infeasible",
+  "mcs": [
+   [
+    "same_region"
+   ]
+  ],
+  "relaxations": [
+   {
+    "mcs": [
+     "same_region"
+    ],
+    "changes": [
+     {
+      "constraint": "same_region",
+      "removed": true
+     }
+    ],
+    "cost_cents": 26120,
+    "availability": 99.8001,
+    "availability_published": true,
+    "composition": {
+     "vm_db_app": "gcp-e2-standard-8@europe-west1",
+     "postgresql_dbms": "azure-pgflex-burstable-b2ms-eastus"
+    }
+   }
+  ],
+  "expected_relaxation": [
+   "same_region"
+  ],
+  "after_relaxation_front_size": 3,
+  "expected": {
+   "cost_cents": 54224,
+   "availability": 99.89001,
+   "availability_published": true,
+   "composition_example": {
+    "vm_db_app": "gcp-e2-standard-8@europe-west1",
+    "postgresql_dbms": "azure-pgflex-gp-d2ds_v6-eastus-zrha"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "request_description": "Architecture for a Docker application running on a Docker Engine hosted on a virtual machine, connecting to a PostgreSQL database, an IPv4 network, and an object storage.",
+ "twin_of": "A-coloc_infeasible-10p-anywhere"
+}

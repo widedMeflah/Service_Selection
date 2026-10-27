@@ -1,0 +1,37 @@
+{
+ "id": "C3-57",
+ "family": "C3",
+ "source": "C3 request 57",
+ "request_form": "Complete SERVICE Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [],
+ "services": [
+  "vm_host"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [],
+  "n_compositions": 1,
+  "n_compositions_oracle": 1,
+  "front": [
+   {
+    "cost_cents": 28032,
+    "availability": 99.5
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 28032,
+   "availability": 99.5,
+   "availability_published": true,
+   "composition_example": {
+    "vm_host": "aws-m5.2xlarge@us-east-1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "The architecture consists of a single virtual machine (Compute node) running Ubuntu 22.04 with specified hardware resources (8 CPUs, 32 GB RAM, 100 GB disk). A cost policy is applied to cap the monthly price at 300 €."
+}

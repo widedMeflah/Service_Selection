@@ -1,0 +1,42 @@
+{
+ "id": "C3-09",
+ "family": "C3",
+ "source": "C3 request 09",
+ "request_form": "Business Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [
+  "node app_network (Network) removed: outside the scope (virtual machines, databases)",
+  "node vm_app: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)"
+ ],
+ "services": [
+  "vm_app",
+  "vm_db"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [],
+  "n_compositions": 1694,
+  "n_compositions_oracle": 150,
+  "front": [
+   {
+    "cost_cents": 24455,
+    "availability": 99.8001
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 24455,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "vm_app": "gcp-e2-standard-2@us-central1",
+    "vm_db": "gcp-e2-standard-8@us-central1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "This architecture models a web application (NodeApp) running on an Nginx web server, which is hosted on a virtual machine (vm_app). The application connects to a PostgreSQL database hosted on a separate virtual machine (vm_db). The vm_app is connected to a network (app_network)."
+}

@@ -1,0 +1,52 @@
+{
+ "id": "A-coloc_binding-14m-usa-twin",
+ "family": "A",
+ "kind": "coloc_binding",
+ "source": "C3 request 14 (managed database)",
+ "location": "usa",
+ "rq": [
+  "RQ2"
+ ],
+ "note": "the same-provider constraint changes the optimum; twin of A-coloc_binding-14m-usa with the other hidden priority (negotiation only)",
+ "cleaning": [
+  "node MySQL_DBMS: managed database (host vm_app removed)",
+  "node MySQL_DBMS: size of vm_app kept for the managed database (2 CPU, 4 GB)"
+ ],
+ "services": [
+  "vm_web",
+  "vm_app",
+  "MySQL_DBMS"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [
+   "same_provider"
+  ],
+  "n_compositions": 9216,
+  "n_compositions_oracle": 27,
+  "front": [
+   {
+    "cost_cents": 25550,
+    "availability": 98.5074875
+   },
+   {
+    "cost_cents": 30018,
+    "availability": 99.75019995
+   }
+  ],
+  "signal": "several",
+  "expected": {
+   "cost_cents": 30018,
+   "availability": 99.75019995,
+   "availability_published": true,
+   "composition_example": {
+    "vm_web": "gcp-e2-standard-2@us-central1",
+    "vm_app": "gcp-e2-standard-2@us-central1",
+    "MySQL_DBMS": "gcp-cloudsql-mysql-2v8-us-central1-ha"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "request_description": "A web application architecture consisting of an Angular frontend and a Spring Boot backend. The Angular frontend runs on an Nginx web server hosted on a virtual machine, while the Spring Boot backend runs on a Tomcat web server hosted on another virtual machine. The backend connects to a MySQL DBMS managing a MySQL database, both hosted on the same virtual machine as the backend. The frontend connects to the backend for data interaction.",
+ "twin_of": "A-coloc_binding-14m-usa"
+}

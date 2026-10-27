@@ -1,0 +1,106 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case A-infeasible_budget-04v-anywhere, derived from C3 request 04 (as interpreted). Cloud
+  services: vm_tomcat (virtual machine), vm_haproxy (virtual machine). Software components hosted on them: java_app,
+  Apache_Tomcat, Oracle_JDK.'
+data_types:
+  acme.datatypes.Location:
+    derived_from: tosca.datatypes.Root
+    description: 'A deployment location: region and/or availability zone.'
+    properties:
+      region:
+        type: string
+        required: false
+      availability_zone:
+        type: string
+        required: false
+topology_template:
+  node_templates:
+    java_app:
+      type: WebApplication
+      properties:
+        context_root: /app
+      capabilities:
+        app_endpoint:
+          properties:
+            protocol: tcp
+            port: 8080
+            secure: false
+      requirements:
+      - host: Apache_Tomcat
+      - dependency: Oracle_JDK
+    Apache_Tomcat:
+      type: WebServer
+      requirements:
+      - host: vm_tomcat
+    vm_tomcat:
+      type: Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_tomcat
+            num_cpus: 4
+            disk_size: 200 GB
+            mem_size: 16 GB
+        os:
+          properties:
+            type: Linux
+            distribution: Ubuntu
+            version: 22.04.0
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        endpoint:
+          properties:
+            protocol: tcp
+            secure: false
+    Oracle_JDK:
+      type: SoftwareComponent
+      properties:
+        component_version: 17.0.0
+      requirements:
+      - host: vm_tomcat
+    vm_haproxy:
+      type: Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_haproxy
+            num_cpus: 2
+            disk_size: 50 GB
+            mem_size: 4 GB
+        os:
+          properties:
+            type: Linux
+            distribution: Ubuntu
+            version: 22.04.0
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        endpoint:
+          properties:
+            protocol: tcp
+            secure: false
+  policies:
+  - budget:
+      type: acme.policies.Cost
+      properties:
+        max_cost: 132.06
+        currency: USD
+      targets:
+      - vm_tomcat
+      - vm_haproxy
+policy_types:
+  acme.policies.Cost:
+    derived_from: tosca.policies.Root
+    description: Monthly budget of the targets (sum of their prices).
+    properties:
+      max_cost:
+        type: float
+        required: true
+      currency:
+        type: string
+        default: USD

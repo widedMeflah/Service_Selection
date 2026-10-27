@@ -1,0 +1,117 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case C3-18, derived from C3 request 18. Cloud services: vm_web (virtual machine), vm_db
+  (virtual machine). Software components hosted on them: StaticPageApp, Nginx, production_db, MySQL_DBMS.'
+node_types:
+  WebAppWithDatabase:
+    derived_from: WebApplication
+    requirements:
+    - database_connection:
+        capability: tosca.capabilities.Endpoint.Database
+        node: Database
+        occurrences:
+        - 1
+        - UNBOUNDED
+data_types:
+  acme.datatypes.Location:
+    derived_from: tosca.datatypes.Root
+    description: 'A deployment location: region and/or availability zone.'
+    properties:
+      region:
+        type: string
+        required: false
+      availability_zone:
+        type: string
+        required: false
+topology_template:
+  node_templates:
+    StaticPageApp:
+      type: WebAppWithDatabase
+      properties:
+        context_root: /
+      capabilities:
+        app_endpoint:
+          properties:
+            protocol: http
+            port: 80
+            secure: false
+      requirements:
+      - host: Nginx
+      - database_connection: production_db
+    Nginx:
+      type: WebServer
+      requirements:
+      - host: vm_web
+    vm_web:
+      type: tosca.nodes.Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_web
+            num_cpus: 8
+            disk_size: 200 GB
+            mem_size: 16 GB
+        os:
+          properties:
+            architecture: x86_64
+            type: linux
+            distribution: Ubuntu
+            version: 22.04.0
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        endpoint:
+          properties:
+            protocol: http
+            port: 80
+            secure: false
+    production_db:
+      type: Database
+      properties:
+        name: production_db
+        port: 3306
+        user: prod_user
+        password: ProdPass456!
+      requirements:
+      - host: MySQL_DBMS
+    MySQL_DBMS:
+      type: DBMS
+      properties:
+        root_password: RootPass123!
+        port: 3306
+        component_version: 8.0.0
+      capabilities:
+        host:
+          properties:
+            name: MySQL_DBMS
+            num_cpus: 8
+            disk_size: 200 GB
+            mem_size: 16 GB
+      requirements:
+      - host: vm_db
+    vm_db:
+      type: tosca.nodes.Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_db
+            num_cpus: 8
+            disk_size: 200 GB
+            mem_size: 16 GB
+        os:
+          properties:
+            architecture: x86_64
+            type: linux
+            distribution: Ubuntu
+            version: 22.04.0
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        endpoint:
+          properties:
+            protocol: tcp
+            port: 3306
+            secure: false

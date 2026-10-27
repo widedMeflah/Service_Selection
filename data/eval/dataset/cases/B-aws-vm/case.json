@@ -1,0 +1,78 @@
+{
+ "id": "B-aws-vm",
+ "family": "B",
+ "kind": "completion",
+ "provider": "aws",
+ "region": "us-east-1",
+ "source": "C3 request 05 (as interpreted)",
+ "rq": [
+  "RQ3",
+  "RQ4",
+  "RQ5"
+ ],
+ "note": "fixed composition (one candidate per node): evaluates the completion",
+ "cleaning": [
+  "node haproxy (LoadBalancer) removed: outside the scope (virtual machines, databases)"
+ ],
+ "services": [
+  "vm_tomcat"
+ ],
+ "completion_services": [
+  {
+   "node": "vm_tomcat",
+   "provider": "aws",
+   "service": "compute",
+   "region": "us-east-1"
+  }
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [],
+  "n_compositions": 1,
+  "n_compositions_oracle": 1,
+  "front": [
+   {
+    "cost_cents": 12556,
+    "availability": 99.5
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 12556,
+   "availability": 99.5,
+   "availability_published": true,
+   "composition_example": {
+    "vm_tomcat": "aws-m5a.xlarge@us-east-1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "dependent_resources_gt": {
+  "vm_tomcat": [
+   {
+    "name": "VPC",
+    "aliases": [
+     "Virtual Private Cloud",
+     "Amazon VPC",
+     "Default VPC"
+    ],
+    "attached_to": null
+   },
+   {
+    "name": "Subnet",
+    "aliases": [],
+    "attached_to": "VPC"
+   },
+   {
+    "name": "Security group",
+    "aliases": [
+     "EC2 security group",
+     "VPC security group",
+     "Default security group"
+    ],
+    "attached_to": "VPC"
+   }
+  ]
+ },
+ "request_description": "A web application architecture consisting of a Java application running on Apache Tomcat, hosted on a virtual machine with Linux and Oracle JDK. The application is fronted by an HAProxy load balancer using a layer4 algorithm."
+}

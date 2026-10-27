@@ -1,0 +1,102 @@
+{
+ "id": "A-infeasible-12p-europe-twin",
+ "family": "A",
+ "kind": "infeasible",
+ "source": "C3 request 12 (managed PostgreSQL database)",
+ "location": "europe",
+ "rq": [
+  "RQ2"
+ ],
+ "note": "budget between two consecutive non-dominated compositions and availability between them: no composition, each bound forms a minimal correction set; twin of A-infeasible-12p-europe with the other hidden priority (negotiation only)",
+ "cleaning": [
+  "node bloc_storage_vm_container (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node container_net (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node data_store (StorageForContainer) removed: outside the scope (virtual machines, databases)",
+  "node vm_container: type computeWithblocNetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node mysql_dbms: managed database (host vm_database removed)",
+  "node mysql_dbms: size of vm_database kept for the managed database (2 CPU, 4 GB)",
+  "node vm_database removed: it only hosted mysql_dbms",
+  "MySQL DBMS replaced by a PostgreSQL DBMS (engine variant): the databases it hosts and the MySQL software components are renamed"
+ ],
+ "services": [
+  "vm_container",
+  "postgresql_dbms"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [
+   "budget",
+   "end_to_end_availability"
+  ],
+  "n_compositions": 438,
+  "n_compositions_oracle": 72,
+  "front": [],
+  "signal": "infeasible",
+  "mcs": [
+   [
+    "budget"
+   ],
+   [
+    "end_to_end_availability"
+   ]
+  ],
+  "relaxations": [
+   {
+    "mcs": [
+     "budget"
+    ],
+    "changes": [
+     {
+      "constraint": "budget",
+      "criterion": "cost",
+      "from": 259.26,
+      "to": 314.42
+     }
+    ],
+    "cost_cents": 31442,
+    "availability": 99.85005,
+    "availability_published": true,
+    "composition": {
+     "vm_container": "gcp-e2-standard-2@europe-west1",
+     "postgresql_dbms": "gcp-cloudsql-postgresql-2v8-europe-west2-ha"
+    }
+   },
+   {
+    "mcs": [
+     "end_to_end_availability"
+    ],
+    "changes": [
+     {
+      "constraint": "end_to_end_availability",
+      "criterion": "availability",
+      "from": 99.6252,
+      "to": 99.4005
+     }
+    ],
+    "cost_cents": 20410,
+    "availability": 99.4005,
+    "availability_published": true,
+    "composition": {
+     "vm_container": "gcp-e2-standard-2@europe-west1",
+     "postgresql_dbms": "aws-rds-postgresql-m5.large-eu-west-2"
+    }
+   }
+  ],
+  "expected_relaxation": [
+   "budget"
+  ],
+  "after_relaxation_front_size": 1,
+  "expected": {
+   "cost_cents": 31442,
+   "availability": 99.85005,
+   "availability_published": true,
+   "composition_example": {
+    "vm_container": "gcp-e2-standard-2@europe-west1",
+    "postgresql_dbms": "gcp-cloudsql-postgresql-2v8-europe-west2-ha"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "request_description": "A containerized application architecture consisting of a Docker Engine hosted on a virtual machine, an object storage, a network, and a PostgreSQL database hosted on another virtual machine. The containerized application connects to the object storage and network, and also interacts with the PostgreSQL database.",
+ "twin_of": "A-infeasible-12p-europe"
+}

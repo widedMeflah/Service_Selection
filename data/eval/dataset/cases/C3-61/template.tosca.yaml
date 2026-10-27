@@ -1,0 +1,196 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case C3-61, derived from C3 request 61. Cloud services: vm_mysql_primary (virtual machine),
+  vm_mysql_secondary (virtual machine). Software components hosted on them: mysql_dbms_primary, mysql_dbms_secondary,
+  mysql_db.'
+data_types:
+  acme.datatypes.Location:
+    derived_from: tosca.datatypes.Root
+    description: 'A deployment location: region and/or availability zone.'
+    properties:
+      region:
+        type: string
+        required: false
+      availability_zone:
+        type: string
+        required: false
+policy_types:
+  acme.policies.Placement:
+    derived_from: tosca.policies.Placement
+    description: Geographic placement constraint (region and/or availability zone).
+    properties:
+      locations:
+        type: list
+        required: true
+        entry_schema:
+          type: acme.datatypes.Location
+      distribution:
+        type: string
+        default: multi_region
+        constraints:
+        - valid_values:
+          - single_region
+          - multi_region
+  acme.policies.Availability:
+    derived_from: tosca.policies.Performance
+    description: Service-level availability target (percent).
+    properties:
+      availability:
+        type: float
+        required: true
+        constraints:
+        - in_range:
+          - 0.0
+          - 100.0
+  acme.policies.Cost:
+    derived_from: tosca.policies.Root
+    description: Budget constraint over a billing period.
+    properties:
+      max_cost:
+        type: float
+        required: true
+      currency:
+        type: string
+        default: USD
+        constraints:
+        - valid_values:
+          - USD
+          - EUR
+          - GBP
+      period:
+        type: string
+        default: monthly
+        constraints:
+        - valid_values:
+          - hourly
+          - daily
+          - monthly
+          - yearly
+  acme.policies.Redundancy:
+    derived_from: tosca.policies.Root
+    description: 'The targets are replicas of one another (e.g. a primary and its standby): the group is available
+      when one of them is.'
+topology_template:
+  node_templates:
+    vm_mysql_primary:
+      type: tosca.nodes.Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_mysql_primary
+            num_cpus: 2
+            mem_size: 4 GB
+            disk_size: 100 GB
+        os:
+          properties:
+            architecture: x86_64
+            type: linux
+            distribution: ubuntu
+            version: 20.04.0
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        endpoint:
+          properties:
+            protocol: tcp
+            port: 22
+            secure: false
+    vm_mysql_secondary:
+      type: tosca.nodes.Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_mysql_secondary
+            num_cpus: 2
+            mem_size: 4 GB
+            disk_size: 100 GB
+        os:
+          properties:
+            architecture: x86_64
+            type: linux
+            distribution: ubuntu
+            version: 20.04.0
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        endpoint:
+          properties:
+            protocol: tcp
+            port: 22
+            secure: false
+    mysql_dbms_primary:
+      type: DBMS
+      properties:
+        root_password: root_password
+        port: 3306
+      capabilities:
+        host:
+          properties:
+            name: mysql_dbms_primary
+            num_cpus: 2
+            mem_size: 4 GB
+      requirements:
+      - host: vm_mysql_primary
+    mysql_dbms_secondary:
+      type: DBMS
+      properties:
+        root_password: root_password
+        port: 3306
+      capabilities:
+        host:
+          properties:
+            name: mysql_dbms_secondary
+            num_cpus: 2
+            mem_size: 4 GB
+      requirements:
+      - host: vm_mysql_secondary
+    mysql_db:
+      type: Database
+      properties:
+        name: mysql_db
+        port: 3306
+        user: db_user
+        password: db_password
+      requirements:
+      - host: mysql_dbms_primary
+  policies:
+  - placement_vm_mysql_primary:
+      type: acme.policies.Placement
+      targets:
+      - vm_mysql_primary
+      properties:
+        locations:
+        - region: us-central1
+        - region: us-east1
+        - region: us-west1
+  - placement_vm_mysql_secondary:
+      type: acme.policies.Placement
+      targets:
+      - vm_mysql_secondary
+      properties:
+        locations:
+        - region: us-central1
+        - region: us-east1
+        - region: us-west1
+  - availability_policy_1:
+      type: acme.policies.Availability
+      targets:
+      - vm_mysql_primary
+      - vm_mysql_secondary
+      properties:
+        availability: 99.9
+  - cost_policy_2:
+      type: acme.policies.Cost
+      targets:
+      - vm_mysql_primary
+      - vm_mysql_secondary
+      properties:
+        max_cost: 50.0
+  - replication:
+      type: acme.policies.Redundancy
+      targets:
+      - vm_mysql_primary
+      - vm_mysql_secondary

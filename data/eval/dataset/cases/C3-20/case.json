@@ -1,0 +1,40 @@
+{
+ "id": "C3-20",
+ "family": "C3",
+ "source": "C3 request 20",
+ "request_form": "Incomplete SERVICE Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [
+  "node docker_net (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node vm_docker: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)"
+ ],
+ "services": [
+  "vm_docker"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [],
+  "n_compositions": 121,
+  "n_compositions_oracle": 15,
+  "front": [
+   {
+    "cost_cents": 4891,
+    "availability": 99.9
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 4891,
+   "availability": 99.9,
+   "availability_published": true,
+   "composition_example": {
+    "vm_docker": "gcp-e2-standard-2@us-central1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "Architecture for a container application 'docker_app' running on Docker Engine hosted on a virtual machine 'vm_docker' with Linux OS, connected to a network 'docker_net'."
+}

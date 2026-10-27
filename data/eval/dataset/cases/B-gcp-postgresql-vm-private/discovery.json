@@ -1,0 +1,66 @@
+{
+ "currency": "USD",
+ "nodes": [
+  {
+   "node_name": "vm_docker",
+   "applied_filters": {
+    "sla_field_used": "sla",
+    "requirements": {
+     "catalog": "compute",
+     "cpu": 2.0,
+     "mem_gb": 4.0,
+     "os_type": "linux",
+     "os_distribution": null,
+     "architecture": null,
+     "regions": [
+      "us-central1"
+     ]
+    }
+   },
+   "candidates": [
+    {
+     "offer_id": "gcp-e2-standard-2@us-central1",
+     "offer_name": "e2-standard-2",
+     "provider": "gcp",
+     "region": "us-central1",
+     "offer_type": "compute",
+     "price_month": 48.91,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99
+    }
+   ]
+  },
+  {
+   "node_name": "postgresql_dbms",
+   "applied_filters": {
+    "sla_field_used": "sla",
+    "requirements": {
+     "catalog": "database",
+     "cpu": 2.0,
+     "mem_gb": 4.0,
+     "engine": "postgresql",
+     "version": null,
+     "regions": [
+      "us-central1"
+     ]
+    }
+   },
+   "candidates": [
+    {
+     "offer_id": "gcp-cloudsql-postgresql-2v8-us-central1-ha",
+     "offer_name": "Cloud SQL PostgreSQL 2vCPU/8Go (high availability)",
+     "provider": "gcp",
+     "region": "us-central1",
+     "offer_type": "database",
+     "engine": "postgresql",
+     "price_month": 202.36,
+     "sla": 99.95,
+     "sla_single_zone": null,
+     "sla_multi_zone": 99.95,
+     "deployment": "high availability (regional)"
+    }
+   ]
+  }
+ ]
+}

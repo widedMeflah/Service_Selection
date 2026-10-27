@@ -1,0 +1,6 @@
+{
+ "alignment": [
+  "gcp/compute Subnet: quote aligned (0.98) 'If you omit this configuration, the `default` network and subnet are used.' -> 'If you omit this configuration, the default network and subnet are used.'"
+ ],
+ "issues": []
+}

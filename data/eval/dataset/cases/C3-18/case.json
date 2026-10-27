@@ -1,0 +1,45 @@
+{
+ "id": "C3-18",
+ "family": "C3",
+ "source": "C3 request 18",
+ "request_form": "Business Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [
+  "node app_network (Network) removed: outside the scope (virtual machines, databases)",
+  "node vm_web: endpoint network_name app_network removed with its node",
+  "node vm_db: endpoint network_name app_network removed with its node",
+  "node vm_web: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node vm_db: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)"
+ ],
+ "services": [
+  "vm_web",
+  "vm_db"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [],
+  "n_compositions": 196,
+  "n_compositions_oracle": 100,
+  "front": [
+   {
+    "cost_cents": 39128,
+    "availability": 99.8001
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 39128,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "vm_web": "gcp-e2-standard-8@us-central1",
+    "vm_db": "gcp-e2-standard-8@us-central1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "Architecture for a web application StaticPageApp running on Nginx, connected to a MySQL database production_db. The web server and DBMS are hosted on separate virtual machines (vm_web and vm_db) running Ubuntu 22.04 LTS, both connected to the network app_network."
+}

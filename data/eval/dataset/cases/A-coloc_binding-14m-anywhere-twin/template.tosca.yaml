@@ -1,0 +1,168 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case A-coloc_binding-14m-anywhere-twin, derived from C3 request 14 (managed database).
+  Cloud services: vm_web (virtual machine), vm_app (virtual machine), MySQL_DBMS (managed database). Software components
+  hosted on them: Nginx_web_server, Angular_Frontend, Tomcat_web_server, Spring_Boot_Backend, Spring_Boot_DB, Nginx_software,
+  Angular_software, Tomcat_software, Spring_Boot_software, MySQL_software.'
+node_types:
+  WebAppWithDatabase:
+    derived_from: WebApplication
+    requirements:
+    - database_connection:
+        capability: tosca.capabilities.Endpoint.Database
+        node: Database
+        occurrences:
+        - 1
+        - UNBOUNDED
+data_types:
+  acme.datatypes.Location:
+    derived_from: tosca.datatypes.Root
+    description: 'A deployment location: region and/or availability zone.'
+    properties:
+      region:
+        type: string
+        required: false
+      availability_zone:
+        type: string
+        required: false
+topology_template:
+  node_templates:
+    vm_web:
+      type: Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_web
+            num_cpus: 2
+            disk_size: 20 GB
+            mem_size: 4 GB
+        os:
+          properties:
+            type: Linux
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        endpoint:
+          properties:
+            protocol: tcp
+            secure: false
+    Nginx_web_server:
+      type: WebServer
+      requirements:
+      - host: vm_web
+    Angular_Frontend:
+      type: WebApplication
+      capabilities:
+        app_endpoint:
+          properties:
+            protocol: http
+            secure: false
+      requirements:
+      - host: Nginx_web_server
+      - dependency: Spring_Boot_Backend
+    vm_app:
+      type: Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_app
+            num_cpus: 2
+            disk_size: 20 GB
+            mem_size: 4 GB
+        os:
+          properties:
+            type: Linux
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        endpoint:
+          properties:
+            protocol: tcp
+            secure: false
+    Tomcat_web_server:
+      type: WebServer
+      requirements:
+      - host: vm_app
+    Spring_Boot_Backend:
+      type: WebAppWithDatabase
+      capabilities:
+        app_endpoint:
+          properties:
+            protocol: http
+            secure: false
+      requirements:
+      - host: Tomcat_web_server
+      - database_connection: Spring_Boot_DB
+    MySQL_DBMS:
+      type: DBMS
+      properties:
+        port: 3306
+      capabilities:
+        host:
+          properties:
+            name: MySQL_DBMS
+            num_cpus: 2
+            mem_size: 4 GB
+    Spring_Boot_DB:
+      type: Database
+      properties:
+        name: springboot_db
+        port: 3306
+        user: springuser
+        password: springpass
+      requirements:
+      - host: MySQL_DBMS
+    Nginx_software:
+      type: SoftwareComponent
+      properties:
+        component_version: 1.25.0
+      requirements:
+      - host: vm_web
+    Angular_software:
+      type: SoftwareComponent
+      properties:
+        component_version: 16.3.0
+      requirements:
+      - host: vm_web
+    Tomcat_software:
+      type: SoftwareComponent
+      properties:
+        component_version: 10.1.0
+      requirements:
+      - host: vm_app
+    Spring_Boot_software:
+      type: SoftwareComponent
+      properties:
+        component_version: 2.7.3
+      requirements:
+      - host: vm_app
+    MySQL_software:
+      type: SoftwareComponent
+      properties:
+        component_version: 8.0.0
+      requirements:
+      - host: vm_app
+  policies:
+  - same_provider:
+      type: acme.policies.Colocation
+      properties:
+        scope: provider
+      targets:
+      - vm_web
+      - vm_app
+      - MySQL_DBMS
+policy_types:
+  acme.policies.Colocation:
+    derived_from: tosca.policies.Placement
+    description: The targets share a region (logical location) or a provider.
+    properties:
+      scope:
+        type: string
+        required: true
+        constraints:
+        - valid_values:
+          - region
+          - provider

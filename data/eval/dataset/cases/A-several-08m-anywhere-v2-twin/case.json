@@ -1,0 +1,55 @@
+{
+ "id": "A-several-08m-anywhere-v2-twin",
+ "family": "A",
+ "kind": "several",
+ "source": "C3 request 08 (managed database)",
+ "location": "anywhere",
+ "rq": [
+  "RQ2"
+ ],
+ "note": "several non-dominated compositions satisfy the bounds; no priority stated; twin of A-several-08m-anywhere-v2 with the other hidden priority (negotiation only)",
+ "cleaning": [
+  "node app_network (Network) removed: outside the scope (virtual machines, databases)",
+  "node vm_nodejs: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node DBMS_PostgreSQL: managed database (host vm_mongodb removed)",
+  "node DBMS_PostgreSQL: size of vm_mongodb kept for the managed database (2 CPU, 4 GB)"
+ ],
+ "services": [
+  "vm_nodejs",
+  "DBMS_PostgreSQL",
+  "vm_mongodb"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [
+   "budget",
+   "end_to_end_availability"
+  ],
+  "n_compositions": 248897,
+  "n_compositions_oracle": 2475,
+  "front": [
+   {
+    "cost_cents": 30018,
+    "availability": 99.75019995
+   },
+   {
+    "cost_cents": 42486,
+    "availability": 99.79011999
+   }
+  ],
+  "signal": "several",
+  "expected": {
+   "cost_cents": 30018,
+   "availability": 99.75019995,
+   "availability_published": true,
+   "composition_example": {
+    "vm_nodejs": "gcp-e2-standard-2@us-central1",
+    "DBMS_PostgreSQL": "gcp-cloudsql-postgresql-2v8-us-central1-ha",
+    "vm_mongodb": "gcp-e2-standard-2@us-central1"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "request_description": "Architecture for the Nodecellar web application, including a Node.js web server, PostgreSQL database, and virtual machines for hosting these components. The application connects to the database and is accessible via a specified network.",
+ "twin_of": "A-several-08m-anywhere-v2"
+}

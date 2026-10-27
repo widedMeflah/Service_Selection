@@ -1,0 +1,45 @@
+{
+ "id": "C3-25",
+ "family": "C3",
+ "source": "C3 request 25",
+ "request_form": "Complete SERVICE Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [
+  "policy placement_group_1: target VM-A -> VM_A",
+  "policy placement_group_1: target VM-B -> VM_B",
+  "node lan1 (Network) removed: outside the scope (virtual machines, databases)",
+  "node VM_A: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node VM_B: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)"
+ ],
+ "services": [
+  "VM_A",
+  "VM_B"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [],
+  "n_compositions": 16,
+  "n_compositions_oracle": 1,
+  "front": [
+   {
+    "cost_cents": 25112,
+    "availability": 99.0025
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 25112,
+   "availability": 99.0025,
+   "availability_published": true,
+   "composition_example": {
+    "VM_A": "aws-m5a.xlarge@us-east-1",
+    "VM_B": "aws-m5a.xlarge@us-east-1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "Architecture consisting of two virtual machines (VM-A and VM-B) running Ubuntu 22.04, each with 4 CPUs, 8 GB RAM, and 50 GB disk. Both VMs are connected to a network named lan1 with IPv4 and CIDR 10.0.0.0/24."
+}

@@ -1,0 +1,44 @@
+{
+ "id": "C3-55",
+ "family": "C3",
+ "source": "C3 request 55",
+ "request_form": "Complete SERVICE Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [
+  "node lb_web (LoadBalancer) removed: outside the scope (virtual machines, databases)",
+  "policy placement_group_1: target lb_web removed with its node"
+ ],
+ "services": [
+  "vm_web",
+  "VM-A",
+  "VM-B"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [],
+  "n_compositions": 512,
+  "n_compositions_oracle": 1,
+  "front": [
+   {
+    "cost_cents": 19856,
+    "availability": 98.5074875
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 19856,
+   "availability": 98.5074875,
+   "availability_published": true,
+   "composition_example": {
+    "vm_web": "aws-m5a.large@us-east-1",
+    "VM-A": "aws-m5a.large@us-east-1",
+    "VM-B": "aws-m5a.large@eu-west-2"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "This architecture includes a load balancer routing traffic to a web application hosted on an Nginx web server. The web server runs on a scalable virtual machine in the us-east-1 region. Two additional virtual machines (VM-A and VM-B) are deployed in us-east-1 and eu-west-2 regions, respectively. The load balancer uses a layer4 algorithm and a cloud-provider-managed IP address dynamically associated with all instances of the virtual machine hosting the web application."
+}

@@ -1,0 +1,48 @@
+{
+ "id": "A-unique-15v-europe",
+ "family": "A",
+ "kind": "unique",
+ "source": "C3 request 15 (as interpreted)",
+ "location": "europe",
+ "rq": [
+  "RQ1",
+  "RQ2"
+ ],
+ "note": "bounds satisfied by a single non-dominated composition, no negotiation expected",
+ "cleaning": [
+  "node app_network (Network) removed: outside the scope (virtual machines, databases)",
+  "node vm_frontend: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node vm_backend: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)"
+ ],
+ "services": [
+  "vm_frontend",
+  "vm_backend"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [
+   "budget",
+   "end_to_end_availability"
+  ],
+  "n_compositions": 5329,
+  "n_compositions_oracle": 144,
+  "front": [
+   {
+    "cost_cents": 10760,
+    "availability": 99.8001
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 10760,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "vm_frontend": "gcp-e2-standard-2@europe-west1",
+    "vm_backend": "gcp-e2-standard-2@europe-west1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "A web application architecture consisting of two web applications (FrontendApp and BackendApp) running on separate web servers (Nginx and Tomcat) hosted on distinct virtual machines (vm_frontend and vm_backend). Both virtual machines are connected to the same network (app_network), and FrontendApp communicates with BackendApp."
+}

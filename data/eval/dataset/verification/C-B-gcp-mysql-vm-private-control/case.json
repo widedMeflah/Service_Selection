@@ -1,0 +1,11 @@
+{
+ "id": "C-B-gcp-mysql-vm-private-control",
+ "family": "C",
+ "from": "B-gcp-mysql-vm-private",
+ "mutation": "none",
+ "rq": [
+  "QR4"
+ ],
+ "expected_failures": [],
+ "verifier_agrees": true
+}

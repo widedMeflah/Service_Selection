@@ -1,0 +1,18 @@
+{
+ "id": "C-B-aws-postgresql-quote",
+ "family": "C",
+ "from": "B-aws-postgresql",
+ "mutation": "one word of the quote of VPC replaced",
+ "rq": [
+  "QR4"
+ ],
+ "expected_failures": [
+  {
+   "node": "postgresql_dbms",
+   "resource": "VPC",
+   "verification": "anchoring",
+   "expected_action": "removed"
+  }
+ ],
+ "verifier_agrees": true
+}

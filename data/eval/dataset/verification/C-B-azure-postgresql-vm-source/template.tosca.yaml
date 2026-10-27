@@ -1,0 +1,192 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case B-azure-postgresql-vm, derived from C3 request 11 (managed PostgreSQL database). Cloud
+  services: vm_docker (virtual machine), postgresql_dbms (managed database). Software components hosted on them:
+  app_container, docker_engine, db_app.'
+node_types:
+  RuntimeForContainer:
+    derived_from: tosca.nodes.Container.Runtime
+    capabilities:
+      host:
+        type: tosca.capabilities.Compute
+  ContainerWithDatabase:
+    derived_from: tosca.nodes.Container.Application
+    requirements:
+    - database_connection:
+        capability: tosca.capabilities.Endpoint.Database
+        node: Database
+        occurrences:
+        - 1
+        - UNBOUNDED
+data_types:
+  acme.datatypes.Location:
+    derived_from: tosca.datatypes.Root
+    description: 'A deployment location: region and/or availability zone.'
+    properties:
+      region:
+        type: string
+        required: false
+      availability_zone:
+        type: string
+        required: false
+topology_template:
+  node_templates:
+    app_container:
+      type: ContainerWithDatabase
+      requirements:
+      - host: docker_engine
+      - database_connection: db_app
+    docker_engine:
+      type: RuntimeForContainer
+      capabilities:
+        host: {}
+      requirements:
+      - host: vm_docker
+    vm_docker:
+      type: tosca.nodes.Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_docker
+            num_cpus: 2
+            disk_size: 50 GB
+            mem_size: 4 GB
+        os:
+          properties:
+            type: Linux
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        binding: {}
+        endpoint:
+          properties:
+            protocol: tcp
+            secure: false
+      requirements:
+      - dependency: virtual_network_azure_eastus
+      - dependency: subnet_azure_eastus
+      - dependency: network_interface_azure_eastus
+    db_app:
+      type: Database
+      properties:
+        name: app_db
+        port: 5432
+        user: db_user
+        password: db_password
+      requirements:
+      - host: postgresql_dbms
+    postgresql_dbms:
+      type: DBMS
+      properties:
+        root_password: root_password
+        port: 5432
+      capabilities:
+        host:
+          properties:
+            name: postgresql_dbms
+            num_cpus: 2
+            mem_size: 4 GB
+      requirements:
+      - dependency: virtual_network_azure_eastus
+      - dependency: delegated_subnet_azure_eastus
+      - dependency: private_dns_zone_azure_eastus
+      - dependency: private_dns_zone_virtual_network_link_azure_eastus
+    virtual_network_azure_eastus:
+      type: tosca.nodes.network.Network
+      metadata:
+        dependent_resource: true
+        provider: azure
+        region: eastus
+        source: https://techcommunity.microsoft.com/blog/azurenetworkingblog/virtual-network-basics
+        quote: When you create a virtual machine (VM), you create a virtual network or use an existing one.
+        policy_properties:
+          region: eastus
+        settings: {}
+        required_by:
+        - vm_docker
+        - postgresql_dbms
+    subnet_azure_eastus:
+      type: tosca.nodes.network.Network
+      metadata:
+        dependent_resource: true
+        provider: azure
+        region: eastus
+        source: https://learn.microsoft.com/en-us/azure/virtual-network/network-overview
+        quote: Each NIC in a VM is connected to one subnet in one virtual network.
+        settings: {}
+        required_by:
+        - vm_docker
+      requirements:
+      - dependency: virtual_network_azure_eastus
+    network_interface_azure_eastus:
+      type: tosca.nodes.network.Port
+      metadata:
+        dependent_resource: true
+        provider: azure
+        region: eastus
+        source: https://learn.microsoft.com/en-us/azure/virtual-network/network-overview
+        quote: A virtual machine must have at least one NIC.
+        policy_properties:
+          region: eastus
+        settings: {}
+        required_by:
+        - vm_docker
+      requirements:
+      - dependency: subnet_azure_eastus
+    delegated_subnet_azure_eastus:
+      type: tosca.nodes.network.Network
+      metadata:
+        dependent_resource: true
+        provider: azure
+        region: eastus
+        source: https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-private
+        quote: Your Azure Database for PostgreSQL flexible server that's integrated in a virtual network must be
+          in a subnet that's
+        settings: {}
+        required_by:
+        - postgresql_dbms
+      requirements:
+      - dependency: virtual_network_azure_eastus
+    private_dns_zone_azure_eastus:
+      type: tosca.nodes.Root
+      metadata:
+        dependent_resource: true
+        provider: azure
+        region: eastus
+        source: https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-private
+        quote: you need to use Private DNS zones while configuring Azure Database for PostgreSQL flexible server
+          with private access
+        settings: {}
+        required_by:
+        - postgresql_dbms
+    private_dns_zone_virtual_network_link_azure_eastus:
+      type: tosca.nodes.Root
+      metadata:
+        dependent_resource: true
+        provider: azure
+        region: eastus
+        source: https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-private
+        quote: After you create a Private DNS zone in Azure, you need to link a virtual network to it.
+        settings: {}
+        required_by:
+        - postgresql_dbms
+      requirements:
+      - dependency: private_dns_zone_azure_eastus
+  policies:
+  - placement_all:
+      type: acme.policies.Placement
+      properties:
+        locations:
+        - region: eastus
+      targets:
+      - vm_docker
+      - postgresql_dbms
+policy_types:
+  acme.policies.Placement:
+    derived_from: tosca.policies.Placement
+    description: Deployment locations of the targets (regions or logical locations).
+    properties:
+      locations:
+        type: list
+        required: true

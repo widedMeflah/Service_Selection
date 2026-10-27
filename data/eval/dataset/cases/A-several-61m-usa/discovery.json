@@ -1,0 +1,159 @@
+{
+ "currency": "USD",
+ "nodes": [
+  {
+   "node_name": "mysql_dbms_primary",
+   "applied_filters": {
+    "sla_field_used": "sla",
+    "requirements": {
+     "catalog": "database",
+     "cpu": 2.0,
+     "mem_gb": 4.0,
+     "engine": "mysql",
+     "version": null,
+     "regions": [
+      "eastus",
+      "us-central1",
+      "us-east-1",
+      "us-east-2",
+      "us-east1",
+      "us-west-2",
+      "us-west1",
+      "westus2"
+     ]
+    }
+   },
+   "candidates": [
+    {
+     "offer_id": "aws-rds-mysql-m5.large-us-east-1",
+     "offer_name": "RDS MySQL db.m5.large",
+     "provider": "aws",
+     "region": "us-east-1",
+     "offer_type": "database",
+     "engine": "mysql",
+     "price_month": 129.94,
+     "sla": 99.5,
+     "sla_single_zone": 99.5,
+     "sla_multi_zone": 99.95,
+     "deployment": "single zone"
+    },
+    {
+     "offer_id": "aws-rds-mysql-m5.large-us-east-1-multiaz",
+     "offer_name": "RDS MySQL db.m5.large (RDS Multi-AZ)",
+     "provider": "aws",
+     "region": "us-east-1",
+     "offer_type": "database",
+     "engine": "mysql",
+     "price_month": 259.88,
+     "sla": 99.95,
+     "sla_single_zone": 99.5,
+     "sla_multi_zone": 99.95,
+     "deployment": "Multi-AZ DB instance (standby in a second Availability Zone)"
+    },
+    {
+     "offer_id": "gcp-cloudsql-mysql-2v8-us-central1-ha",
+     "offer_name": "Cloud SQL MySQL 2vCPU/8Go (high availability)",
+     "provider": "gcp",
+     "region": "us-central1",
+     "offer_type": "database",
+     "engine": "mysql",
+     "price_month": 202.36,
+     "sla": 99.95,
+     "sla_single_zone": null,
+     "sla_multi_zone": 99.95,
+     "deployment": "high availability (regional)"
+    },
+    {
+     "offer_id": "gcp-cloudsql-mysql-4v16-us-central1-ha",
+     "offer_name": "Cloud SQL MySQL 4vCPU/16Go (high availability)",
+     "provider": "gcp",
+     "region": "us-central1",
+     "offer_type": "database",
+     "engine": "mysql",
+     "price_month": 404.72,
+     "sla": 99.95,
+     "sla_single_zone": null,
+     "sla_multi_zone": 99.95,
+     "deployment": "high availability (regional)"
+    }
+   ]
+  },
+  {
+   "node_name": "mysql_dbms_secondary",
+   "applied_filters": {
+    "sla_field_used": "sla",
+    "requirements": {
+     "catalog": "database",
+     "cpu": 2.0,
+     "mem_gb": 4.0,
+     "engine": "mysql",
+     "version": null,
+     "regions": [
+      "eastus",
+      "us-central1",
+      "us-east-1",
+      "us-east-2",
+      "us-east1",
+      "us-west-2",
+      "us-west1",
+      "westus2"
+     ]
+    }
+   },
+   "candidates": [
+    {
+     "offer_id": "aws-rds-mysql-m5.large-us-east-1",
+     "offer_name": "RDS MySQL db.m5.large",
+     "provider": "aws",
+     "region": "us-east-1",
+     "offer_type": "database",
+     "engine": "mysql",
+     "price_month": 129.94,
+     "sla": 99.5,
+     "sla_single_zone": 99.5,
+     "sla_multi_zone": 99.95,
+     "deployment": "single zone"
+    },
+    {
+     "offer_id": "aws-rds-mysql-m5.large-us-east-1-multiaz",
+     "offer_name": "RDS MySQL db.m5.large (RDS Multi-AZ)",
+     "provider": "aws",
+     "region": "us-east-1",
+     "offer_type": "database",
+     "engine": "mysql",
+     "price_month": 259.88,
+     "sla": 99.95,
+     "sla_single_zone": 99.5,
+     "sla_multi_zone": 99.95,
+     "deployment": "Multi-AZ DB instance (standby in a second Availability Zone)"
+    },
+    {
+     "offer_id": "gcp-cloudsql-mysql-2v8-us-central1-ha",
+     "offer_name": "Cloud SQL MySQL 2vCPU/8Go (high availability)",
+     "provider": "gcp",
+     "region": "us-central1",
+     "offer_type": "database",
+     "engine": "mysql",
+     "price_month": 202.36,
+     "sla": 99.95,
+     "sla_single_zone": null,
+     "sla_multi_zone": 99.95,
+     "deployment": "high availability (regional)"
+    },
+    {
+     "offer_id": "gcp-cloudsql-mysql-4v16-us-central1-ha",
+     "offer_name": "Cloud SQL MySQL 4vCPU/16Go (high availability)",
+     "provider": "gcp",
+     "region": "us-central1",
+     "offer_type": "database",
+     "engine": "mysql",
+     "price_month": 404.72,
+     "sla": 99.95,
+     "sla_single_zone": null,
+     "sla_multi_zone": 99.95,
+     "deployment": "high availability (regional)"
+    }
+   ]
+  }
+ ]
+}

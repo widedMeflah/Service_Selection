@@ -1,0 +1,60 @@
+{
+ "id": "A-coloc_region_binding-11p-europe",
+ "family": "A",
+ "kind": "coloc_region_binding",
+ "source": "C3 request 11 (managed PostgreSQL database)",
+ "location": "europe",
+ "rq": [
+  "RQ1"
+ ],
+ "note": "the same-region constraint (logical location) changes the optimum",
+ "cleaning": [
+  "node bloc_storage_db (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node bloc_storage_docker (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node network_container (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node network_db (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node network_docker (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node object_store (StorageForContainer) removed: outside the scope (virtual machines, databases)",
+  "node vm_docker: type computeWithblocNetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node vm_db: type computeWithblocNetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node mysql_dbms: managed database (host vm_db removed)",
+  "node mysql_dbms: size of vm_db kept for the managed database (2 CPU, 4 GB)",
+  "node vm_db removed: it only hosted mysql_dbms",
+  "MySQL DBMS replaced by a PostgreSQL DBMS (engine variant): the databases it hosts and the MySQL software components are renamed"
+ ],
+ "services": [
+  "vm_docker",
+  "postgresql_dbms"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [
+   "same_region"
+  ],
+  "n_compositions": 438,
+  "n_compositions_oracle": 72,
+  "front": [
+   {
+    "cost_cents": 21330,
+    "availability": 99.4005
+   },
+   {
+    "cost_cents": 32362,
+    "availability": 99.85005
+   }
+  ],
+  "signal": "several",
+  "expected": {
+   "cost_cents": 32362,
+   "availability": 99.85005,
+   "availability_published": true,
+   "composition_example": {
+    "vm_docker": "gcp-e2-standard-2@europe-west2",
+    "postgresql_dbms": "gcp-cloudsql-postgresql-2v8-europe-west2-ha"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "twin": "A-coloc_region_binding-11p-europe-twin",
+ "request_description": "A Docker-based architecture where the application 'app_container' runs on a Docker Engine hosted on a virtual machine 'vm_docker'. The application connects to an object storage 'object_store' and a PostgreSQL database 'db_app', which is hosted on a PostgreSQL DBMS 'PostgreSQL_dbms' running on another virtual machine 'vm_db'."
+}

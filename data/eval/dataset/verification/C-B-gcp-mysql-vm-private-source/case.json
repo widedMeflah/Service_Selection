@@ -1,0 +1,18 @@
+{
+ "id": "C-B-gcp-mysql-vm-private-source",
+ "family": "C",
+ "from": "B-gcp-mysql-vm-private",
+ "mutation": "source of VPC network replaced by https://medium.com/google-cloud/vpc-network-basics",
+ "rq": [
+  "QR4"
+ ],
+ "expected_failures": [
+  {
+   "node": "vm_db_app",
+   "resource": "VPC network",
+   "verification": "anchoring",
+   "expected_action": "removed"
+  }
+ ],
+ "verifier_agrees": true
+}

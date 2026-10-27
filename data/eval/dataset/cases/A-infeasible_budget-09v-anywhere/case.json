@@ -1,0 +1,72 @@
+{
+ "id": "A-infeasible_budget-09v-anywhere",
+ "family": "A",
+ "kind": "infeasible_budget",
+ "source": "C3 request 09 (as interpreted)",
+ "location": "anywhere",
+ "rq": [
+  "RQ1",
+  "RQ2"
+ ],
+ "note": "budget 10% below the cheapest composition",
+ "cleaning": [
+  "node app_network (Network) removed: outside the scope (virtual machines, databases)",
+  "node vm_app: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)"
+ ],
+ "services": [
+  "vm_app",
+  "vm_db"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [
+   "budget"
+  ],
+  "n_compositions": 1694,
+  "n_compositions_oracle": 150,
+  "front": [],
+  "signal": "infeasible",
+  "mcs": [
+   [
+    "budget"
+   ]
+  ],
+  "relaxations": [
+   {
+    "mcs": [
+     "budget"
+    ],
+    "changes": [
+     {
+      "constraint": "budget",
+      "criterion": "cost",
+      "from": 220.1,
+      "to": 244.55
+     }
+    ],
+    "cost_cents": 24455,
+    "availability": 99.8001,
+    "availability_published": true,
+    "composition": {
+     "vm_app": "gcp-e2-standard-2@us-central1",
+     "vm_db": "gcp-e2-standard-8@us-central1"
+    }
+   }
+  ],
+  "expected_relaxation": [
+   "budget"
+  ],
+  "after_relaxation_front_size": 1,
+  "expected": {
+   "cost_cents": 24455,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "vm_app": "gcp-e2-standard-2@us-central1",
+    "vm_db": "gcp-e2-standard-8@us-central1"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "request_description": "This architecture models a web application (NodeApp) running on an Nginx web server, which is hosted on a virtual machine (vm_app). The application connects to a PostgreSQL database hosted on a separate virtual machine (vm_db). The vm_app is connected to a network (app_network)."
+}

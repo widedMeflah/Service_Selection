@@ -1,0 +1,64 @@
+{
+ "id": "A-coloc_binding-11p-usa-twin",
+ "family": "A",
+ "kind": "coloc_binding",
+ "source": "C3 request 11 (managed PostgreSQL database)",
+ "location": "usa",
+ "rq": [
+  "RQ2"
+ ],
+ "note": "the same-provider constraint changes the optimum; twin of A-coloc_binding-11p-usa with the other hidden priority (negotiation only)",
+ "cleaning": [
+  "node bloc_storage_db (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node bloc_storage_docker (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node network_container (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node network_db (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node network_docker (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node object_store (StorageForContainer) removed: outside the scope (virtual machines, databases)",
+  "node vm_docker: type computeWithblocNetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node vm_db: type computeWithblocNetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node mysql_dbms: managed database (host vm_db removed)",
+  "node mysql_dbms: size of vm_db kept for the managed database (2 CPU, 4 GB)",
+  "node vm_db removed: it only hosted mysql_dbms",
+  "MySQL DBMS replaced by a PostgreSQL DBMS (engine variant): the databases it hosts and the MySQL software components are renamed"
+ ],
+ "services": [
+  "vm_docker",
+  "postgresql_dbms"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [
+   "same_provider"
+  ],
+  "n_compositions": 528,
+  "n_compositions_oracle": 15,
+  "front": [
+   {
+    "cost_cents": 10878,
+    "availability": 99.8001
+   },
+   {
+    "cost_cents": 25127,
+    "availability": 99.85005
+   },
+   {
+    "cost_cents": 38982,
+    "availability": 99.89001
+   }
+  ],
+  "signal": "several",
+  "expected": {
+   "cost_cents": 10878,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "vm_docker": "azure-D2as_v5@eastus",
+    "postgresql_dbms": "azure-pgflex-burstable-b2ms-eastus"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "request_description": "A Docker-based architecture where the application 'app_container' runs on a Docker Engine hosted on a virtual machine 'vm_docker'. The application connects to an object storage 'object_store' and a PostgreSQL database 'db_app', which is hosted on a PostgreSQL DBMS 'PostgreSQL_dbms' running on another virtual machine 'vm_db'.",
+ "twin_of": "A-coloc_binding-11p-usa"
+}

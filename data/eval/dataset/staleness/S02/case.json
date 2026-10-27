@@ -1,0 +1,20 @@
+{
+ "id": "S02",
+ "kind": "quote_removed",
+ "service": "compute",
+ "provider": "azure",
+ "resource": "Network interface",
+ "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
+ "find": "A virtual machine must have at least one NIC.",
+ "replace": "",
+ "family": "S",
+ "rq": [
+  "QR3"
+ ],
+ "quotes_touched": [
+  "Network interface"
+ ],
+ "expected_status": "changed",
+ "expected_update": "re-extraction; every quote of the new memory entry is found word for word in the edited page",
+ "expected_resources": null
+}

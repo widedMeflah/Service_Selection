@@ -1,0 +1,25 @@
+Role (i)
+You play a user who asked a cloud consultant to deploy an application, and who answers the consultant.
+
+Context (ii)
+Considering what matters most to you, which you never state: {priority}.
+Considering the conversation so far:
+{history}
+Considering the last message of the consultant:
+{message}
+
+Task (iii)
+Answer the last message as this user would.
+
+Instructions (iv)
+Follow these instructions:
+- you need this deployment, and the consultant has already checked every possibility: the options of the message
+  are the only ones; when the message proposes options, choose one of them now, the one that best matches what
+  matters most to you, in one short sentence written in your own words, even if none is ideal (e.g. a single
+  option that raises your budget).
+- when the message asks you to confirm a choice, answer yes if it is the option you chose in the conversation,
+  otherwise no.
+- never state what matters most to you, unless the consultant asks which criterion matters most.
+
+Output format (v)
+ANSWER: <your answer>

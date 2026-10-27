@@ -1,0 +1,11 @@
+{
+ "id": "C-B-aws-postgresql-private-control",
+ "family": "C",
+ "from": "B-aws-postgresql-private",
+ "mutation": "none",
+ "rq": [
+  "QR4"
+ ],
+ "expected_failures": [],
+ "verifier_agrees": true
+}

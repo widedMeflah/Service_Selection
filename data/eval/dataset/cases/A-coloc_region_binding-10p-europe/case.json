@@ -1,0 +1,52 @@
+{
+ "id": "A-coloc_region_binding-10p-europe",
+ "family": "A",
+ "kind": "coloc_region_binding",
+ "source": "C3 request 10 (managed PostgreSQL database)",
+ "location": "europe",
+ "rq": [
+  "RQ1"
+ ],
+ "note": "the same-region constraint (logical location) changes the optimum",
+ "cleaning": [
+  "node app_network (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node app_storage_prod (StorageForContainer) removed: outside the scope (virtual machines, databases)",
+  "node mysql_dbms: managed database (host vm_db_app removed)",
+  "MySQL DBMS replaced by a PostgreSQL DBMS (engine variant): the databases it hosts and the MySQL software components are renamed"
+ ],
+ "services": [
+  "vm_db_app",
+  "postgresql_dbms"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [
+   "same_region"
+  ],
+  "n_compositions": 48,
+  "n_compositions_oracle": 48,
+  "front": [
+   {
+    "cost_cents": 40230,
+    "availability": 99.4005
+   },
+   {
+    "cost_cents": 51262,
+    "availability": 99.85005
+   }
+  ],
+  "signal": "several",
+  "expected": {
+   "cost_cents": 40230,
+   "availability": 99.4005,
+   "availability_published": true,
+   "composition_example": {
+    "vm_db_app": "gcp-e2-standard-8@europe-west2",
+    "postgresql_dbms": "aws-rds-postgresql-m5.large-eu-west-2"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "twin": "A-coloc_region_binding-10p-europe-twin",
+ "request_description": "Architecture for a Docker application running on a Docker Engine hosted on a virtual machine, connecting to a PostgreSQL database, an IPv4 network, and an object storage."
+}

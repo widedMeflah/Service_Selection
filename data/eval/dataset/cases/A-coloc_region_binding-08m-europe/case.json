@@ -1,0 +1,54 @@
+{
+ "id": "A-coloc_region_binding-08m-europe",
+ "family": "A",
+ "kind": "coloc_region_binding",
+ "source": "C3 request 08 (managed database)",
+ "location": "europe",
+ "rq": [
+  "RQ1"
+ ],
+ "note": "the same-region constraint (logical location) changes the optimum",
+ "cleaning": [
+  "node app_network (Network) removed: outside the scope (virtual machines, databases)",
+  "node vm_nodejs: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node DBMS_PostgreSQL: managed database (host vm_mongodb removed)",
+  "node DBMS_PostgreSQL: size of vm_mongodb kept for the managed database (2 CPU, 4 GB)"
+ ],
+ "services": [
+  "vm_nodejs",
+  "DBMS_PostgreSQL",
+  "vm_mongodb"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [
+   "same_region"
+  ],
+  "n_compositions": 31974,
+  "n_compositions_oracle": 864,
+  "front": [
+   {
+    "cost_cents": 27630,
+    "availability": 99.3010995
+   },
+   {
+    "cost_cents": 38662,
+    "availability": 99.75019995
+   }
+  ],
+  "signal": "several",
+  "expected": {
+   "cost_cents": 38662,
+   "availability": 99.75019995,
+   "availability_published": true,
+   "composition_example": {
+    "vm_nodejs": "gcp-e2-standard-2@europe-west2",
+    "DBMS_PostgreSQL": "gcp-cloudsql-postgresql-2v8-europe-west2-ha",
+    "vm_mongodb": "gcp-e2-standard-2@europe-west2"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "twin": "A-coloc_region_binding-08m-europe-twin",
+ "request_description": "Architecture for the Nodecellar web application, including a Node.js web server, PostgreSQL database, and virtual machines for hosting these components. The application connects to the database and is accessible via a specified network."
+}

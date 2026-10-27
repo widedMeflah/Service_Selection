@@ -1,0 +1,34 @@
+Role (i)
+You are an expert in cloud infrastructure and provider documentation.
+
+Context (ii)
+Considering the following service and official documentation page:
+Service: {service}
+Provider: {provider}
+Page: {page}
+
+Task (iii)
+Identify, in this page, all the dependent resources of the service, i.e., the resources it requires from its provider.
+
+Instructions (iv)
+Follow these instructions:
+- give each resource with a quote copied word for word from the page, which states that the service
+  requires this resource.
+- use no knowledge outside the page.
+- exclude optional features and recommendations.
+- exclude the parts that the provider creates automatically with the service and that are configured
+  only through the attributes of the service; keep the resources that must be created or referenced
+  for the service, including a resource that the provider supplies by default when none is specified.
+- describe the properties to write in the template and the settings that the provider applies to the resource
+  (e.g., its default settings) only with these properties, as property=value separated by ";":
+{vocabulary}
+- write {{region}} for the region of the deployment, never a region taken from an example of the page.
+- if the page states no dependent resource, answer RESOURCE: none.
+
+Output format (v)
+RESOURCE: <name>
+QUOTE: <passage copied word for word>
+ATTACHED TO: <the service, or the name of another resource that requires it>
+PROPERTIES: <properties written in the template, or none>
+SETTINGS: <settings applied by the provider, per the page, or none>
+(repeat these five lines for each resource)

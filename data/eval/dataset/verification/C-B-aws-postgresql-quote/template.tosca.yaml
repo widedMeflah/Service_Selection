@@ -1,0 +1,134 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case B-aws-postgresql, derived from C3 request 58 (managed database). Cloud services: postgresql_dbms
+  (managed database). Software components hosted on them: postgres_db.'
+data_types:
+  acme.datatypes.Location:
+    derived_from: tosca.datatypes.Root
+    description: 'A deployment location: region and/or availability zone.'
+    properties:
+      region:
+        type: string
+        required: false
+      availability_zone:
+        type: string
+        required: false
+policy_types:
+  acme.policies.Placement:
+    derived_from: tosca.policies.Placement
+    description: Geographic placement constraint (region and/or availability zone).
+    properties:
+      locations:
+        type: list
+        required: true
+        entry_schema:
+          type: acme.datatypes.Location
+      distribution:
+        type: string
+        default: multi_region
+        constraints:
+        - valid_values:
+          - single_region
+          - multi_region
+  acme.policies.Availability:
+    derived_from: tosca.policies.Performance
+    description: Service-level availability target (percent).
+    properties:
+      availability:
+        type: float
+        required: true
+        constraints:
+        - in_range:
+          - 0.0
+          - 100.0
+topology_template:
+  node_templates:
+    postgresql_dbms:
+      type: DBMS
+      properties:
+        root_password: root_password123
+        port: 5432
+      capabilities:
+        host:
+          properties:
+            num_cpus: 2
+            mem_size: 8 GB
+      requirements:
+      - dependency: vpc_aws_us_east_1
+      - dependency: subnet_aws_us_east_1
+      - dependency: db_subnet_group_aws_us_east_1
+      - dependency: vpc_security_group_aws_us_east_1
+    postgres_db:
+      type: Database
+      properties:
+        name: postgres_db
+        port: 5432
+        user: db_admin
+        password: secure_password123
+      requirements:
+      - host: postgresql_dbms
+    vpc_aws_us_east_1:
+      type: tosca.nodes.network.Network
+      metadata:
+        dependent_resource: true
+        provider: aws
+        region: us-east-1
+        source: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html
+        quote: Create no VPC with subnets in at least two Availability Zones.
+        settings: {}
+        required_by:
+        - postgresql_dbms
+    subnet_aws_us_east_1:
+      type: tosca.nodes.network.Network
+      metadata:
+        dependent_resource: true
+        provider: aws
+        region: us-east-1
+        source: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html
+        quote: Your VPC must have at least two subnets. These subnets must be in two different Availability Zones
+        settings: {}
+        required_by:
+        - postgresql_dbms
+      requirements:
+      - dependency: vpc_aws_us_east_1
+    db_subnet_group_aws_us_east_1:
+      type: tosca.nodes.Root
+      metadata:
+        dependent_resource: true
+        provider: aws
+        region: us-east-1
+        source: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html
+        quote: Your VPC must have a DB subnet group that you create.
+        settings: {}
+        required_by:
+        - postgresql_dbms
+      requirements:
+      - dependency: vpc_aws_us_east_1
+    vpc_security_group_aws_us_east_1:
+      type: tosca.nodes.Root
+      metadata:
+        dependent_resource: true
+        provider: aws
+        region: us-east-1
+        source: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html
+        quote: Your VPC must have a VPC security group that allows access to the DB instance.
+        settings:
+          internet_exposure:
+          - false
+        required_by:
+        - postgresql_dbms
+      requirements:
+      - dependency: vpc_aws_us_east_1
+  policies:
+  - availability_policy_1:
+      type: acme.policies.Availability
+      targets:
+      - postgres_db
+      properties:
+        availability: 99.9
+  - placement_all:
+      type: acme.policies.Placement
+      properties:
+        locations:
+        - region: us-east-1
+      targets:
+      - postgresql_dbms

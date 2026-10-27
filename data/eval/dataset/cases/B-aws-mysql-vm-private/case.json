@@ -1,0 +1,121 @@
+{
+ "id": "B-aws-mysql-vm-private",
+ "family": "B",
+ "kind": "completion",
+ "provider": "aws",
+ "region": "us-east-1",
+ "source": "C3 request 10 (managed database)",
+ "rq": [
+  "RQ3",
+  "RQ4",
+  "RQ5"
+ ],
+ "note": "fixed composition (one candidate per node): evaluates the completion",
+ "cleaning": [
+  "node app_network (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node app_storage_prod (StorageForContainer) removed: outside the scope (virtual machines, databases)",
+  "node mysql_dbms: managed database (host vm_db_app removed)"
+ ],
+ "services": [
+  "vm_db_app",
+  "mysql_dbms"
+ ],
+ "completion_services": [
+  {
+   "node": "vm_db_app",
+   "provider": "aws",
+   "service": "compute",
+   "region": "us-east-1"
+  },
+  {
+   "node": "mysql_dbms",
+   "provider": "aws",
+   "service": "database_mysql",
+   "region": "us-east-1"
+  }
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [],
+  "n_compositions": 1,
+  "n_compositions_oracle": 1,
+  "front": [
+   {
+    "cost_cents": 41026,
+    "availability": 99.0025
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 41026,
+   "availability": 99.0025,
+   "availability_published": true,
+   "composition_example": {
+    "vm_db_app": "aws-m5.2xlarge@us-east-1",
+    "mysql_dbms": "aws-rds-mysql-m5.large-us-east-1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "dependent_resources_gt": {
+  "vm_db_app": [
+   {
+    "name": "VPC",
+    "aliases": [
+     "Virtual Private Cloud",
+     "Amazon VPC",
+     "Default VPC"
+    ],
+    "attached_to": null
+   },
+   {
+    "name": "Subnet",
+    "aliases": [],
+    "attached_to": "VPC"
+   },
+   {
+    "name": "Security group",
+    "aliases": [
+     "EC2 security group",
+     "VPC security group",
+     "Default security group"
+    ],
+    "attached_to": "VPC"
+   }
+  ],
+  "mysql_dbms": [
+   {
+    "name": "VPC",
+    "aliases": [
+     "Virtual Private Cloud",
+     "Amazon VPC"
+    ],
+    "attached_to": null
+   },
+   {
+    "name": "Subnet",
+    "aliases": [
+     "Subnets"
+    ],
+    "attached_to": "VPC"
+   },
+   {
+    "name": "DB subnet group",
+    "aliases": [
+     "Subnet group",
+     "RDS subnet group"
+    ],
+    "attached_to": "VPC"
+   },
+   {
+    "name": "VPC security group",
+    "aliases": [
+     "Security group",
+     "RDS security group"
+    ],
+    "attached_to": "VPC"
+   }
+  ]
+ },
+ "request_description": "Architecture for a Docker application running on a Docker Engine hosted on a virtual machine, connecting to a MySQL database, an IPv4 network, and an object storage."
+}

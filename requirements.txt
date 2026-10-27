@@ -1,0 +1,9 @@
+ortools
+pyyaml
+python-dotenv
+langchain-core
+langchain-openai
+langchain-groq
+langchain-mistralai
+langchain-anthropic
+langchain-google-genai

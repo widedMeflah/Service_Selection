@@ -1,0 +1,51 @@
+{
+ "cases": 167,
+ "by_family": {
+  "C3": 32,
+  "A": 116,
+  "B": 19
+ },
+ "by_signal": {
+  "C3:unique": 31,
+  "C3:infeasible": 1,
+  "A:unique": 16,
+  "A:infeasible": 54,
+  "A:several": 46,
+  "B:unique": 19
+ },
+ "negotiations_expected": 101,
+ "rejected_sources": 50,
+ "quota_A": {
+  "unique": 8,
+  "near_miss": 8,
+  "several": 14,
+  "infeasible": 10,
+  "infeasible_budget": 6,
+  "infeasible_availability": 6,
+  "infeasible_both": 6,
+  "coloc_binding": 6,
+  "coloc_infeasible": 5,
+  "coloc_region_binding": 6,
+  "coloc_provider_infeasible": 6
+ },
+ "made_A": {
+  "unique": 8,
+  "near_miss": 8,
+  "several": 14,
+  "infeasible": 10,
+  "infeasible_budget": 6,
+  "infeasible_availability": 6,
+  "infeasible_both": 6,
+  "coloc_binding": 6,
+  "coloc_infeasible": 5,
+  "coloc_region_binding": 3,
+  "coloc_provider_infeasible": 6
+ },
+ "twins_A": 38,
+ "by_location_A": {
+  "anywhere": 60,
+  "usa": 44,
+  "europe": 11,
+  "uk": 1
+ }
+}

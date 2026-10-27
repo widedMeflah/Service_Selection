@@ -1,0 +1,43 @@
+{
+ "id": "C3-27",
+ "family": "C3",
+ "source": "C3 request 27",
+ "request_form": "Business Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [
+  "node local_net (Network) removed: outside the scope (virtual machines, databases)",
+  "node vm_host1: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node vm_host2: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)"
+ ],
+ "services": [
+  "vm_host1",
+  "vm_host2"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [],
+  "n_compositions": 64,
+  "n_compositions_oracle": 1,
+  "front": [
+   {
+    "cost_cents": 14016,
+    "availability": 99.0025
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 14016,
+   "availability": 99.0025,
+   "availability_published": true,
+   "composition_example": {
+    "vm_host1": "aws-m5a.large@eu-west-1",
+    "vm_host2": "aws-m5a.large@eu-west-1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "Architecture consisting of two virtual machines (vm_host1 and vm_host2) running Linux, each with 2 CPUs, 4 GB RAM, and 50 GB disk. Both VMs are connected to the same network (local_net)."
+}

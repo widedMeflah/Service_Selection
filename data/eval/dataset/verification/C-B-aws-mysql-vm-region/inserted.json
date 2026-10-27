@@ -1,0 +1,106 @@
+[
+ {
+  "id": "vpc_aws_us_east_1",
+  "node": "vm_db_app",
+  "service": "compute",
+  "provider": "aws",
+  "region": "us-east-1",
+  "name": "VPC",
+  "quote": "Amazon VPC enables you to launch AWS resources, such as Amazon EC2 instances, into a virtual network dedicated to your AWS account, known as a virtual private cloud (VPC).",
+  "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-networking.html",
+  "properties": {
+   "region": "us-west-2"
+  },
+  "settings": {},
+  "attached_to": null,
+  "origin": "annotation"
+ },
+ {
+  "id": "subnet_aws_us_east_1",
+  "node": "vm_db_app",
+  "service": "compute",
+  "provider": "aws",
+  "region": "us-east-1",
+  "name": "Subnet",
+  "quote": "When you launch an instance, you can select a subnet from the VPC.",
+  "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-networking.html",
+  "properties": {},
+  "settings": {},
+  "attached_to": "vpc_aws_us_east_1",
+  "origin": "annotation"
+ },
+ {
+  "id": "security_group_aws_us_east_1",
+  "node": "vm_db_app",
+  "service": "compute",
+  "provider": "aws",
+  "region": "us-east-1",
+  "name": "Security group",
+  "quote": "If you don't specify a security group, Amazon EC2 uses the default security group for the VPC.",
+  "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html",
+  "properties": {},
+  "settings": {},
+  "attached_to": "vpc_aws_us_east_1",
+  "origin": "annotation"
+ },
+ {
+  "id": "vpc_aws_us_east_1",
+  "node": "mysql_dbms",
+  "service": "database_mysql",
+  "provider": "aws",
+  "region": "us-east-1",
+  "name": "VPC",
+  "quote": "Create a VPC with subnets in at least two Availability Zones.",
+  "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+  "properties": {},
+  "settings": {},
+  "attached_to": null,
+  "origin": "annotation"
+ },
+ {
+  "id": "subnet_aws_us_east_1",
+  "node": "mysql_dbms",
+  "service": "database_mysql",
+  "provider": "aws",
+  "region": "us-east-1",
+  "name": "Subnet",
+  "quote": "Your VPC must have at least two subnets. These subnets must be in two different Availability Zones",
+  "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+  "properties": {},
+  "settings": {},
+  "attached_to": "vpc_aws_us_east_1",
+  "origin": "annotation"
+ },
+ {
+  "id": "db_subnet_group_aws_us_east_1",
+  "node": "mysql_dbms",
+  "service": "database_mysql",
+  "provider": "aws",
+  "region": "us-east-1",
+  "name": "DB subnet group",
+  "quote": "Your VPC must have a DB subnet group that you create.",
+  "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+  "properties": {},
+  "settings": {},
+  "attached_to": "vpc_aws_us_east_1",
+  "origin": "annotation"
+ },
+ {
+  "id": "vpc_security_group_aws_us_east_1",
+  "node": "mysql_dbms",
+  "service": "database_mysql",
+  "provider": "aws",
+  "region": "us-east-1",
+  "name": "VPC security group",
+  "quote": "Your VPC must have a VPC security group that allows access to the DB instance.",
+  "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+  "properties": {},
+  "settings": {
+   "internet_exposure": [
+    "false"
+   ]
+  },
+  "attached_to": "vpc_aws_us_east_1",
+  "origin": "annotation"
+ }
+]

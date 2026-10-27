@@ -1,0 +1,75 @@
+{
+ "id": "A-coloc_infeasible-07m-anywhere-twin",
+ "family": "A",
+ "kind": "coloc_infeasible",
+ "source": "C3 request 07 (managed database)",
+ "location": "anywhere",
+ "rq": [
+  "RQ2"
+ ],
+ "note": "machines placed in Europe, databases in the USA, and a same-region constraint; twin of A-coloc_infeasible-07m-anywhere with the other hidden priority (negotiation only)",
+ "cleaning": [
+  "node app_network (Network) removed: outside the scope (virtual machines, databases)",
+  "node vm_app: endpoint network_name app_network removed with its node",
+  "node vm_db: endpoint network_name app_network removed with its node",
+  "node vm_app: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node vm_db: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node PostgreSQL_DBMS: managed database (host vm_db removed)",
+  "node vm_db removed: it only hosted PostgreSQL_DBMS"
+ ],
+ "services": [
+  "vm_app",
+  "PostgreSQL_DBMS"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [
+   "same_region"
+  ],
+  "n_compositions": 219,
+  "n_compositions_oracle": 36,
+  "front": [],
+  "signal": "infeasible",
+  "mcs": [
+   [
+    "same_region"
+   ]
+  ],
+  "relaxations": [
+   {
+    "mcs": [
+     "same_region"
+    ],
+    "changes": [
+     {
+      "constraint": "same_region",
+      "removed": true
+     }
+    ],
+    "cost_cents": 31368,
+    "availability": 99.4005,
+    "availability_published": true,
+    "composition": {
+     "vm_app": "gcp-e2-standard-2@europe-west1",
+     "PostgreSQL_DBMS": "aws-rds-postgresql-m5.xlarge-us-east-1"
+    }
+   }
+  ],
+  "expected_relaxation": [
+   "same_region"
+  ],
+  "after_relaxation_front_size": 2,
+  "expected": {
+   "cost_cents": 45852,
+   "availability": 99.85005,
+   "availability_published": true,
+   "composition_example": {
+    "vm_app": "gcp-e2-standard-2@europe-west1",
+    "PostgreSQL_DBMS": "gcp-cloudsql-postgresql-4v16-us-central1-ha"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "request_description": "A web application architecture featuring Nodecellar (a Node.js web application) running on a Node.js web server hosted on a virtual machine (vm_app). The application connects to a PostgreSQL database (PostgreSQL_BDD) hosted on a PostgreSQL DBMS, which is deployed on a separate virtual machine (vm_db). Both virtual machines are connected to a network (app_network) and run Ubuntu 22.04 LTS. The web application is exposed on port 3000 and interacts with the database over TCP.",
+ "twin_of": "A-coloc_infeasible-07m-anywhere"
+}

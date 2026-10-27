@@ -1,0 +1,46 @@
+{
+ "id": "C3-28",
+ "family": "C3",
+ "source": "C3 request 28",
+ "request_form": "Complete SERVICE Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [
+  "policy placement_group_1: target VM-A -> VM_A",
+  "policy placement_group_1: target VM-B -> VM_B",
+  "node volume_A (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node volume_B (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node VM_A: type computeWithblocStorage -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node VM_B: type computeWithblocStorage -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)"
+ ],
+ "services": [
+  "VM_A",
+  "VM_B"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [],
+  "n_compositions": 9,
+  "n_compositions_oracle": 1,
+  "front": [
+   {
+    "cost_cents": 25112,
+    "availability": 99.8001
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 25112,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "VM_A": "azure-D4as_v5@eastus",
+    "VM_B": "azure-D4as_v5@eastus"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "Architecture consisting of two virtual machines (VM-A and VM-B) running Ubuntu 22.04, each with specified CPU, memory, and disk resources. Each VM is attached to a dedicated block storage volume (volume_A and volume_B)."
+}

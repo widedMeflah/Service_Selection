@@ -1,0 +1,22 @@
+{
+ "id": "S07",
+ "kind": "layout",
+ "service": "compute",
+ "provider": "aws",
+ "resource": "Public IP address",
+ "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-networking.html",
+ "find": "You can control whether the instance receives a public IP address from Amazon's pool of public\nIP addresses.",
+ "replace": "You  can  control  whether  the  instance  receives  a  public  IP  address  from  Amazon's  pool  of  public\nIP  addresses.",
+ "family": "S",
+ "rq": [
+  "QR3"
+ ],
+ "quotes_touched": [],
+ "expected_status": "reused",
+ "expected_update": null,
+ "expected_resources": [
+  "VPC",
+  "Subnet",
+  "Security group"
+ ]
+}

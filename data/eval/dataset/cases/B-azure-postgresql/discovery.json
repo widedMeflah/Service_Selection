@@ -1,0 +1,37 @@
+{
+ "currency": "USD",
+ "nodes": [
+  {
+   "node_name": "postgresql_dbms",
+   "applied_filters": {
+    "sla_field_used": "sla",
+    "requirements": {
+     "catalog": "database",
+     "cpu": 2.0,
+     "mem_gb": 8.0,
+     "engine": "postgresql",
+     "version": null,
+     "min_availability": 99.9,
+     "regions": [
+      "eastus"
+     ]
+    }
+   },
+   "candidates": [
+    {
+     "offer_id": "azure-pgflex-burstable-b2ms-eastus",
+     "offer_name": "Azure PostgreSQL Flexible B2ms (Burstable)",
+     "provider": "azure",
+     "region": "eastus",
+     "offer_type": "database",
+     "engine": "postgresql",
+     "price_month": 46.0,
+     "sla": 99.9,
+     "sla_single_zone": 99.9,
+     "sla_multi_zone": 99.99,
+     "deployment": "single zone"
+    }
+   ]
+  }
+ ]
+}

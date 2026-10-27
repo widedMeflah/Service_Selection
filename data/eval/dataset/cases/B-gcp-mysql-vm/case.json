@@ -1,0 +1,111 @@
+{
+ "id": "B-gcp-mysql-vm",
+ "family": "B",
+ "kind": "completion",
+ "provider": "gcp",
+ "region": "us-central1",
+ "source": "C3 request 10 (managed database)",
+ "rq": [
+  "RQ3",
+  "RQ4",
+  "RQ5"
+ ],
+ "note": "fixed composition (one candidate per node): evaluates the completion",
+ "cleaning": [
+  "node app_network (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node app_storage_prod (StorageForContainer) removed: outside the scope (virtual machines, databases)",
+  "node mysql_dbms: managed database (host vm_db_app removed)"
+ ],
+ "services": [
+  "vm_db_app",
+  "mysql_dbms"
+ ],
+ "completion_services": [
+  {
+   "node": "vm_db_app",
+   "provider": "gcp",
+   "service": "compute",
+   "region": "us-central1"
+  },
+  {
+   "node": "mysql_dbms",
+   "provider": "gcp",
+   "service": "database_mysql",
+   "region": "us-central1"
+  }
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [],
+  "n_compositions": 1,
+  "n_compositions_oracle": 1,
+  "front": [
+   {
+    "cost_cents": 39800,
+    "availability": 99.85005
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 39800,
+   "availability": 99.85005,
+   "availability_published": true,
+   "composition_example": {
+    "vm_db_app": "gcp-e2-standard-8@us-central1",
+    "mysql_dbms": "gcp-cloudsql-mysql-2v8-us-central1-ha"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "dependent_resources_gt": {
+  "vm_db_app": [
+   {
+    "name": "VPC network",
+    "aliases": [
+     "VPC",
+     "Default network",
+     "Virtual Private Cloud network"
+    ],
+    "attached_to": null
+   },
+   {
+    "name": "Subnet",
+    "aliases": [
+     "Subnetwork"
+    ],
+    "attached_to": "VPC network"
+   }
+  ],
+  "mysql_dbms": [
+   {
+    "name": "VPC network",
+    "aliases": [
+     "VPC",
+     "Virtual Private Cloud network"
+    ],
+    "attached_to": null
+   },
+   {
+    "name": "Allocated IP address range",
+    "aliases": [
+     "Allocated IP range",
+     "IP address range",
+     "Reserved IP range"
+    ],
+    "attached_to": "VPC network"
+   },
+   {
+    "name": "Private services access connection",
+    "aliases": [
+     "Private services connection",
+     "Private connection",
+     "Service networking connection",
+     "VPC Network Peering",
+     "Peering connection"
+    ],
+    "attached_to": "VPC network"
+   }
+  ]
+ },
+ "request_description": "Architecture for a Docker application running on a Docker Engine hosted on a virtual machine, connecting to a MySQL database, an IPv4 network, and an object storage."
+}

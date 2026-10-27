@@ -1,0 +1,106 @@
+[
+ {
+  "id": "virtual_network_azure_eastus",
+  "node": "vm_docker",
+  "service": "compute",
+  "provider": "azure",
+  "region": "eastus",
+  "name": "Virtual network",
+  "quote": "When you create a virtual machine (VM), you create a virtual network or use an existing one.",
+  "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
+  "properties": {
+   "region": "westus2"
+  },
+  "settings": {},
+  "attached_to": null,
+  "origin": "annotation"
+ },
+ {
+  "id": "subnet_azure_eastus",
+  "node": "vm_docker",
+  "service": "compute",
+  "provider": "azure",
+  "region": "eastus",
+  "name": "Subnet",
+  "quote": "Each NIC in a VM is connected to one subnet in one virtual network.",
+  "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
+  "properties": {},
+  "settings": {},
+  "attached_to": "virtual_network_azure_eastus",
+  "origin": "annotation"
+ },
+ {
+  "id": "network_interface_azure_eastus",
+  "node": "vm_docker",
+  "service": "compute",
+  "provider": "azure",
+  "region": "eastus",
+  "name": "Network interface",
+  "quote": "A virtual machine must have at least one NIC.",
+  "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
+  "properties": {
+   "region": "{region}"
+  },
+  "settings": {},
+  "attached_to": "subnet_azure_eastus",
+  "origin": "annotation"
+ },
+ {
+  "id": "virtual_network_azure_eastus_postgresql_dbms",
+  "node": "postgresql_dbms",
+  "service": "database_postgresql",
+  "provider": "azure",
+  "region": "eastus",
+  "name": "Virtual network",
+  "quote": "Your virtual network must be in the same Azure region as your Azure Database for PostgreSQL flexible server.",
+  "url": "https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-private",
+  "properties": {
+   "region": "{region}"
+  },
+  "settings": {},
+  "attached_to": null,
+  "origin": "annotation"
+ },
+ {
+  "id": "delegated_subnet_azure_eastus",
+  "node": "postgresql_dbms",
+  "service": "database_postgresql",
+  "provider": "azure",
+  "region": "eastus",
+  "name": "Delegated subnet",
+  "quote": "Your Azure Database for PostgreSQL flexible server that's integrated in a virtual network must be in a subnet that's",
+  "url": "https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-private",
+  "properties": {},
+  "settings": {},
+  "attached_to": "virtual_network_azure_eastus_postgresql_dbms",
+  "origin": "annotation"
+ },
+ {
+  "id": "private_dns_zone_azure_eastus",
+  "node": "postgresql_dbms",
+  "service": "database_postgresql",
+  "provider": "azure",
+  "region": "eastus",
+  "name": "Private DNS zone",
+  "quote": "you need to use Private DNS zones while configuring Azure Database for PostgreSQL flexible server with private access",
+  "url": "https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-private",
+  "properties": {},
+  "settings": {},
+  "attached_to": null,
+  "origin": "annotation"
+ },
+ {
+  "id": "private_dns_zone_virtual_network_link_azure_eastus",
+  "node": "postgresql_dbms",
+  "service": "database_postgresql",
+  "provider": "azure",
+  "region": "eastus",
+  "name": "Private DNS zone virtual network link",
+  "quote": "After you create a Private DNS zone in Azure, you need to link a virtual network to it.",
+  "url": "https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-private",
+  "properties": {},
+  "settings": {},
+  "attached_to": "private_dns_zone_azure_eastus",
+  "origin": "annotation"
+ }
+]

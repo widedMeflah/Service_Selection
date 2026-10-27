@@ -1,0 +1,55 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case C3-20, derived from C3 request 20. Cloud services: vm_docker (virtual machine). Software
+  components hosted on them: docker_app, docker_engine.'
+node_types:
+  RuntimeForContainer:
+    derived_from: tosca.nodes.Container.Runtime
+    capabilities:
+      host:
+        type: tosca.capabilities.Compute
+data_types:
+  acme.datatypes.Location:
+    derived_from: tosca.datatypes.Root
+    description: 'A deployment location: region and/or availability zone.'
+    properties:
+      region:
+        type: string
+        required: false
+      availability_zone:
+        type: string
+        required: false
+topology_template:
+  node_templates:
+    docker_app:
+      type: Container.Application
+      requirements:
+      - host: docker_engine
+    docker_engine:
+      type: RuntimeForContainer
+      capabilities:
+        host: {}
+      requirements:
+      - host: vm_docker
+    vm_docker:
+      type: tosca.nodes.Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_docker
+            num_cpus: 2
+            disk_size: 20 GB
+            mem_size: 4 GB
+        os:
+          properties:
+            architecture: x86_64
+            type: Linux
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        binding: {}
+        endpoint:
+          properties:
+            protocol: tcp
+            secure: false

@@ -1,0 +1,49 @@
+{
+ "id": "A-several-10m-anywhere-v2-twin",
+ "family": "A",
+ "kind": "several",
+ "source": "C3 request 10 (managed database)",
+ "location": "anywhere",
+ "rq": [
+  "RQ2"
+ ],
+ "note": "no global constraint, several non-dominated compositions; no priority stated; twin of A-several-10m-anywhere-v2 with the other hidden priority (negotiation only)",
+ "cleaning": [
+  "node app_network (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node app_storage_prod (StorageForContainer) removed: outside the scope (virtual machines, databases)",
+  "node mysql_dbms: managed database (host vm_db_app removed)"
+ ],
+ "services": [
+  "vm_db_app",
+  "mysql_dbms"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [],
+  "n_compositions": 56,
+  "n_compositions_oracle": 30,
+  "front": [
+   {
+    "cost_cents": 32558,
+    "availability": 99.4005
+   },
+   {
+    "cost_cents": 39800,
+    "availability": 99.85005
+   }
+  ],
+  "signal": "several",
+  "expected": {
+   "cost_cents": 32558,
+   "availability": 99.4005,
+   "availability_published": true,
+   "composition_example": {
+    "vm_db_app": "gcp-e2-standard-8@us-central1",
+    "mysql_dbms": "aws-rds-mysql-m5.large-us-east-1"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "request_description": "Architecture for a Docker application running on a Docker Engine hosted on a virtual machine, connecting to a MySQL database, an IPv4 network, and an object storage.",
+ "twin_of": "A-several-10m-anywhere-v2"
+}

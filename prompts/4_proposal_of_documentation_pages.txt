@@ -1,0 +1,20 @@
+Role (i)
+You are an expert in cloud infrastructure and provider documentation.
+
+Context (ii)
+Considering the following service, for which no official documentation page is known:
+Service: {service}
+Provider: {provider}
+Official domains of the provider: {domains}
+
+Task (iii)
+Propose the official documentation pages that describe the resources this service requires from its provider.
+
+Instructions (iv)
+Follow these instructions:
+- propose at most {n} URLs, only on the official domains given above.
+- propose only pages that exist; propose none if you do not know any.
+
+Output format (v)
+URL: <url>
+(one line per URL, or URL: none)

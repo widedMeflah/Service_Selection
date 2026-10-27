@@ -1,0 +1,41 @@
+{
+ "id": "C3-62",
+ "family": "C3",
+ "source": "C3 request 62",
+ "request_form": "Complete SERVICE Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [
+  "node vm_storage: undefined type computeWithblocStorage -> tosca.nodes.Compute",
+  "node volume_data (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "policy placement_group_1: target volume_data removed with its node"
+ ],
+ "services": [
+  "vm_storage"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [],
+  "n_compositions": 8,
+  "n_compositions_oracle": 1,
+  "front": [
+   {
+    "cost_cents": 7300,
+    "availability": 99.5
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 7300,
+   "availability": 99.5,
+   "availability_published": true,
+   "composition_example": {
+    "vm_storage": "aws-m5a.large@eu-west-2"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "Block storage volume (100 GB) attached to a Linux VM in eu-west-2."
+}

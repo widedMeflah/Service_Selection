@@ -1,0 +1,116 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case C3-09, derived from C3 request 09. Cloud services: vm_app (virtual machine), vm_db
+  (virtual machine). Software components hosted on them: NodeApp, Nginx, PostgreSQL_DBMS, PostgreSQL_BDD, Nginx_SoftwareComponent,
+  NodeApp_SoftwareComponent, PostgreSQL_DBMS_SoftwareComponent.'
+node_types:
+  WebAppWithDatabase:
+    derived_from: WebApplication
+    requirements:
+    - database_connection:
+        capability: tosca.capabilities.Endpoint.Database
+        node: Database
+        occurrences:
+        - 1
+        - UNBOUNDED
+data_types:
+  acme.datatypes.Location:
+    derived_from: tosca.datatypes.Root
+    description: 'A deployment location: region and/or availability zone.'
+    properties:
+      region:
+        type: string
+        required: false
+      availability_zone:
+        type: string
+        required: false
+topology_template:
+  node_templates:
+    NodeApp:
+      type: WebAppWithDatabase
+      capabilities:
+        app_endpoint:
+          properties:
+            protocol: http
+            secure: false
+      requirements:
+      - host: Nginx
+      - database_connection: PostgreSQL_BDD
+    Nginx:
+      type: WebServer
+      requirements:
+      - host: vm_app
+    vm_app:
+      type: tosca.nodes.Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_app
+            num_cpus: 2
+            disk_size: 50 GB
+            mem_size: 4 GB
+        os:
+          properties:
+            architecture: x86_64
+            type: Linux
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        binding: {}
+        endpoint:
+          properties:
+            protocol: http
+            secure: false
+    PostgreSQL_DBMS:
+      type: DBMS
+      properties:
+        port: 5432
+      capabilities:
+        host:
+          properties:
+            name: PostgreSQL_DBMS
+      requirements:
+      - host: vm_db
+    PostgreSQL_BDD:
+      type: Database
+      properties:
+        name: PostgreSQL_BDD
+        port: 5432
+      requirements:
+      - host: PostgreSQL_DBMS
+    vm_db:
+      type: Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_db
+            num_cpus: 4
+            disk_size: 100 GB
+            mem_size: 32 GB
+        os:
+          properties:
+            architecture: x86_64
+            type: Linux
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        binding: {}
+        endpoint:
+          properties:
+            protocol: tcp
+            secure: false
+    Nginx_SoftwareComponent:
+      type: SoftwareComponent
+      properties:
+        component_version: 1.25.3
+    NodeApp_SoftwareComponent:
+      type: SoftwareComponent
+      properties:
+        component_version: 18.12.1
+    PostgreSQL_DBMS_SoftwareComponent:
+      type: SoftwareComponent
+      properties:
+        component_version: 15.4.0

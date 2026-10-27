@@ -1,0 +1,55 @@
+{
+ "id": "C3-60",
+ "family": "C3",
+ "source": "C3 request 60",
+ "request_form": "Complete SERVICE Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [
+  "policy replication (Redundancy) added on vm_mysql_primary, vm_mysql_standby: the request states \"two virtual machines (primary and standby) ... with replication for data redundancy and automatic failover\"",
+  "policy availability_policy_1: target MySQL DBMS -> mysql_dbms",
+  "node bloc_storage_primary (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node bloc_storage_standby (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node network_mysql (Network) removed: outside the scope (virtual machines, databases)",
+  "node vm_mysql_primary: type computeWithblocNetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node vm_mysql_standby: type computeWithblocNetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)"
+ ],
+ "services": [
+  "vm_mysql_primary",
+  "vm_mysql_standby"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [
+   "availability_policy_1"
+  ],
+  "n_compositions": 64,
+  "n_compositions_oracle": 1,
+  "redundancy_groups": [
+   [
+    "vm_mysql_primary",
+    "vm_mysql_standby"
+   ]
+  ],
+  "front": [
+   {
+    "cost_cents": 14600,
+    "availability": 99.9975
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 14600,
+   "availability": 99.9975,
+   "availability_published": true,
+   "composition_example": {
+    "vm_mysql_primary": "aws-m5a.large@eu-west-2",
+    "vm_mysql_standby": "aws-m5a.large@eu-west-2"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "A MySQL DBMS cluster with Group Replication enabled, consisting of two virtual machines (primary and standby) deployed in different availability zones (eu-west-2a and eu-west-2b). The cluster hosts a MySQL database instance named 'mysql_db' with replication for data redundancy and automatic failover."
+}

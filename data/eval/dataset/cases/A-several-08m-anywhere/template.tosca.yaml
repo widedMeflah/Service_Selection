@@ -1,0 +1,163 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case A-several-08m-anywhere, derived from C3 request 08 (managed database). Cloud services:
+  vm_nodejs (virtual machine), DBMS_PostgreSQL (managed database), vm_mongodb (virtual machine). Software components
+  hosted on them: web_application_Nodecellar, web_server_Nodejs, database_PostgreSQL, Nodejs_SoftwareComponent,
+  PostgreSQL_SoftwareComponent.'
+node_types:
+  WebAppWithDatabase:
+    derived_from: WebApplication
+    requirements:
+    - database_connection:
+        capability: tosca.capabilities.Endpoint.Database
+        node: Database
+        occurrences:
+        - 1
+        - UNBOUNDED
+data_types:
+  acme.datatypes.Location:
+    derived_from: tosca.datatypes.Root
+    description: 'A deployment location: region and/or availability zone.'
+    properties:
+      region:
+        type: string
+        required: false
+      availability_zone:
+        type: string
+        required: false
+topology_template:
+  node_templates:
+    web_application_Nodecellar:
+      type: WebAppWithDatabase
+      properties:
+        context_root: /nodecellar
+      capabilities:
+        app_endpoint:
+          properties:
+            protocol: http
+            port: 3000
+            secure: false
+      requirements:
+      - host: web_server_Nodejs
+      - database_connection: database_PostgreSQL
+    web_server_Nodejs:
+      type: WebServer
+      requirements:
+      - host: vm_nodejs
+    vm_nodejs:
+      type: tosca.nodes.Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_nodejs
+            num_cpus: 2
+            disk_size: 20 GB
+            mem_size: 4 GB
+        os:
+          properties:
+            architecture: x86_64
+            type: Linux
+            distribution: Ubuntu
+            version: 22.04.0
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        binding: {}
+        endpoint:
+          properties:
+            protocol: http
+            secure: false
+    database_PostgreSQL:
+      type: Database
+      properties:
+        name: nodecellar_db
+        port: 5432
+        user: nodecellar_user
+        password: secure_password123
+      requirements:
+      - host: DBMS_PostgreSQL
+    DBMS_PostgreSQL:
+      type: DBMS
+      properties:
+        root_password: root_password123
+        port: 5432
+      capabilities:
+        host:
+          properties:
+            name: DBMS_PostgreSQL
+            num_cpus: 2
+            mem_size: 4 GB
+    vm_mongodb:
+      type: Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_mongodb
+            num_cpus: 2
+            disk_size: 50 GB
+            mem_size: 4 GB
+        os:
+          properties:
+            architecture: x86_64
+            type: Linux
+            distribution: Ubuntu
+            version: 22.04.0
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        binding: {}
+        endpoint:
+          properties:
+            protocol: http
+            secure: false
+    Nodejs_SoftwareComponent:
+      type: SoftwareComponent
+      properties:
+        component_version: 20.0.0
+      requirements:
+      - host: vm_nodejs
+    PostgreSQL_SoftwareComponent:
+      type: SoftwareComponent
+      properties:
+        component_version: 15.0.0
+      requirements:
+      - host: vm_mongodb
+  policies:
+  - budget:
+      type: acme.policies.Cost
+      properties:
+        max_cost: 300.18
+        currency: USD
+      targets:
+      - vm_nodejs
+      - DBMS_PostgreSQL
+      - vm_mongodb
+  - end_to_end_availability:
+      type: acme.policies.Availability
+      properties:
+        availability: 99.7002
+      targets:
+      - vm_nodejs
+      - DBMS_PostgreSQL
+      - vm_mongodb
+policy_types:
+  acme.policies.Cost:
+    derived_from: tosca.policies.Root
+    description: Monthly budget of the targets (sum of their prices).
+    properties:
+      max_cost:
+        type: float
+        required: true
+      currency:
+        type: string
+        default: USD
+  acme.policies.Availability:
+    derived_from: tosca.policies.Performance
+    description: End-to-end availability of the targets (product, percent).
+    properties:
+      availability:
+        type: float
+        required: true

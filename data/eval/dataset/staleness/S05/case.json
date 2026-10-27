@@ -1,0 +1,25 @@
+{
+ "id": "S05",
+ "kind": "quote_reworded",
+ "service": "database_postgresql",
+ "provider": "azure",
+ "resource": "Private DNS zone virtual network link",
+ "replace": "Once the Private DNS zone exists in Azure, you need to link a virtual network to the zone.",
+ "url": "https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-private",
+ "find": "After you create a Private DNS zone in Azure, you need to link a virtual network to it.",
+ "family": "S",
+ "rq": [
+  "QR3"
+ ],
+ "quotes_touched": [
+  "Private DNS zone virtual network link"
+ ],
+ "expected_status": "changed",
+ "expected_update": "re-extraction; every quote of the new memory entry is found word for word in the edited page",
+ "expected_resources": [
+  "Virtual network",
+  "Delegated subnet",
+  "Private DNS zone",
+  "Private DNS zone virtual network link"
+ ]
+}

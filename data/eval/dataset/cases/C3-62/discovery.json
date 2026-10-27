@@ -1,0 +1,112 @@
+{
+ "currency": "USD",
+ "nodes": [
+  {
+   "node_name": "vm_storage",
+   "applied_filters": {
+    "sla_field_used": "sla",
+    "requirements": {
+     "catalog": "compute",
+     "cpu": null,
+     "mem_gb": null,
+     "os_type": null,
+     "os_distribution": null,
+     "architecture": null,
+     "regions": [
+      "eu-west-2"
+     ]
+    }
+   },
+   "candidates": [
+    {
+     "offer_id": "aws-m5.large@eu-west-2",
+     "offer_name": "m5.large",
+     "provider": "aws",
+     "region": "eu-west-2",
+     "offer_type": "compute",
+     "price_month": 81.03,
+     "sla": 99.5,
+     "sla_single_zone": 99.5,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "aws-m5.xlarge@eu-west-2",
+     "offer_name": "m5.xlarge",
+     "provider": "aws",
+     "region": "eu-west-2",
+     "offer_type": "compute",
+     "price_month": 162.06,
+     "sla": 99.5,
+     "sla_single_zone": 99.5,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "aws-m5.2xlarge@eu-west-2",
+     "offer_name": "m5.2xlarge",
+     "provider": "aws",
+     "region": "eu-west-2",
+     "offer_type": "compute",
+     "price_month": 324.12,
+     "sla": 99.5,
+     "sla_single_zone": 99.5,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "aws-m5d.large@eu-west-2",
+     "offer_name": "m5d.large",
+     "provider": "aws",
+     "region": "eu-west-2",
+     "offer_type": "compute",
+     "price_month": 95.63,
+     "sla": 99.5,
+     "sla_single_zone": 99.5,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "aws-m5d.xlarge@eu-west-2",
+     "offer_name": "m5d.xlarge",
+     "provider": "aws",
+     "region": "eu-west-2",
+     "offer_type": "compute",
+     "price_month": 191.26,
+     "sla": 99.5,
+     "sla_single_zone": 99.5,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "aws-m5a.large@eu-west-2",
+     "offer_name": "m5a.large",
+     "provider": "aws",
+     "region": "eu-west-2",
+     "offer_type": "compute",
+     "price_month": 73.0,
+     "sla": 99.5,
+     "sla_single_zone": 99.5,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "aws-m5a.xlarge@eu-west-2",
+     "offer_name": "m5a.xlarge",
+     "provider": "aws",
+     "region": "eu-west-2",
+     "offer_type": "compute",
+     "price_month": 146.0,
+     "sla": 99.5,
+     "sla_single_zone": 99.5,
+     "sla_multi_zone": 99.99
+    },
+    {
+     "offer_id": "aws-m5ad.large@eu-west-2",
+     "offer_name": "m5ad.large",
+     "provider": "aws",
+     "region": "eu-west-2",
+     "offer_type": "compute",
+     "price_month": 87.6,
+     "sla": 99.5,
+     "sla_single_zone": 99.5,
+     "sla_multi_zone": 99.99
+    }
+   ]
+  }
+ ]
+}

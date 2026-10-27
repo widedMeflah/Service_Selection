@@ -1,0 +1,130 @@
+{
+ "id": "B-aws-postgresql-vm-private",
+ "family": "B",
+ "kind": "completion",
+ "provider": "aws",
+ "region": "us-east-1",
+ "source": "C3 request 11 (managed PostgreSQL database)",
+ "rq": [
+  "RQ3",
+  "RQ4",
+  "RQ5"
+ ],
+ "note": "fixed composition (one candidate per node): evaluates the completion",
+ "cleaning": [
+  "node bloc_storage_db (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node bloc_storage_docker (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node network_container (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node network_db (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node network_docker (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node object_store (StorageForContainer) removed: outside the scope (virtual machines, databases)",
+  "node vm_docker: type computeWithblocNetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node vm_db: type computeWithblocNetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node mysql_dbms: managed database (host vm_db removed)",
+  "node mysql_dbms: size of vm_db kept for the managed database (2 CPU, 4 GB)",
+  "node vm_db removed: it only hosted mysql_dbms",
+  "MySQL DBMS replaced by a PostgreSQL DBMS (engine variant): the databases it hosts and the MySQL software components are renamed"
+ ],
+ "services": [
+  "vm_docker",
+  "postgresql_dbms"
+ ],
+ "completion_services": [
+  {
+   "node": "vm_docker",
+   "provider": "aws",
+   "service": "compute",
+   "region": "us-east-1"
+  },
+  {
+   "node": "postgresql_dbms",
+   "provider": "aws",
+   "service": "database_postgresql",
+   "region": "us-east-1"
+  }
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [],
+  "n_compositions": 1,
+  "n_compositions_oracle": 1,
+  "front": [
+   {
+    "cost_cents": 19272,
+    "availability": 99.0025
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 19272,
+   "availability": 99.0025,
+   "availability_published": true,
+   "composition_example": {
+    "vm_docker": "aws-m5a.large@us-east-1",
+    "postgresql_dbms": "aws-rds-postgresql-m5.large-us-east-1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "dependent_resources_gt": {
+  "vm_docker": [
+   {
+    "name": "VPC",
+    "aliases": [
+     "Virtual Private Cloud",
+     "Amazon VPC",
+     "Default VPC"
+    ],
+    "attached_to": null
+   },
+   {
+    "name": "Subnet",
+    "aliases": [],
+    "attached_to": "VPC"
+   },
+   {
+    "name": "Security group",
+    "aliases": [
+     "EC2 security group",
+     "VPC security group",
+     "Default security group"
+    ],
+    "attached_to": "VPC"
+   }
+  ],
+  "postgresql_dbms": [
+   {
+    "name": "VPC",
+    "aliases": [
+     "Virtual Private Cloud",
+     "Amazon VPC"
+    ],
+    "attached_to": null
+   },
+   {
+    "name": "Subnet",
+    "aliases": [
+     "Subnets"
+    ],
+    "attached_to": "VPC"
+   },
+   {
+    "name": "DB subnet group",
+    "aliases": [
+     "Subnet group",
+     "RDS subnet group"
+    ],
+    "attached_to": "VPC"
+   },
+   {
+    "name": "VPC security group",
+    "aliases": [
+     "Security group",
+     "RDS security group"
+    ],
+    "attached_to": "VPC"
+   }
+  ]
+ },
+ "request_description": "A Docker-based architecture where the application 'app_container' runs on a Docker Engine hosted on a virtual machine 'vm_docker'. The application connects to an object storage 'object_store' and a PostgreSQL database 'db_app', which is hosted on a PostgreSQL DBMS 'PostgreSQL_dbms' running on another virtual machine 'vm_db'."
+}

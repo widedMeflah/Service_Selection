@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-17T16:58:54.472196+00:00",
+  "pages": {
+    "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-networking.html": {
+      "file": "000.html",
+      "fingerprint": "b75fed9676312b339c4d141c612fc2968b753cf0ba53f92a560dcbe5bbaa438c"
+    },
+    "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html": {
+      "file": "001.html",
+      "fingerprint": "431d64e1ed85a04ab1e6325912f4923e7de6f51a016c1fea8ed75ad714adac89"
+    },
+    "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview": {
+      "file": "002.html",
+      "fingerprint": "4ef545987cac6d378860e9fbddff6c225fe74158ce88fff6132f304910727a5b"
+    },
+    "https://docs.cloud.google.com/compute/docs/networking/network-overview": {
+      "file": "003.html",
+      "fingerprint": "7f248b9f492b09b32f0528d3b3cc10bd81d1a81d83b1028cb3eafd03529840a9"
+    },
+    "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html": {
+      "file": "004.html",
+      "fingerprint": "be2d4f61bbdfe00371952a0ce4cc28f76ccf27033291c8d1155e6c3903a9fc82"
+    },
+    "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.html": {
+      "file": "005.html",
+      "fingerprint": "0b5bc7c2f5728b31be7ed2aaa092a85b18c260d07f852119a2443412e38ead62"
+    },
+    "https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-private": {
+      "file": "006.html",
+      "fingerprint": "3ca7540df4a22a2fe9d9e3cd2ab32785189835c45b57e999b6dc3989015ba6b0"
+    },
+    "https://learn.microsoft.com/en-us/azure/mysql/flexible-server/concepts-networking-vnet": {
+      "file": "007.html",
+      "fingerprint": "cc3372e23a5e9b1af3c4b4105e69f680caf7e5c3dee5e0857a7afa09116ce4ef"
+    },
+    "https://docs.cloud.google.com/sql/docs/postgres/configure-private-services-access": {
+      "file": "008.html",
+      "fingerprint": "33aeb3944ebd64c77dcbbd185836c32272a8a2c397dc884677515f4e9d025edb"
+    },
+    "https://docs.cloud.google.com/sql/docs/mysql/configure-private-ip": {
+      "file": "009.html",
+      "fingerprint": "a2c1130f268bc71bb1274a28794e792ee9f8e15b378cd16c2101a2048785f281"
+    },
+    "https://docs.cloud.google.com/sql/docs/mysql/configure-private-services-access": {
+      "file": "010.html",
+      "fingerprint": "a2c1130f268bc71bb1274a28794e792ee9f8e15b378cd16c2101a2048785f281"
+    }
+  },
+  "not_read": {}
+}

@@ -1,0 +1,139 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case A-near_miss-15v-europe, derived from C3 request 15 (as interpreted). Cloud services:
+  vm_frontend (virtual machine), vm_backend (virtual machine). Software components hosted on them: Nginx, Tomcat,
+  FrontendApp, BackendApp.'
+data_types:
+  acme.datatypes.Location:
+    derived_from: tosca.datatypes.Root
+    description: 'A deployment location: region and/or availability zone.'
+    properties:
+      region:
+        type: string
+        required: false
+      availability_zone:
+        type: string
+        required: false
+topology_template:
+  node_templates:
+    vm_frontend:
+      type: tosca.nodes.Compute
+      capabilities:
+        host:
+          properties:
+            num_cpus: 2
+            disk_size: 30 GB
+            mem_size: 4 GB
+        os:
+          properties:
+            type: Linux
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        binding: {}
+        endpoint:
+          properties:
+            protocol: tcp
+            secure: false
+    vm_backend:
+      type: tosca.nodes.Compute
+      capabilities:
+        host:
+          properties:
+            num_cpus: 2
+            disk_size: 30 GB
+            mem_size: 4 GB
+        os:
+          properties:
+            type: Linux
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        binding: {}
+        endpoint:
+          properties:
+            protocol: tcp
+            secure: false
+    Nginx:
+      type: WebServer
+      requirements:
+      - host: vm_frontend
+    Tomcat:
+      type: WebServer
+      requirements:
+      - host: vm_backend
+    FrontendApp:
+      type: WebApplication
+      properties:
+        context_root: /frontend
+      capabilities:
+        app_endpoint:
+          properties:
+            protocol: http
+            secure: false
+      requirements:
+      - host: Nginx
+      - dependency: BackendApp
+    BackendApp:
+      type: WebApplication
+      properties:
+        context_root: /backend
+      capabilities:
+        app_endpoint:
+          properties:
+            protocol: http
+            secure: false
+      requirements:
+      - host: Tomcat
+  policies:
+  - placement_all:
+      type: acme.policies.Placement
+      properties:
+        locations:
+        - region: europe
+      targets:
+      - vm_frontend
+      - vm_backend
+  - budget:
+      type: acme.policies.Cost
+      properties:
+        max_cost: 107.6
+        currency: USD
+      targets:
+      - vm_frontend
+      - vm_backend
+  - end_to_end_availability:
+      type: acme.policies.Availability
+      properties:
+        availability: 99.8001
+      targets:
+      - vm_frontend
+      - vm_backend
+policy_types:
+  acme.policies.Placement:
+    derived_from: tosca.policies.Placement
+    description: Deployment locations of the targets (regions or logical locations).
+    properties:
+      locations:
+        type: list
+        required: true
+  acme.policies.Cost:
+    derived_from: tosca.policies.Root
+    description: Monthly budget of the targets (sum of their prices).
+    properties:
+      max_cost:
+        type: float
+        required: true
+      currency:
+        type: string
+        default: USD
+  acme.policies.Availability:
+    derived_from: tosca.policies.Performance
+    description: End-to-end availability of the targets (product, percent).
+    properties:
+      availability:
+        type: float
+        required: true

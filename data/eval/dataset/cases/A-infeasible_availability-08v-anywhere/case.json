@@ -1,0 +1,72 @@
+{
+ "id": "A-infeasible_availability-08v-anywhere",
+ "family": "A",
+ "kind": "infeasible_availability",
+ "source": "C3 request 08 (as interpreted)",
+ "location": "anywhere",
+ "rq": [
+  "RQ1",
+  "RQ2"
+ ],
+ "note": "availability above the most available composition",
+ "cleaning": [
+  "node app_network (Network) removed: outside the scope (virtual machines, databases)",
+  "node vm_nodejs: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)"
+ ],
+ "services": [
+  "vm_nodejs",
+  "vm_mongodb"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [
+   "end_to_end_availability"
+  ],
+  "n_compositions": 14641,
+  "n_compositions_oracle": 225,
+  "front": [],
+  "signal": "infeasible",
+  "mcs": [
+   [
+    "end_to_end_availability"
+   ]
+  ],
+  "relaxations": [
+   {
+    "mcs": [
+     "end_to_end_availability"
+    ],
+    "changes": [
+     {
+      "constraint": "end_to_end_availability",
+      "criterion": "availability",
+      "from": 99.8501,
+      "to": 99.8001
+     }
+    ],
+    "cost_cents": 9782,
+    "availability": 99.8001,
+    "availability_published": true,
+    "composition": {
+     "vm_nodejs": "gcp-e2-standard-2@us-central1",
+     "vm_mongodb": "gcp-e2-standard-2@us-central1"
+    }
+   }
+  ],
+  "expected_relaxation": [
+   "end_to_end_availability"
+  ],
+  "after_relaxation_front_size": 1,
+  "expected": {
+   "cost_cents": 9782,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "vm_nodejs": "gcp-e2-standard-2@us-central1",
+    "vm_mongodb": "gcp-e2-standard-2@us-central1"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "request_description": "Architecture for the Nodecellar web application, including a Node.js web server, PostgreSQL database, and virtual machines for hosting these components. The application connects to the database and is accessible via a specified network."
+}

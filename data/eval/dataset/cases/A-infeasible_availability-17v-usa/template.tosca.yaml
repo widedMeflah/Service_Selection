@@ -1,0 +1,148 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case A-infeasible_availability-17v-usa, derived from C3 request 17 (as interpreted). Cloud
+  services: vm_web (virtual machine), vm_db (virtual machine). Software components hosted on them: webapp, apache_web_server,
+  mysql_dbms, db_app.'
+node_types:
+  WebAppWithDatabase:
+    derived_from: WebApplication
+    requirements:
+    - database_connection:
+        capability: tosca.capabilities.Endpoint.Database
+        node: Database
+        occurrences:
+        - 1
+        - UNBOUNDED
+data_types:
+  acme.datatypes.Location:
+    derived_from: tosca.datatypes.Root
+    description: 'A deployment location: region and/or availability zone.'
+    properties:
+      region:
+        type: string
+        required: false
+      availability_zone:
+        type: string
+        required: false
+topology_template:
+  node_templates:
+    webapp:
+      type: WebAppWithDatabase
+      properties:
+        context_root: /app
+      capabilities:
+        app_endpoint:
+          properties:
+            protocol: http
+            port: 80
+            secure: false
+      requirements:
+      - host: apache_web_server
+      - database_connection: db_app
+    apache_web_server:
+      type: WebServer
+      requirements:
+      - host: vm_web
+    vm_web:
+      type: Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_web
+            num_cpus: 4
+            disk_size: 100 GB
+            mem_size: 8 GB
+        os:
+          properties:
+            architecture: x86_64
+            type: linux
+            distribution: Ubuntu
+            version: 22.04.0
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        binding: {}
+        endpoint:
+          properties:
+            protocol: ssh
+            port: 22
+            secure: true
+    mysql_dbms:
+      type: DBMS
+      properties:
+        root_password: root_password
+        port: 3306
+        component_version: 8.0.36
+      capabilities:
+        host:
+          properties:
+            name: mysql_dbms
+      requirements:
+      - host: vm_db
+    db_app:
+      type: Database
+      properties:
+        name: app_db
+        port: 3306
+        user: app_user
+        password: app_password
+      requirements:
+      - host: mysql_dbms
+    vm_db:
+      type: Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_db
+            num_cpus: 8
+            disk_size: 500 GB
+            mem_size: 16 GB
+        os:
+          properties:
+            architecture: x86_64
+            type: linux
+            distribution: Ubuntu
+            version: 22.04.0
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        binding: {}
+        endpoint:
+          properties:
+            protocol: ssh
+            port: 22
+            secure: true
+  policies:
+  - placement_all:
+      type: acme.policies.Placement
+      properties:
+        locations:
+        - region: usa
+      targets:
+      - vm_web
+      - vm_db
+  - end_to_end_availability:
+      type: acme.policies.Availability
+      properties:
+        availability: 99.8501
+      targets:
+      - vm_web
+      - vm_db
+policy_types:
+  acme.policies.Placement:
+    derived_from: tosca.policies.Placement
+    description: Deployment locations of the targets (regions or logical locations).
+    properties:
+      locations:
+        type: list
+        required: true
+  acme.policies.Availability:
+    derived_from: tosca.policies.Performance
+    description: End-to-end availability of the targets (product, percent).
+    properties:
+      availability:
+        type: float
+        required: true

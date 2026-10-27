@@ -1,0 +1,24 @@
+{
+ "id": "S04",
+ "kind": "quote_reworded",
+ "service": "compute",
+ "provider": "aws",
+ "resource": "Security group",
+ "replace": "When no security group is specified, Amazon EC2 uses the default security group of the VPC.",
+ "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html",
+ "find": "If you don't specify a\nsecurity group, Amazon EC2 uses the default security group for the VPC.",
+ "family": "S",
+ "rq": [
+  "QR3"
+ ],
+ "quotes_touched": [
+  "Security group"
+ ],
+ "expected_status": "changed",
+ "expected_update": "re-extraction; every quote of the new memory entry is found word for word in the edited page",
+ "expected_resources": [
+  "VPC",
+  "Subnet",
+  "Security group"
+ ]
+}

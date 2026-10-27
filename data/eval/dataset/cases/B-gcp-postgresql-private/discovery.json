@@ -1,0 +1,37 @@
+{
+ "currency": "USD",
+ "nodes": [
+  {
+   "node_name": "postgresql_dbms",
+   "applied_filters": {
+    "sla_field_used": "sla",
+    "requirements": {
+     "catalog": "database",
+     "cpu": 2.0,
+     "mem_gb": 8.0,
+     "engine": "postgresql",
+     "version": null,
+     "min_availability": 99.9,
+     "regions": [
+      "us-central1"
+     ]
+    }
+   },
+   "candidates": [
+    {
+     "offer_id": "gcp-cloudsql-postgresql-2v8-us-central1-ha",
+     "offer_name": "Cloud SQL PostgreSQL 2vCPU/8Go (high availability)",
+     "provider": "gcp",
+     "region": "us-central1",
+     "offer_type": "database",
+     "engine": "postgresql",
+     "price_month": 202.36,
+     "sla": 99.95,
+     "sla_single_zone": null,
+     "sla_multi_zone": 99.95,
+     "deployment": "high availability (regional)"
+    }
+   ]
+  }
+ ]
+}

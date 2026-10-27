@@ -1,0 +1,277 @@
+run,case,type,expected_failures,detected_failures,tp,fp,fn,false_alert,action_correct,corrected,rounds,expected,detected,actions
+run1,C-B-aws-mysql-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run1,C-B-aws-mysql-vm-private-control,control,0,0,0,0,0,0,,1,1,,,
+run1,C-B-aws-mysql-vm-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,mysql_dbms/VPC/policy compliance,mysql_dbms/VPC/policy compliance,mysql_dbms/VPC=reconfigured
+run1,C-B-aws-mysql-vm-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,mysql_dbms/VPC/non-contradiction,mysql_dbms/VPC/non-contradiction,mysql_dbms/VPC=reconfigured
+run1,C-B-aws-mysql-vm-private-quote,quote,1,1,1,0,0,0,1,1,2,vm_db_app/VPC/anchoring,vm_db_app/VPC/anchoring,vm_db_app/VPC=removed
+run1,C-B-aws-mysql-vm-private-region,region,1,1,1,0,0,0,1,1,2,vm_db_app/VPC/policy compliance,vm_db_app/VPC/policy compliance,vm_db_app/VPC=reconfigured
+run1,C-B-aws-mysql-vm-private-source,source,1,1,1,0,0,0,1,1,2,vm_db_app/VPC/anchoring,vm_db_app/VPC/anchoring,vm_db_app/VPC=removed
+run1,C-B-aws-mysql-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_db_app/VPC/anchoring,vm_db_app/VPC/anchoring,vm_db_app/VPC=removed
+run1,C-B-aws-mysql-vm-region,region,1,1,1,0,0,0,1,1,2,vm_db_app/VPC/policy compliance,vm_db_app/VPC/policy compliance,vm_db_app/VPC=reconfigured
+run1,C-B-aws-mysql-vm-source,source,1,1,1,0,0,0,1,1,2,vm_db_app/VPC/anchoring,vm_db_app/VPC/anchoring,vm_db_app/VPC=removed
+run1,C-B-aws-postgresql-control,control,0,0,0,0,0,0,,1,1,,,
+run1,C-B-aws-postgresql-private-control,control,0,0,0,0,0,0,,1,1,,,
+run1,C-B-aws-postgresql-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC=reconfigured
+run1,C-B-aws-postgresql-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/non-contradiction,postgresql_dbms/VPC/non-contradiction,postgresql_dbms/VPC=reconfigured
+run1,C-B-aws-postgresql-private-quote,quote,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC=removed
+run1,C-B-aws-postgresql-private-region,region,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC=reconfigured
+run1,C-B-aws-postgresql-private-source,source,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC=removed
+run1,C-B-aws-postgresql-quote,quote,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC=removed
+run1,C-B-aws-postgresql-region,region,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC=reconfigured
+run1,C-B-aws-postgresql-source,source,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC=removed
+run1,C-B-aws-postgresql-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run1,C-B-aws-postgresql-vm-private-control,control,0,0,0,0,0,0,,1,1,,,
+run1,C-B-aws-postgresql-vm-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC=reconfigured
+run1,C-B-aws-postgresql-vm-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/non-contradiction,postgresql_dbms/VPC/non-contradiction,postgresql_dbms/VPC=reconfigured
+run1,C-B-aws-postgresql-vm-private-quote,quote,1,1,1,0,0,0,1,1,2,vm_docker/VPC/anchoring,vm_docker/VPC/anchoring,vm_docker/VPC=removed
+run1,C-B-aws-postgresql-vm-private-region,region,1,1,1,0,0,0,1,1,2,vm_docker/VPC/policy compliance,vm_docker/VPC/policy compliance,vm_docker/VPC=reconfigured
+run1,C-B-aws-postgresql-vm-private-source,source,1,1,1,0,0,0,1,1,2,vm_docker/VPC/anchoring,vm_docker/VPC/anchoring,vm_docker/VPC=removed
+run1,C-B-aws-postgresql-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_docker/VPC/anchoring,vm_docker/VPC/anchoring,vm_docker/VPC=removed
+run1,C-B-aws-postgresql-vm-region,region,1,1,1,0,0,0,1,1,2,vm_docker/VPC/policy compliance,vm_docker/VPC/policy compliance,vm_docker/VPC=reconfigured
+run1,C-B-aws-postgresql-vm-source,source,1,1,1,0,0,0,1,1,2,vm_docker/VPC/anchoring,vm_docker/VPC/anchoring,vm_docker/VPC=removed
+run1,C-B-aws-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run1,C-B-aws-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_tomcat/VPC/anchoring,vm_tomcat/VPC/anchoring,vm_tomcat/VPC=removed
+run1,C-B-aws-vm-region,region,1,1,1,0,0,0,1,1,2,vm_tomcat/VPC/policy compliance,vm_tomcat/VPC/policy compliance,vm_tomcat/VPC=reconfigured
+run1,C-B-aws-vm-source,source,1,1,1,0,0,0,1,1,2,vm_tomcat/VPC/anchoring,vm_tomcat/VPC/anchoring,vm_tomcat/VPC=removed
+run1,C-B-azure-postgresql-control,control,0,0,0,0,0,0,,1,1,,,
+run1,C-B-azure-postgresql-private-control,control,0,0,0,0,0,0,,1,1,,,
+run1,C-B-azure-postgresql-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network=reconfigured
+run1,C-B-azure-postgresql-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/non-contradiction,postgresql_dbms/Virtual network/non-contradiction,postgresql_dbms/Virtual network=reconfigured
+run1,C-B-azure-postgresql-private-quote,quote,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network=removed
+run1,C-B-azure-postgresql-private-region,region,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network=reconfigured
+run1,C-B-azure-postgresql-private-source,source,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network=removed
+run1,C-B-azure-postgresql-quote,quote,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network=removed
+run1,C-B-azure-postgresql-region,region,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network=reconfigured
+run1,C-B-azure-postgresql-source,source,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network=removed
+run1,C-B-azure-postgresql-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run1,C-B-azure-postgresql-vm-private-control,control,0,0,0,0,0,0,,1,1,,,
+run1,C-B-azure-postgresql-vm-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network=reconfigured
+run1,C-B-azure-postgresql-vm-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/non-contradiction,postgresql_dbms/Virtual network/non-contradiction,postgresql_dbms/Virtual network=reconfigured
+run1,C-B-azure-postgresql-vm-private-quote,quote,1,1,1,0,0,0,1,1,2,vm_docker/Virtual network/anchoring,vm_docker/Virtual network/anchoring,vm_docker/Virtual network=removed
+run1,C-B-azure-postgresql-vm-private-region,region,1,1,1,0,0,0,1,1,2,vm_docker/Virtual network/policy compliance,vm_docker/Virtual network/policy compliance,vm_docker/Virtual network=reconfigured
+run1,C-B-azure-postgresql-vm-private-source,source,1,1,1,0,0,0,1,1,2,vm_docker/Virtual network/anchoring,vm_docker/Virtual network/anchoring,vm_docker/Virtual network=removed
+run1,C-B-azure-postgresql-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_docker/Virtual network/anchoring,vm_docker/Virtual network/anchoring,vm_docker/Virtual network=removed
+run1,C-B-azure-postgresql-vm-region,region,1,1,1,0,0,0,1,1,2,vm_docker/Virtual network/policy compliance,vm_docker/Virtual network/policy compliance,vm_docker/Virtual network=reconfigured
+run1,C-B-azure-postgresql-vm-source,source,1,1,1,0,0,0,1,1,2,vm_docker/Virtual network/anchoring,vm_docker/Virtual network/anchoring,vm_docker/Virtual network=removed
+run1,C-B-azure-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run1,C-B-azure-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_tomcat/Virtual network/anchoring,vm_tomcat/Virtual network/anchoring,vm_tomcat/Virtual network=removed
+run1,C-B-azure-vm-region,region,1,1,1,0,0,0,1,1,2,vm_tomcat/Virtual network/policy compliance,vm_tomcat/Virtual network/policy compliance,vm_tomcat/Virtual network=reconfigured
+run1,C-B-azure-vm-source,source,1,1,1,0,0,0,1,1,2,vm_tomcat/Virtual network/anchoring,vm_tomcat/Virtual network/anchoring,vm_tomcat/Virtual network=removed
+run1,C-B-gcp-mysql-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run1,C-B-gcp-mysql-vm-private-control,control,0,0,0,0,0,0,,1,1,,,
+run1,C-B-gcp-mysql-vm-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,mysql_dbms/VPC network/policy compliance,mysql_dbms/VPC network/policy compliance,mysql_dbms/VPC network=reconfigured
+run1,C-B-gcp-mysql-vm-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,mysql_dbms/VPC network/non-contradiction,mysql_dbms/VPC network/non-contradiction,mysql_dbms/VPC network=reconfigured
+run1,C-B-gcp-mysql-vm-private-quote,quote,1,1,1,0,0,0,1,1,2,vm_db_app/VPC network/anchoring,vm_db_app/VPC network/anchoring,vm_db_app/VPC network=removed
+run1,C-B-gcp-mysql-vm-private-region,region,1,1,1,0,0,0,1,1,2,vm_db_app/VPC network/policy compliance,vm_db_app/VPC network/policy compliance,vm_db_app/VPC network=reconfigured
+run1,C-B-gcp-mysql-vm-private-source,source,1,1,1,0,0,0,1,1,2,vm_db_app/VPC network/anchoring,vm_db_app/VPC network/anchoring,vm_db_app/VPC network=removed
+run1,C-B-gcp-mysql-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_db_app/VPC network/anchoring,vm_db_app/VPC network/anchoring,vm_db_app/VPC network=removed
+run1,C-B-gcp-mysql-vm-region,region,1,1,1,0,0,0,1,1,2,vm_db_app/VPC network/policy compliance,vm_db_app/VPC network/policy compliance,vm_db_app/VPC network=reconfigured
+run1,C-B-gcp-mysql-vm-source,source,1,1,1,0,0,0,1,1,2,vm_db_app/VPC network/anchoring,vm_db_app/VPC network/anchoring,vm_db_app/VPC network=removed
+run1,C-B-gcp-postgresql-control,control,0,0,0,0,0,0,,1,1,,,
+run1,C-B-gcp-postgresql-private-control,control,0,0,0,0,0,0,,1,1,,,
+run1,C-B-gcp-postgresql-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network=reconfigured
+run1,C-B-gcp-postgresql-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/non-contradiction,postgresql_dbms/VPC network/non-contradiction,postgresql_dbms/VPC network=reconfigured
+run1,C-B-gcp-postgresql-private-quote,quote,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network=removed
+run1,C-B-gcp-postgresql-private-region,region,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network=reconfigured
+run1,C-B-gcp-postgresql-private-source,source,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network=removed
+run1,C-B-gcp-postgresql-quote,quote,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network=removed
+run1,C-B-gcp-postgresql-region,region,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network=reconfigured
+run1,C-B-gcp-postgresql-source,source,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network=removed
+run1,C-B-gcp-postgresql-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run1,C-B-gcp-postgresql-vm-private-control,control,0,0,0,0,0,0,,1,1,,,
+run1,C-B-gcp-postgresql-vm-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network=reconfigured
+run1,C-B-gcp-postgresql-vm-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/non-contradiction,postgresql_dbms/VPC network/non-contradiction,postgresql_dbms/VPC network=reconfigured
+run1,C-B-gcp-postgresql-vm-private-quote,quote,1,1,1,0,0,0,1,1,2,vm_docker/VPC network/anchoring,vm_docker/VPC network/anchoring,vm_docker/VPC network=removed
+run1,C-B-gcp-postgresql-vm-private-region,region,1,1,1,0,0,0,1,1,2,vm_docker/VPC network/policy compliance,vm_docker/VPC network/policy compliance,vm_docker/VPC network=reconfigured
+run1,C-B-gcp-postgresql-vm-private-source,source,1,1,1,0,0,0,1,1,2,vm_docker/VPC network/anchoring,vm_docker/VPC network/anchoring,vm_docker/VPC network=removed
+run1,C-B-gcp-postgresql-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_docker/VPC network/anchoring,vm_docker/VPC network/anchoring,vm_docker/VPC network=removed
+run1,C-B-gcp-postgresql-vm-region,region,1,1,1,0,0,0,1,1,2,vm_docker/VPC network/policy compliance,vm_docker/VPC network/policy compliance,vm_docker/VPC network=reconfigured
+run1,C-B-gcp-postgresql-vm-source,source,1,1,1,0,0,0,1,1,2,vm_docker/VPC network/anchoring,vm_docker/VPC network/anchoring,vm_docker/VPC network=removed
+run1,C-B-gcp-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run1,C-B-gcp-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_tomcat/VPC network/anchoring,vm_tomcat/VPC network/anchoring,vm_tomcat/VPC network=removed
+run1,C-B-gcp-vm-region,region,1,1,1,0,0,0,1,1,2,vm_tomcat/VPC network/policy compliance,vm_tomcat/VPC network/policy compliance,vm_tomcat/VPC network=reconfigured
+run1,C-B-gcp-vm-source,source,1,1,1,0,0,0,1,1,2,vm_tomcat/VPC network/anchoring,vm_tomcat/VPC network/anchoring,vm_tomcat/VPC network=removed
+run2,C-B-aws-mysql-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run2,C-B-aws-mysql-vm-private-control,control,0,0,0,0,0,0,,1,1,,,
+run2,C-B-aws-mysql-vm-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,mysql_dbms/VPC/policy compliance,mysql_dbms/VPC/policy compliance,mysql_dbms/VPC=reconfigured
+run2,C-B-aws-mysql-vm-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,mysql_dbms/VPC/non-contradiction,mysql_dbms/VPC/non-contradiction,mysql_dbms/VPC=reconfigured
+run2,C-B-aws-mysql-vm-private-quote,quote,1,1,1,0,0,0,1,1,2,vm_db_app/VPC/anchoring,vm_db_app/VPC/anchoring,vm_db_app/VPC=removed
+run2,C-B-aws-mysql-vm-private-region,region,1,1,1,0,0,0,1,1,2,vm_db_app/VPC/policy compliance,vm_db_app/VPC/policy compliance,vm_db_app/VPC=reconfigured
+run2,C-B-aws-mysql-vm-private-source,source,1,1,1,0,0,0,1,1,2,vm_db_app/VPC/anchoring,vm_db_app/VPC/anchoring,vm_db_app/VPC=removed
+run2,C-B-aws-mysql-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_db_app/VPC/anchoring,vm_db_app/VPC/anchoring,vm_db_app/VPC=removed
+run2,C-B-aws-mysql-vm-region,region,1,1,1,0,0,0,1,1,2,vm_db_app/VPC/policy compliance,vm_db_app/VPC/policy compliance,vm_db_app/VPC=reconfigured
+run2,C-B-aws-mysql-vm-source,source,1,1,1,0,0,0,1,1,2,vm_db_app/VPC/anchoring,vm_db_app/VPC/anchoring,vm_db_app/VPC=removed
+run2,C-B-aws-postgresql-control,control,0,0,0,0,0,0,,1,1,,,
+run2,C-B-aws-postgresql-private-control,control,0,0,0,0,0,0,,1,1,,,
+run2,C-B-aws-postgresql-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC=reconfigured
+run2,C-B-aws-postgresql-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/non-contradiction,postgresql_dbms/VPC/non-contradiction,postgresql_dbms/VPC=reconfigured
+run2,C-B-aws-postgresql-private-quote,quote,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC=removed
+run2,C-B-aws-postgresql-private-region,region,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC=reconfigured
+run2,C-B-aws-postgresql-private-source,source,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC=removed
+run2,C-B-aws-postgresql-quote,quote,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC=removed
+run2,C-B-aws-postgresql-region,region,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC=reconfigured
+run2,C-B-aws-postgresql-source,source,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC=removed
+run2,C-B-aws-postgresql-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run2,C-B-aws-postgresql-vm-private-control,control,0,0,0,0,0,0,,1,1,,,
+run2,C-B-aws-postgresql-vm-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC=reconfigured
+run2,C-B-aws-postgresql-vm-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/non-contradiction,postgresql_dbms/VPC/non-contradiction,postgresql_dbms/VPC=reconfigured
+run2,C-B-aws-postgresql-vm-private-quote,quote,1,1,1,0,0,0,1,1,2,vm_docker/VPC/anchoring,vm_docker/VPC/anchoring,vm_docker/VPC=removed
+run2,C-B-aws-postgresql-vm-private-region,region,1,1,1,0,0,0,1,1,2,vm_docker/VPC/policy compliance,vm_docker/VPC/policy compliance,vm_docker/VPC=reconfigured
+run2,C-B-aws-postgresql-vm-private-source,source,1,1,1,0,0,0,1,1,2,vm_docker/VPC/anchoring,vm_docker/VPC/anchoring,vm_docker/VPC=removed
+run2,C-B-aws-postgresql-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_docker/VPC/anchoring,vm_docker/VPC/anchoring,vm_docker/VPC=removed
+run2,C-B-aws-postgresql-vm-region,region,1,1,1,0,0,0,1,1,2,vm_docker/VPC/policy compliance,vm_docker/VPC/policy compliance,vm_docker/VPC=reconfigured
+run2,C-B-aws-postgresql-vm-source,source,1,1,1,0,0,0,1,1,2,vm_docker/VPC/anchoring,vm_docker/VPC/anchoring,vm_docker/VPC=removed
+run2,C-B-aws-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run2,C-B-aws-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_tomcat/VPC/anchoring,vm_tomcat/VPC/anchoring,vm_tomcat/VPC=removed
+run2,C-B-aws-vm-region,region,1,1,1,0,0,0,1,1,2,vm_tomcat/VPC/policy compliance,vm_tomcat/VPC/policy compliance,vm_tomcat/VPC=reconfigured
+run2,C-B-aws-vm-source,source,1,1,1,0,0,0,1,1,2,vm_tomcat/VPC/anchoring,vm_tomcat/VPC/anchoring,vm_tomcat/VPC=removed
+run2,C-B-azure-postgresql-control,control,0,0,0,0,0,0,,1,1,,,
+run2,C-B-azure-postgresql-private-control,control,0,0,0,0,0,0,,1,1,,,
+run2,C-B-azure-postgresql-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network=reconfigured
+run2,C-B-azure-postgresql-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/non-contradiction,postgresql_dbms/Virtual network/non-contradiction,postgresql_dbms/Virtual network=reconfigured
+run2,C-B-azure-postgresql-private-quote,quote,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network=removed
+run2,C-B-azure-postgresql-private-region,region,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network=reconfigured
+run2,C-B-azure-postgresql-private-source,source,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network=removed
+run2,C-B-azure-postgresql-quote,quote,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network=removed
+run2,C-B-azure-postgresql-region,region,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network=reconfigured
+run2,C-B-azure-postgresql-source,source,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network=removed
+run2,C-B-azure-postgresql-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run2,C-B-azure-postgresql-vm-private-control,control,0,0,0,0,0,0,,1,1,,,
+run2,C-B-azure-postgresql-vm-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network=reconfigured
+run2,C-B-azure-postgresql-vm-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/non-contradiction,postgresql_dbms/Virtual network/non-contradiction,postgresql_dbms/Virtual network=reconfigured
+run2,C-B-azure-postgresql-vm-private-quote,quote,1,1,1,0,0,0,1,1,2,vm_docker/Virtual network/anchoring,vm_docker/Virtual network/anchoring,vm_docker/Virtual network=removed
+run2,C-B-azure-postgresql-vm-private-region,region,1,1,1,0,0,0,1,1,2,vm_docker/Virtual network/policy compliance,vm_docker/Virtual network/policy compliance,vm_docker/Virtual network=reconfigured
+run2,C-B-azure-postgresql-vm-private-source,source,1,1,1,0,0,0,1,1,2,vm_docker/Virtual network/anchoring,vm_docker/Virtual network/anchoring,vm_docker/Virtual network=removed
+run2,C-B-azure-postgresql-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_docker/Virtual network/anchoring,vm_docker/Virtual network/anchoring,vm_docker/Virtual network=removed
+run2,C-B-azure-postgresql-vm-region,region,1,1,1,0,0,0,1,1,2,vm_docker/Virtual network/policy compliance,vm_docker/Virtual network/policy compliance,vm_docker/Virtual network=reconfigured
+run2,C-B-azure-postgresql-vm-source,source,1,1,1,0,0,0,1,1,2,vm_docker/Virtual network/anchoring,vm_docker/Virtual network/anchoring,vm_docker/Virtual network=removed
+run2,C-B-azure-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run2,C-B-azure-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_tomcat/Virtual network/anchoring,vm_tomcat/Virtual network/anchoring,vm_tomcat/Virtual network=removed
+run2,C-B-azure-vm-region,region,1,1,1,0,0,0,1,1,2,vm_tomcat/Virtual network/policy compliance,vm_tomcat/Virtual network/policy compliance,vm_tomcat/Virtual network=reconfigured
+run2,C-B-azure-vm-source,source,1,1,1,0,0,0,1,1,2,vm_tomcat/Virtual network/anchoring,vm_tomcat/Virtual network/anchoring,vm_tomcat/Virtual network=removed
+run2,C-B-gcp-mysql-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run2,C-B-gcp-mysql-vm-private-control,control,0,0,0,0,0,0,,1,1,,,
+run2,C-B-gcp-mysql-vm-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,mysql_dbms/VPC network/policy compliance,mysql_dbms/VPC network/policy compliance,mysql_dbms/VPC network=reconfigured
+run2,C-B-gcp-mysql-vm-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,mysql_dbms/VPC network/non-contradiction,mysql_dbms/VPC network/non-contradiction,mysql_dbms/VPC network=reconfigured
+run2,C-B-gcp-mysql-vm-private-quote,quote,1,1,1,0,0,0,1,1,2,vm_db_app/VPC network/anchoring,vm_db_app/VPC network/anchoring,vm_db_app/VPC network=removed
+run2,C-B-gcp-mysql-vm-private-region,region,1,1,1,0,0,0,1,1,2,vm_db_app/VPC network/policy compliance,vm_db_app/VPC network/policy compliance,vm_db_app/VPC network=reconfigured
+run2,C-B-gcp-mysql-vm-private-source,source,1,1,1,0,0,0,1,1,2,vm_db_app/VPC network/anchoring,vm_db_app/VPC network/anchoring,vm_db_app/VPC network=removed
+run2,C-B-gcp-mysql-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_db_app/VPC network/anchoring,vm_db_app/VPC network/anchoring,vm_db_app/VPC network=removed
+run2,C-B-gcp-mysql-vm-region,region,1,1,1,0,0,0,0,0,3,vm_db_app/VPC network/policy compliance,vm_db_app/VPC network/policy compliance,vm_db_app/VPC network=reconfiguration_failed
+run2,C-B-gcp-mysql-vm-source,source,1,1,1,0,0,0,1,1,2,vm_db_app/VPC network/anchoring,vm_db_app/VPC network/anchoring,vm_db_app/VPC network=removed
+run2,C-B-gcp-postgresql-control,control,0,0,0,0,0,0,,1,1,,,
+run2,C-B-gcp-postgresql-private-control,control,0,0,0,0,0,0,,1,1,,,
+run2,C-B-gcp-postgresql-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network=reconfigured
+run2,C-B-gcp-postgresql-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/non-contradiction,postgresql_dbms/VPC network/non-contradiction,postgresql_dbms/VPC network=reconfigured
+run2,C-B-gcp-postgresql-private-quote,quote,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network=removed
+run2,C-B-gcp-postgresql-private-region,region,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network=reconfigured
+run2,C-B-gcp-postgresql-private-source,source,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network=removed
+run2,C-B-gcp-postgresql-quote,quote,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network=removed
+run2,C-B-gcp-postgresql-region,region,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network=reconfigured
+run2,C-B-gcp-postgresql-source,source,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network=removed
+run2,C-B-gcp-postgresql-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run2,C-B-gcp-postgresql-vm-private-control,control,0,0,0,0,0,0,,1,1,,,
+run2,C-B-gcp-postgresql-vm-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network=reconfigured
+run2,C-B-gcp-postgresql-vm-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/non-contradiction,postgresql_dbms/VPC network/non-contradiction,postgresql_dbms/VPC network=reconfigured
+run2,C-B-gcp-postgresql-vm-private-quote,quote,1,1,1,0,0,0,1,1,2,vm_docker/VPC network/anchoring,vm_docker/VPC network/anchoring,vm_docker/VPC network=removed
+run2,C-B-gcp-postgresql-vm-private-region,region,1,1,1,0,0,0,1,1,2,vm_docker/VPC network/policy compliance,vm_docker/VPC network/policy compliance,vm_docker/VPC network=reconfigured
+run2,C-B-gcp-postgresql-vm-private-source,source,1,1,1,0,0,0,1,1,2,vm_docker/VPC network/anchoring,vm_docker/VPC network/anchoring,vm_docker/VPC network=removed
+run2,C-B-gcp-postgresql-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_docker/VPC network/anchoring,vm_docker/VPC network/anchoring,vm_docker/VPC network=removed
+run2,C-B-gcp-postgresql-vm-region,region,1,1,1,0,0,0,1,1,2,vm_docker/VPC network/policy compliance,vm_docker/VPC network/policy compliance,vm_docker/VPC network=reconfigured
+run2,C-B-gcp-postgresql-vm-source,source,1,1,1,0,0,0,1,1,2,vm_docker/VPC network/anchoring,vm_docker/VPC network/anchoring,vm_docker/VPC network=removed
+run2,C-B-gcp-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run2,C-B-gcp-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_tomcat/VPC network/anchoring,vm_tomcat/VPC network/anchoring,vm_tomcat/VPC network=removed
+run2,C-B-gcp-vm-region,region,1,1,1,0,0,0,1,1,2,vm_tomcat/VPC network/policy compliance,vm_tomcat/VPC network/policy compliance,vm_tomcat/VPC network=reconfigured
+run2,C-B-gcp-vm-source,source,1,1,1,0,0,0,1,1,2,vm_tomcat/VPC network/anchoring,vm_tomcat/VPC network/anchoring,vm_tomcat/VPC network=removed
+run3,C-B-aws-mysql-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run3,C-B-aws-mysql-vm-private-control,control,0,0,0,0,0,0,,1,1,,,
+run3,C-B-aws-mysql-vm-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,mysql_dbms/VPC/policy compliance,mysql_dbms/VPC/policy compliance,mysql_dbms/VPC=reconfigured
+run3,C-B-aws-mysql-vm-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,mysql_dbms/VPC/non-contradiction,mysql_dbms/VPC/non-contradiction,mysql_dbms/VPC=reconfigured
+run3,C-B-aws-mysql-vm-private-quote,quote,1,1,1,0,0,0,1,1,2,vm_db_app/VPC/anchoring,vm_db_app/VPC/anchoring,vm_db_app/VPC=removed
+run3,C-B-aws-mysql-vm-private-region,region,1,1,1,0,0,0,1,1,2,vm_db_app/VPC/policy compliance,vm_db_app/VPC/policy compliance,vm_db_app/VPC=reconfigured
+run3,C-B-aws-mysql-vm-private-source,source,1,1,1,0,0,0,1,1,2,vm_db_app/VPC/anchoring,vm_db_app/VPC/anchoring,vm_db_app/VPC=removed
+run3,C-B-aws-mysql-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_db_app/VPC/anchoring,vm_db_app/VPC/anchoring,vm_db_app/VPC=removed
+run3,C-B-aws-mysql-vm-region,region,1,1,1,0,0,0,1,1,2,vm_db_app/VPC/policy compliance,vm_db_app/VPC/policy compliance,vm_db_app/VPC=reconfigured
+run3,C-B-aws-mysql-vm-source,source,1,1,1,0,0,0,1,1,2,vm_db_app/VPC/anchoring,vm_db_app/VPC/anchoring,vm_db_app/VPC=removed
+run3,C-B-aws-postgresql-control,control,0,0,0,0,0,0,,1,1,,,
+run3,C-B-aws-postgresql-private-control,control,0,0,0,0,0,0,,1,1,,,
+run3,C-B-aws-postgresql-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC=reconfigured
+run3,C-B-aws-postgresql-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/non-contradiction,postgresql_dbms/VPC/non-contradiction,postgresql_dbms/VPC=reconfigured
+run3,C-B-aws-postgresql-private-quote,quote,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC=removed
+run3,C-B-aws-postgresql-private-region,region,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC=reconfigured
+run3,C-B-aws-postgresql-private-source,source,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC=removed
+run3,C-B-aws-postgresql-quote,quote,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC=removed
+run3,C-B-aws-postgresql-region,region,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC=reconfigured
+run3,C-B-aws-postgresql-source,source,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC/anchoring,postgresql_dbms/VPC=removed
+run3,C-B-aws-postgresql-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run3,C-B-aws-postgresql-vm-private-control,control,0,0,0,0,0,0,,1,1,,,
+run3,C-B-aws-postgresql-vm-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC/policy compliance,postgresql_dbms/VPC=reconfigured
+run3,C-B-aws-postgresql-vm-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC/non-contradiction,postgresql_dbms/VPC/non-contradiction,postgresql_dbms/VPC=reconfigured
+run3,C-B-aws-postgresql-vm-private-quote,quote,1,1,1,0,0,0,1,1,2,vm_docker/VPC/anchoring,vm_docker/VPC/anchoring,vm_docker/VPC=removed
+run3,C-B-aws-postgresql-vm-private-region,region,1,1,1,0,0,0,1,1,2,vm_docker/VPC/policy compliance,vm_docker/VPC/policy compliance,vm_docker/VPC=reconfigured
+run3,C-B-aws-postgresql-vm-private-source,source,1,1,1,0,0,0,1,1,2,vm_docker/VPC/anchoring,vm_docker/VPC/anchoring,vm_docker/VPC=removed
+run3,C-B-aws-postgresql-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_docker/VPC/anchoring,vm_docker/VPC/anchoring,vm_docker/VPC=removed
+run3,C-B-aws-postgresql-vm-region,region,1,1,1,0,0,0,1,1,2,vm_docker/VPC/policy compliance,vm_docker/VPC/policy compliance,vm_docker/VPC=reconfigured
+run3,C-B-aws-postgresql-vm-source,source,1,1,1,0,0,0,1,1,2,vm_docker/VPC/anchoring,vm_docker/VPC/anchoring,vm_docker/VPC=removed
+run3,C-B-aws-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run3,C-B-aws-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_tomcat/VPC/anchoring,vm_tomcat/VPC/anchoring,vm_tomcat/VPC=removed
+run3,C-B-aws-vm-region,region,1,1,1,0,0,0,1,1,2,vm_tomcat/VPC/policy compliance,vm_tomcat/VPC/policy compliance,vm_tomcat/VPC=reconfigured
+run3,C-B-aws-vm-source,source,1,1,1,0,0,0,1,1,2,vm_tomcat/VPC/anchoring,vm_tomcat/VPC/anchoring,vm_tomcat/VPC=removed
+run3,C-B-azure-postgresql-control,control,0,0,0,0,0,0,,1,1,,,
+run3,C-B-azure-postgresql-private-control,control,0,0,0,0,0,0,,1,1,,,
+run3,C-B-azure-postgresql-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network=reconfigured
+run3,C-B-azure-postgresql-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/non-contradiction,postgresql_dbms/Virtual network/non-contradiction,postgresql_dbms/Virtual network=reconfigured
+run3,C-B-azure-postgresql-private-quote,quote,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network=removed
+run3,C-B-azure-postgresql-private-region,region,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network=reconfigured
+run3,C-B-azure-postgresql-private-source,source,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network=removed
+run3,C-B-azure-postgresql-quote,quote,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network=removed
+run3,C-B-azure-postgresql-region,region,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network=reconfigured
+run3,C-B-azure-postgresql-source,source,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network/anchoring,postgresql_dbms/Virtual network=removed
+run3,C-B-azure-postgresql-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run3,C-B-azure-postgresql-vm-private-control,control,0,0,0,0,0,0,,1,1,,,
+run3,C-B-azure-postgresql-vm-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network/policy compliance,postgresql_dbms/Virtual network=reconfigured
+run3,C-B-azure-postgresql-vm-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,postgresql_dbms/Virtual network/non-contradiction,postgresql_dbms/Virtual network/non-contradiction,postgresql_dbms/Virtual network=reconfigured
+run3,C-B-azure-postgresql-vm-private-quote,quote,1,1,1,0,0,0,1,1,2,vm_docker/Virtual network/anchoring,vm_docker/Virtual network/anchoring,vm_docker/Virtual network=removed
+run3,C-B-azure-postgresql-vm-private-region,region,1,1,1,0,0,0,1,1,2,vm_docker/Virtual network/policy compliance,vm_docker/Virtual network/policy compliance,vm_docker/Virtual network=reconfigured
+run3,C-B-azure-postgresql-vm-private-source,source,1,1,1,0,0,0,1,1,2,vm_docker/Virtual network/anchoring,vm_docker/Virtual network/anchoring,vm_docker/Virtual network=removed
+run3,C-B-azure-postgresql-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_docker/Virtual network/anchoring,vm_docker/Virtual network/anchoring,vm_docker/Virtual network=removed
+run3,C-B-azure-postgresql-vm-region,region,1,1,1,0,0,0,1,1,3,vm_docker/Virtual network/policy compliance,vm_docker/Virtual network/policy compliance,vm_docker/Virtual network=reconfigured
+run3,C-B-azure-postgresql-vm-source,source,1,1,1,0,0,0,1,1,2,vm_docker/Virtual network/anchoring,vm_docker/Virtual network/anchoring,vm_docker/Virtual network=removed
+run3,C-B-azure-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run3,C-B-azure-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_tomcat/Virtual network/anchoring,vm_tomcat/Virtual network/anchoring,vm_tomcat/Virtual network=removed
+run3,C-B-azure-vm-region,region,1,1,1,0,0,0,1,1,2,vm_tomcat/Virtual network/policy compliance,vm_tomcat/Virtual network/policy compliance,vm_tomcat/Virtual network=reconfigured
+run3,C-B-azure-vm-source,source,1,1,1,0,0,0,1,1,2,vm_tomcat/Virtual network/anchoring,vm_tomcat/Virtual network/anchoring,vm_tomcat/Virtual network=removed
+run3,C-B-gcp-mysql-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run3,C-B-gcp-mysql-vm-private-control,control,0,0,0,0,0,0,,1,1,,,
+run3,C-B-gcp-mysql-vm-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,mysql_dbms/VPC network/policy compliance,mysql_dbms/VPC network/policy compliance,mysql_dbms/VPC network=reconfigured
+run3,C-B-gcp-mysql-vm-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,mysql_dbms/VPC network/non-contradiction,mysql_dbms/VPC network/non-contradiction,mysql_dbms/VPC network=reconfigured
+run3,C-B-gcp-mysql-vm-private-quote,quote,1,1,1,0,0,0,1,1,2,vm_db_app/VPC network/anchoring,vm_db_app/VPC network/anchoring,vm_db_app/VPC network=removed
+run3,C-B-gcp-mysql-vm-private-region,region,1,1,1,0,0,0,1,1,2,vm_db_app/VPC network/policy compliance,vm_db_app/VPC network/policy compliance,vm_db_app/VPC network=reconfigured
+run3,C-B-gcp-mysql-vm-private-source,source,1,1,1,0,0,0,1,1,2,vm_db_app/VPC network/anchoring,vm_db_app/VPC network/anchoring,vm_db_app/VPC network=removed
+run3,C-B-gcp-mysql-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_db_app/VPC network/anchoring,vm_db_app/VPC network/anchoring,vm_db_app/VPC network=removed
+run3,C-B-gcp-mysql-vm-region,region,1,1,1,0,0,0,1,1,2,vm_db_app/VPC network/policy compliance,vm_db_app/VPC network/policy compliance,vm_db_app/VPC network=reconfigured
+run3,C-B-gcp-mysql-vm-source,source,1,1,1,0,0,0,1,1,2,vm_db_app/VPC network/anchoring,vm_db_app/VPC network/anchoring,vm_db_app/VPC network=removed
+run3,C-B-gcp-postgresql-control,control,0,0,0,0,0,0,,1,1,,,
+run3,C-B-gcp-postgresql-private-control,control,0,0,0,0,0,0,,1,1,,,
+run3,C-B-gcp-postgresql-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network=reconfigured
+run3,C-B-gcp-postgresql-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/non-contradiction,postgresql_dbms/VPC network/non-contradiction,postgresql_dbms/VPC network=reconfigured
+run3,C-B-gcp-postgresql-private-quote,quote,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network=removed
+run3,C-B-gcp-postgresql-private-region,region,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network=reconfigured
+run3,C-B-gcp-postgresql-private-source,source,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network=removed
+run3,C-B-gcp-postgresql-quote,quote,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network=removed
+run3,C-B-gcp-postgresql-region,region,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network=reconfigured
+run3,C-B-gcp-postgresql-source,source,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network/anchoring,postgresql_dbms/VPC network=removed
+run3,C-B-gcp-postgresql-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run3,C-B-gcp-postgresql-vm-private-control,control,0,0,0,0,0,0,,1,1,,,
+run3,C-B-gcp-postgresql-vm-private-exposure-property,exposure-property,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network/policy compliance,postgresql_dbms/VPC network=reconfigured
+run3,C-B-gcp-postgresql-vm-private-exposure-setting,exposure-setting,1,1,1,0,0,0,1,1,2,postgresql_dbms/VPC network/non-contradiction,postgresql_dbms/VPC network/non-contradiction,postgresql_dbms/VPC network=reconfigured
+run3,C-B-gcp-postgresql-vm-private-quote,quote,1,1,1,0,0,0,1,1,2,vm_docker/VPC network/anchoring,vm_docker/VPC network/anchoring,vm_docker/VPC network=removed
+run3,C-B-gcp-postgresql-vm-private-region,region,1,1,1,0,0,0,1,1,2,vm_docker/VPC network/policy compliance,vm_docker/VPC network/policy compliance,vm_docker/VPC network=reconfigured
+run3,C-B-gcp-postgresql-vm-private-source,source,1,1,1,0,0,0,1,1,2,vm_docker/VPC network/anchoring,vm_docker/VPC network/anchoring,vm_docker/VPC network=removed
+run3,C-B-gcp-postgresql-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_docker/VPC network/anchoring,vm_docker/VPC network/anchoring,vm_docker/VPC network=removed
+run3,C-B-gcp-postgresql-vm-region,region,1,1,1,0,0,0,1,1,2,vm_docker/VPC network/policy compliance,vm_docker/VPC network/policy compliance,vm_docker/VPC network=reconfigured
+run3,C-B-gcp-postgresql-vm-source,source,1,1,1,0,0,0,1,1,2,vm_docker/VPC network/anchoring,vm_docker/VPC network/anchoring,vm_docker/VPC network=removed
+run3,C-B-gcp-vm-control,control,0,0,0,0,0,0,,1,1,,,
+run3,C-B-gcp-vm-quote,quote,1,1,1,0,0,0,1,1,2,vm_tomcat/VPC network/anchoring,vm_tomcat/VPC network/anchoring,vm_tomcat/VPC network=removed
+run3,C-B-gcp-vm-region,region,1,1,1,0,0,0,1,1,2,vm_tomcat/VPC network/policy compliance,vm_tomcat/VPC network/policy compliance,vm_tomcat/VPC network=reconfigured
+run3,C-B-gcp-vm-source,source,1,1,1,0,0,0,1,1,2,vm_tomcat/VPC network/anchoring,vm_tomcat/VPC network/anchoring,vm_tomcat/VPC network=removed

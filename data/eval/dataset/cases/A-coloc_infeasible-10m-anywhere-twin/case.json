@@ -1,0 +1,71 @@
+{
+ "id": "A-coloc_infeasible-10m-anywhere-twin",
+ "family": "A",
+ "kind": "coloc_infeasible",
+ "source": "C3 request 10 (managed database)",
+ "location": "anywhere",
+ "rq": [
+  "RQ2"
+ ],
+ "note": "machines placed in Europe, databases in the USA, and a same-region constraint; twin of A-coloc_infeasible-10m-anywhere with the other hidden priority (negotiation only)",
+ "cleaning": [
+  "node app_network (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node app_storage_prod (StorageForContainer) removed: outside the scope (virtual machines, databases)",
+  "node mysql_dbms: managed database (host vm_db_app removed)"
+ ],
+ "services": [
+  "vm_db_app",
+  "mysql_dbms"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [
+   "same_region"
+  ],
+  "n_compositions": 32,
+  "n_compositions_oracle": 24,
+  "front": [],
+  "signal": "infeasible",
+  "mcs": [
+   [
+    "same_region"
+   ]
+  ],
+  "relaxations": [
+   {
+    "mcs": [
+     "same_region"
+    ],
+    "changes": [
+     {
+      "constraint": "same_region",
+      "removed": true
+     }
+    ],
+    "cost_cents": 34514,
+    "availability": 99.4005,
+    "availability_published": true,
+    "composition": {
+     "vm_db_app": "gcp-e2-standard-8@europe-west1",
+     "mysql_dbms": "aws-rds-mysql-m5.large-us-east-1"
+    }
+   }
+  ],
+  "expected_relaxation": [
+   "same_region"
+  ],
+  "after_relaxation_front_size": 2,
+  "expected": {
+   "cost_cents": 41756,
+   "availability": 99.85005,
+   "availability_published": true,
+   "composition_example": {
+    "vm_db_app": "gcp-e2-standard-8@europe-west1",
+    "mysql_dbms": "gcp-cloudsql-mysql-2v8-us-central1-ha"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "request_description": "Architecture for a Docker application running on a Docker Engine hosted on a virtual machine, connecting to a MySQL database, an IPv4 network, and an object storage.",
+ "twin_of": "A-coloc_infeasible-10m-anywhere"
+}

@@ -1,0 +1,41 @@
+{
+ "id": "C3-43",
+ "family": "C3",
+ "source": "C3 request 43",
+ "request_form": "Complete SERVICE Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [
+  "node web_lb (LoadBalancer) removed: outside the scope (virtual machines, databases)",
+  "node web_network (Network) removed: outside the scope (virtual machines, databases)",
+  "node vm_web: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)"
+ ],
+ "services": [
+  "vm_web"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [],
+  "n_compositions": 4,
+  "n_compositions_oracle": 1,
+  "front": [
+   {
+    "cost_cents": 12556,
+    "availability": 99.5
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 12556,
+   "availability": 99.5,
+   "availability_published": true,
+   "composition_example": {
+    "vm_web": "aws-m5a.xlarge@us-east-1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "The architecture consists of a virtual machine running Ubuntu 22.04, hosting an Nginx web server that serves a web application. The virtual machine is scalable, supports a network connection, and is fronted by a load balancer that routes traffic to the web application instances. The deployment is constrained to the us-east-1 region."
+}

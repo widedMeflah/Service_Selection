@@ -1,0 +1,83 @@
+{
+ "id": "A-infeasible_both-26v-europe",
+ "family": "A",
+ "kind": "infeasible_both",
+ "source": "C3 request 26 (as interpreted)",
+ "location": "europe",
+ "rq": [
+  "RQ1",
+  "RQ2"
+ ],
+ "note": "both bounds unreachable: the minimal correction set holds both constraints",
+ "cleaning": [
+  "node global_vpc (Network) removed: outside the scope (virtual machines, databases)",
+  "node vm_us_central1: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node vm_europe_west2: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)"
+ ],
+ "services": [
+  "vm_us_central1",
+  "vm_europe_west2"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [
+   "budget",
+   "end_to_end_availability"
+  ],
+  "n_compositions": 5329,
+  "n_compositions_oracle": 144,
+  "front": [],
+  "signal": "infeasible",
+  "mcs": [
+   [
+    "budget",
+    "end_to_end_availability"
+   ]
+  ],
+  "relaxations": [
+   {
+    "mcs": [
+     "budget",
+     "end_to_end_availability"
+    ],
+    "changes": [
+     {
+      "constraint": "budget",
+      "criterion": "cost",
+      "from": 96.84,
+      "to": 107.6
+     },
+     {
+      "constraint": "end_to_end_availability",
+      "criterion": "availability",
+      "from": 99.8501,
+      "to": 99.8001
+     }
+    ],
+    "cost_cents": 10760,
+    "availability": 99.8001,
+    "availability_published": true,
+    "composition": {
+     "vm_us_central1": "gcp-e2-standard-2@europe-west1",
+     "vm_europe_west2": "gcp-e2-standard-2@europe-west1"
+    }
+   }
+  ],
+  "expected_relaxation": [
+   "budget",
+   "end_to_end_availability"
+  ],
+  "after_relaxation_front_size": 1,
+  "expected": {
+   "cost_cents": 10760,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "vm_us_central1": "gcp-e2-standard-2@europe-west1",
+    "vm_europe_west2": "gcp-e2-standard-2@europe-west1"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "request_description": "Architecture consisting of two virtual machines (vm_us_central1 and vm_europe_west2) running Linux, each with 2 CPUs, 4 GB RAM, and 50 GB disk. Both VMs are connected to a global VPC (global_vpc) spanning us-central1 and europe-west2 regions. A software-defined overlay network (overlay_network) version 1.0.0 is deployed on both VMs, simulating an L2 broadcast domain and ensuring connectivity between the VMs via the global VPC."
+}

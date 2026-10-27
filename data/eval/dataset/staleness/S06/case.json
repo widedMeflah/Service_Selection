@@ -1,0 +1,23 @@
+{
+ "id": "S06",
+ "kind": "quote_reworded",
+ "service": "compute",
+ "provider": "gcp",
+ "resource": "VPC network",
+ "replace": "Each VM belongs to a VPC network.",
+ "url": "https://docs.cloud.google.com/compute/docs/networking/network-overview",
+ "find": "Every VM is part of a VPC network.",
+ "family": "S",
+ "rq": [
+  "QR3"
+ ],
+ "quotes_touched": [
+  "VPC network"
+ ],
+ "expected_status": "changed",
+ "expected_update": "re-extraction; every quote of the new memory entry is found word for word in the edited page",
+ "expected_resources": [
+  "VPC network",
+  "Subnet"
+ ]
+}

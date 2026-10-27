@@ -1,0 +1,100 @@
+{
+ "id": "A-coloc_provider_infeasible-12p-usa",
+ "family": "A",
+ "kind": "coloc_provider_infeasible",
+ "source": "C3 request 12 (managed PostgreSQL database)",
+ "location": "usa",
+ "rq": [
+  "RQ1",
+  "RQ2"
+ ],
+ "note": "budget equal to the cheapest composition, reachable only across providers: relaxing either the budget or the same-provider constraint restores feasibility",
+ "cleaning": [
+  "node bloc_storage_vm_container (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node container_net (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node data_store (StorageForContainer) removed: outside the scope (virtual machines, databases)",
+  "node vm_container: type computeWithblocNetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node mysql_dbms: managed database (host vm_database removed)",
+  "node mysql_dbms: size of vm_database kept for the managed database (2 CPU, 4 GB)",
+  "node vm_database removed: it only hosted mysql_dbms",
+  "MySQL DBMS replaced by a PostgreSQL DBMS (engine variant): the databases it hosts and the MySQL software components are renamed"
+ ],
+ "services": [
+  "vm_container",
+  "postgresql_dbms"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [
+   "same_provider",
+   "budget"
+  ],
+  "n_compositions": 528,
+  "n_compositions_oracle": 15,
+  "front": [],
+  "signal": "infeasible",
+  "mcs": [
+   [
+    "same_provider"
+   ],
+   [
+    "budget"
+   ]
+  ],
+  "relaxations": [
+   {
+    "mcs": [
+     "same_provider"
+    ],
+    "changes": [
+     {
+      "constraint": "same_provider",
+      "removed": true
+     }
+    ],
+    "cost_cents": 9491,
+    "availability": 99.8001,
+    "availability_published": true,
+    "composition": {
+     "vm_container": "gcp-e2-standard-2@us-central1",
+     "postgresql_dbms": "azure-pgflex-burstable-b2ms-eastus"
+    }
+   },
+   {
+    "mcs": [
+     "budget"
+    ],
+    "changes": [
+     {
+      "constraint": "budget",
+      "criterion": "cost",
+      "from": 94.91,
+      "to": 108.78
+     }
+    ],
+    "cost_cents": 10878,
+    "availability": 99.8001,
+    "availability_published": true,
+    "composition": {
+     "vm_container": "azure-D2as_v5@eastus",
+     "postgresql_dbms": "azure-pgflex-burstable-b2ms-eastus"
+    }
+   }
+  ],
+  "expected_relaxation": [
+   "same_provider"
+  ],
+  "after_relaxation_front_size": 1,
+  "expected": {
+   "cost_cents": 9491,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "vm_container": "gcp-e2-standard-2@us-central1",
+    "postgresql_dbms": "azure-pgflex-burstable-b2ms-eastus"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "request_description": "A containerized application architecture consisting of a Docker Engine hosted on a virtual machine, an object storage, a network, and a PostgreSQL database hosted on another virtual machine. The containerized application connects to the object storage and network, and also interacts with the PostgreSQL database."
+}

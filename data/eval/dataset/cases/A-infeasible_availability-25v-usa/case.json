@@ -1,0 +1,75 @@
+{
+ "id": "A-infeasible_availability-25v-usa",
+ "family": "A",
+ "kind": "infeasible_availability",
+ "source": "C3 request 25 (as interpreted)",
+ "location": "usa",
+ "rq": [
+  "RQ1",
+  "RQ2"
+ ],
+ "note": "availability above the most available composition",
+ "cleaning": [
+  "policy placement_group_1: target VM-A -> VM_A",
+  "policy placement_group_1: target VM-B -> VM_B",
+  "node lan1 (Network) removed: outside the scope (virtual machines, databases)",
+  "node VM_A: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node VM_B: type computeWithnetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)"
+ ],
+ "services": [
+  "VM_A",
+  "VM_B"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [
+   "end_to_end_availability"
+  ],
+  "n_compositions": 841,
+  "n_compositions_oracle": 9,
+  "front": [],
+  "signal": "infeasible",
+  "mcs": [
+   [
+    "end_to_end_availability"
+   ]
+  ],
+  "relaxations": [
+   {
+    "mcs": [
+     "end_to_end_availability"
+    ],
+    "changes": [
+     {
+      "constraint": "end_to_end_availability",
+      "criterion": "availability",
+      "from": 99.8501,
+      "to": 99.8001
+     }
+    ],
+    "cost_cents": 19564,
+    "availability": 99.8001,
+    "availability_published": true,
+    "composition": {
+     "VM_A": "gcp-e2-standard-4@us-central1",
+     "VM_B": "gcp-e2-standard-4@us-central1"
+    }
+   }
+  ],
+  "expected_relaxation": [
+   "end_to_end_availability"
+  ],
+  "after_relaxation_front_size": 1,
+  "expected": {
+   "cost_cents": 19564,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "VM_A": "gcp-e2-standard-4@us-central1",
+    "VM_B": "gcp-e2-standard-4@us-central1"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "request_description": "Architecture consisting of two virtual machines (VM-A and VM-B) running Ubuntu 22.04, each with 4 CPUs, 8 GB RAM, and 50 GB disk. Both VMs are connected to a network named lan1 with IPv4 and CIDR 10.0.0.0/24."
+}

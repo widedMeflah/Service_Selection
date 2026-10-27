@@ -1,0 +1,40 @@
+{
+ "id": "C3-31",
+ "family": "C3",
+ "source": "C3 request 31",
+ "request_form": "Complete SERVICE Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [
+  "node data1 (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node vm_data1: type computeWithblocStorage -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)"
+ ],
+ "services": [
+  "vm_data1"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [],
+  "n_compositions": 5,
+  "n_compositions_oracle": 1,
+  "front": [
+   {
+    "cost_cents": 6300,
+    "availability": 99.9
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 6300,
+   "availability": 99.9,
+   "availability_published": true,
+   "composition_example": {
+    "vm_data1": "gcp-e2-standard-2@europe-west3"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "The architecture consists of a virtual machine (vm_data1) running Linux with specified CPU, memory, and disk resources. The virtual machine is attached to a block storage volume (data1) configured with a name, size, and formatted for Linux filesystem use."
+}

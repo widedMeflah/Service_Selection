@@ -1,0 +1,88 @@
+{
+ "id": "B-aws-postgresql-private",
+ "family": "B",
+ "kind": "completion",
+ "provider": "aws",
+ "region": "us-east-1",
+ "source": "C3 request 58 (managed database)",
+ "rq": [
+  "RQ3",
+  "RQ4",
+  "RQ5"
+ ],
+ "note": "fixed composition (one candidate per node): evaluates the completion",
+ "cleaning": [
+  "node postgresql_dbms: managed database (host vm_postgres removed)",
+  "node postgresql_dbms: size of vm_postgres kept for the managed database (2 CPU, 8 GB)",
+  "node vm_postgres removed: it only hosted postgresql_dbms"
+ ],
+ "services": [
+  "postgresql_dbms"
+ ],
+ "completion_services": [
+  {
+   "node": "postgresql_dbms",
+   "provider": "aws",
+   "service": "database_postgresql",
+   "region": "us-east-1"
+  }
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [],
+  "n_compositions": 1,
+  "n_compositions_oracle": 1,
+  "front": [
+   {
+    "cost_cents": 25988,
+    "availability": 99.95
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 25988,
+   "availability": 99.95,
+   "availability_published": true,
+   "composition_example": {
+    "postgresql_dbms": "aws-rds-postgresql-m5.large-us-east-1-multiaz"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "dependent_resources_gt": {
+  "postgresql_dbms": [
+   {
+    "name": "VPC",
+    "aliases": [
+     "Virtual Private Cloud",
+     "Amazon VPC"
+    ],
+    "attached_to": null
+   },
+   {
+    "name": "Subnet",
+    "aliases": [
+     "Subnets"
+    ],
+    "attached_to": "VPC"
+   },
+   {
+    "name": "DB subnet group",
+    "aliases": [
+     "Subnet group",
+     "RDS subnet group"
+    ],
+    "attached_to": "VPC"
+   },
+   {
+    "name": "VPC security group",
+    "aliases": [
+     "Security group",
+     "RDS security group"
+    ],
+    "attached_to": "VPC"
+   }
+  ]
+ },
+ "request_description": "This architecture models a PostgreSQL database hosted on a virtual machine. The database 'postgres_db' is managed by a PostgreSQL DBMS, which is installed on a Linux-based virtual machine named 'vm_postgres'. The virtual machine is configured with specific hardware resources and hosts the DBMS, which in turn manages the database with defined credentials and port settings."
+}

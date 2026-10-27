@@ -1,0 +1,120 @@
+{
+ "id": "B-gcp-postgresql-vm",
+ "family": "B",
+ "kind": "completion",
+ "provider": "gcp",
+ "region": "us-central1",
+ "source": "C3 request 11 (managed PostgreSQL database)",
+ "rq": [
+  "RQ3",
+  "RQ4",
+  "RQ5"
+ ],
+ "note": "fixed composition (one candidate per node): evaluates the completion",
+ "cleaning": [
+  "node bloc_storage_db (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node bloc_storage_docker (tosca.nodes.Storage.BlockStorage) removed: outside the scope (virtual machines, databases)",
+  "node network_container (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node network_db (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node network_docker (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node object_store (StorageForContainer) removed: outside the scope (virtual machines, databases)",
+  "node vm_docker: type computeWithblocNetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node vm_db: type computeWithblocNetwork -> tosca.nodes.Compute (its mandatory requirement concerned a removed node)",
+  "node mysql_dbms: managed database (host vm_db removed)",
+  "node mysql_dbms: size of vm_db kept for the managed database (2 CPU, 4 GB)",
+  "node vm_db removed: it only hosted mysql_dbms",
+  "MySQL DBMS replaced by a PostgreSQL DBMS (engine variant): the databases it hosts and the MySQL software components are renamed"
+ ],
+ "services": [
+  "vm_docker",
+  "postgresql_dbms"
+ ],
+ "completion_services": [
+  {
+   "node": "vm_docker",
+   "provider": "gcp",
+   "service": "compute",
+   "region": "us-central1"
+  },
+  {
+   "node": "postgresql_dbms",
+   "provider": "gcp",
+   "service": "database_postgresql",
+   "region": "us-central1"
+  }
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [],
+  "n_compositions": 1,
+  "n_compositions_oracle": 1,
+  "front": [
+   {
+    "cost_cents": 25127,
+    "availability": 99.85005
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 25127,
+   "availability": 99.85005,
+   "availability_published": true,
+   "composition_example": {
+    "vm_docker": "gcp-e2-standard-2@us-central1",
+    "postgresql_dbms": "gcp-cloudsql-postgresql-2v8-us-central1-ha"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "dependent_resources_gt": {
+  "vm_docker": [
+   {
+    "name": "VPC network",
+    "aliases": [
+     "VPC",
+     "Default network",
+     "Virtual Private Cloud network"
+    ],
+    "attached_to": null
+   },
+   {
+    "name": "Subnet",
+    "aliases": [
+     "Subnetwork"
+    ],
+    "attached_to": "VPC network"
+   }
+  ],
+  "postgresql_dbms": [
+   {
+    "name": "VPC network",
+    "aliases": [
+     "VPC",
+     "Virtual Private Cloud network"
+    ],
+    "attached_to": null
+   },
+   {
+    "name": "Allocated IP address range",
+    "aliases": [
+     "Allocated IP range",
+     "IP address range",
+     "Reserved IP range"
+    ],
+    "attached_to": "VPC network"
+   },
+   {
+    "name": "Private services access connection",
+    "aliases": [
+     "Private services connection",
+     "Private connection",
+     "Service networking connection",
+     "VPC Network Peering",
+     "Peering connection"
+    ],
+    "attached_to": "VPC network"
+   }
+  ]
+ },
+ "request_description": "A Docker-based architecture where the application 'app_container' runs on a Docker Engine hosted on a virtual machine 'vm_docker'. The application connects to an object storage 'object_store' and a PostgreSQL database 'db_app', which is hosted on a PostgreSQL DBMS 'PostgreSQL_dbms' running on another virtual machine 'vm_db'."
+}

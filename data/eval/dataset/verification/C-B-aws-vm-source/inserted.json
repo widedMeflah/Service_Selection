@@ -1,0 +1,44 @@
+[
+ {
+  "id": "vpc_aws_us_east_1",
+  "node": "vm_tomcat",
+  "service": "compute",
+  "provider": "aws",
+  "region": "us-east-1",
+  "name": "VPC",
+  "quote": "Amazon VPC enables you to launch AWS resources, such as Amazon EC2 instances, into a virtual network dedicated to your AWS account, known as a virtual private cloud (VPC).",
+  "url": "https://repost.aws/knowledge-center/ec2-vpc-subnet-security-group",
+  "properties": {},
+  "settings": {},
+  "attached_to": null,
+  "origin": "annotation"
+ },
+ {
+  "id": "subnet_aws_us_east_1",
+  "node": "vm_tomcat",
+  "service": "compute",
+  "provider": "aws",
+  "region": "us-east-1",
+  "name": "Subnet",
+  "quote": "When you launch an instance, you can select a subnet from the VPC.",
+  "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-networking.html",
+  "properties": {},
+  "settings": {},
+  "attached_to": "vpc_aws_us_east_1",
+  "origin": "annotation"
+ },
+ {
+  "id": "security_group_aws_us_east_1",
+  "node": "vm_tomcat",
+  "service": "compute",
+  "provider": "aws",
+  "region": "us-east-1",
+  "name": "Security group",
+  "quote": "If you don't specify a security group, Amazon EC2 uses the default security group for the VPC.",
+  "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html",
+  "properties": {},
+  "settings": {},
+  "attached_to": "vpc_aws_us_east_1",
+  "origin": "annotation"
+ }
+]

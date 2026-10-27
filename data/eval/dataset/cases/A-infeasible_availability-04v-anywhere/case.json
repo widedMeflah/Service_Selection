@@ -1,0 +1,71 @@
+{
+ "id": "A-infeasible_availability-04v-anywhere",
+ "family": "A",
+ "kind": "infeasible_availability",
+ "source": "C3 request 04 (as interpreted)",
+ "location": "anywhere",
+ "rq": [
+  "RQ1",
+  "RQ2"
+ ],
+ "note": "availability above the most available composition",
+ "cleaning": [
+  "node HAProxy (LoadBalancer) removed: outside the scope (virtual machines, databases)"
+ ],
+ "services": [
+  "vm_tomcat",
+  "vm_haproxy"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [
+   "end_to_end_availability"
+  ],
+  "n_compositions": 7865,
+  "n_compositions_oracle": 225,
+  "front": [],
+  "signal": "infeasible",
+  "mcs": [
+   [
+    "end_to_end_availability"
+   ]
+  ],
+  "relaxations": [
+   {
+    "mcs": [
+     "end_to_end_availability"
+    ],
+    "changes": [
+     {
+      "constraint": "end_to_end_availability",
+      "criterion": "availability",
+      "from": 99.8501,
+      "to": 99.8001
+     }
+    ],
+    "cost_cents": 14673,
+    "availability": 99.8001,
+    "availability_published": true,
+    "composition": {
+     "vm_tomcat": "gcp-e2-standard-4@us-central1",
+     "vm_haproxy": "gcp-e2-standard-2@us-central1"
+    }
+   }
+  ],
+  "expected_relaxation": [
+   "end_to_end_availability"
+  ],
+  "after_relaxation_front_size": 1,
+  "expected": {
+   "cost_cents": 14673,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "vm_tomcat": "gcp-e2-standard-4@us-central1",
+    "vm_haproxy": "gcp-e2-standard-2@us-central1"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "request_description": "Architecture for a web application java_app running on Apache Tomcat, hosted on a virtual machine vm_tomcat. The architecture includes a load balancer HAProxy hosted on vm_haproxy, which routes traffic to the web application. Oracle JDK is installed on vm_tomcat as a software component."
+}

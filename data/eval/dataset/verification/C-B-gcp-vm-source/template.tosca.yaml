@@ -1,0 +1,102 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case B-gcp-vm, derived from C3 request 05 (as interpreted). Cloud services: vm_tomcat (virtual
+  machine). Software components hosted on them: java_app, apache_tomcat, oracle_jdk.'
+data_types:
+  acme.datatypes.Location:
+    derived_from: tosca.datatypes.Root
+    description: 'A deployment location: region and/or availability zone.'
+    properties:
+      region:
+        type: string
+        required: false
+      availability_zone:
+        type: string
+        required: false
+topology_template:
+  node_templates:
+    java_app:
+      type: WebApplication
+      properties:
+        context_root: /app
+      capabilities:
+        app_endpoint:
+          properties:
+            protocol: tcp
+            port: 8080
+            secure: false
+      requirements:
+      - host: apache_tomcat
+    apache_tomcat:
+      type: WebServer
+      requirements:
+      - host: vm_tomcat
+    vm_tomcat:
+      type: Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_tomcat
+            num_cpus: 4
+            disk_size: 100 GB
+            mem_size: 8 GB
+        os:
+          properties:
+            type: linux
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        endpoint:
+          properties:
+            protocol: tcp
+            secure: false
+      requirements:
+      - dependency: vpc_network_gcp_us_central1
+      - dependency: subnet_gcp_us_central1
+    oracle_jdk:
+      type: SoftwareComponent
+      properties:
+        component_version: 17.0.0
+      requirements:
+      - host: vm_tomcat
+    vpc_network_gcp_us_central1:
+      type: tosca.nodes.network.Network
+      metadata:
+        dependent_resource: true
+        provider: gcp
+        region: us-central1
+        source: https://medium.com/google-cloud/vpc-network-basics
+        quote: Every VM is part of a VPC network.
+        settings: {}
+        required_by:
+        - vm_tomcat
+    subnet_gcp_us_central1:
+      type: tosca.nodes.network.Network
+      metadata:
+        dependent_resource: true
+        provider: gcp
+        region: us-central1
+        source: https://docs.cloud.google.com/compute/docs/networking/network-overview
+        quote: If you omit this configuration, the default network and subnet are used.
+        settings: {}
+        required_by:
+        - vm_tomcat
+      requirements:
+      - dependency: vpc_network_gcp_us_central1
+  policies:
+  - placement_all:
+      type: acme.policies.Placement
+      properties:
+        locations:
+        - region: us-central1
+      targets:
+      - vm_tomcat
+policy_types:
+  acme.policies.Placement:
+    derived_from: tosca.policies.Placement
+    description: Deployment locations of the targets (regions or logical locations).
+    properties:
+      locations:
+        type: list
+        required: true

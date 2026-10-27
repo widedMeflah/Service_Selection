@@ -1,0 +1,18 @@
+{
+ "id": "C-B-aws-postgresql-private-exposure-property",
+ "family": "C",
+ "from": "B-aws-postgresql-private",
+ "mutation": "internet_exposure: true in the properties of VPC",
+ "rq": [
+  "QR4"
+ ],
+ "expected_failures": [
+  {
+   "node": "postgresql_dbms",
+   "resource": "VPC",
+   "verification": "policy compliance",
+   "expected_action": "reconfigured"
+  }
+ ],
+ "verifier_agrees": true
+}

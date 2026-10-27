@@ -1,0 +1,18 @@
+{
+ "id": "C-B-azure-postgresql-private-quote",
+ "family": "C",
+ "from": "B-azure-postgresql-private",
+ "mutation": "one word of the quote of Virtual network replaced",
+ "rq": [
+  "QR4"
+ ],
+ "expected_failures": [
+  {
+   "node": "postgresql_dbms",
+   "resource": "Virtual network",
+   "verification": "anchoring",
+   "expected_action": "removed"
+  }
+ ],
+ "verifier_agrees": true
+}

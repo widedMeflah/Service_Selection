@@ -1,0 +1,53 @@
+{
+ "id": "A-several-10p-anywhere-twin",
+ "family": "A",
+ "kind": "several",
+ "source": "C3 request 10 (managed PostgreSQL database)",
+ "location": "anywhere",
+ "rq": [
+  "RQ2"
+ ],
+ "note": "several non-dominated compositions satisfy the bounds; no priority stated; twin of A-several-10p-anywhere with the other hidden priority (negotiation only)",
+ "cleaning": [
+  "node app_network (NetworkForContainer) removed: outside the scope (virtual machines, databases)",
+  "node app_storage_prod (StorageForContainer) removed: outside the scope (virtual machines, databases)",
+  "node mysql_dbms: managed database (host vm_db_app removed)",
+  "MySQL DBMS replaced by a PostgreSQL DBMS (engine variant): the databases it hosts and the MySQL software components are renamed"
+ ],
+ "services": [
+  "vm_db_app",
+  "postgresql_dbms"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [
+   "budget",
+   "end_to_end_availability"
+  ],
+  "n_compositions": 238,
+  "n_compositions_oracle": 110,
+  "front": [
+   {
+    "cost_cents": 24164,
+    "availability": 99.8001
+   },
+   {
+    "cost_cents": 39800,
+    "availability": 99.85005
+   }
+  ],
+  "signal": "several",
+  "expected": {
+   "cost_cents": 39800,
+   "availability": 99.85005,
+   "availability_published": true,
+   "composition_example": {
+    "vm_db_app": "gcp-e2-standard-8@us-central1",
+    "postgresql_dbms": "gcp-cloudsql-postgresql-2v8-us-central1-ha"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "request_description": "Architecture for a Docker application running on a Docker Engine hosted on a virtual machine, connecting to a PostgreSQL database, an IPv4 network, and an object storage.",
+ "twin_of": "A-several-10p-anywhere"
+}

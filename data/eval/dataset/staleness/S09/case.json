@@ -1,0 +1,22 @@
+{
+ "id": "S09",
+ "kind": "unrelated",
+ "service": "compute",
+ "provider": "azure",
+ "resource": "Public IP address",
+ "replace": "A public IP address can optionally be assigned to a NIC.",
+ "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
+ "find": "Assigning a public IP address to a NIC is optional.",
+ "family": "S",
+ "rq": [
+  "QR3"
+ ],
+ "quotes_touched": [],
+ "expected_status": "changed",
+ "expected_update": "re-extraction; every quote of the new memory entry is found word for word in the edited page",
+ "expected_resources": [
+  "Virtual network",
+  "Subnet",
+  "Network interface"
+ ]
+}

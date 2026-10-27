@@ -1,0 +1,39 @@
+{
+ "id": "C3-49",
+ "family": "C3",
+ "source": "C3 request 49",
+ "request_form": "Complete SERVICE Oriented",
+ "rq": [
+  "RQ1",
+  "RQ5"
+ ],
+ "cleaning": [],
+ "services": [
+  "vm_A",
+  "vm_B"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [],
+  "n_compositions": 16,
+  "n_compositions_oracle": 1,
+  "front": [
+   {
+    "cost_cents": 29200,
+    "availability": 99.0025
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 29200,
+   "availability": 99.0025,
+   "availability_published": true,
+   "composition_example": {
+    "vm_A": "aws-m5a.xlarge@eu-west-2",
+    "vm_B": "aws-m5a.xlarge@eu-west-2"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "Architecture consisting of two virtual machines (vm_A and vm_B) running Linux, each with 4 CPUs, 8 GB memory, and 50 GB disk. Both VMs are deployed in the eu-west-2 region but must be hosted on separate physical hosts."
+}

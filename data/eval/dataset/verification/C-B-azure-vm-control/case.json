@@ -1,0 +1,11 @@
+{
+ "id": "C-B-azure-vm-control",
+ "family": "C",
+ "from": "B-azure-vm",
+ "mutation": "none",
+ "rq": [
+  "QR4"
+ ],
+ "expected_failures": [],
+ "verifier_agrees": true
+}

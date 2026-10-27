@@ -1,0 +1,18 @@
+{
+ "id": "C-B-aws-mysql-vm-quote",
+ "family": "C",
+ "from": "B-aws-mysql-vm",
+ "mutation": "one word of the quote of VPC replaced",
+ "rq": [
+  "QR4"
+ ],
+ "expected_failures": [
+  {
+   "node": "vm_db_app",
+   "resource": "VPC",
+   "verification": "anchoring",
+   "expected_action": "removed"
+  }
+ ],
+ "verifier_agrees": true
+}

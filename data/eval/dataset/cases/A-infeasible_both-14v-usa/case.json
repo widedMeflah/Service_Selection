@@ -1,0 +1,79 @@
+{
+ "id": "A-infeasible_both-14v-usa",
+ "family": "A",
+ "kind": "infeasible_both",
+ "source": "C3 request 14 (as interpreted)",
+ "location": "usa",
+ "rq": [
+  "RQ1",
+  "RQ2"
+ ],
+ "note": "both bounds unreachable: the minimal correction set holds both constraints",
+ "cleaning": [],
+ "services": [
+  "vm_web",
+  "vm_app"
+ ],
+ "ground_truth": {
+  "priority": "availability",
+  "global_constraints": [
+   "budget",
+   "end_to_end_availability"
+  ],
+  "n_compositions": 2304,
+  "n_compositions_oracle": 9,
+  "front": [],
+  "signal": "infeasible",
+  "mcs": [
+   [
+    "budget",
+    "end_to_end_availability"
+   ]
+  ],
+  "relaxations": [
+   {
+    "mcs": [
+     "budget",
+     "end_to_end_availability"
+    ],
+    "changes": [
+     {
+      "constraint": "budget",
+      "criterion": "cost",
+      "from": 88.04,
+      "to": 97.82
+     },
+     {
+      "constraint": "end_to_end_availability",
+      "criterion": "availability",
+      "from": 99.8501,
+      "to": 99.8001
+     }
+    ],
+    "cost_cents": 9782,
+    "availability": 99.8001,
+    "availability_published": true,
+    "composition": {
+     "vm_web": "gcp-e2-standard-2@us-central1",
+     "vm_app": "gcp-e2-standard-2@us-central1"
+    }
+   }
+  ],
+  "expected_relaxation": [
+   "budget",
+   "end_to_end_availability"
+  ],
+  "after_relaxation_front_size": 1,
+  "expected": {
+   "cost_cents": 9782,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "vm_web": "gcp-e2-standard-2@us-central1",
+    "vm_app": "gcp-e2-standard-2@us-central1"
+   }
+  },
+  "negotiation_expected": true
+ },
+ "request_description": "A web application architecture consisting of an Angular frontend and a Spring Boot backend. The Angular frontend runs on an Nginx web server hosted on a virtual machine, while the Spring Boot backend runs on a Tomcat web server hosted on another virtual machine. The backend connects to a MySQL DBMS managing a MySQL database, both hosted on the same virtual machine as the backend. The frontend connects to the backend for data interaction."
+}

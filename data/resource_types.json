@@ -1,0 +1,53 @@
+{
+  "description": "TOSCA node type used to write a dependent resource in the template, from the last words of its normalized name (its head noun). It says how a resource is written, not which resources a service requires. Default: tosca.nodes.Root. type_properties lists the properties that each normative type defines (TOSCA 1.3): a value of the policy vocabulary that the type does not define is written in the metadata of the node (policy_properties), so that the template stays valid for a TOSCA parser.",
+  "default": "tosca.nodes.Root",
+  "rules": [
+    {
+      "ends_with": [
+        "subnet",
+        "subnetwork"
+      ],
+      "type": "tosca.nodes.network.Network"
+    },
+    {
+      "ends_with": [
+        "network interface",
+        "nic"
+      ],
+      "type": "tosca.nodes.network.Port"
+    },
+    {
+      "ends_with": [
+        "virtual private cloud",
+        "vpc",
+        "virtual network",
+        "vnet",
+        "vpc network"
+      ],
+      "type": "tosca.nodes.network.Network"
+    }
+  ],
+  "type_properties": {
+    "tosca.nodes.Root": [],
+    "tosca.nodes.network.Network": [
+      "ip_version",
+      "cidr",
+      "start_ip",
+      "end_ip",
+      "gateway_ip",
+      "network_name",
+      "network_id",
+      "segmentation_id",
+      "network_type",
+      "physical_network",
+      "dhcp_enabled"
+    ],
+    "tosca.nodes.network.Port": [
+      "ip_address",
+      "order",
+      "is_default",
+      "ip_range_start",
+      "ip_range_end"
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+ "id": "A-unique-16v-usa",
+ "family": "A",
+ "kind": "unique",
+ "source": "C3 request 16 (as interpreted)",
+ "location": "usa",
+ "rq": [
+  "RQ1",
+  "RQ2"
+ ],
+ "note": "bounds satisfied by a single non-dominated composition, no negotiation expected",
+ "cleaning": [],
+ "services": [
+  "vm_apache",
+  "vm_mysql"
+ ],
+ "ground_truth": {
+  "priority": "cost",
+  "global_constraints": [
+   "budget",
+   "end_to_end_availability"
+  ],
+  "n_compositions": 174,
+  "n_compositions_oracle": 6,
+  "front": [
+   {
+    "cost_cents": 29346,
+    "availability": 99.8001
+   }
+  ],
+  "signal": "unique",
+  "expected": {
+   "cost_cents": 29346,
+   "availability": 99.8001,
+   "availability_published": true,
+   "composition_example": {
+    "vm_apache": "gcp-e2-standard-4@us-central1",
+    "vm_mysql": "gcp-e2-standard-8@us-central1"
+   }
+  },
+  "negotiation_expected": false
+ },
+ "request_description": "A web application architecture consisting of a web application running on an Apache web server hosted on a virtual machine, connected to a MySQL database. The database is managed by a MySQL DBMS hosted on another virtual machine."
+}

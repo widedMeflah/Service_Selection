@@ -1,0 +1,117 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+description: 'Evaluation case C3-16, derived from C3 request 16. Cloud services: vm_apache (virtual machine), vm_mysql
+  (virtual machine). Software components hosted on them: web_app, apache_web_server, mysql_dbms, production_db,
+  apache_software_component.'
+node_types:
+  WebAppWithDatabase:
+    derived_from: WebApplication
+    requirements:
+    - database_connection:
+        capability: tosca.capabilities.Endpoint.Database
+        node: Database
+        occurrences:
+        - 1
+        - UNBOUNDED
+data_types:
+  acme.datatypes.Location:
+    derived_from: tosca.datatypes.Root
+    description: 'A deployment location: region and/or availability zone.'
+    properties:
+      region:
+        type: string
+        required: false
+      availability_zone:
+        type: string
+        required: false
+topology_template:
+  node_templates:
+    web_app:
+      type: WebAppWithDatabase
+      capabilities:
+        app_endpoint:
+          properties:
+            protocol: http
+            secure: false
+      requirements:
+      - host: apache_web_server
+      - database_connection: production_db
+    apache_web_server:
+      type: WebServer
+      requirements:
+      - host: vm_apache
+    vm_apache:
+      type: Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_apache
+            num_cpus: 4
+            disk_size: 100 GB
+            mem_size: 8 GB
+        os:
+          properties:
+            architecture: x86_64
+            type: Linux
+            distribution: Ubuntu
+            version: 22.04.0
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        endpoint:
+          properties:
+            protocol: http
+            secure: false
+    mysql_dbms:
+      type: DBMS
+      properties:
+        root_password: R00tSecure!2026
+        port: 3306
+        component_version: 8.0.36
+      capabilities:
+        host:
+          properties:
+            name: mysql_dbms
+      requirements:
+      - host: vm_mysql
+    vm_mysql:
+      type: Compute
+      capabilities:
+        host:
+          properties:
+            name: vm_mysql
+            num_cpus: 8
+            disk_size: 500 GB
+            mem_size: 16 GB
+        os:
+          properties:
+            architecture: x86_64
+            type: Linux
+            distribution: Ubuntu
+            version: 22.04.0
+        scalable:
+          properties:
+            min_instances: 1
+            max_instances: 1
+            default_instances: 1
+        endpoint:
+          properties:
+            protocol: tcp
+            port: 3306
+            secure: false
+    production_db:
+      type: Database
+      properties:
+        name: production_db
+        port: 3306
+        user: admin
+        password: db123
+      requirements:
+      - host: mysql_dbms
+    apache_software_component:
+      type: SoftwareComponent
+      properties:
+        component_version: 2.4.57
+      requirements:
+      - host: vm_apache

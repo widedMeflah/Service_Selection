@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Amazon EC2 security groups for your EC2 instances - Amazon Elastic Compute Cloud</title><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="assets_root" content="/assets" /><meta name="target_state" content="ec2-security-groups" /><meta name="default_state" content="ec2-security-groups" /><link rel="icon" type="image/ico" href="/assets/images/favicon.ico" /><link rel="shortcut icon" type="image/ico" href="/assets/images/favicon.ico" /><link rel="canonical" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html" /><meta name="description" content="Use security groups and security group rules as a firewall to control traffic to and from your EC2 instances." /><meta name="deployment_region" content="IAD" /><meta name="product" content="Amazon Elastic Compute Cloud" /><meta name="guide" content="User Guide" /><meta name="abstract" content="Use Amazon EC2 to configure, launch, and manage virtual servers in the AWS cloud." /><meta name="guide-locale" content="en_us" /><meta name="tocs" content="toc-contents.json" /><link rel="canonical" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html" /><link rel="alternate" href="https://docs.aws.amazon.com/id_id/AWSEC2/latest/UserGuide/ec2-security-groups.html" hreflang="id-id" /><link rel="alternate" href="https://docs.aws.amazon.com/id_id/AWSEC2/latest/UserGuide/ec2-security-groups.html" hreflang="id" /><link rel="alternate" href="https://docs.aws.amazon.com/de_de/AWSEC2/latest/UserGuide/ec2-security-groups.html" hreflang="de-de" /><link rel="alternate" href="https://docs.aws.amazon.com/de_de/AWSEC2/latest/UserGuide/ec2-security-groups.html" hreflang="de" /><link rel="alternate" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html" hreflang="en-us" /><link rel="alternate" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html" hreflang="en" /><link rel="alternate" href="https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/ec2-security-groups.html" hreflang="es-es" /><link rel="alternate" href="https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/ec2-security-groups.html" hreflang="es" /><link rel="alternate" href="https://docs.aws.amazon.com/fr_fr/AWSEC2/latest/UserGuide/ec2-security-groups.html" hreflang="fr-fr" /><link rel="alternate" href="https://docs.aws.amazon.com/fr_fr/AWSEC2/latest/UserGuide/ec2-security-groups.html" hreflang="fr" /><link rel="alternate" href="https://docs.aws.amazon.com/it_it/AWSEC2/latest/UserGuide/ec2-security-groups.html" hreflang="it-it" /><link rel="alternate" href="https://docs.aws.amazon.com/it_it/AWSEC2/latest/UserGuide/ec2-security-groups.html" hreflang="it" /><link rel="alternate" href="https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/ec2-security-groups.html" hreflang="ja-jp" /><link rel="alternate" href="https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/ec2-security-groups.html" hreflang="ja" /><link rel="alternate" href="https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/ec2-security-groups.html" hreflang="ko-kr" /><link rel="alternate" href="https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/ec2-security-groups.html" hreflang="ko" /><link rel="alternate" href="https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/ec2-security-groups.html" hreflang="pt-br" /><link rel="alternate" href="https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/ec2-security-groups.html" hreflang="pt" /><link rel="alternate" href="https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/ec2-security-groups.html" hreflang="zh-cn" /><link rel="alternate" href="https://docs.aws.amazon.com/zh_tw/AWSEC2/latest/UserGuide/ec2-security-groups.html" hreflang="zh-tw" /><link rel="alternate" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html" hreflang="x-default" /><meta name="feedback-item" content="EC2" /><meta name="this_doc_product" content="Amazon Elastic Compute Cloud" /><meta name="this_doc_guide" content="User Guide" /><head xmlns="http://www.w3.org/1999/xhtml"> <script defer="" src="/assets/r/awsdocs-doc-page.2.0.0.js"></script><link href="/assets/r/awsdocs-doc-page.2.0.0.css" rel="stylesheet"/></head>
+<script defer="" id="awsc-panorama-bundle" type="text/javascript" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'ec2'}"></script><meta id="panorama-serviceSubSection" value="User Guide" /><meta id="panorama-serviceConsolePage" value="Amazon EC2 security groups for your EC2 instances" /></head><body class="awsdocs awsui"><div class="awsdocs-container"><p><a href="ec2-security-groups.md">View a markdown version of this page</a></p><awsdocs-header></awsdocs-header><awsui-app-layout id="app-layout" class="awsui-util-no-gutters" ng-controller="ContentController as $ctrl" header-selector="awsdocs-header" navigation-hide="false" navigation-width="$ctrl.navWidth" navigation-open="$ctrl.navOpen" navigation-change="$ctrl.onNavChange($event)" tools-hide="$ctrl.hideTools" tools-width="$ctrl.toolsWidth" tools-open="$ctrl.toolsOpen" tools-change="$ctrl.onToolsChange($event)"><div id="guide-toc" dom-region="navigation"><awsdocs-toc></awsdocs-toc></div><div id="main-column" dom-region="content" tabindex="-1"><awsdocs-view class="awsdocs-view"><div id="awsdocs-content"><head><title>Amazon EC2 security groups for your EC2 instances - Amazon Elastic Compute Cloud</title><meta name="pdf" content="/pdfs/AWSEC2/latest/UserGuide/ec2-ug.pdf#ec2-security-groups" /><meta name="rss" content="amazon-ec2-release-notes.rss" /><meta name="forums" content="https://repost.aws/tags/TAO-wqN9fYRoyrpdULLa5y7g" /><meta name="feedback" content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=EC2&amp;topic_url=https://docs.aws.amazon.com/en_us/AWSEC2/latest/UserGuide/ec2-security-groups.html" /><meta name="feedback-yes" content="feedbackyes.html?topic_url=https://docs.aws.amazon.com/en_us/AWSEC2/latest/UserGuide/ec2-security-groups.html" /><meta name="feedback-no" content="feedbackno.html?topic_url=https://docs.aws.amazon.com/en_us/AWSEC2/latest/UserGuide/ec2-security-groups.html" /><meta name="keywords" content="EC2,Amazon EC2,EC2 instance,EC2 Linux instance,EC2 Windows instance,instance,VM,virtual machine,EC2 security overview,security,firewall" /><link rel="alternate" type="text/markdown" href="ec2-security-groups.md" title="Markdown version" /><script type="application/ld+json">
+{
+    "@context" : "https://schema.org",
+    "@type" : "BreadcrumbList",
+    "itemListElement" : [
+      {
+        "@type" : "ListItem",
+        "position" : 1,
+        "name" : "AWS",
+        "item" : "https://aws.amazon.com"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 2,
+        "name" : "Amazon EC2",
+        "item" : "https://docs.aws.amazon.com/ec2/index.html"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 3,
+        "name" : "User Guide",
+        "item" : "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 4,
+        "name" : "Security in Amazon EC2",
+        "item" : "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security.html"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 5,
+        "name" : "Amazon EC2 security groups for your EC2 instances",
+        "item" : "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security.html"
+      }
+    ]
+}
+</script></head><body><div id="main"><div style="display: none"><a href="/pdfs/AWSEC2/latest/UserGuide/ec2-ug.pdf#ec2-security-groups" target="_blank" rel="noopener noreferrer" title="Open PDF"></a></div><div id="breadcrumbs" class="breadcrumb"><a href="/index.html">Documentation</a><a href="/ec2/index.html">Amazon EC2</a><a href="concepts.html">User Guide</a></div><div id="page-toc-src"><a href="#security-group-basics">Overview</a></div><div id="main-content" class="awsui-util-container"><div id="main-col-body"><awsdocs-language-banner data-service="$ctrl.pageService"></awsdocs-language-banner><h1 class="topictitle" id="ec2-security-groups">Amazon EC2 security groups for your EC2 instances</h1><div class="awsdocs-page-header-container"><awsdocs-page-header></awsdocs-page-header><awsdocs-filter-selector id="awsdocs-filter-selector"></awsdocs-filter-selector></div><p>A <em>security group</em> acts as a virtual firewall for your EC2 instances to
+		control incoming and outgoing traffic. Inbound rules control the incoming traffic to your
+		instance, and outbound rules control the outgoing traffic from your instance. When you
+		launch an instance, you can specify one or more security groups. If you don't specify a
+		security group, Amazon EC2 uses the default security group for the VPC. After you launch an 
+		instance, you can change its security groups.</p><p>Security is a shared responsibility between AWS and you. For more information, see <a href="./ec2-security.html">Security in Amazon EC2</a>. AWS provides security groups as
+		one of the tools for securing your instances, and you need to configure them to meet your
+		security needs. If you have requirements that aren't fully met by security groups, you can
+		maintain your own firewall on any of your instances in addition to using security
+		groups.</p>
+		<h6>Pricing</h6>
+		<p>There is no additional charge for using security groups.</p>
+	<div class="highlights"><h6>Contents</h6><ul><li><p><a href="#security-group-basics">Overview</a></p></li><li><p><a href="./creating-security-group.html">Create a security group for your Amazon EC2 instance</a></p></li><li><p><a href="./changing-security-group.html">Change the security groups for your Amazon EC2 instance</a></p></li><li><p><a href="./deleting-security-group.html">Delete an Amazon EC2 security group</a></p></li><li><p><a href="./security-group-connection-tracking.html">Amazon EC2 security group connection tracking</a></p></li><li><p><a href="./security-group-rules-reference.html">Security group rules for different use cases</a></p></li></ul></div>
+		<h2 id="security-group-basics">Overview</h2>
+		<p>You can associate each instance with multiple security groups, and you can associate each
+			security group with multiple instances. You add rules to each security group that allow
+			traffic to or from its associated instances. You can modify the rules for a security
+			group at any time. New and modified rules are automatically applied to all instances
+			that are associated with the security group. When Amazon EC2 decides whether to allow traffic
+			to reach an instance, it evaluates all rules from all security groups that are
+			associated with the instance. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html">Security group rules</a> in the
+				<em>Amazon VPC User Guide</em>.</p>
+		<p>The following diagram shows a VPC with a subnet, an internet gateway, and a security group.
+			The subnet contains EC2 instances. The security group is associated with the instances. The only
+			traffic that reaches the instance is the traffic allowed by the security group rules. For
+			example, if the security group contains a rule that allows SSH traffic from your network,
+			then you can connect to your instance from your computer using SSH. If the security group
+			contains a rule that allows all traffic from the resources associated with it, then each instance
+			can receive any traffic sent from the other instances.</p>
+		<div class="mediaobject">
+			 
+				<img src="/images/AWSEC2/latest/UserGuide/images/ec2-security-groups.png" class="aws-docs-img-whiteBg aws-docs-img-padding" alt="VPC with a security group. The EC2 instances in the subnet are associated with the security group." />
+			 
+			 
+		</div>
+		<p>Security groups are stateful—if you send a request from your instance, 
+			the response traffic for that request is allowed to flow in regardless of inbound
+			security group rules. Also, responses to allowed inbound traffic are allowed to 
+			flow out, regardless of outbound rules. For more information, see 
+			<a href="./security-group-connection-tracking.html">Connection tracking</a>.</p>
+	<awsdocs-copyright class="copyright-print"></awsdocs-copyright><awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}"></awsdocs-thumb-feedback></div><noscript><div><div><div><div id="js_error_message"><p><img src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png" alt="Warning" /> <strong>Javascript is disabled or is unavailable in your browser.</strong></p><p>To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions.</p></div></div></div></div></noscript><div id="main-col-footer" class="awsui-util-font-size-0"><div id="doc-conventions"><a target="_top" href="/general/latest/gr/docconventions.html">Document Conventions</a></div><div class="prev-next"><div id="previous" class="prev-link" accesskey="p" href="./verify-keys.html">Verify the fingerprint</div><div id="next" class="next-link" accesskey="n" href="./creating-security-group.html">Create a security group</div></div></div><awsdocs-page-utilities></awsdocs-page-utilities></div><div id="quick-feedback-yes" style="display: none;"><div class="title">Did this page help you? - Yes</div><div class="content"><p>Thanks for letting us know we're doing a good job!</p><p>If you've got a moment, please tell us what we did right so we can do more of it.</p><p><awsui-button id="fblink" rel="noopener noreferrer" target="_blank" text="Feedback" click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=EC2&amp;topic_url=https://docs.aws.amazon.com/en_us/AWSEC2/latest/UserGuide/ec2-security-groups.html"></awsui-button></p></div></div><div id="quick-feedback-no" style="display: none;"><div class="title">Did this page help you? - No</div><div class="content"><p>Thanks for letting us know this page needs work. We're sorry we let you down.</p><p>If you've got a moment, please tell us how we can make the documentation better.</p><p><awsui-button id="fblink" rel="noopener noreferrer" target="_blank" text="Feedback" click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=EC2&amp;topic_url=https://docs.aws.amazon.com/en_us/AWSEC2/latest/UserGuide/ec2-security-groups.html"></awsui-button></p></div></div></div></body></div></awsdocs-view><div class="page-loading-indicator" id="page-loading-indicator"><awsui-spinner size="large"></awsui-spinner></div></div><div id="tools-panel" dom-region="tools"><awsdocs-tools-panel id="awsdocs-tools-panel"></awsdocs-tools-panel></div></awsui-app-layout><awsdocs-cookie-banner class="doc-cookie-banner"></awsdocs-cookie-banner></div></body></html>

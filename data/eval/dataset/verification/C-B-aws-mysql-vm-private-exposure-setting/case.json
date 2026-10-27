@@ -1,0 +1,18 @@
+{
+ "id": "C-B-aws-mysql-vm-private-exposure-setting",
+ "family": "C",
+ "from": "B-aws-mysql-vm-private",
+ "mutation": "internet_exposure: true applied by default to VPC",
+ "rq": [
+  "QR4"
+ ],
+ "expected_failures": [
+  {
+   "node": "mysql_dbms",
+   "resource": "VPC",
+   "verification": "non-contradiction",
+   "expected_action": "reconfigured"
+  }
+ ],
+ "verifier_agrees": true
+}
